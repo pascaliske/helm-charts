@@ -1,0 +1,26 @@
+{
+  "name": "helm-charts",
+  "description": "",
+  "license": "MIT",
+  "author": {
+    "name": "Pascal Iske",
+    "email": "info@pascaliske.dev",
+    "url": "https://pascaliske.dev"
+  },
+  "repository": {
+    "url": "https://github.com/pascaliske/helm-charts.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/pascaliske/helm-charts/issues"
+  },
+  "private": true,
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "husky": "^6.0.0"
+  }
+}

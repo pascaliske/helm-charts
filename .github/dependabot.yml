@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: chore
+      include: scope
+    assignees:
+      - pascaliske
+    labels:
+      - dependencies
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    versioning-strategy: increase
+    commit-message:
+      prefix: chore
+      include: scope
+    assignees:
+      - pascaliske
+    labels:
+      - dependencies
