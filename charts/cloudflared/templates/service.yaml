@@ -20,7 +20,7 @@ spec:
     - name: {{ $key | quote }}
       port: {{ $val.port }}
       targetPort: {{ $key | quote }}
-      protocol: {{ $val.protocol | default "TCP" }}
+      protocol: {{ default "TCP" $val.protocol | quote }}
     {{- end }}
     {{- end }}
   selector:

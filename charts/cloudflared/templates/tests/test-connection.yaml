@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "cloudflared.fullname" . }}:{{ .Values.ports.dns.port }}']
+      args: ['{{ include "cloudflared.fullname" . }}:{{ .Values.ports.metrics.port }}']
   restartPolicy: Never

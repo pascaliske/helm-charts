@@ -34,7 +34,7 @@ spec:
             {{- if $val.enabled }}
             - name: {{ $key | quote }}
               containerPort: {{ $val.port }}
-              protocol: {{ $val.protocol | default "TCP" }}
+              protocol: {{ default "TCP" $val.protocol | quote }}
             {{- end }}
             {{- end }}
           env:
@@ -42,7 +42,7 @@ spec:
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- end }}
-          {{- if .Values.ports.metrics.enabled -}}
+          {{- if and .Values.ports.metrics .Values.ports.metrics.enabled }}
           livenessProbe:
             httpGet:
               path: /metrics
