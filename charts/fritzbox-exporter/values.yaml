@@ -14,7 +14,7 @@ deployment:
   labels: {}
 
 service:
-  enable: true
+  enabled: true
   type: ClusterIP
   annotations: {}
   labels: {}
