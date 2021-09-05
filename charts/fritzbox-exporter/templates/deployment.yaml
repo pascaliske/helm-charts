@@ -1,0 +1,58 @@
+{{- if .Values.deployment.enabled -}}
+apiVersion: apps/v1
+kind: {{ .Values.deployment.kind }}
+metadata:
+  name: {{ include "fritzbox-exporter.fullname" . }}
+  labels:
+    {{- include "fritzbox-exporter.labels" . | nindent 4 }}
+    {{- with .Values.deployment.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+spec:
+  {{- if .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "fritzbox-exporter.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.deployment.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "fritzbox-exporter.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "fritzbox-exporter.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- range $key, $val := .Values.ports }}
+            {{- if $val.enabled }}
+            - name: {{ $key | quote }}
+              containerPort: {{ $val.port }}
+              protocol: {{ $val.protocol | default "TCP" }}
+            {{- end }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- end }}
+          {{- if .Values.ports.metrics.enabled -}}
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: metrics
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: metrics
+          {{- end }}
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
