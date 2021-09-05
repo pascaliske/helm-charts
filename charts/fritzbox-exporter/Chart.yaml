@@ -1,0 +1,6 @@
+apiVersion: v2
+type: application
+name: fritzbox-exporter
+description: A Helm chart for fritzbox-exporter
+version: 0.0.1
+appVersion: "1.0"
