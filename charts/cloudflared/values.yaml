@@ -1,0 +1,47 @@
+image:
+  repository: crazymax/cloudflared
+  tag: 2021.8.7
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+  - name: TUNNEL_DNS_UPSTREAM
+    value: https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
+
+ports:
+  dns:
+    enabled: true
+    port: 5053
+    protocol: UDP
+  metrics:
+    enabled: false
+    port: 49312
+    protocol: TCP
+
+serviceAccount:
+  name: ''
+
+resources: {}
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
