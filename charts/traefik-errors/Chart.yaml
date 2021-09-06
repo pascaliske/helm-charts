@@ -1,0 +1,6 @@
+apiVersion: v2
+type: application
+name: traefik-errors
+description: A Helm chart for custom traefik error pages
+version: 0.0.1
+appVersion: "0.0.0"
