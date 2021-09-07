@@ -16,6 +16,7 @@ deployment:
 service:
   enabled: true
   type: ClusterIP
+  nodePort: null
   annotations: {}
   labels: {}
 

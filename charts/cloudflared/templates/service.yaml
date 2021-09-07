@@ -20,6 +20,9 @@ spec:
     - name: {{ $key | quote }}
       port: {{ $val.port }}
       targetPort: {{ $key | quote }}
+      {{- if and (eq $.Values.service.type "NodePort") $.Values.service.nodePort }}
+      nodePort: {{ $.Values.service.nodePort }}
+      {{- end }}
       protocol: {{ default "TCP" $val.protocol | quote }}
     {{- end }}
     {{- end }}
