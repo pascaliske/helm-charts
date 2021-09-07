@@ -1,0 +1,123 @@
+{{- if .Values.deployment.enabled -}}
+apiVersion: apps/v1
+kind: {{ .Values.deployment.kind }}
+metadata:
+  name: {{ include "prometheus.fullname" . }}
+  labels:
+    {{- include "prometheus.labels" . | nindent 4 }}
+    {{- with .Values.deployment.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "prometheus.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.deployment.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "prometheus.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "prometheus.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- if .Values.ports.http.enabled }}
+            - name: http
+              containerPort: {{ .Values.ports.http.port }}
+              protocol: TCP
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- end }}
+          args:
+            {{- /* skip defaults if set by extra args */ -}}
+            {{- $skip := dict -}}
+            {{- range $i, $val := .Values.extraArgs }}
+              {{- $_ := set $skip (regexFind "--[a-zA-Z.]+" $val) "yes" -}}
+            {{- end -}}
+
+            {{- /* --config.file */ -}}
+            {{- if not (eq (get $skip "--config.file") "yes") }}
+            - --config.file={{ .Values.configMap.mountPath }}/prometheus.yml
+            {{- end }}
+
+            {{- /* --storage.tsdb.path */ -}}
+            {{- if not (eq (get $skip "--storage.tsdb.path") "yes") }}
+            - --storage.tsdb.path={{ .Values.persistentVolumeClaim.mountPath }}
+            {{- end }}
+
+            {{- /* extra args */ -}}
+            {{- range $i, $val := .Values.extraArgs }}
+            - {{ $val }}
+            {{- end }}
+          volumeMounts:
+            {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
+            - name: {{ printf "%s-config" (include "prometheus.fullname" . ) }}
+            {{- else }}
+            - name: {{ .Values.configMap.existingConfigMap }}
+            {{- end }}
+              mountPath: {{ .Values.configMap.mountPath }}
+            {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
+            - name: {{ printf "%s-storage" (include "prometheus.fullname" . ) }}
+            {{- else }}
+            - name: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            {{- end }}
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 10
+            failureThreshold: 3
+            successThreshold: 1
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 4
+            failureThreshold: 3
+            successThreshold: 1
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      volumes:
+        - name: config-volume
+          configMap:
+            {{- if .Values.configMap.create }}
+            name: {{ printf "%s-config" (include "prometheus.fullname" . ) }}
+            {{- else }}
+            name: {{ .Values.configMap.existingConfigMap }}
+            {{- end }}
+        - name: storage-volume
+          persistentVolumeClaim:
+            {{- if .Values.persistentVolumeClaim.create }}
+            claimName: {{ printf "%s-storage" (include "prometheus.fullname" . ) }}
+            {{- else }}
+            claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            {{- end }}
+            emptyDir: {}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+{{- end }}
