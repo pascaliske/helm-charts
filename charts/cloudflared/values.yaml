@@ -16,7 +16,6 @@ deployment:
 service:
   enabled: true
   type: ClusterIP
-  nodePort: null
   annotations: {}
   labels: {}
 
@@ -30,10 +29,12 @@ ports:
   dns:
     enabled: true
     port: 5053
+    nodePort: null
     protocol: UDP
   metrics:
     enabled: false
     port: 49312
+    nodePort: null
     protocol: TCP
 
 serviceAccount:
