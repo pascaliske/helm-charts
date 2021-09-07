@@ -3,8 +3,8 @@ image:
   tag: 1.0
   pullPolicy: IfNotPresent
 
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: ''
+fullnameOverride: ''
 
 deployment:
   enabled: true
