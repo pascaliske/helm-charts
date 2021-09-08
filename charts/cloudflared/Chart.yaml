@@ -4,3 +4,16 @@ name: cloudflared
 description: A Helm chart for cloudflared DNS over HTTPS tunnel.
 version: 0.0.7
 appVersion: "2021.8.7"
+
+home: https://github.com/pascaliske/helm-charts
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/crazy-max/docker-cloudflared
+keywords:
+  - cloudflared
+  - dns-over-https
+  - dns-proxy
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev

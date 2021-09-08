@@ -4,3 +4,17 @@ name: fritzbox-exporter
 description: A Helm chart for fritzbox-exporter
 version: 0.0.7
 appVersion: "1.0"
+
+home: https://github.com/pascaliske/helm-charts
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://git.r3ktm8.de/SeaLife-Docker/fritzbox_exporter
+keywords:
+  - fritzbox-exporter
+  - fritzbox
+  - prometheus
+  - metrics
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev

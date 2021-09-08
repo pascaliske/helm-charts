@@ -4,3 +4,15 @@ name: traefik-errors
 description: A Helm chart for custom traefik error pages
 version: 0.0.2
 appVersion: "0.0.0"
+
+home: https://github.com/pascaliske/helm-charts
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/pascaliske/docker-traefik-errors
+keywords:
+  - traefik-errors
+  - traefik
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
