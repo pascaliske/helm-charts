@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# render chart's README files
+yarn run docs && git add charts/**/README.md
