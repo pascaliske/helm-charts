@@ -103,19 +103,18 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            {{- if .Values.configMap.create }}
+            {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
             name: {{ printf "%s-config" (include "prometheus.fullname" . ) }}
             {{- else }}
             name: {{ .Values.configMap.existingConfigMap }}
             {{- end }}
         - name: storage-volume
           persistentVolumeClaim:
-            {{- if .Values.persistentVolumeClaim.create }}
+            {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
             claimName: {{ printf "%s-storage" (include "prometheus.fullname" . ) }}
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
-            emptyDir: {}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}
