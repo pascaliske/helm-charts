@@ -1,0 +1,75 @@
+image:
+  repository: prom/prometheus
+  tag: v2.29.2
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+
+extraArgs: []
+
+ports:
+  http:
+    enabled: true
+    port: 9090
+
+configMap:
+  create: true
+  mountPath: /etc/config
+  existingConfigMap: ''
+  files: {}
+    # prometheus.yml: |
+    #   # global config
+    # alert.rules: |
+    #   # rules
+  annotations: {}
+  labels: {}
+
+persistentVolumeClaim:
+  create: true
+  mountPath: /prometheus
+  existingPersistentVolumeClaim: ''
+  annotations: {}
+  labels: {}
+
+serviceAccount:
+  create: true
+  name: ''
+  annotations: {}
+  labels: {}
+
+rbac:
+  create: true
+  annotations: {}
+  labels: {}
+
+securityContext: {}
+  # fsGroup: 9999
+  # runAsNonRoot: true
+  # runAsGroup: 9999
+  # runAsUser: 9999
+
+resources: {}
+  # limits:
+  #   cpu: 500m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 500m
+  #   memory: 128Mi

@@ -1,0 +1,27 @@
+{{- if .Values.service.enabled -}}
+{{- if not .Values.ports.http.enabled -}}
+  {{- fail "HTTP port is required if service is enabled!" -}}
+{{- end -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "prometheus.fullname" . }}
+  labels:
+    {{- include "prometheus.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http
+      port: {{ .Values.ports.http.port }}
+      targetPort: http
+      protocol: TCP
+  selector:
+    {{- include "prometheus.selectorLabels" . | nindent 4 }}
+{{- end }}

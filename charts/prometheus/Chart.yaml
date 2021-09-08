@@ -1,0 +1,19 @@
+apiVersion: v2
+type: application
+name: prometheus
+description: A Helm chart for prometheus
+version: 0.0.1
+appVersion: "v2.29.2"
+
+home: https://github.com/pascaliske/helm-charts
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/prometheus/prometheus
+  - https://prometheus.io
+keywords:
+  - prometheus
+  - metrics
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev

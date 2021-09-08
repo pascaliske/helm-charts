@@ -1,0 +1,20 @@
+{{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-config" (include "prometheus.fullname" .) }}
+  labels:
+    {{- include "prometheus.labels" . | nindent 4 }}
+    {{- with .Values.configMap.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.configMap.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+data:
+  {{- range $name, $content := .Values.configMap.files }}
+  {{ $name }}: |
+    {{- nindent 4 $content }}
+  {{- end }}
+{{- end }}
