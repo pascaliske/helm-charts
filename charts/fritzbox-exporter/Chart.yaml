@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: fritzbox-exporter
 description: A Helm chart for fritzbox-exporter
-version: 0.0.7
+version: 1.0.0
 appVersion: "1.0"
 
 home: https://github.com/pascaliske/helm-charts

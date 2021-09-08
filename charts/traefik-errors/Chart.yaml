@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: traefik-errors
 description: A Helm chart for custom traefik error pages
-version: 0.0.2
+version: 1.0.0
 appVersion: "0.0.0"
 
 home: https://github.com/pascaliske/helm-charts
