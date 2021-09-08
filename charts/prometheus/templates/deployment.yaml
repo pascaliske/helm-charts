@@ -66,17 +66,9 @@ spec:
             - {{ $val }}
             {{- end }}
           volumeMounts:
-            {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
-            - name: {{ printf "%s-config" (include "prometheus.fullname" . ) }}
-            {{- else }}
-            - name: {{ .Values.configMap.existingConfigMap }}
-            {{- end }}
+            - name: config-volume
               mountPath: {{ .Values.configMap.mountPath }}
-            {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
-            - name: {{ printf "%s-storage" (include "prometheus.fullname" . ) }}
-            {{- else }}
-            - name: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
-            {{- end }}
+            - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
           livenessProbe:
             httpGet:
