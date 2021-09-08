@@ -1,6 +1,6 @@
 image:
   repository: sealife/fritzbox-exporter
-  tag: 1.0
+  tag: '1.0'
   pullPolicy: IfNotPresent
 
 nameOverride: ''
