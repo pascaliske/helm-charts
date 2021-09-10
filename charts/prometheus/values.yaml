@@ -42,6 +42,28 @@ configMap:
   annotations: {}
   labels: {}
 
+configMapReload:
+  enabled: true
+  image:
+    repository: jimmidyson/configmap-reload
+    tag: v0.5.0
+    pullPolicy: IfNotPresent
+  extraArgs: []
+    # - --webhook-method HEAD
+    # - --webhook-retries 5
+  extraConfigMapMounts: []
+    # - name: alerts
+    #   configMap: prometheus-alerts
+    #   mountPath: /etc/alerts
+    #   subPath: ''
+  resources: {}
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+    # requests:
+    #   cpu: 100m
+    #   memory: 128Mi
+
 persistentVolumeClaim:
   create: true
   mountPath: /prometheus

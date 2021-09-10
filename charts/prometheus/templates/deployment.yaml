@@ -30,6 +30,36 @@ spec:
     spec:
       serviceAccountName: {{ include "prometheus.serviceAccountName" . }}
       containers:
+        {{- if and .Values.configMapReload.enabled .Values.ports.http.enabled }}
+        - name: {{ template "prometheus.name" . }}-configmap-reload
+          image: "{{ .Values.configMapReload.image.repository }}:{{ .Values.configMapReload.image.tag }}"
+          imagePullPolicy: "{{ .Values.configMapReload.image.pullPolicy }}"
+          args:
+            - --webhook-url=http://127.0.0.1:{{ .Values.ports.http.port }}/-/reload
+          {{- range $i, $val := .Values.configMapReload.extraArgs }}
+            - {{ $val }}
+          {{- end }}
+            - --volume-dir={{ .Values.configMap.mountPath }}
+          {{- range .Values.configMapReload.extraConfigMapMounts }}
+            - --volume-dir={{ .mountPath }}
+          {{- end }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: {{ .Values.configMap.mountPath }}
+              readOnly: true
+            {{- range .Values.configMapReload.extraConfigMapMounts }}
+            - name: {{ .name }}
+              mountPath: {{ .mountPath }}
+              {{- if not (empty .subPath) }}
+              subPath: {{ .subPath }}
+              {{- end }}
+              readOnly: true
+            {{- end }}
+          resources: {{ if not .Values.configMapReload.resources -}}{}{{- end }}
+            {{- if .Values.configMapReload.resources }}
+            {{- toYaml .Values.configMapReload.resources | nindent 12 }}
+            {{- end }}
+        {{- end }}
         - name: {{ template "prometheus.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
@@ -107,6 +137,11 @@ spec:
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
+        {{- range .Values.configMapReload.extraConfigMapMounts }}
+        - name: {{ .name }}
+          configMap:
+            name: {{ .configMap }}
+        {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}
