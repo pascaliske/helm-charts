@@ -30,7 +30,7 @@ spec:
     spec:
       serviceAccountName: {{ include "prometheus.serviceAccountName" . }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ template "prometheus.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

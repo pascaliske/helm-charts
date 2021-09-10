@@ -2,7 +2,7 @@
 
 > A Helm chart for prometheus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: v2.29.2](https://img.shields.io/badge/AppVersion-v2.29.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: v2.29.2](https://img.shields.io/badge/AppVersion-v2.29.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/prometheus/prometheus>
@@ -46,13 +46,6 @@ The following values can be used to adjust the helm chart.
 | configMap.files | object | `{}` |  |
 | configMap.labels | object | `{}` |  |
 | configMap.mountPath | string | `"/etc/config"` |  |
-| configMapReload.enabled | bool | `true` |  |
-| configMapReload.extraArgs | list | `[]` |  |
-| configMapReload.extraConfigMapMounts | list | `[]` |  |
-| configMapReload.image.pullPolicy | string | `"IfNotPresent"` |  |
-| configMapReload.image.repository | string | `"jimmidyson/configmap-reload"` |  |
-| configMapReload.image.tag | string | `"v0.5.0"` |  |
-| configMapReload.resources | object | `{}` |  |
 | deployment.annotations | object | `{}` |  |
 | deployment.enabled | bool | `true` |  |
 | deployment.kind | string | `"Deployment"` |  |

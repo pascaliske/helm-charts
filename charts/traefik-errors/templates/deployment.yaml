@@ -30,7 +30,7 @@ spec:
     spec:
       serviceAccountName: {{ include "traefik-errors.serviceAccountName" . }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ template "traefik-errors.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
