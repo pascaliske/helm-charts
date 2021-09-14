@@ -44,11 +44,13 @@ spec:
                     {{- else }}
                     name: {{ .Values.secret.existingSecret }}
                     {{- end }}
-              command: ['/bin/sh', '/scripts/updater.sh']
+              command:
+                - /bin/sh
+                - {{ printf "/scripts/%s" (include "digitalocean-dyndns.scriptName" . ) }}
               volumeMounts:
                 - name: {{ printf "%s-updater" (include "digitalocean-dyndns.fullname" . ) }}
-                  mountPath: /scripts/updater.sh
-                  subPath: updater.sh
+                  mountPath: {{ printf "/scripts/%s" (include "digitalocean-dyndns.scriptName" . ) }}
+                  subPath: {{ template "digitalocean-dyndns.scriptName" . }}
                   readOnly: true
               resources: {{ if not .Values.resources -}}{}{{- end }}
                 {{- if .Values.resources }}
