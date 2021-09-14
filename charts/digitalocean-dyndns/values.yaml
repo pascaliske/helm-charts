@@ -1,6 +1,6 @@
 image:
-  repository: curlimages/curl
-  tag: '7.75.0'
+  repository: pascaliske/alpine-curl-jq
+  tag: latest
   pullPolicy: IfNotPresent
 
 nameOverride: ''

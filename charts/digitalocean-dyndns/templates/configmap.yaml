@@ -7,16 +7,19 @@ metadata:
 data:
   updater.sh: |
     #!/bin/sh
-    # get WAN IP
-    IP=$(curl -s ${IP_SERVICE:-ifconfig.co} | grep -Eo '[0-9\.]+')
+    # fetch public IP
+    IP=$(curl -s "${IP_SERVICE:-ifconfig.co}" | grep -Eo '[0-9\.]+')
 
-    # get the record ID associated with the domain
-    RECORD_ID=$(curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer ${DO_TOKEN}" "https://api.digitalocean.com/v2/domains/${DOMAIN}/records")
+    # fetch record ID associated with the domain
+    RECORDS=$(curl -s -X GET -H "Content-Type: application/json" -H "Authorization: Bearer ${DO_TOKEN}" "https://api.digitalocean.com/v2/domains/${DOMAIN}/records")
+    RECORD_ID=$(echo "${RECORDS}" | jq ".domain_records[] | select(.type == \"A\" and .name == \"$NAME\") | .id")
 
     # send request to update DNS record
     curl -s -X PUT \
       -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $DO_TOKEN" \
-      -d "{\"data\":\"${IP}\"}" \
+      -H "Authorization: Bearer ${DO_TOKEN}" \
       -d "{\"type\": \"A\", \"name\": \"${NAME}\", \"data\": \"${IP}\"}" \
       "https://api.digitalocean.com/v2/domains/${DOMAIN}/records/${RECORD_ID}"
+
+    # output info
+    echo "${NAME}.${DOMAIN} -> ${IP}"

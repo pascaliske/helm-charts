@@ -2,7 +2,7 @@
 
 > A Helm chart for a CronJob based DigitalOcean DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 7.75.0](https://img.shields.io/badge/AppVersion-7.75.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 7.75.0](https://img.shields.io/badge/AppVersion-7.75.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
 
 * <https://github.com/pascaliske/helm-charts>
 
@@ -49,8 +49,8 @@ The following values can be used to adjust the helm chart.
 | env[1].value | string | `"ifconfig.co"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"curlimages/curl"` |  |
-| image.tag | string | `"7.75.0"` |  |
+| image.repository | string | `"pascaliske/alpine-curl-jq"` |  |
+| image.tag | string | `"latest"` |  |
 | nameOverride | string | `""` |  |
 | resources | object | `{}` |  |
 | secret.annotations | object | `{}` |  |
