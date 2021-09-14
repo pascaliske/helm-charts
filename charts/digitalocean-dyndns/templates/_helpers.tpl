@@ -73,3 +73,14 @@ Timezone
 {{- end -}}
 {{- default "UTC" (get $timezone "value") }}
 {{- end }}
+
+{{/*
+Schedule
+*/}}
+{{- define "digitalocean-dyndns.schedule" -}}
+{{- if semverCompare ">= 1.22" .Capabilities.KubeVersion.Version -}}
+{{ printf "CRON_TZ=%s %s" (include "digitalocean-dyndns.timezone" . ) .Values.cronJob.schedule }}
+{{- else -}}
+{{ .Values.cronJob.schedule }}
+{{- end -}}
+{{- end }}

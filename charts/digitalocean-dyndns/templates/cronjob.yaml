@@ -13,7 +13,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  schedule: {{ printf "CRON_TZ=%s %s" (include "digitalocean-dyndns.timezone" . ) .Values.cronJob.schedule }}
+  schedule: {{ include "digitalocean-dyndns.schedule" . }}
   suspend: {{ .Values.cronJob.suspend }}
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 3
