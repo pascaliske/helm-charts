@@ -1,0 +1,39 @@
+image:
+  repository: curlimages/curl
+  tag: '7.75.0'
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+cronJob:
+  enabled: true
+  schedule: '30 * * * *'
+  suspend: false
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+  - name: IP_SERVICE
+    value: ifconfig.co
+  # - name: DOMAIN
+  #   value: ''
+  # - name: NAME
+  #   value: ''
+
+secret:
+  create: true
+  existingSecret: ''
+  token: ''
+  annotations: {}
+  labels: {}
+
+resources: {}
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi

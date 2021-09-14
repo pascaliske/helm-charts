@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-updater" (include "digitalocean-dyndns.fullname" .) }}
+  labels:
+    {{- include "digitalocean-dyndns.labels" . | nindent 4 }}
+data:
+  updater.sh: |
+    #!/bin/sh
+    # get WAN IP
+    IP=$(curl -s ${IP_SERVICE:-ifconfig.co} | grep -Eo '[0-9\.]+')
+
+    # get the record ID associated with the domain
+    RECORD_ID=$(curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer ${DO_TOKEN}" "https://api.digitalocean.com/v2/domains/${DOMAIN}/records")
+
+    # send request to update DNS record
+    curl -s -X PUT \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $DO_TOKEN" \
+      -d "{\"data\":\"${IP}\"}" \
+      -d "{\"type\": \"A\", \"name\": \"${NAME}\", \"data\": \"${IP}\"}" \
+      "https://api.digitalocean.com/v2/domains/${DOMAIN}/records/${RECORD_ID}"
