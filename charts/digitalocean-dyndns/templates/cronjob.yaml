@@ -19,11 +19,11 @@ spec:
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
   jobTemplate:
+    {{- with .Values.cronJob.annotations }}
     metadata:
-      {{- with .Values.cronJob.annotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+    {{- end }}
     spec:
       template:
         spec:
