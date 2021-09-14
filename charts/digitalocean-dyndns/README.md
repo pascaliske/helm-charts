@@ -2,7 +2,7 @@
 
 > A Helm chart for a CronJob based DigitalOcean DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 7.75.0](https://img.shields.io/badge/AppVersion-7.75.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 7.75.0](https://img.shields.io/badge/AppVersion-7.75.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
 
 * <https://github.com/pascaliske/helm-charts>
 
