@@ -3,7 +3,7 @@ type: application
 name: traefik-errors
 description: A Helm chart for custom traefik error pages
 version: 1.0.1
-appVersion: "0.0.0"
+appVersion: "latest"
 
 home: https://github.com/pascaliske/helm-charts
 sources:
