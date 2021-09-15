@@ -6,28 +6,35 @@
 
 ## Usage
 
-[Helm](https://helm.sh) must be installed to use the charts. Please refer to Helm's [documentation](https://helm.sh/docs) to get started.
-
-Once Helm has been set up correctly, add the repo as follows:
+[Helm](https://helm.sh) must be installed to use the charts. Please refer to Helm's [documentation](https://helm.sh/docs) to get started. Once Helm has been set up correctly, add the repo as follows:
 
 ```sh
 helm repo add pascaliske https://charts.pascaliske.dev
 ```
 
-If you had already added this repo earlier, run `helm repo update` to retrieve the latest versions of the packages.
-You can then run `helm search repo pascaliske` to see the charts.
+If you had already added this repo earlier, run `helm repo update` to retrieve the latest versions of the packages. Use `helm search repo pascaliske` to see a list of all available charts.
 
-To install a chart:
+You can install a chart release using the following command:
 
 ```sh
-helm install <chart> pascaliske/<chart>
+helm install <release> pascaliske/<chart> --values values.yaml
 ```
 
-To uninstall the chart:
+To uninstall a chart release use `helm`'s delete command:
 
 ```sh
 helm delete <chart>
 ```
+
+## Charts
+
+| Chart                                                                                                     | Version | AppVersion |
+| --------------------------------------------------------------------------------------------------------- | :-----: | :--------: |
+| [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)                 |  1.0.1  |  2021.8.7  |
+| [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) |  0.1.0  |   latest   |
+| [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     |  1.0.1  |    1.0     |
+| [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   |  1.1.0  |  v2.29.2   |
+| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           |  1.0.1  |   latest   |
 
 ## License
 
