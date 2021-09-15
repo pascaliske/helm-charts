@@ -2,7 +2,7 @@
 
 > A Helm chart for a CronJob based DigitalOcean DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 7.75.0](https://img.shields.io/badge/AppVersion-7.75.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 7.75.0](https://img.shields.io/badge/AppVersion-7.75.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
 
 * <https://github.com/pascaliske/helm-charts>
 
@@ -40,8 +40,10 @@ The following values can be used to adjust the helm chart.
 |-----|------|---------|-------------|
 | cronJob.annotations | object | `{}` |  |
 | cronJob.enabled | bool | `true` |  |
+| cronJob.failedJobsHistoryLimit | int | `1` |  |
 | cronJob.labels | object | `{}` |  |
 | cronJob.schedule | string | `"30 * * * *"` |  |
+| cronJob.successfulJobsHistoryLimit | int | `3` |  |
 | cronJob.suspend | bool | `false` |  |
 | env[0].name | string | `"TZ"` |  |
 | env[0].value | string | `"UTC"` |  |

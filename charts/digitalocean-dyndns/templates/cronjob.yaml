@@ -16,8 +16,8 @@ spec:
   schedule: {{ include "digitalocean-dyndns.schedule" . }}
   suspend: {{ .Values.cronJob.suspend }}
   concurrencyPolicy: Forbid
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.cronJob.failedJobsHistoryLimit }}
   jobTemplate:
     {{- with .Values.cronJob.annotations }}
     metadata:

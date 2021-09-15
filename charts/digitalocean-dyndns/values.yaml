@@ -10,6 +10,8 @@ cronJob:
   enabled: true
   schedule: '30 * * * *'
   suspend: false
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
   annotations: {}
   labels: {}
 
