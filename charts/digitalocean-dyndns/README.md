@@ -1,8 +1,8 @@
-# [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts)
+# [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)
 
 > A Helm chart for a CronJob based DigitalOcean DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 7.75.0](https://img.shields.io/badge/AppVersion-7.75.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)[![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)
 
 * <https://github.com/pascaliske/helm-charts>
 

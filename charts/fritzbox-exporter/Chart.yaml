@@ -5,7 +5,7 @@ description: A Helm chart for fritzbox-exporter
 version: 1.0.1
 appVersion: "1.0"
 
-home: https://github.com/pascaliske/helm-charts
+home: https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://git.r3ktm8.de/SeaLife-Docker/fritzbox_exporter

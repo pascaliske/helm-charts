@@ -5,7 +5,7 @@ description: A Helm chart for custom traefik error pages
 version: 1.0.1
 appVersion: "latest"
 
-home: https://github.com/pascaliske/helm-charts
+home: https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/pascaliske/docker-traefik-errors

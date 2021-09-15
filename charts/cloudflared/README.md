@@ -1,8 +1,8 @@
-# [`cloudflared`](https://github.com/pascaliske/helm-charts)
+# [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)
 
 > A Helm chart for cloudflared DNS over HTTPS tunnel.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 2021.8.7](https://img.shields.io/badge/AppVersion-2021.8.7-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![AppVersion: 2021.8.7](https://img.shields.io/badge/AppVersion-2021.8.7-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/crazy-max/docker-cloudflared>

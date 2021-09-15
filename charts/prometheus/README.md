@@ -1,8 +1,8 @@
-# [`prometheus`](https://github.com/pascaliske/helm-charts)
+# [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)
 
 > A Helm chart for prometheus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: v2.29.2](https://img.shields.io/badge/AppVersion-v2.29.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![AppVersion: v2.29.2](https://img.shields.io/badge/AppVersion-v2.29.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/prometheus/prometheus>

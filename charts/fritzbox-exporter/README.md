@@ -1,8 +1,8 @@
-# [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts)
+# [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)
 
 > A Helm chart for fritzbox-exporter
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)[![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)[![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://git.r3ktm8.de/SeaLife-Docker/fritzbox_exporter>
