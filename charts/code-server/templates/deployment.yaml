@@ -1,0 +1,130 @@
+{{- if .Values.deployment.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "code-server.fullname" . }}
+  labels:
+    {{- include "code-server.labels" . | nindent 4 }}
+    {{- with .Values.deployment.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "code-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.deployment.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "code-server.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "code-server.serviceAccountName" . }}
+      {{- if .Values.persistentVolumeClaim.ensurePermissions }}
+      initContainers:
+        - name: {{ printf "%s-permissions" (include "code-server.fullname" .) }}
+          image: busybox:latest
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - chown -R {{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.runAsGroup }} /home/coder
+          volumeMounts:
+            - name: data
+              mountPath: /home/coder
+          securityContext:
+            runAsUser: 0
+      {{- end }}
+      containers:
+        - name: {{ template "code-server.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- range $key, $val := .Values.ports }}
+            {{- if $val.enabled }}
+            - name: {{ $key | quote }}
+              containerPort: {{ $val.port }}
+              protocol: {{ default "TCP" $val.protocol | quote }}
+            {{- end }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- end }}
+            {{- if .Values.ports.http.enabled }}
+            - name: PORT
+              value: {{ .Values.ports.http.port | quote }}
+            {{- end }}
+            {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                {{- if .Values.secret.existingSecret }}
+                  name: {{ .Values.secret.existingSecret }}
+                {{- else }}
+                  name: {{ printf "%s-password" (include "code-server.fullname" .) }}
+                {{- end }}
+                  key: password
+            {{- end }}
+            {{- if .Values.configMap.mountPath }}
+            - name: CODE_SERVER_CONFIG
+              value: {{ (printf "%s/config.yml" .Values.configMap.mountPath) | quote }}
+            {{- end }}
+            {{- if .Values.persistentVolumeClaim.mountPath }}
+            - name: XDG_DATA_HOME
+              value: {{ .Values.persistentVolumeClaim.mountPath | quote }}
+            {{- end }}
+          args: {{ if not .Values.extraArgs -}}[]{{- end }}
+            {{- range $i, $val := .Values.extraArgs }}
+            - {{ $val }}
+            {{- end }}
+          {{- if not (empty .Values.persistentVolumeClaim.projectsPath) }}
+          workingDir: {{ .Values.persistentVolumeClaim.projectsPath }}
+          {{- end }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: {{ .Values.configMap.mountPath }}
+            - name: storage-volume
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      volumes:
+        - name: config-volume
+          configMap:
+            {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
+            name: {{ printf "%s-config" (include "code-server.fullname" . ) }}
+            {{- else }}
+            name: {{ .Values.configMap.existingConfigMap }}
+            {{- end }}
+        - name: storage-volume
+          persistentVolumeClaim:
+            {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
+            claimName: {{ printf "%s-storage" (include "code-server.fullname" . ) }}
+            {{- else }}
+            claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            {{- end }}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+{{- end }}

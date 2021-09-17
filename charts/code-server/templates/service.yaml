@@ -1,0 +1,31 @@
+{{- if .Values.service.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "code-server.fullname" . }}
+  labels:
+    {{- include "code-server.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    {{- range $key, $val := .Values.ports }}
+    {{- if $val.enabled }}
+    - name: {{ $key | quote }}
+      port: {{ $val.port }}
+      targetPort: {{ $key | quote }}
+      {{- if and (eq $.Values.service.type "NodePort") $val.nodePort }}
+      nodePort: {{ $val.nodePort }}
+      {{- end }}
+      protocol: {{ default "TCP" $val.protocol | quote }}
+    {{- end }}
+    {{- end }}
+  selector:
+    {{- include "code-server.selectorLabels" . | nindent 4 }}
+{{- end }}

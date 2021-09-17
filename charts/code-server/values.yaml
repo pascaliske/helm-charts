@@ -1,0 +1,78 @@
+image:
+  repository: codercom/code-server
+  tag: v3.12.0
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+
+extraArgs: []
+  # - --disable-telemetry
+
+ports:
+  http:
+    enabled: true
+    port: 8080
+    nodePort: null
+    protocol: TCP
+
+configMap:
+  create: true
+  mountPath: /etc/code-server
+  existingConfigMap: ''
+  config: {}
+    # bind-addr: 127.0.0.1:8080
+    # cert: false
+  annotations: {}
+  labels: {}
+
+secret:
+  create: true
+  existingSecret: ''
+  password: ''
+  annotations: {}
+  labels: {}
+
+persistentVolumeClaim:
+  create: true
+  mountPath: /home/coder
+  projectsPath: /home/coder/projects
+  ensurePermissions: true
+  existingPersistentVolumeClaim: ''
+  annotations: {}
+  labels: {}
+
+serviceAccount:
+  name: ''
+
+securityContext:
+  enabled: true
+  fsGroup: 1000
+  runAsNonRoot: true
+  runAsGroup: 1000
+  runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi

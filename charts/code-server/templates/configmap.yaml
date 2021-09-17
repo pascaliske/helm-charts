@@ -1,0 +1,27 @@
+{{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-config" (include "code-server.fullname" .) }}
+  labels:
+    {{- include "code-server.labels" . | nindent 4 }}
+    {{- with .Values.configMap.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.configMap.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+data:
+  config.yml: |
+    {{- if or $.Values.secret.create $.Values.secret.existingSecret }}
+    auth: password
+    {{- else }}
+    auth: none
+    {{- end }}
+    {{- range $key, $val := .Values.configMap.config }}
+    {{- if ne $key "auth" }}
+    {{ $key }}: {{ $val }}
+    {{- end }}
+    {{- end }}
+{{- end }}
