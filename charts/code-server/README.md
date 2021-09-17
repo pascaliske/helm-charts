@@ -69,6 +69,7 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` |  |
 | ports.http.port | int | `8080` |  |
 | ports.http.protocol | string | `"TCP"` |  |
+| repositories | list | `[]` |  |
 | resources | object | `{}` |  |
 | secret.annotations | object | `{}` |  |
 | secret.create | bool | `true` |  |
