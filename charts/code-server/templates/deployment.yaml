@@ -1,4 +1,7 @@
 {{- if .Values.deployment.enabled -}}
+{{- if empty .Values.persistentVolumeClaim.projectsPath -}}
+  {{- fail "Empty projects path detected in \".Values.persistentVolumeClaim.projectsPath\"!" -}}
+{{- end -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -29,21 +32,27 @@ spec:
         {{- include "code-server.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "code-server.serviceAccountName" . }}
-      {{- if .Values.persistentVolumeClaim.ensurePermissions }}
       initContainers:
+        {{- if .Values.persistentVolumeClaim.ensurePermissions }}
         - name: {{ printf "%s-permissions" (include "code-server.fullname" .) }}
           image: busybox:latest
           imagePullPolicy: IfNotPresent
-          command:
-            - sh
-            - -c
-            - chown -R {{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.runAsGroup }} {{ .Values.persistentVolumeClaim.mountPath }}
+          command: ['sh', '-c', 'chown -R {{ .Values.securityContext.runAsUser }}:{{ .Values.securityContext.runAsGroup }} {{ .Values.persistentVolumeClaim.mountPath }}']
           volumeMounts:
             - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
           securityContext:
             runAsUser: 0
-      {{- end }}
+        {{- end }}
+        {{- range $i, $repo := .Values.repositories }}
+        - name: {{ printf "%s-clone" (include "code-server.fullname" $) }}
+          image: alpine/git:latest
+          imagePullPolicy: IfNotPresent
+          args: ['clone', '{{ $repo }}', '{{ $.Values.persistentVolumeClaim.projectsPath }}']
+          volumeMounts:
+            - name: storage-volume
+              mountPath: {{ $.Values.persistentVolumeClaim.mountPath }}
+        {{- end }}
       containers:
         - name: {{ template "code-server.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -88,9 +97,7 @@ spec:
             {{- range $i, $val := .Values.extraArgs }}
             - {{ $val }}
             {{- end }}
-          {{- if not (empty .Values.persistentVolumeClaim.projectsPath) }}
           workingDir: {{ .Values.persistentVolumeClaim.projectsPath }}
-          {{- end }}
           volumeMounts:
             - name: config-volume
               mountPath: {{ .Values.configMap.mountPath }}

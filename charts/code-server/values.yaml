@@ -59,6 +59,9 @@ persistentVolumeClaim:
   annotations: {}
   labels: {}
 
+repositories: []
+  # - https://github.com/pascaliske/helm-charts
+
 serviceAccount:
   name: ''
 
