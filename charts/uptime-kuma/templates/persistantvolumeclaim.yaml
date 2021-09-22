@@ -1,0 +1,23 @@
+{{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-storage" (include "uptime-kuma.fullname" .) }}
+  labels:
+    {{- include "uptime-kuma.labels" . | nindent 4 }}
+    {{- with .Values.persistentVolumeClaim.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.persistentVolumeClaim.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
+  storageClassName: local-path
+{{- end }}
