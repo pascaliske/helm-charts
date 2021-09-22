@@ -36,6 +36,7 @@ helm delete <chart>
 | [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     |  1.0.1  |    1.0     |
 | [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   |  1.1.0  |  v2.29.2   |
 | [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           |  1.0.1  |   latest   |
+| [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)                 |  0.0.4  |   1.6.3    |
 
 ## License
 
