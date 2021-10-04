@@ -1,0 +1,19 @@
+apiVersion: v2
+type: application
+name: snapdrop
+description: A Helm chart for snapdrop
+version: 0.0.1
+appVersion: "version-78a8b167"
+
+home: https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/linuxserver/docker-snapdrop
+  - https://github.com/RobinLinus/snapdrop
+keywords:
+  - snapdrop
+  - airdrop
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev

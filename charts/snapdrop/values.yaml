@@ -1,0 +1,52 @@
+image:
+  repository: linuxserver/snapdrop
+  tag: version-78a8b167
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+  - name: PUID
+    value: 1000
+  - name: PGID
+    value: 1000
+
+ports:
+  http:
+    enabled: true
+    port: 80
+    nodePort: null
+    protocol: TCP
+
+serviceAccount:
+  name: ''
+
+securityContext: {}
+  # fsGroup: 1000
+  # runAsNonRoot: true
+  # runAsGroup: 1000
+  # runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
