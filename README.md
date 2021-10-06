@@ -28,15 +28,16 @@ helm delete <chart>
 
 ## Charts
 
-| Chart                                                                                                     | Version | AppVersion |
-| --------------------------------------------------------------------------------------------------------- | :-----: | :--------: |
-| [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)                 |  1.0.1  |  2021.8.7  |
-| [`code-server`](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)                 |  0.0.1  |  v3.12.0   |
-| [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) |  0.1.0  |   latest   |
-| [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     |  1.0.1  |    1.0     |
-| [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   |  1.1.0  |  v2.29.2   |
-| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           |  1.0.1  |   latest   |
-| [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)                 |  0.0.4  |   1.6.3    |
+| Chart                                                                                                     | Version |     AppVersion     |
+| --------------------------------------------------------------------------------------------------------- | :-----: | :----------------: |
+| [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)                 | `1.0.1` |     `2021.8.7`     |
+| [`code-server`](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)                 | `0.0.3` |     `v3.12.0`      |
+| [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) | `0.1.0` |      `latest`      |
+| [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     | `1.0.1` |       `1.0`        |
+| [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   | `1.1.0` |     `v2.29.2`      |
+| [`snapdrop`](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)                       | `1.1.0` | `version-78a8b167` |
+| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           | `1.0.1` |      `latest`      |
+| [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)                 | `0.0.4` |      `1.6.3`       |
 
 ## License
 
