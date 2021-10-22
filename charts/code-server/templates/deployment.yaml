@@ -50,7 +50,8 @@ spec:
         - name: {{ printf "%s-clone" (include "code-server.fullname" $) }}
           image: alpine/git:latest
           imagePullPolicy: IfNotPresent
-          args: ['clone', '{{ $repo }}', '{{ $.Values.persistentVolumeClaim.projectsPath }}']
+          workingDir: {{ $.Values.persistentVolumeClaim.projectsPath }}
+          args: ['clone', '{{ $repo }}']
           volumeMounts:
             - name: storage-volume
               mountPath: {{ $.Values.persistentVolumeClaim.mountPath }}
