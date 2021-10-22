@@ -47,7 +47,7 @@ spec:
             runAsUser: 0
         {{- end }}
         {{- range $i, $repo := .Values.repositories }}
-        - name: {{ printf "%s-clone-%s" (include "code-server.fullname" $) (kebabcase (get (urlParse $repo) "path")) }}
+        - name: {{ printf "%s-clone-%s" (include "code-server.fullname" $) ((get (urlParse $repo) "path") | replace "/" "-") }}
           image: alpine/git:latest
           imagePullPolicy: IfNotPresent
           workingDir: {{ $.Values.persistentVolumeClaim.projectsPath }}
