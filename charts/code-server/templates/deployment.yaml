@@ -42,6 +42,8 @@ spec:
             - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
           securityContext:
+            runAsNonRoot: false
+            runAsGroup: 0
             runAsUser: 0
         {{- end }}
         {{- range $i, $repo := .Values.repositories }}
