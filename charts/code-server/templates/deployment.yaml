@@ -51,7 +51,7 @@ spec:
           image: alpine/git:latest
           imagePullPolicy: IfNotPresent
           workingDir: {{ $.Values.persistentVolumeClaim.projectsPath }}
-          args: ['clone', '{{ $repo }}']
+          args: ['clone', '{{ $repo }}', '||', 'exit', '0']
           volumeMounts:
             - name: storage-volume
               mountPath: {{ $.Values.persistentVolumeClaim.mountPath }}
