@@ -1,0 +1,58 @@
+image:
+  repository: redis
+  tag: 6.2.6
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+
+extraArgs: []
+  # - --loglevel warning
+
+ports:
+  http:
+    enabled: true
+    port: 6379
+    nodePort: null
+    protocol: TCP
+
+persistentVolumeClaim:
+  create: false
+  mountPath: /data
+  existingPersistentVolumeClaim: ''
+  annotations: {}
+  labels: {}
+
+serviceAccount:
+  name: ''
+
+securityContext: {}
+  # fsGroup: 1000
+  # runAsNonRoot: true
+  # runAsGroup: 1000
+  # runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
