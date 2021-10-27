@@ -69,13 +69,15 @@ spec:
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
           {{- end }}
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            exec:
+              command:
+                - redis-cli
+                - ping
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            exec:
+              command:
+                - redis-cli
+                - ping
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
