@@ -1,0 +1,76 @@
+{{- if .Values.deployment.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "linkding.fullname" . }}
+  labels:
+    {{- include "linkding.labels" . | nindent 4 }}
+    {{- with .Values.deployment.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "linkding.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.deployment.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "linkding.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "linkding.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- range $key, $val := .Values.ports }}
+            {{- if $val.enabled }}
+            - name: {{ $key | quote }}
+              containerPort: {{ $val.port }}
+              protocol: {{ default "TCP" $val.protocol | quote }}
+            {{- end }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- end }}
+          volumeMounts:
+            - name: storage-volume
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      volumes:
+        - name: storage-volume
+          persistentVolumeClaim:
+            {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
+            claimName: {{ printf "%s-storage" (include "linkding.fullname" . ) }}
+            {{- else }}
+            claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            {{- end }}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+{{- end }}

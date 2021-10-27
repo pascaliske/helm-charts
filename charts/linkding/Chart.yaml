@@ -1,0 +1,18 @@
+apiVersion: v2
+type: application
+name: linkding
+description: A Helm chart for linkding
+version: 0.0.1
+appVersion: "1.8.4"
+
+home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/sissbruecker/linkding
+keywords:
+  - linkding
+  - bookmarks
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev

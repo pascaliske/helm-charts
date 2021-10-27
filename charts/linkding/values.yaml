@@ -1,0 +1,55 @@
+image:
+  repository: sissbruecker/linkding
+  tag: 1.8.4
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+
+ports:
+  http:
+    enabled: true
+    port: 9090
+    nodePort: null
+    protocol: TCP
+
+persistentVolumeClaim:
+  create: true
+  mountPath: /etc/linkding/data
+  existingPersistentVolumeClaim: ''
+  annotations: {}
+  labels: {}
+
+serviceAccount:
+  name: ''
+
+securityContext: {}
+  # fsGroup: 1000
+  # runAsNonRoot: true
+  # runAsGroup: 1000
+  # runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
