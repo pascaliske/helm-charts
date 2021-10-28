@@ -35,6 +35,7 @@ helm delete <chart>
 | [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) | `0.1.0`  |      `latest`      |
 | [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     | `1.0.1`  |       `1.0`        |
 | [`linkding`](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)                       | `0.0.1`  |      `1.8.4`       |
+| [`paperless`](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)                     | `0.0.1`  |      `1.5.0`       |
 | [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   | `1.1.0`  |     `v2.29.2`      |
 | [`redis`](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)                             | `0.0.2`  |      `6.2.6`       |
 | [`snapdrop`](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)                       | `0.0.1`  | `version-78a8b167` |

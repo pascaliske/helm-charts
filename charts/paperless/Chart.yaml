@@ -1,0 +1,19 @@
+apiVersion: v2
+type: application
+name: paperless
+description: A Helm chart for paperless-ng
+version: 0.0.1
+appVersion: "1.5.0"
+
+home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/jonaswinkler/paperless-ng
+keywords:
+  - paperless
+  - document-management-system
+  - dms
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev

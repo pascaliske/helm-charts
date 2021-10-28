@@ -1,0 +1,67 @@
+image:
+  repository: jonaswinkler/paperless-ng
+  tag: 1.5.0
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+
+ports:
+  http:
+    enabled: true
+    port: 8000
+    nodePort: null
+    protocol: TCP
+
+secret:
+  create: true
+  existingSecret: ''
+  secretKey: ''
+  annotations: {}
+  labels: {}
+
+persistentVolumeClaim:
+  create: true
+  mountPath: /usr/src/paperless
+  existingPersistentVolumeClaim: ''
+  annotations: {}
+  labels: {}
+
+consumption:
+  enabled: true
+  mountPath: /consumption
+  hostPath: ''
+
+serviceAccount:
+  name: ''
+
+securityContext: {}
+  # fsGroup: 1000
+  # runAsNonRoot: true
+  # runAsGroup: 1000
+  # runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
