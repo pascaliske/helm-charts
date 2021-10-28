@@ -67,7 +67,11 @@ spec:
             {{- end }}
           volumeMounts:
             - name: storage-volume
-              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/data
+              subPath: data
+            - name: storage-volume
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/media
+              subPath: media
             {{- if eq (include "paperless.consumption.enabled" .) "true" }}
             - name: consumption-volume
               mountPath: {{ include "paperless.consumption.mountPath" . }}
