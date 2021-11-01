@@ -1,0 +1,69 @@
+image:
+  repository: gitlab/gitlab-ce
+  tag: 14.4.1-ce.0
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+deployment:
+  enabled: true
+  kind: Deployment
+  replicas: 1
+  annotations: {}
+  labels: {}
+
+service:
+  enabled: true
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+
+ports:
+  http:
+    enabled: true
+    port: 80
+    nodePort: null
+    protocol: TCP
+
+configMap:
+  create: true
+  mountPath: /etc/gitlab
+  existingConfigMap: ''
+  config: |
+    # external_url 'https://gitlab.example.com'
+  annotations: {}
+  labels: {}
+
+persistentVolumeClaim:
+  create: true
+  mountPath: /var/opt/gitlab
+  existingPersistentVolumeClaim: ''
+  annotations: {}
+  labels: {}
+
+backups:
+  enabled: true
+  mountPath: /backups
+  hostPath: ''
+
+serviceAccount:
+  name: ''
+
+securityContext: {}
+  # fsGroup: 1000
+  # runAsNonRoot: true
+  # runAsGroup: 1000
+  # runAsUser: 1000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi

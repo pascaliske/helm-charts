@@ -1,0 +1,21 @@
+{{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) -}}
+{{- if empty .Values.configMap.config -}}
+  {{- fail "Missing config from \".Values.configMap.config\"!" -}}
+{{- end -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-config" (include "gitlab.fullname" .) }}
+  labels:
+    {{- include "gitlab.labels" . | nindent 4 }}
+    {{- with .Values.configMap.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.configMap.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+data:
+  gitlab.rb: |
+    {{ .Values.configMap.config }}
+{{- end }}
