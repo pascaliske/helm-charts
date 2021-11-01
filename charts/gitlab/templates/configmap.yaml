@@ -17,5 +17,5 @@ metadata:
   {{- end }}
 data:
   gitlab.rb: |
-    {{ .Values.configMap.config }}
+    {{- .Values.configMap.config | nindent 4 }}
 {{- end }}
