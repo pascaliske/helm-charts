@@ -59,10 +59,14 @@ spec:
             httpGet:
               path: /-/liveness
               port: http
+            initialDelaySeconds: 180
+            timeoutSeconds: 15
           readinessProbe:
             httpGet:
               path: /-/readiness
               port: http
+            initialDelaySeconds: 15
+            timeoutSeconds: 1
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
