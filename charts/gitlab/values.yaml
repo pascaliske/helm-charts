@@ -47,6 +47,11 @@ persistentVolumeClaim:
   annotations: {}
   labels: {}
 
+healthCheck:
+  enabled: true
+  whitelist:
+    - 127.0.0.1
+
 backups:
   enabled: true
   mountPath: /backups

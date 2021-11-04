@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -57,6 +57,8 @@ The following values can be used to adjust the helm chart.
 | env[0].name | string | `"TZ"` |  |
 | env[0].value | string | `"UTC"` |  |
 | fullnameOverride | string | `""` |  |
+| healthCheck.enabled | bool | `true` |  |
+| healthCheck.whitelist[0] | string | `"127.0.0.1"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"gitlab/gitlab-ce"` |  |
 | image.tag | string | `"14.4.1-ce.0"` |  |

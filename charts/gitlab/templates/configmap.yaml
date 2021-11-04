@@ -18,4 +18,13 @@ metadata:
 data:
   {{ default "gitlab.rb" .Values.configMap.key }}: |
     {{- .Values.configMap.config | nindent 4 }}
+
+    {{- if and .Values.healthCheck.enabled .Values.healthCheck.whitelist }}
+    # ensure kubelet probes are whitelisted
+    gitlab_rails['monitoring_whitelist'] = [
+      {{- range $i, $val := .Values.healthCheck.whitelist }}
+      {{ $val | squote }},
+      {{- end }}
+    ]
+    {{- end }}
 {{- end }}
