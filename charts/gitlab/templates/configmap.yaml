@@ -16,7 +16,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 data:
-  gitlab.rb: |
+  {{ default "gitlab.rb" .Values.configMap.key }}: |
     {{- .Values.configMap.config | nindent 4 }}
 
     {{- if and .Values.healthCheck.enabled .Values.healthCheck.whitelist }}

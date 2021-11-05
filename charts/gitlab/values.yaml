@@ -34,15 +34,9 @@ configMap:
   create: true
   mountPath: /etc/gitlab
   existingConfigMap: ''
+  key: gitlab.rb
   config: |
     # external_url 'https://gitlab.example.com'
-  annotations: {}
-  labels: {}
-
-secret:
-  create: true
-  mountPath: /etc/gitlab
-  existingSecret: ''
   annotations: {}
   labels: {}
 

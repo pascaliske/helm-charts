@@ -42,17 +42,20 @@ spec:
             {{- end }}
             {{- end }}
           env:
+            - name: GITLAB_OMNIBUS_CONFIG
+              valueFrom:
+                configMapKeyRef:
+                {{- if .Values.configMap.existingConfigMap }}
+                  name: {{ .Values.configMap.existingConfigMap }}
+                {{- else }}
+                  name: {{ printf "%s-config" (include "gitlab.fullname" .) }}
+                {{- end }}
+                  key: {{ default "gitlab.rb" .Values.configMap.key }}
             {{- range $i, $val := .Values.env }}
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- end }}
           volumeMounts:
-            - name: config-volume
-              mountPath: {{ .Values.secret.mountPath }}/gitlab.rb
-              subPath: gitlab.rb
-            - name: secrets-volume
-              mountPath: {{ .Values.secret.mountPath }}/gitlab-secrets.json
-              subPath: gitlab-secrets.json
             - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
             {{- if eq (include "gitlab.backups.enabled" .) "true" }}
@@ -80,20 +83,6 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
       volumes:
-        - name: config-volume
-          configMap:
-            {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
-            name: {{ printf "%s-config" (include "gitlab.fullname" . ) }}
-            {{- else }}
-            name: {{ .Values.configMap.existingConfigMap }}
-            {{- end }}
-        - name: secrets-volume
-          secret:
-            {{- if and .Values.secret.create (empty .Values.secret.existingSecret) }}
-            secretName: {{ printf "%s-secrets" (include "gitlab.fullname" . ) }}
-            {{- else }}
-            secretName: {{ .Values.secret.existingSecret }}
-            {{- end }}
         - name: storage-volume
           persistentVolumeClaim:
             {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
