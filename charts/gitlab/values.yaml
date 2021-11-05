@@ -32,7 +32,6 @@ ports:
 
 configMap:
   create: true
-  mountPath: /etc/gitlab
   existingConfigMap: ''
   key: gitlab.rb
   config: |
@@ -40,17 +39,26 @@ configMap:
   annotations: {}
   labels: {}
 
-persistentVolumeClaim:
-  create: true
-  mountPath: /var/opt/gitlab
-  existingPersistentVolumeClaim: ''
-  annotations: {}
-  labels: {}
-
 healthCheck:
   enabled: true
   whitelist:
     - 127.0.0.1
+
+persistentVolumeClaims:
+  - name: secrets
+    create: true
+    mountPath: /etc/gitlab
+    existingPersistentVolumeClaim: ''
+    size: 128Mi
+    annotations: {}
+    labels: {}
+  - name: storage
+    create: true
+    mountPath: /var/opt/gitlab
+    existingPersistentVolumeClaim: ''
+    size: 30Gi
+    annotations: {}
+    labels: {}
 
 backups:
   enabled: true

@@ -1,0 +1,26 @@
+{{- range $i, $pvc := .Values.persistentVolumeClaims }}
+{{- if and $pvc.create (empty $pvc.existingPersistentVolumeClaim) }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s" (include "gitlab.fullname" $ ) $pvc.name }}
+  labels:
+    {{- include "gitlab.labels" $ | nindent 4 }}
+    {{- with $pvc.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with $pvc.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ default "1Gi" $pvc.size }}
+  volumeMode: Filesystem
+  storageClassName: local-path
+{{- end }}
+{{- end }}

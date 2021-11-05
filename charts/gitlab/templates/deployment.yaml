@@ -48,7 +48,7 @@ spec:
                 {{- if .Values.configMap.existingConfigMap }}
                   name: {{ .Values.configMap.existingConfigMap }}
                 {{- else }}
-                  name: {{ printf "%s-config" (include "gitlab.fullname" .) }}
+                  name: {{ printf "%s-config" (include "gitlab.fullname" . ) }}
                 {{- end }}
                   key: {{ default "gitlab.rb" .Values.configMap.key }}
             {{- range $i, $val := .Values.env }}
@@ -56,9 +56,11 @@ spec:
               value: {{ $val.value | quote }}
             {{- end }}
           volumeMounts:
-            - name: storage-volume
-              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
-            {{- if eq (include "gitlab.backups.enabled" .) "true" }}
+            {{- range $i, $pvc := .Values.persistentVolumeClaims }}
+            - name: {{ printf "%s-volume" ($pvc.name) }}
+              mountPath: {{ $pvc.mountPath }}
+            {{- end }}
+            {{- if eq (include "gitlab.backups.enabled" . ) "true" }}
             - name: backups-volume
               mountPath: {{ include "gitlab.backups.mountPath" . }}
             {{- end }}
@@ -83,14 +85,16 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
       volumes:
-        - name: storage-volume
+        {{- range $i, $pvc := .Values.persistentVolumeClaims }}
+        - name: {{ printf "%s-volume" ($pvc.name) }}
           persistentVolumeClaim:
-            {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
-            claimName: {{ printf "%s-storage" (include "gitlab.fullname" . ) }}
+            {{- if and $pvc.create (empty $pvc.existingPersistentVolumeClaim) }}
+            claimName: {{ printf "%s-%s" (include "gitlab.fullname" $ ) $pvc.name }}
             {{- else }}
-            claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            claimName: {{ $pvc.existingPersistentVolumeClaim }}
             {{- end }}
-        {{- if eq (include "gitlab.backups.enabled" .) "true" }}
+        {{- end }}
+        {{- if eq (include "gitlab.backups.enabled" . ) "true" }}
         - name: backups-volume
           hostPath:
             type: Directory

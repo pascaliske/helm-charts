@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.12](https://img.shields.io/badge/Version-0.0.12-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.13](https://img.shields.io/badge/Version-0.0.13-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -48,7 +48,6 @@ The following values can be used to adjust the helm chart.
 | configMap.existingConfigMap | string | `""` |  |
 | configMap.key | string | `"gitlab.rb"` |  |
 | configMap.labels | object | `{}` |  |
-| configMap.mountPath | string | `"/etc/gitlab"` |  |
 | deployment.annotations | object | `{}` |  |
 | deployment.enabled | bool | `true` |  |
 | deployment.kind | string | `"Deployment"` |  |
@@ -63,11 +62,20 @@ The following values can be used to adjust the helm chart.
 | image.repository | string | `"gitlab/gitlab-ce"` |  |
 | image.tag | string | `"14.4.1-ce.0"` |  |
 | nameOverride | string | `""` |  |
-| persistentVolumeClaim.annotations | object | `{}` |  |
-| persistentVolumeClaim.create | bool | `true` |  |
-| persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` |  |
-| persistentVolumeClaim.labels | object | `{}` |  |
-| persistentVolumeClaim.mountPath | string | `"/var/opt/gitlab"` |  |
+| persistentVolumeClaims[0].annotations | object | `{}` |  |
+| persistentVolumeClaims[0].create | bool | `true` |  |
+| persistentVolumeClaims[0].existingPersistentVolumeClaim | string | `""` |  |
+| persistentVolumeClaims[0].labels | object | `{}` |  |
+| persistentVolumeClaims[0].mountPath | string | `"/etc/gitlab"` |  |
+| persistentVolumeClaims[0].name | string | `"secrets"` |  |
+| persistentVolumeClaims[0].size | string | `"128Mi"` |  |
+| persistentVolumeClaims[1].annotations | object | `{}` |  |
+| persistentVolumeClaims[1].create | bool | `true` |  |
+| persistentVolumeClaims[1].existingPersistentVolumeClaim | string | `""` |  |
+| persistentVolumeClaims[1].labels | object | `{}` |  |
+| persistentVolumeClaims[1].mountPath | string | `"/var/opt/gitlab"` |  |
+| persistentVolumeClaims[1].name | string | `"storage"` |  |
+| persistentVolumeClaims[1].size | string | `"30Gi"` |  |
 | ports.http.enabled | bool | `true` |  |
 | ports.http.nodePort | string | `nil` |  |
 | ports.http.port | int | `80` |  |
