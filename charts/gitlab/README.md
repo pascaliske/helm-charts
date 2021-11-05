@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.8](https://img.shields.io/badge/Version-0.0.8-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -73,6 +73,11 @@ The following values can be used to adjust the helm chart.
 | ports.http.port | int | `80` |  |
 | ports.http.protocol | string | `"TCP"` |  |
 | resources | object | `{}` |  |
+| secret.annotations | object | `{}` |  |
+| secret.create | bool | `true` |  |
+| secret.existingSecret | string | `""` |  |
+| secret.labels | object | `{}` |  |
+| secret.mountPath | string | `"/etc/gitlab"` |  |
 | securityContext | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.enabled | bool | `true` |  |

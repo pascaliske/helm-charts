@@ -40,6 +40,13 @@ configMap:
   annotations: {}
   labels: {}
 
+secret:
+  create: true
+  mountPath: /etc/gitlab
+  existingSecret: ''
+  annotations: {}
+  labels: {}
+
 persistentVolumeClaim:
   create: true
   mountPath: /var/opt/gitlab

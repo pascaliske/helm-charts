@@ -56,6 +56,9 @@ spec:
               value: {{ $val.value | quote }}
             {{- end }}
           volumeMounts:
+            - name: secrets-volume
+              mountPath: {{ .Values.secret.mountPath }}
+              readOnly: true
             - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
             {{- if eq (include "gitlab.backups.enabled" .) "true" }}
@@ -83,6 +86,13 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
       volumes:
+        - name: secret-volume
+          secret:
+            {{- if and .Values.secret.create (empty .Values.secret.existingSecret) }}
+            secretName: {{ printf "%s-secrets" (include "gitlab.fullname" . ) }}
+            {{- else }}
+            secretName: {{ .Values.secret.existingSecret }}
+            {{- end }}
         - name: storage-volume
           persistentVolumeClaim:
             {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
