@@ -86,7 +86,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
       volumes:
-        - name: secret-volume
+        - name: secrets-volume
           secret:
             {{- if and .Values.secret.create (empty .Values.secret.existingSecret) }}
             secretName: {{ printf "%s-secrets" (include "gitlab.fullname" . ) }}
