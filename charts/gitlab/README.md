@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.9](https://img.shields.io/badge/Version-0.0.9-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.0.10](https://img.shields.io/badge/Version-0.0.10-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.4.1-ce.0](https://img.shields.io/badge/AppVersion-14.4.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -46,7 +46,6 @@ The following values can be used to adjust the helm chart.
 | configMap.config | string | `"# external_url 'https://gitlab.example.com'\n"` |  |
 | configMap.create | bool | `true` |  |
 | configMap.existingConfigMap | string | `""` |  |
-| configMap.key | string | `"gitlab.rb"` |  |
 | configMap.labels | object | `{}` |  |
 | configMap.mountPath | string | `"/etc/gitlab"` |  |
 | deployment.annotations | object | `{}` |  |
