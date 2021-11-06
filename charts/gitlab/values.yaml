@@ -39,11 +39,6 @@ configMap:
   annotations: {}
   labels: {}
 
-healthCheck:
-  enabled: true
-  whitelist:
-    - 127.0.0.1
-
 persistentVolumeClaims:
   - name: secrets
     create: true
@@ -59,6 +54,11 @@ persistentVolumeClaims:
     size: 30Gi
     annotations: {}
     labels: {}
+
+healthCheck:
+  enabled: true
+  whitelist:
+    - 127.0.0.1
 
 backups:
   enabled: true
