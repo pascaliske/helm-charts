@@ -1,6 +1,6 @@
 image:
   repository: louislam/uptime-kuma
-  tag: 1.6.3
+  tag: 1.10.2
   pullPolicy: IfNotPresent
 
 nameOverride: ''
