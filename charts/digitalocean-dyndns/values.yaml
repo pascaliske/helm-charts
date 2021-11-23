@@ -1,6 +1,6 @@
 image:
-  repository: pascaliske/alpine-curl-jq
-  tag: latest
+  repository: ghcr.io/pascaliske/digitalocean-dyndns
+  tag: '0.0.1'
   pullPolicy: IfNotPresent
 
 nameOverride: ''

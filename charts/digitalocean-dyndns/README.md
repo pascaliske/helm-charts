@@ -2,9 +2,10 @@
 
 > A Helm chart for a CronJob based DigitalOcean DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)[![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)[![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns)
 
 * <https://github.com/pascaliske/helm-charts>
+* <https://github.com/pascaliske/docker-digitalocean-dyndns>
 
 ## Requirements
 
@@ -51,8 +52,8 @@ The following values can be used to adjust the helm chart.
 | env[1].value | string | `"ifconfig.co"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"pascaliske/alpine-curl-jq"` |  |
-| image.tag | string | `"latest"` |  |
+| image.repository | string | `"ghcr.io/pascaliske/digitalocean-dyndns"` |  |
+| image.tag | string | `"0.0.1"` |  |
 | nameOverride | string | `""` |  |
 | resources | object | `{}` |  |
 | secret.annotations | object | `{}` |  |

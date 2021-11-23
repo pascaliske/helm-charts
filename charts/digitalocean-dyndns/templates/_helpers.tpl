@@ -84,10 +84,3 @@ Schedule
 {{ .Values.cronJob.schedule }}
 {{- end -}}
 {{- end }}
-
-{{/*
-Script name
-*/}}
-{{- define "digitalocean-dyndns.scriptName" -}}
-updater.sh
-{{- end }}

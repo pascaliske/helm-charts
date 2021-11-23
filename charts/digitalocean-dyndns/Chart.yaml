@@ -2,12 +2,13 @@ apiVersion: v2
 type: application
 name: digitalocean-dyndns
 description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
-version: 0.1.0
-appVersion: "latest"
+version: 0.2.0
+appVersion: "0.0.1"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns
 sources:
   - https://github.com/pascaliske/helm-charts
+  - https://github.com/pascaliske/docker-digitalocean-dyndns
 keywords:
   - digitalocean
   - dyndns

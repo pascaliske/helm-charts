@@ -44,26 +44,8 @@ spec:
                     {{- else }}
                     name: {{ .Values.secret.existingSecret }}
                     {{- end }}
-              command:
-                - /bin/sh
-                - {{ printf "/scripts/%s" (include "digitalocean-dyndns.scriptName" . ) }}
-              volumeMounts:
-                - name: {{ printf "%s-updater" (include "digitalocean-dyndns.fullname" . ) }}
-                  mountPath: {{ printf "/scripts/%s" (include "digitalocean-dyndns.scriptName" . ) }}
-                  subPath: {{ template "digitalocean-dyndns.scriptName" . }}
-                  readOnly: true
               resources: {{ if not .Values.resources -}}{}{{- end }}
                 {{- if .Values.resources }}
                 {{- toYaml .Values.resources | nindent 16 }}
                 {{- end }}
-          volumes:
-            - name: {{ printf "%s-updater" (include "digitalocean-dyndns.fullname" . ) }}
-              projected:
-                defaultMode: 0775
-                sources:
-                  - configMap:
-                      name: {{ printf "%s-updater" (include "digitalocean-dyndns.fullname" . ) }}
-                      items:
-                        - key: {{ template "digitalocean-dyndns.scriptName" . }}
-                          path: {{ template "digitalocean-dyndns.scriptName" . }}
 {{- end -}}
