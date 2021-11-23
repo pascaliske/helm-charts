@@ -2,7 +2,7 @@
 
 > A Helm chart for custom traefik error pages
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-traefik-errors>
@@ -48,8 +48,8 @@ The following values can be used to adjust the helm chart.
 | env[0].value | string | `"UTC"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"pascaliske/traefik-errors"` |  |
-| image.tag | string | `"latest"` |  |
+| image.repository | string | `"ghcr.io/pascaliske/traefik-errors"` |  |
+| image.tag | string | `"0.0.1"` |  |
 | nameOverride | string | `""` |  |
 | ports.http.enabled | bool | `true` |  |
 | ports.http.port | int | `8080` |  |

@@ -1,6 +1,6 @@
 image:
-  repository: pascaliske/traefik-errors
-  tag: latest
+  repository: ghcr.io/pascaliske/traefik-errors
+  tag: '0.0.1'
   pullPolicy: IfNotPresent
 
 nameOverride: ''
