@@ -40,7 +40,7 @@ helm delete <chart>
 | [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   | `1.1.0`  |     `v2.29.2`      |
 | [`redis`](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)                             | `0.0.2`  |      `6.2.6`       |
 | [`snapdrop`](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)                       | `0.0.1`  | `version-78a8b167` |
-| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           | `1.0.2`  |      `0.0.1`      |
+| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           | `1.0.2`  |      `1.0.1`      |
 | [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)                 | `0.0.5`  |      `1.10.2`       |
 
 ## License
