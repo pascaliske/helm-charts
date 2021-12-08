@@ -1,9 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: /
     schedule:
       interval: daily
+    directory: /
+    target-branch: master
     commit-message:
       prefix: chore
       include: scope
@@ -12,9 +13,10 @@ updates:
     labels:
       - dependencies
   - package-ecosystem: npm
-    directory: /
     schedule:
       interval: daily
+    directory: /
+    target-branch: master
     versioning-strategy: increase
     commit-message:
       prefix: chore
