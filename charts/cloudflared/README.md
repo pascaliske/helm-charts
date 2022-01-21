@@ -50,8 +50,8 @@ The following values can be used to adjust the helm chart.
 | env[1].value | string | `"https://1.1.1.1/dns-query,https://1.0.0.1/dns-query"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"crazymax/cloudflared"` |  |
-| image.tag | string | `"2021.8.7"` |  |
+| image.repository | string | `"ghcr.io/crazy-max/cloudflared"` |  |
+| image.tag | string | `"2021.11.0"` |  |
 | nameOverride | string | `""` |  |
 | ports.dns.enabled | bool | `true` |  |
 | ports.dns.nodePort | string | `nil` |  |
