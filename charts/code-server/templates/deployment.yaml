@@ -47,12 +47,17 @@ spec:
             runAsUser: 0
         {{- end }}
         {{- range $i, $repo := .Values.repositories }}
-        - name: {{ printf "%s-clone-%s" (include "code-server.fullname" $) ((get (urlParse $repo) "path") | replace "/" "-") }}
+        - name: {{ printf "%s-clone-%s" (include "code-server.fullname" $) (regexReplaceAll "\\W+" $repo.name "-") }}
           image: alpine/git:latest
           imagePullPolicy: IfNotPresent
           workingDir: {{ $.Values.persistentVolumeClaim.projectsPath }}
-          args: ['clone', '{{ $repo }}']
+          command: ['/bin/sh']
+          args: ['/scripts/repo-update.sh', '{{ $repo.url }}', '{{ $repo.name }}']
           volumeMounts:
+            {{- if not (empty $.Values.repositories) }}
+            - name: script-volume
+              mountPath: /scripts
+            {{- end }}
             - name: storage-volume
               mountPath: {{ $.Values.persistentVolumeClaim.mountPath }}
         {{- end }}
@@ -119,6 +124,12 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
       volumes:
+        {{- if not (empty .Values.repositories) }}
+        - name: script-volume
+          configMap:
+            name: {{ printf "%s-scripts" (include "code-server.fullname" . ) }}
+            defaultMode: 0777
+        {{- end }}
         - name: config-volume
           configMap:
             {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}

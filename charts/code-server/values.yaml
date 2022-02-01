@@ -1,6 +1,6 @@
 image:
   repository: codercom/code-server
-  tag: v3.12.0
+  tag: v4.0.2
   pullPolicy: IfNotPresent
 
 nameOverride: ''
@@ -60,7 +60,8 @@ persistentVolumeClaim:
   labels: {}
 
 repositories: []
-  # - https://github.com/pascaliske/helm-charts
+  # - url: https://github.com/pascaliske/helm-charts
+  #   name: helm-charts
 
 serviceAccount:
   name: ''

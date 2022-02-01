@@ -2,13 +2,13 @@ apiVersion: v2
 type: application
 name: code-server
 description: A Helm chart for Kubernetes
-version: 0.0.11
-appVersion: "v3.12.0"
+version: 0.1.0
+appVersion: "v4.0.2"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
 sources:
   - https://github.com/pascaliske/helm-charts
-  - https://github.com/cdr/code-server
+  - https://github.com/coder/code-server
 keywords:
   - vscode
   - code-server

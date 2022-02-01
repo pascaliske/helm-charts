@@ -1,0 +1,23 @@
+{{- if not (empty .Values.repositories) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-scripts" (include "code-server.fullname" .) }}
+  labels:
+    {{- include "code-server.labels" . | nindent 4 }}
+data:
+  repo-update.sh: |
+    #!/bin/sh
+
+    URL=$1
+    FOLDER=$2
+
+    if [ ! -d "$FOLDER/.git" ]
+    then
+      git clone "$URL" "$FOLDER"
+    else
+      cd "$FOLDER" || exit
+      git fetch
+      git pull "$URL"
+    fi
+{{- end }}
