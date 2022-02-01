@@ -46,20 +46,18 @@ spec:
             runAsGroup: 0
             runAsUser: 0
         {{- end }}
-        {{- range $i, $repo := .Values.repositories }}
-        - name: {{ printf "%s-clone-%s" (include "code-server.fullname" $) (regexReplaceAll "\\W+" $repo.name "-") }}
+        {{- if not (empty .Values.repositories) }}
+        - name: {{ printf "%s-repositories" (include "code-server.fullname" $) }}
           image: alpine/git:latest
           imagePullPolicy: IfNotPresent
-          workingDir: {{ $.Values.persistentVolumeClaim.projectsPath }}
+          workingDir: {{ .Values.persistentVolumeClaim.projectsPath }}
           command: ['/bin/sh']
-          args: ['/scripts/repo-update.sh', '{{ $repo.url }}', '{{ $repo.name }}']
+          args: ['/scripts/repo-updater.sh']
           volumeMounts:
-            {{- if not (empty $.Values.repositories) }}
             - name: script-volume
               mountPath: /scripts
-            {{- end }}
             - name: storage-volume
-              mountPath: {{ $.Values.persistentVolumeClaim.mountPath }}
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
         {{- end }}
       containers:
         - name: {{ template "code-server.name" . }}
