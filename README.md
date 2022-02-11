@@ -28,20 +28,20 @@ helm delete <chart>
 
 ## Charts
 
-| Chart                                                                                                     | Version  |     AppVersion     |
-| --------------------------------------------------------------------------------------------------------- | :------: | :----------------: |
-| [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)                 | `1.1.0`  |     `2022.1.0`     |
-| [`code-server`](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)                 | `0.1.1`  |      `v4.0.2`      |
-| [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) | `0.2.0`  |      `0.0.1`       |
-| [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     | `1.0.1`  |       `1.0`        |
-| [`gitlab`](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)                           | `0.0.14` |   `14.4.1-ce.0`    |
-| [`linkding`](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)                       | `0.0.1`  |      `1.8.4`       |
-| [`paperless`](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)                     | `0.0.2`  |      `1.5.0`       |
-| [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   | `1.2.0`  |     `v2.33.1`      |
-| [`redis`](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)                             | `0.0.2`  |      `6.2.6`       |
-| [`snapdrop`](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)                       | `0.0.1`  | `version-78a8b167` |
-| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           | `1.0.2`  |      `1.0.1`       |
-| [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)                 | `0.0.5`  |      `1.10.2`      |
+| Chart                                                                                                     | Version |     AppVersion     |
+| --------------------------------------------------------------------------------------------------------- | :-----: | :----------------: |
+| [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)                 | `1.1.0` |     `2022.1.0`     |
+| [`code-server`](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)                 | `0.1.1` |      `v4.0.2`      |
+| [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) | `0.2.0` |      `0.0.1`       |
+| [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     | `1.0.1` |       `1.0`        |
+| [`gitlab`](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)                           | `0.1.0` |   `14.7.2-ce.0`    |
+| [`linkding`](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)                       | `0.0.1` |      `1.8.4`       |
+| [`paperless`](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)                     | `0.0.2` |      `1.5.0`       |
+| [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   | `1.2.0` |     `v2.33.1`      |
+| [`redis`](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)                             | `0.0.2` |      `6.2.6`       |
+| [`snapdrop`](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)                       | `0.0.1` | `version-78a8b167` |
+| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           | `1.0.2` |      `1.0.1`       |
+| [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)                 | `0.0.5` |      `1.10.2`      |
 
 ## License
 
