@@ -19,6 +19,10 @@ spec:
   selector:
     matchLabels:
       {{- include "prometheus.selectorLabels" . | nindent 6 }}
+  {{- with .Values.deployment.strategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
   template:
     metadata:
       {{- with .Values.deployment.annotations }}

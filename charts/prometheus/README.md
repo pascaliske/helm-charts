@@ -58,13 +58,16 @@ The following values can be used to adjust the helm chart.
 | deployment.kind | string | `"Deployment"` |  |
 | deployment.labels | object | `{}` |  |
 | deployment.replicas | int | `1` |  |
+| deployment.strategy.rollingUpdate.maxSurge | int | `0` |  |
+| deployment.strategy.rollingUpdate.maxUnavailable | int | `1` |  |
+| deployment.strategy.type | string | `"RollingUpdate"` |  |
 | env[0].name | string | `"TZ"` |  |
 | env[0].value | string | `"UTC"` |  |
 | extraArgs | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"prom/prometheus"` |  |
-| image.tag | string | `"v2.29.2"` |  |
+| image.tag | string | `"v2.33.1"` |  |
 | nameOverride | string | `""` |  |
 | persistentVolumeClaim.annotations | object | `{}` |  |
 | persistentVolumeClaim.create | bool | `true` |  |
