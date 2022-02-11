@@ -1,6 +1,6 @@
 image:
   repository: prom/prometheus
-  tag: v2.29.2
+  tag: v2.33.1
   pullPolicy: IfNotPresent
 
 nameOverride: ''

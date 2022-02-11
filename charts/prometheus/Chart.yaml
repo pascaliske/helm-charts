@@ -2,8 +2,8 @@ apiVersion: v2
 type: application
 name: prometheus
 description: A Helm chart for prometheus
-version: 1.1.0
-appVersion: "v2.29.2"
+version: 1.2.0
+appVersion: "v2.33.1"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus
 sources:
