@@ -44,6 +44,9 @@ The following values can be used to adjust the helm chart.
 | deployment.kind | string | `"Deployment"` |  |
 | deployment.labels | object | `{}` |  |
 | deployment.replicas | int | `1` |  |
+| deployment.strategy.rollingUpdate.maxSurge | int | `1` |  |
+| deployment.strategy.rollingUpdate.maxUnavailable | int | `0` |  |
+| deployment.strategy.type | string | `"RollingUpdate"` |  |
 | env[0].name | string | `"TZ"` |  |
 | env[0].value | string | `"UTC"` |  |
 | env[1].name | string | `"TUNNEL_DNS_UPSTREAM"` |  |
