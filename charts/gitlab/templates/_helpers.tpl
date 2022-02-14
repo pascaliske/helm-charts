@@ -117,3 +117,10 @@ Backups schedule
 {{ .Values.backups.cronJob.schedule }}
 {{- end -}}
 {{- end }}
+
+{{/*
+Backups command
+*/}}
+{{- define "gitlab.backups.command" -}}
+{{ printf "kubectl exec -it -n %s deploy/%s -- gitlab-backup create" .Release.Namespace (include "gitlab.fullname" . ) }}
+{{- end }}

@@ -34,7 +34,7 @@ spec:
               image: pascaliske/alpine-kubectl
               imagePullPolicy: Always
               command: ["/bin/sh"]
-              args: ["-c", "exec -it -n {{ .Release.Namespace }} deploy/{{ include "gitlab.fullname" . }} -- gitlab-backup create"]
+              args: ["-c", "{{ include "gitlab.backups.command" . }}"]
               resources: {{ if not .Values.resources -}}{}{{- end }}
                 {{- if .Values.resources }}
                 {{- toYaml .Values.resources | nindent 16 }}
