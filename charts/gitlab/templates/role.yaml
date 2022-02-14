@@ -14,9 +14,13 @@ metadata:
   {{- end }}
 rules:
   - apiGroups: ['']
-    verbs: ['get', 'list', 'watch']
+    verbs: ['list']
     resources:
       - pods
+  - apiGroups: ['apps']
+    verbs: ['get']
+    resources:
+      - deployments
   - apiGroups: ['']
     verbs: ['create']
     resources:
