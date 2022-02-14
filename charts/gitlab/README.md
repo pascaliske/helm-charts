@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.7.2-ce.0](https://img.shields.io/badge/AppVersion-14.7.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 14.7.2-ce.0](https://img.shields.io/badge/AppVersion-14.7.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -39,6 +39,13 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| backups.cronJob.annotations | object | `{}` |  |
+| backups.cronJob.enabled | bool | `false` |  |
+| backups.cronJob.failedJobsHistoryLimit | int | `1` |  |
+| backups.cronJob.labels | object | `{}` |  |
+| backups.cronJob.schedule | string | `"0 3 * * 1"` |  |
+| backups.cronJob.successfulJobsHistoryLimit | int | `3` |  |
+| backups.cronJob.suspend | bool | `false` |  |
 | backups.enabled | bool | `true` |  |
 | backups.hostPath | string | `""` |  |
 | backups.mountPath | string | `"/backups"` |  |
@@ -83,6 +90,9 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` |  |
 | ports.http.port | int | `80` |  |
 | ports.http.protocol | string | `"TCP"` |  |
+| rbac.annotations | object | `{}` |  |
+| rbac.create | bool | `true` |  |
+| rbac.labels | object | `{}` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
 | service.annotations | object | `{}` |  |

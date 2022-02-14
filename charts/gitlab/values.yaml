@@ -69,9 +69,22 @@ backups:
   enabled: true
   mountPath: /backups
   hostPath: ''
+  cronJob:
+    enabled: false
+    schedule: '0 3 * * 1'
+    suspend: false
+    successfulJobsHistoryLimit: 3
+    failedJobsHistoryLimit: 1
+    annotations: {}
+    labels: {}
 
 serviceAccount:
   name: ''
+
+rbac:
+  create: true
+  annotations: {}
+  labels: {}
 
 securityContext: {}
   # fsGroup: 1000

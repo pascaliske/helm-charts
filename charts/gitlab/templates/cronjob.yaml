@@ -1,0 +1,42 @@
+{{- if and .Values.backups.cronJob.enabled .Values.backups.cronJob.schedule -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ printf "%s-backup" (include "gitlab.fullname" . ) }}
+  labels:
+    {{- include "gitlab.labels" . | nindent 4 }}
+    {{- with .Values.backups.cronJob.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.backups.cronJob.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  schedule: {{ include "gitlab.backups.schedule" . }}
+  suspend: {{ .Values.backups.cronJob.suspend }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: {{ .Values.backups.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.backups.cronJob.failedJobsHistoryLimit }}
+  jobTemplate:
+    {{- with .Values.backups.cronJob.annotations }}
+    metadata:
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ include "gitlab.serviceAccountName" . }}
+          restartPolicy: Never
+          containers:
+            - name: {{ printf "%s-backup" (include "gitlab.fullname" . ) }}
+              image: pascaliske/alpine-kubectl
+              imagePullPolicy: Always
+              args:
+                - exec -it -n {{ .Release.Namespace }} deploy/{{ include "gitlab.fullname" . }} -- gitlab-backup create
+              resources: {{ if not .Values.resources -}}{}{{- end }}
+                {{- if .Values.resources }}
+                {{- toYaml .Values.resources | nindent 16 }}
+                {{- end }}
+{{- end }}

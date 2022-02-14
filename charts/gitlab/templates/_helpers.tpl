@@ -62,6 +62,19 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
+Timezone
+*/}}
+{{- define "gitlab.timezone" -}}
+{{- $timezone := dict -}}
+{{- range $i, $val := .Values.env -}}
+{{- if eq $val.name "TZ" -}}
+{{- $_ := set $timezone "value" $val.value -}}
+{{- end -}}
+{{- end -}}
+{{- default "UTC" (get $timezone "value") }}
+{{- end }}
+
+{{/*
 Backups host path
 */}}
 {{- define "gitlab.backups.hostPath" -}}
@@ -92,4 +105,15 @@ Backups enabled
 {{- else }}
 {{- printf "false" }}
 {{- end }}
+{{- end }}
+
+{{/*
+Backups schedule
+*/}}
+{{- define "gitlab.backups.schedule" -}}
+{{- if semverCompare ">= 1.22" .Capabilities.KubeVersion.Version -}}
+{{ printf "CRON_TZ=%s %s" (include "gitlab.timezone" . ) .Values.backups.cronJob.schedule }}
+{{- else -}}
+{{ .Values.backups.cronJob.schedule }}
+{{- end -}}
 {{- end }}

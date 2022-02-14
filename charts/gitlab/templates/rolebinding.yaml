@@ -1,0 +1,23 @@
+{{- if .Values.rbac.create -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "gitlab.fullname" . }}
+  labels:
+    {{- include "gitlab.labels" . | nindent 4 }}
+    {{- with .Values.rbac.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.rbac.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include "gitlab.fullname" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "gitlab.serviceAccountName" . }}
+    namespace: {{ .Release.Namespace }}
+{{- end -}}

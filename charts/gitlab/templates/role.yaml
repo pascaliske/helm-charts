@@ -1,0 +1,24 @@
+{{- if .Values.rbac.create -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "gitlab.fullname" . }}
+  labels:
+    {{- include "gitlab.labels" . | nindent 4 }}
+    {{- with .Values.rbac.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.rbac.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+rules:
+  - apiGroups: ['']
+    verbs: ['get', 'list', 'watch']
+    resources:
+      - pods
+  - apiGroups: ['']
+    verbs: ['create']
+    resources:
+      - pods/exec
+{{- end -}}
