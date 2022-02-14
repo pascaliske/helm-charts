@@ -33,7 +33,8 @@ spec:
             - name: {{ printf "%s-backup" (include "gitlab.fullname" . ) }}
               image: pascaliske/alpine-kubectl
               imagePullPolicy: Always
-              args: ["exec", "-it", "-n {{ .Release.Namespace }}", "deploy/{{ include "gitlab.fullname" . }} -- gitlab-backup create"]
+              command: ["/bin/sh"]
+              args: ["-c", "exec -it -n {{ .Release.Namespace }} deploy/{{ include "gitlab.fullname" . }} -- gitlab-backup create"]
               resources: {{ if not .Values.resources -}}{}{{- end }}
                 {{- if .Values.resources }}
                 {{- toYaml .Values.resources | nindent 16 }}
