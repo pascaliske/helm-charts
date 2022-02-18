@@ -1,0 +1,51 @@
+{{- if .Values.cronJob.enabled -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "cloudflare-dyndns.fullname" . }}
+  labels:
+    {{- include "cloudflare-dyndns.labels" . | nindent 4 }}
+    {{- with .Values.cronJob.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.cronJob.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  schedule: {{ include "cloudflare-dyndns.schedule" . }}
+  suspend: {{ .Values.cronJob.suspend }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.cronJob.failedJobsHistoryLimit }}
+  jobTemplate:
+    {{- with .Values.cronJob.annotations }}
+    metadata:
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: {{ template "cloudflare-dyndns.name" . }}
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              env:
+                {{- range $i, $val := .Values.env }}
+                - name: {{ $val.name | quote }}
+                  value: {{ $val.value | quote }}
+                {{- end }}
+              envFrom:
+                - secretRef:
+                    {{- if and .Values.secret.create (empty .Values.secret.existingSecret) }}
+                    name: {{ printf "%s-token" (include "cloudflare-dyndns.fullname" . ) }}
+                    {{- else }}
+                    name: {{ .Values.secret.existingSecret }}
+                    {{- end }}
+              resources: {{ if not .Values.resources -}}{}{{- end }}
+                {{- if .Values.resources }}
+                {{- toYaml .Values.resources | nindent 16 }}
+                {{- end }}
+{{- end -}}

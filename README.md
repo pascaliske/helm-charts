@@ -30,6 +30,7 @@ helm delete <chart>
 
 | Chart                                                                                                     | Version |     AppVersion     |
 | --------------------------------------------------------------------------------------------------------- | :-----: | :----------------: |
+| [`cloudflare-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)     | `0.0.1` |      `0.0.2`       |
 | [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)                 | `1.1.0` |     `2022.1.0`     |
 | [`code-server`](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)                 | `0.1.1` |      `v4.0.2`      |
 | [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) | `0.2.0` |      `0.0.1`       |

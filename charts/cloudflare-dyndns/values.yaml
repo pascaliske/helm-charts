@@ -1,0 +1,41 @@
+image:
+  repository: ghcr.io/pascaliske/cloudflare-dyndns
+  tag: '0.0.2'
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+cronJob:
+  enabled: true
+  schedule: '30 * * * *'
+  suspend: false
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  annotations: {}
+  labels: {}
+
+env:
+  - name: TZ
+    value: UTC
+  - name: IP_SERVICE
+    value: ifconfig.co
+  # - name: DOMAIN
+  #   value: ''
+  # - name: NAME
+  #   value: ''
+
+secret:
+  create: true
+  existingSecret: ''
+  token: ''
+  annotations: {}
+  labels: {}
+
+resources: {}
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
