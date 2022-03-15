@@ -1,11 +1,11 @@
 # [`paperless`](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)
 
-> A Helm chart for paperless-ng
+> A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)[![AppVersion: 1.5.0](https://img.shields.io/badge/AppVersion-1.5.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)[![AppVersion: 1.6.0](https://img.shields.io/badge/AppVersion-1.6.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)
 
 * <https://github.com/pascaliske/helm-charts>
-* <https://github.com/jonaswinkler/paperless-ng>
+* <https://github.com/paperless-ngx/paperless-ngx>
 
 ## Requirements
 
@@ -51,8 +51,8 @@ The following values can be used to adjust the helm chart.
 | env[0].value | string | `"UTC"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"jonaswinkler/paperless-ng"` |  |
-| image.tag | string | `"1.5.0"` |  |
+| image.repository | string | `"ghcr.io/paperless-ngx/paperless-ngx"` |  |
+| image.tag | string | `"1.6.0"` |  |
 | nameOverride | string | `""` |  |
 | persistentVolumeClaim.annotations | object | `{}` |  |
 | persistentVolumeClaim.create | bool | `true` |  |

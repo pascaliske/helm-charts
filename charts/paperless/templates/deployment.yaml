@@ -65,6 +65,10 @@ spec:
                 {{- end }}
                   key: secretKey
             {{- end }}
+            {{- if and .Values.ports.http.enabled (eq (include "paperless.fullname" .) "paperless") }}
+            - name: PAPERLESS_PORT
+              value: {{ .Values.ports.http.port }}
+            {{- end }}
           volumeMounts:
             - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/data
