@@ -67,7 +67,7 @@ spec:
             {{- end }}
             {{- if and .Values.ports.http.enabled (eq (include "paperless.fullname" .) "paperless") }}
             - name: PAPERLESS_PORT
-              value: {{ .Values.ports.http.port }}
+              value: {{ quote .Values.ports.http.port }}
             {{- end }}
           volumeMounts:
             - name: storage-volume
