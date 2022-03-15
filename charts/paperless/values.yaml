@@ -1,6 +1,6 @@
 image:
-  repository: jonaswinkler/paperless-ng
-  tag: 1.5.0
+  repository: ghcr.io/paperless-ngx/paperless-ngx
+  tag: 1.6.0
   pullPolicy: IfNotPresent
 
 nameOverride: ''
