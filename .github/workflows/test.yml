@@ -19,6 +19,8 @@ jobs:
     steps:
       # checkout
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       # prepare
       - uses: actions/setup-python@v3
@@ -32,7 +34,7 @@ jobs:
       - name: Check if charts changed
         id: list-changed
         run: |
-          [ -n "$(ct list-changed)" ] && echo "::set-output name=changed::true"  || exit 0
+          [ -n "$(ct list-changed)" ] && echo "::set-output name=changed::true" || exit 0
 
       # lint
       - name: Lint charts
