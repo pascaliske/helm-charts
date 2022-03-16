@@ -41,7 +41,7 @@ spec:
             {{- range $key, $val := .Values.ports }}
             {{- if $val.enabled }}
             - name: {{ $key | quote }}
-              containerPort: {{ $val.port }}
+              containerPort: 5053
               protocol: {{ default "TCP" $val.protocol | quote }}
             {{- end }}
             {{- end }}
