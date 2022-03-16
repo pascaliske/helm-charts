@@ -19,7 +19,7 @@ spec:
     {{- if $val.enabled }}
     - name: {{ $key | quote }}
       port: {{ $val.port }}
-      targetPort: {{ $key | quote }}
+      targetPort: 5053
       {{- if and (eq $.Values.service.type "NodePort") $val.nodePort }}
       nodePort: {{ $val.nodePort }}
       {{- end }}
