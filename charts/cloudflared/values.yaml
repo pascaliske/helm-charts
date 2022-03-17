@@ -40,7 +40,6 @@ ports:
     enabled: false
     port: 49312
     nodePort: null
-    protocol: TCP
 
 serviceAccount:
   name: ''
