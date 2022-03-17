@@ -1,0 +1,8 @@
+{
+  "projectOwner": "pascaliske",
+  "projectName": "helm-charts",
+  "files": ["README.md"],
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": []
+}
