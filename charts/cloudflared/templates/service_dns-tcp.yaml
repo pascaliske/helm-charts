@@ -1,0 +1,29 @@
+{{- if .Values.service.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "cloudflared.fullname" . }}-tcp
+  labels:
+    {{- include "cloudflared.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    {{- if .Values.ports.dnstcp.enabled }}
+    - name: dnstcp
+      port: {{ .Values.ports.dnstcp.port }}
+      targetPort: 5053
+      {{- if and (eq $.Values.service.type "NodePort") .Values.ports.dnstcp.nodePort }}
+      nodePort: {{ .Values.ports.dnstcp.nodePort }}
+      {{- end }}
+      protocol: "TCP"
+    {{- end }}
+  selector:
+    {{- include "cloudflared.selectorLabels" . | nindent 4 }}
+{{- end }}
