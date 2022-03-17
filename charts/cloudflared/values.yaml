@@ -36,6 +36,11 @@ ports:
     port: 5053
     nodePort: null
     protocol: UDP
+  dnstcp:
+    enabled: true
+    port: 5053
+    nodePort: null
+    protocol: TCP
   metrics:
     enabled: false
     port: 49312
