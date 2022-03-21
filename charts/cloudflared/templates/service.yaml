@@ -15,15 +15,26 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    {{- range $key, $val := .Values.ports }}
-    {{- if $val.enabled }}
-    - name: {{ $key | quote }}
-      port: {{ $val.port }}
-      targetPort: 5053
-      {{- if and (eq $.Values.service.type "NodePort") $val.nodePort }}
-      nodePort: {{ $val.nodePort }}
+    {{- with .Values.ports.dns }}
+    {{- if .enabled }}
+    - name: dns
+      port: {{ .port }}
+      targetPort: dns
+      {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
+      nodePort: {{ .nodePort }}
       {{- end }}
-      protocol: {{ default "TCP" $val.protocol | quote }}
+      protocol: {{ default "TCP" .protocol | quote }}
+    {{- end }}
+    {{- end }}
+    {{- with .Values.ports.metrics }}
+    {{- if .enabled }}
+    - name: metrics
+      port: {{ .port }}
+      targetPort: metrics
+      {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
+      nodePort: {{ .nodePort }}
+      {{- end }}
+      protocol: {{ default "TCP" .protocol | quote }}
     {{- end }}
     {{- end }}
   selector:

@@ -38,15 +38,19 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            {{- if .Values.ports.dns.enabled }}
-            - name: "dns"
+            {{- with .Values.ports.dns }}
+            {{- if .enabled }}
+            - name: dns
               containerPort: 5053
-              protocol: {{ default "TCP" .Values.ports.dns.protocol | quote }}
+              protocol: {{ default "TCP" .protocol | quote }}
             {{- end }}
-            {{- if .Values.ports.metrics.enabled }}
-            - name: "metrics"
+            {{- end }}
+            {{- with .Values.ports.metrics }}
+            {{- if .enabled }}
+            - name: metrics
               containerPort: 49312
-              protocol: "TCP"
+              protocol: {{ default "TCP" .protocol | quote }}
+            {{- end }}
             {{- end }}
           env:
             {{- range $i, $val := .Values.env }}
