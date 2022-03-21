@@ -4,5 +4,15 @@
   "files": ["README.md"],
   "commit": false,
   "commitConvention": "angular",
-  "contributors": []
+  "contributors": [
+    {
+      "login": "johanneskastl",
+      "name": "Johannes Kastl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26167225?v=4",
+      "profile": "https://www.b1-systems.de",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
 }
