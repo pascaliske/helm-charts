@@ -40,16 +40,19 @@ spec:
           ports:
             {{- with .Values.ports.dns }}
             {{- if .enabled }}
-            - name: dns
+            - name: dns-udp
               containerPort: 5053
-              protocol: {{ default "TCP" .protocol | quote }}
+              protocol: UDP
+            - name: dns-tcp
+              containerPort: 5053
+              protocol: TCP
             {{- end }}
             {{- end }}
             {{- with .Values.ports.metrics }}
             {{- if .enabled }}
             - name: metrics
               containerPort: 49312
-              protocol: {{ default "TCP" .protocol | quote }}
+              protocol: TCP
             {{- end }}
             {{- end }}
           env:

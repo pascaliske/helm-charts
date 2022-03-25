@@ -59,11 +59,9 @@ The following values can be used to adjust the helm chart.
 | ports.dns.enabled | bool | `true` |  |
 | ports.dns.nodePort | string | `nil` |  |
 | ports.dns.port | int | `5053` |  |
-| ports.dns.protocol | string | `"UDP"` |  |
 | ports.metrics.enabled | bool | `false` |  |
 | ports.metrics.nodePort | string | `nil` |  |
 | ports.metrics.port | int | `49312` |  |
-| ports.metrics.protocol | string | `"TCP"` |  |
 | resources | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.enabled | bool | `true` |  |

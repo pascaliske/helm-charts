@@ -1,8 +1,8 @@
-{{- if .Values.service.enabled -}}
+{{- if and .Values.service.enabled .Values.ports.metrics.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "cloudflared.fullname" . }}
+  name: {{ printf "%s-metrics" (include "cloudflared.fullname" .) }}
   labels:
     {{- include "cloudflared.labels" . | nindent 4 }}
     {{- with .Values.service.labels }}
@@ -15,17 +15,6 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    {{- with .Values.ports.dns }}
-    {{- if .enabled }}
-    - name: dns
-      port: {{ .port }}
-      targetPort: dns
-      {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
-      nodePort: {{ .nodePort }}
-      {{- end }}
-      protocol: {{ default "TCP" .protocol | quote }}
-    {{- end }}
-    {{- end }}
     {{- with .Values.ports.metrics }}
     {{- if .enabled }}
     - name: metrics
@@ -34,7 +23,7 @@ spec:
       {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
       nodePort: {{ .nodePort }}
       {{- end }}
-      protocol: {{ default "TCP" .protocol | quote }}
+      protocol: TCP
     {{- end }}
     {{- end }}
   selector:

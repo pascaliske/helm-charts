@@ -1,0 +1,31 @@
+{{- if and .Values.service.enabled .Values.ports.dns.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "%s-dns-udp" (include "cloudflared.fullname" .) }}
+  labels:
+    {{- include "cloudflared.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    {{- with .Values.ports.dns }}
+    {{- if .enabled }}
+    - name: dns-udp
+      port: {{ .port }}
+      targetPort: dns-udp
+      {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
+      nodePort: {{ .nodePort }}
+      {{- end }}
+      protocol: UDP
+    {{- end }}
+    {{- end }}
+  selector:
+    {{- include "cloudflared.selectorLabels" . | nindent 4 }}
+{{- end }}
