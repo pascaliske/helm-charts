@@ -2,7 +2,7 @@
 
 > A Helm chart for cloudflared DNS over HTTPS tunnel.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![AppVersion: 2022.1.0](https://img.shields.io/badge/AppVersion-2022.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![AppVersion: 2022.3.0](https://img.shields.io/badge/AppVersion-2022.3.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/crazy-max/docker-cloudflared>
@@ -54,7 +54,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/crazy-max/cloudflared"` |  |
-| image.tag | string | `"2022.1.0"` |  |
+| image.tag | string | `"2022.3.0"` |  |
 | nameOverride | string | `""` |  |
 | ports.dns.enabled | bool | `true` |  |
 | ports.dns.nodePort | string | `nil` |  |
