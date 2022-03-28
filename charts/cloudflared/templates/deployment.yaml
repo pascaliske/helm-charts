@@ -38,29 +38,20 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            {{- with .Values.ports.dns }}
-            {{- if .enabled }}
             - name: dns-udp
               containerPort: 5053
               protocol: UDP
             - name: dns-tcp
               containerPort: 5053
               protocol: TCP
-            {{- end }}
-            {{- end }}
-            {{- with .Values.ports.metrics }}
-            {{- if .enabled }}
             - name: metrics
               containerPort: 49312
               protocol: TCP
-            {{- end }}
-            {{- end }}
           env:
             {{- range $i, $val := .Values.env }}
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- end }}
-          {{- if and .Values.ports.metrics .Values.ports.metrics.enabled }}
           livenessProbe:
             httpGet:
               path: /metrics
@@ -69,7 +60,6 @@ spec:
             httpGet:
               path: /metrics
               port: metrics
-          {{- end }}
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
