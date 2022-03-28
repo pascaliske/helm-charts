@@ -1,26 +1,26 @@
-{{- if and .Values.service.enabled .Values.ports.dns.enabled -}}
+{{- if .Values.service.dns.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ printf "%s-dns-tcp" (include "cloudflared.fullname" .) }}
   labels:
     {{- include "cloudflared.labels" . | nindent 4 }}
-    {{- with .Values.service.labels }}
+    {{- with .Values.service.dns.labels }}
     {{ toYaml . | indent 4 }}
     {{- end }}
-  {{- with .Values.service.annotations }}
+  {{- with .Values.service.dns.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.service.dns.type }}
   ports:
-    {{- with .Values.ports.dns }}
+    {{- with .Values.service.dns }}
     {{- if .enabled }}
     - name: dns-tcp
       port: {{ .port }}
       targetPort: dns-tcp
-      {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
+      {{- if and (eq $.Values.service.dns.type "NodePort") .nodePort }}
       nodePort: {{ .nodePort }}
       {{- end }}
       protocol: TCP
