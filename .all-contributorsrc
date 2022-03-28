@@ -1,9 +1,15 @@
 {
+  "repoType": "github",
+  "repoHost": "https://github.com",
   "projectOwner": "pascaliske",
   "projectName": "helm-charts",
-  "files": ["README.md"],
+  "files": [
+    "README.md"
+  ],
+  "skipCi": true,
   "commit": false,
   "commitConvention": "angular",
+  "contributorsPerLine": 7,
   "contributors": [
     {
       "login": "johanneskastl",

@@ -56,17 +56,19 @@ The following values can be used to adjust the helm chart.
 | image.repository | string | `"ghcr.io/crazy-max/cloudflared"` |  |
 | image.tag | string | `"2022.3.0"` |  |
 | nameOverride | string | `""` |  |
-| ports.dns.enabled | bool | `true` |  |
-| ports.dns.nodePort | string | `nil` |  |
-| ports.dns.port | int | `5053` |  |
-| ports.metrics.enabled | bool | `false` |  |
-| ports.metrics.nodePort | string | `nil` |  |
-| ports.metrics.port | int | `49312` |  |
 | resources | object | `{}` |  |
-| service.annotations | object | `{}` |  |
-| service.enabled | bool | `true` |  |
-| service.labels | object | `{}` |  |
-| service.type | string | `"ClusterIP"` |  |
+| service.dns.annotations | object | `{}` |  |
+| service.dns.enabled | bool | `true` |  |
+| service.dns.labels | object | `{}` |  |
+| service.dns.nodePort | string | `nil` |  |
+| service.dns.port | int | `5053` |  |
+| service.dns.type | string | `"ClusterIP"` |  |
+| service.metrics.annotations | object | `{}` |  |
+| service.metrics.enabled | bool | `false` |  |
+| service.metrics.labels | object | `{}` |  |
+| service.metrics.nodePort | string | `nil` |  |
+| service.metrics.port | int | `49312` |  |
+| service.metrics.type | string | `"ClusterIP"` |  |
 | serviceAccount.name | string | `""` |  |
 
 ## Maintainers
