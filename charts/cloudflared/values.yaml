@@ -19,26 +19,26 @@ deployment:
   labels: {}
 
 service:
-  enabled: true
-  type: ClusterIP
-  annotations: {}
-  labels: {}
+  dns:
+    enabled: true
+    type: ClusterIP
+    port: 5053
+    nodePort: null
+    annotations: {}
+    labels: {}
+  metrics:
+    enabled: false
+    type: ClusterIP
+    port: 49312
+    nodePort: null
+    annotations: {}
+    labels: {}
 
 env:
   - name: TZ
     value: UTC
   - name: TUNNEL_DNS_UPSTREAM
     value: https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
-
-ports:
-  dns:
-    enabled: true
-    port: 5053
-    nodePort: null
-  metrics:
-    enabled: false
-    port: 49312
-    nodePort: null
 
 serviceAccount:
   name: ''
