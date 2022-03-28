@@ -1,4 +1,4 @@
-{{- if and .Values.service.enabled .Values.ports.metrics.enabled -}}
+{{- if and .Values.service.metrics.enabled -}}
 apiVersion: v1
 kind: Pod
 metadata:
@@ -12,6 +12,6 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "cloudflared.fullname" . }}:{{ .Values.ports.metrics.port }}']
+      args: ['{{ include "cloudflared.fullname" . }}:{{ .Values.service.metrics.port }}']
   restartPolicy: Never
 {{- end }}
