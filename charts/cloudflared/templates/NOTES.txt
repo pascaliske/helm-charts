@@ -5,7 +5,7 @@
   echo $NODE_IP:$NODE_PORT
 {{- else if contains "LoadBalancer" .Values.service.dns.type }}
      NOTE: It may take a few minutes for the LoadBalancer IP to be available.
-           You can watch the status of by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "cloudflared.fullname" . }}'
+           You can watch the status of e.g the UDP service by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "cloudflared.fullname" . }}-dns-udp'
   export SERVICE_IP_UDP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "cloudflared.fullname" . }}-dns-udp --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
   export SERVICE_IP_TCP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "cloudflared.fullname" . }}-dns-tcp --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
   echo "DNS via TCP: $SERVICE_IP_TCP:{{ .Values.service.dns.port }}"
