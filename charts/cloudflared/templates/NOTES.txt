@@ -8,8 +8,8 @@
            You can watch the status of by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "cloudflared.fullname" . }}'
   export SERVICE_IP_UDP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "cloudflared.fullname" . }}-dns-udp )
   export SERVICE_IP_TCP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "cloudflared.fullname" . }}-dns-tcp )
-  echo "DNS via TCP: $SERVICE_IP_TCP:{{ .Values.ports.dns.port }}"
-  echo "DNS via UDP: $SERVICE_IP_UDP:{{ .Values.ports.dns.port }}"
+  echo "DNS via TCP: $SERVICE_IP_TCP:{{ .Values.service.dns.port }}"
+  echo "DNS via UDP: $SERVICE_IP_UDP:{{ .Values.service.dns.port }}"
 {{- else if contains "ClusterIP" .Values.service.dns.type }}
   export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "cloudflared.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
   export CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
