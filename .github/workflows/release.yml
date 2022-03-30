@@ -36,17 +36,3 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-
-      # create pages for docs
-      - name: Create pages for docs
-        run: |
-          echo "---\nhide:\n  - navigation\n---\n" > docs/home.md
-          cat README.md >> docs/home.md
-          echo "---\nhide:\n  - navigation\n---\n" > docs/LICENSE.md
-          cat LICENSE.md >> docs/LICENSE.md
-          for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
-
-      # deploy docs
-      - uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
