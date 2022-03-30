@@ -49,6 +49,11 @@ jobs:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CR_SKIP_EXISTING: "true"
 
+      # copy chart index to docs folder
+      - name: Copy chart index to docs folder
+        run: |
+          cp -f .cr-index/index.yaml docs/index.yaml
+
       # deploy docs
       - uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
         env:
