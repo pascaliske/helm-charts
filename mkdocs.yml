@@ -39,7 +39,7 @@ theme:
 
 # navigation
 nav:
-  - Home: home.md
+  - Home: index.md
   - Charts:
       - cloudflare-dyndns: charts/cloudflare-dyndns.md
       - cloudflared: charts/cloudflared.md
