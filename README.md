@@ -4,9 +4,11 @@
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/pascaliske&style=flat-square)](https://artifacthub.io/packages/search?repo=pascaliske) [![Test Status](https://img.shields.io/github/workflow/status/pascaliske/helm-charts/Test%20Charts/master?label=test&style=flat-square)](https://github.com/pascaliske/helm-charts/actions/workflows/test.yml) [![Build Status](https://img.shields.io/github/workflow/status/pascaliske/helm-charts/Release%20Charts/master?label=build&style=flat-square)](https://github.com/pascaliske/helm-charts/actions/workflows/release.yml) ![GitHub Last Release](https://img.shields.io/github/release-date/pascaliske/helm-charts?label=last%20release&style=flat-square) [![GitHub Last Commit](https://img.shields.io/github/last-commit/pascaliske/helm-charts?style=flat-square)](https://github.com/pascaliske/helm-charts) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT) [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg?color=blue&style=flat-square)](https://github.com/Naereen/badges)
 
+<!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+<!-- prettier-ignore-end -->
 
 ## Usage
 
@@ -32,21 +34,21 @@ helm delete <chart>
 
 ## Charts
 
-| Chart                                                                                                     | Version |     AppVersion     |
-| --------------------------------------------------------------------------------------------------------- | :-----: | :----------------: |
-| [`cloudflare-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)     | `0.0.2` |      `0.0.2`       |
-| [`cloudflared`](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)                 | `1.2.0` |     `2022.3.0`     |
-| [`code-server`](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)                 | `0.1.1` |      `v4.0.2`      |
-| [`digitalocean-dyndns`](https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns) | `0.2.0` |      `0.0.1`       |
-| [`fritzbox-exporter`](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)     | `1.0.1` |       `1.0`        |
-| [`gitlab`](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)                           | `0.2.4` |   `14.7.2-ce.0`    |
-| [`linkding`](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)                       | `0.0.1` |      `1.8.4`       |
-| [`paperless`](https://github.com/pascaliske/helm-charts/tree/master/charts/paperless)                     | `0.1.1` |      `1.6.0`       |
-| [`prometheus`](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)                   | `1.2.0` |     `v2.33.1`      |
-| [`redis`](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)                             | `0.0.2` |      `6.2.6`       |
-| [`snapdrop`](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)                       | `0.0.1` | `version-78a8b167` |
-| [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)           | `1.0.2` |      `1.0.1`       |
-| [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)                 | `0.0.5` |      `1.10.2`      |
+| Chart                                                                             | Version |     AppVersion     |
+| --------------------------------------------------------------------------------- | :-----: | :----------------: |
+| [`cloudflare-dyndns`](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)    | `0.0.2` |      `0.0.2`       |
+| [`cloudflared`](https://charts.pascaliske.dev/charts/cloudflared)                 | `1.2.0` |     `2022.3.0`     |
+| [`code-server`](https://charts.pascaliske.dev/charts/code-server)                 | `0.1.1` |      `v4.0.2`      |
+| [`digitalocean-dyndns`](https://charts.pascaliske.dev/charts/digitalocean-dyndns) | `0.2.0` |      `0.0.1`       |
+| [`fritzbox-exporter`](https://charts.pascaliske.dev/charts/fritzbox-exporter)     | `1.0.1` |       `1.0`        |
+| [`gitlab`](https://charts.pascaliske.dev/charts/gitlab)                           | `0.2.4` |   `14.7.2-ce.0`    |
+| [`linkding`](https://charts.pascaliske.dev/charts/linkding)                       | `0.0.1` |      `1.8.4`       |
+| [`paperless`](https://charts.pascaliske.dev/charts/paperless)                     | `0.1.1` |      `1.6.0`       |
+| [`prometheus`](https://charts.pascaliske.dev/charts/prometheus)                   | `1.2.0` |     `v2.33.1`      |
+| [`redis`](https://charts.pascaliske.dev/charts/redis)                             | `0.0.2` |      `6.2.6`       |
+| [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)                       | `0.0.1` | `version-78a8b167` |
+| [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)           | `1.0.2` |      `1.0.1`       |
+| [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)                 | `0.0.5` |      `1.10.2`      |
 
 ## Contributors
 
