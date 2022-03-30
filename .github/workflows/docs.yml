@@ -29,21 +29,27 @@ jobs:
       # create pages for docs
       - name: Create pages for docs
         run: |
-          echo "---\nhide:\n  - navigation\n---\n" > docs/index.md
+          echo "---" >> docs/index.md
+          echo "hide:" >> docs/index.md
+          echo "  - navigation" >> docs/index.md
+          echo "---\n" >> docs/index.md
           cat README.md >> docs/index.md
-          echo "---\nhide:\n  - navigation\n---\n" > docs/LICENSE.md
+
+          echo "---" >> docs/LICENSE.md
+          echo "hide:" >> docs/LICENSE.md
+          echo "  - navigation" >> docs/LICENSE.md
+          echo "---\n" >> docs/LICENSE.md
           cat LICENSE.md >> docs/LICENSE.md
+
           for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
+
+      # deploy charts
+      - uses: helm/chart-releaser-action@v1.3.0
+        env:
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CR_SKIP_EXISTING: "true"
 
       # deploy docs
       - uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # deploy charts
-      - uses: helm/chart-releaser-action@v1.3.0
-        with:
-          charts_repo_url: ${{ secrets.REPO_URL }}
-        env:
-          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CR_SKIP_EXISTING: "true"
