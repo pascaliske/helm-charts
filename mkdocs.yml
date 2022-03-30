@@ -11,6 +11,7 @@ repo_url: https://github.com/pascaliske/helm-charts
 # theme
 theme:
   name: material
+  language: en
   palette:
     - scheme: default
       media: "(prefers-color-scheme: light)"
@@ -29,13 +30,14 @@ theme:
     code: Source Code Pro
   icon:
     repo: fontawesome/brands/github
-  language: en
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
     - navigation.top
+    - content.code.annotate
+    - content.tabs.link
 
 # navigation
 nav:
@@ -55,7 +57,7 @@ nav:
       - traefik-errors: charts/traefik-errors.md
       - uptime-kuma: charts/uptime-kuma.md
 
-
+# socials
 extra:
   social:
     - icon: fontawesome/brands/twitter
