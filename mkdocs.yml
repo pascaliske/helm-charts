@@ -68,3 +68,7 @@ extra:
       link: https://github.com/pascaliske
     - icon: fontawesome/brands/docker
       link: https://hub.docker.com/u/pascaliske
+
+# customizations
+extra_css:
+  - styles/custom.css
