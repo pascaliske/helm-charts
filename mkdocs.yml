@@ -1,0 +1,66 @@
+# project
+site_name: Helm Charts
+site_description: Another repository with lightweight Helm Charts.
+site_author: Pascal Iske
+site_url: https://charts.pascaliske.dev
+
+# repository
+repo_name: pascaliske/helm-charts
+repo_url: https://github.com/pascaliske/helm-charts
+
+# theme
+theme:
+  name: material
+  palette:
+    - scheme: default
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      primary: lime
+      accent: lime
+      media: "(prefers-color-scheme: dark)"
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  font:
+    text: Lato
+    code: Source Code Pro
+  icon:
+    repo: fontawesome/brands/github
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+
+# navigation
+nav:
+  - Home: home.md
+  - Charts:
+      - cloudflare-dyndns: charts/cloudflare-dyndns.md
+      - cloudflared: charts/cloudflared.md
+      - code-server: charts/code-server.md
+      - digitalocean-dyndns: charts/digitalocean-dyndns.md
+      - fritzbox-exporter: charts/fritzbox-exporter.md
+      - gitlab: charts/gitlab.md
+      - linkding: charts/linkding.md
+      - paperless: charts/paperless.md
+      - prometheus: charts/prometheus.md
+      - redis: charts/redis.md
+      - snapdrop: charts/snapdrop.md
+      - traefik-errors: charts/traefik-errors.md
+      - uptime-kuma: charts/uptime-kuma.md
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/pascaliske
+    - icon: fontawesome/brands/github
+      link: https://github.com/pascaliske
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/pascaliske

@@ -13,54 +13,40 @@ jobs:
     name: Release Charts
     runs-on: ubuntu-latest
     steps:
-      # prepare
-      - name: Checkout
-        uses: actions/checkout@v3
+      # checkout
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
+      # setup helm
+      - uses: azure/setup-helm@v1
+        with:
+          version: v3.4.0
+
+      # configure git
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.4.0
-
-      # save readme
-      - name: Check file changes
-        id: changes
-        run: |
-          echo ::set-output name=path::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
-      - name: Save README.md in temporary file
-        if: Contains(steps.changes.outputs.path, 'README.md')
-        run: |
-          cp -f README.md ${{ runner.temp }}/README.md
-
-      # release chart
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.3.0
+      # release charts
+      - uses: helm/chart-releaser-action@v1.3.0
         with:
           charts_repo_url: "${{ secrets.REPO_URL }}"
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SKIP_EXISTING: "true"
 
-      # sync readme with docs branch
-      - name: Checkout
-        if: Contains(steps.changes.outputs.path, 'README.md')
-        uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-
-      - name: Sync README.md
-        if: Contains(steps.changes.outputs.path, 'README.md')
+      # create pages for docs
+      - name: Create pages for docs
         run: |
-          cp -f ${{ runner.temp }}/README.md .
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git add README.md
-          git commit --signoff -m "docs(readme): sync with master"
-          git push
+          echo "---\nhide:\n  - navigation\n---\n" > docs/home.md
+          cat README.md >> docs/home.md
+          echo "---\nhide:\n  - navigation\n---\n" > docs/LICENSE.md
+          cat LICENSE.md >> docs/LICENSE.md
+          for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
+
+      # deploy docs
+      - uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
