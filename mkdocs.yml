@@ -11,6 +11,8 @@ repo_url: https://github.com/pascaliske/helm-charts
 # theme
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.png
   language: en
   palette:
     - scheme: default
