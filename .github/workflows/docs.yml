@@ -32,13 +32,13 @@ jobs:
           echo "---" > docs/index.md
           echo "hide:" >> docs/index.md
           echo "  - navigation" >> docs/index.md
-          echo "---\n" >> docs/index.md
+          echo "---" >> docs/index.md
           cat README.md >> docs/index.md
 
           echo "---" > docs/LICENSE.md
           echo "hide:" >> docs/LICENSE.md
           echo "  - navigation" >> docs/LICENSE.md
-          echo "---\n" >> docs/LICENSE.md
+          echo "---" >> docs/LICENSE.md
           cat LICENSE.md >> docs/LICENSE.md
 
           for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
