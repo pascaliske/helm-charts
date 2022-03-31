@@ -39,37 +39,35 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| deployment.annotations | object | `{}` |  |
-| deployment.enabled | bool | `true` |  |
-| deployment.kind | string | `"Deployment"` |  |
-| deployment.labels | object | `{}` |  |
-| deployment.replicas | int | `1` |  |
-| deployment.strategy.rollingUpdate.maxSurge | int | `1` |  |
-| deployment.strategy.rollingUpdate.maxUnavailable | int | `0` |  |
-| deployment.strategy.type | string | `"RollingUpdate"` |  |
-| env[0].name | string | `"TZ"` |  |
-| env[0].value | string | `"UTC"` |  |
-| env[1].name | string | `"TUNNEL_DNS_UPSTREAM"` |  |
-| env[1].value | string | `"https://1.1.1.1/dns-query,https://1.0.0.1/dns-query"` |  |
+| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
+| deployment.enabled | bool | `true` | Create a workload for this chart. |
+| deployment.kind | string | `"Deployment"` | Type of the workload object. |
+| deployment.labels | object | `{}` | Additional labels for the deployment object. |
+| deployment.replicas | int | `1` | The number of replicas. |
+| deployment.strategy.rollingUpdate.maxSurge | int | `1` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
+| deployment.strategy.rollingUpdate.maxUnavailable | int | `0` | Specifies the maximum number of Pods that can be unavailable during the update process. |
+| deployment.strategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
+| env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| env[1] | object | `{"name":"TUNNEL_DNS_UPSTREAM","value":"https://1.1.1.1/dns-query,https://1.0.0.1/dns-query"}` | Upstream DNS provider used for the DNS-over-HTTPS tunnel. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/crazy-max/cloudflared"` |  |
-| image.tag | string | `"2022.3.4"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.repository | string | `"ghcr.io/crazy-max/cloudflared"` | The repository to pull the image from. |
+| image.tag | string | `"2022.3.4"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
-| resources | object | `{}` |  |
-| service.dns.annotations | object | `{}` |  |
-| service.dns.enabled | bool | `true` |  |
-| service.dns.labels | object | `{}` |  |
-| service.dns.nodePort | string | `nil` |  |
-| service.dns.port | int | `5053` |  |
-| service.dns.type | string | `"ClusterIP"` |  |
-| service.metrics.annotations | object | `{}` |  |
-| service.metrics.enabled | bool | `false` |  |
-| service.metrics.labels | object | `{}` |  |
-| service.metrics.nodePort | string | `nil` |  |
-| service.metrics.port | int | `49312` |  |
-| service.metrics.type | string | `"ClusterIP"` |  |
-| serviceAccount.name | string | `""` |  |
+| resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| service.dns.annotations | object | `{}` | Additional annotations for the service object. |
+| service.dns.enabled | bool | `true` | Create a service for DNS endpoints. |
+| service.dns.labels | object | `{}` | Additional labels for the service object. |
+| service.dns.nodePort | string | `nil` | If the service is NodePort, specify a node port value here. |
+| service.dns.port | int | `5053` | The service port used. |
+| service.dns.type | string | `"ClusterIP"` | The service type used. |
+| service.metrics.annotations | object | `{}` | Additional annotations for the service object. |
+| service.metrics.enabled | bool | `false` | Create a service for the metrics endpoint. |
+| service.metrics.labels | object | `{}` | Additional labels for the service object. |
+| service.metrics.nodePort | string | `nil` | If the service is NodePort, specify a node port value here. |
+| service.metrics.port | int | `49312` | The service port used. |
+| service.metrics.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
 
 ## Maintainers
 

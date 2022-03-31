@@ -1,48 +1,75 @@
 image:
+  # -- The repository to pull the image from.
   repository: ghcr.io/crazy-max/cloudflared
+  # -- The docker tag, if left empty chart's appVersion will be used.
   tag: 2022.3.4
+  # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
 deployment:
+  # -- Create a workload for this chart.
   enabled: true
+  # -- Type of the workload object.
   kind: Deployment
+  # -- The number of replicas.
   replicas: 1
   strategy:
+    # -- Strategy used to replace old pods.
     type: RollingUpdate
     rollingUpdate:
+      # -- Specifies the maximum number of Pods that can be created over the desired number of Pods.
       maxSurge: 1
+      # -- Specifies the maximum number of Pods that can be unavailable during the update process.
       maxUnavailable: 0
+  # -- Additional annotations for the deployment object.
   annotations: {}
+  # -- Additional labels for the deployment object.
   labels: {}
 
 service:
   dns:
+    # -- Create a service for DNS endpoints.
     enabled: true
+    # -- The service type used.
     type: ClusterIP
+    # -- The service port used.
     port: 5053
+    # -- If the service is NodePort, specify a node port value here.
     nodePort: null
+    # -- Additional annotations for the service object.
     annotations: {}
+    # -- Additional labels for the service object.
     labels: {}
   metrics:
+    # -- Create a service for the metrics endpoint.
     enabled: false
+    # -- The service type used.
     type: ClusterIP
+    # -- The service port used.
     port: 49312
+    # -- If the service is NodePort, specify a node port value here.
     nodePort: null
+    # -- Additional annotations for the service object.
     annotations: {}
+    # -- Additional labels for the service object.
     labels: {}
 
 env:
+  # -- Timezone for the container.
   - name: TZ
     value: UTC
+  # -- Upstream DNS provider used for the DNS-over-HTTPS tunnel.
   - name: TUNNEL_DNS_UPSTREAM
     value: https://1.1.1.1/dns-query,https://1.0.0.1/dns-query
 
 serviceAccount:
+  # -- Specify the service account used for the deployment.
   name: ''
 
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # requests:
   #   cpu: 100m
