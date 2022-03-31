@@ -44,7 +44,7 @@ jobs:
           for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
 
       # deploy charts
-      - uses: helm/chart-releaser-action@v1.3.0
+      - uses: helm/chart-releaser-action@v1.4.0
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CR_SKIP_EXISTING: "true"
