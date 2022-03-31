@@ -39,28 +39,26 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| cronJob.annotations | object | `{}` |  |
-| cronJob.enabled | bool | `true` |  |
-| cronJob.failedJobsHistoryLimit | int | `1` |  |
-| cronJob.labels | object | `{}` |  |
-| cronJob.schedule | string | `"30 * * * *"` |  |
-| cronJob.successfulJobsHistoryLimit | int | `3` |  |
-| cronJob.suspend | bool | `false` |  |
-| env[0].name | string | `"TZ"` |  |
-| env[0].value | string | `"UTC"` |  |
-| env[1].name | string | `"IP_SERVICE"` |  |
-| env[1].value | string | `"ifconfig.co"` |  |
+| cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
+| cronJob.enabled | bool | `true` | Create a cron job to update the DNS zone. |
+| cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
+| cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
+| cronJob.schedule | string | `"30 * * * *"` | Update schedule for the cron job. |
+| cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
+| cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
+| env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| env[1] | object | `{"name":"IP_SERVICE","value":"ifconfig.co"}` | The IP service used to determine the current public IP. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/pascaliske/cloudflare-dyndns"` |  |
-| image.tag | string | `"0.0.2"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.repository | string | `"ghcr.io/pascaliske/cloudflare-dyndns"` | The repository to pull the image from. |
+| image.tag | string | `"0.0.2"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
-| resources | object | `{}` |  |
-| secret.annotations | object | `{}` |  |
-| secret.create | bool | `true` |  |
-| secret.existingSecret | string | `""` |  |
-| secret.labels | object | `{}` |  |
-| secret.token | string | `""` |  |
+| resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| secret.annotations | object | `{}` | Additional annotations for the secret object. |
+| secret.create | bool | `true` | Create a new secret containing the token. |
+| secret.existingSecret | string | `""` | Use an existing secret to store the token. |
+| secret.labels | object | `{}` | Additional labels for the secret object. |
+| secret.token | string | `""` | Token used when not using an existing secret |
 
 ## Maintainers
 
