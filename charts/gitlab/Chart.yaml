@@ -3,7 +3,7 @@ type: application
 name: gitlab
 description: A Helm chart for GitLab Omnibus
 version: 0.2.4
-appVersion: "14.7.2-ce.0"
+appVersion: "14.9.1-ce.0"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
 sources:

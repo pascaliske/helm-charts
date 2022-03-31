@@ -3,7 +3,7 @@ type: application
 name: linkding
 description: A Helm chart for linkding
 version: 0.0.1
-appVersion: "1.8.4"
+appVersion: "1.8.8"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
 sources:

@@ -1,6 +1,6 @@
 image:
   repository: sissbruecker/linkding
-  tag: 1.8.4
+  tag: 1.8.8
   pullPolicy: IfNotPresent
 
 nameOverride: ''

@@ -3,7 +3,7 @@ type: application
 name: digitalocean-dyndns
 description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
 version: 0.2.0
-appVersion: "0.0.1"
+appVersion: "0.0.2"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns
 sources:

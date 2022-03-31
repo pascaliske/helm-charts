@@ -1,6 +1,6 @@
 image:
   repository: gitlab/gitlab-ce
-  tag: 14.7.2-ce.0
+  tag: 14.9.1-ce.0
   pullPolicy: IfNotPresent
 
 nameOverride: ''

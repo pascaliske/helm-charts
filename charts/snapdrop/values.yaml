@@ -1,6 +1,6 @@
 image:
-  repository: linuxserver/snapdrop
-  tag: version-78a8b167
+  repository: ghcr.io/linuxserver/snapdrop
+  tag: version-724f0af5
   pullPolicy: IfNotPresent
 
 nameOverride: ''

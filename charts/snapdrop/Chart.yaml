@@ -3,7 +3,7 @@ type: application
 name: snapdrop
 description: A Helm chart for snapdrop
 version: 0.0.1
-appVersion: "version-78a8b167"
+appVersion: "version-724f0af5"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop
 sources:

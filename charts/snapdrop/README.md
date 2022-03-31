@@ -2,7 +2,7 @@
 
 > A Helm chart for snapdrop
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![AppVersion: version-78a8b167](https://img.shields.io/badge/AppVersion-version--78a8b167-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/linuxserver/docker-snapdrop>
@@ -53,8 +53,8 @@ The following values can be used to adjust the helm chart.
 | env[2].value | int | `1000` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/snapdrop"` |  |
-| image.tag | string | `"version-78a8b167"` |  |
+| image.repository | string | `"ghcr.io/linuxserver/snapdrop"` |  |
+| image.tag | string | `"version-724f0af5"` |  |
 | nameOverride | string | `""` |  |
 | ports.http.enabled | bool | `true` |  |
 | ports.http.nodePort | string | `nil` |  |

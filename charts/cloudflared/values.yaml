@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/crazy-max/cloudflared
-  tag: 2022.3.0
+  tag: 2022.3.4
   pullPolicy: IfNotPresent
 
 nameOverride: ''
