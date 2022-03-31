@@ -52,7 +52,7 @@ jobs:
       # copy chart index to docs folder
       - name: Copy chart index to docs folder
         run: |
-          cp -f .cr-index/index.yaml docs/index.yaml
+          cp -f .cr-index/index.yaml docs/index.yaml || curl https://${{ secrets.PROD_DOMAIN }}/index.yaml --output docs/index.yaml
 
       # deploy docs
       - uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
