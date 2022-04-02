@@ -58,7 +58,7 @@ The following values can be used to adjust the helm chart.
 | secret.create | bool | `true` | Create a new secret containing the token. |
 | secret.existingSecret | string | `""` | Use an existing secret to store the token. |
 | secret.labels | object | `{}` | Additional labels for the secret object. |
-| secret.token | string | `""` | Token used when not using an existing secret |
+| secret.token | string | `""` | Token used when not using an existing secret. |
 
 ## Maintainers
 

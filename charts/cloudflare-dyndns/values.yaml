@@ -42,7 +42,7 @@ secret:
   create: true
   # -- Use an existing secret to store the token.
   existingSecret: ''
-  # -- Token used when not using an existing secret
+  # -- Token used when not using an existing secret.
   token: ''
   # -- Additional annotations for the secret object.
   annotations: {}
