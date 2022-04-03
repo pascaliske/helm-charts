@@ -39,27 +39,26 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| deployment.annotations | object | `{}` |  |
-| deployment.enabled | bool | `true` |  |
-| deployment.kind | string | `"Deployment"` |  |
-| deployment.labels | object | `{}` |  |
-| deployment.replicas | int | `1` |  |
-| env[0].name | string | `"TZ"` |  |
-| env[0].value | string | `"UTC"` |  |
+| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
+| deployment.enabled | bool | `true` | Create a workload for this chart. |
+| deployment.kind | string | `"Deployment"` | Type of the workload object. |
+| deployment.labels | object | `{}` | Additional labels for the deployment object. |
+| deployment.replicas | int | `1` | The number of replicas. |
+| env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/pascaliske/traefik-errors"` |  |
-| image.tag | string | `"1.0.3"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.repository | string | `"ghcr.io/pascaliske/traefik-errors"` | The repository to pull the image from. |
+| image.tag | string | `"1.0.3"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
-| ports.http.enabled | bool | `true` |  |
-| ports.http.port | int | `8080` |  |
-| ports.http.protocol | string | `"TCP"` |  |
-| resources | object | `{}` |  |
-| service.annotations | object | `{}` |  |
-| service.enabled | bool | `true` |  |
-| service.labels | object | `{}` |  |
-| service.type | string | `"ClusterIP"` |  |
-| serviceAccount.name | string | `""` |  |
+| ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
+| ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| service.annotations | object | `{}` | Additional annotations for the service object. |
+| service.enabled | bool | `true` | Create a service for exposing this chart. |
+| service.labels | object | `{}` | Additional labels for the service object. |
+| service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
 
 ## Maintainers
 
