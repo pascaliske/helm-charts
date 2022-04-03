@@ -39,52 +39,48 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| configMap.annotations | object | `{}` |  |
-| configMap.config | object | `{}` |  |
-| configMap.create | bool | `true` |  |
-| configMap.existingConfigMap | string | `""` |  |
-| configMap.labels | object | `{}` |  |
-| configMap.mountPath | string | `"/etc/code-server"` |  |
-| deployment.annotations | object | `{}` |  |
-| deployment.enabled | bool | `true` |  |
-| deployment.kind | string | `"Deployment"` |  |
-| deployment.labels | object | `{}` |  |
-| deployment.replicas | int | `1` |  |
-| env[0].name | string | `"TZ"` |  |
-| env[0].value | string | `"UTC"` |  |
-| extraArgs | list | `[]` |  |
+| configMap.annotations | object | `{}` | Additional annotations for the config map object. |
+| configMap.config | object | `{}` | Map containing the [configuration of code-server](https://coder.com/docs/code-server/latest/guide). |
+| configMap.create | bool | `true` | Create a new config map object. |
+| configMap.existingConfigMap | string | `""` | Use an existing config map object. |
+| configMap.labels | object | `{}` | Additional labels for the config map object. |
+| configMap.mountPath | string | `"/etc/code-server"` | Mount path of the config map object. |
+| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
+| deployment.enabled | bool | `true` | Create a workload for this chart. |
+| deployment.kind | string | `"Deployment"` | Type of the workload object. |
+| deployment.labels | object | `{}` | Additional labels for the deployment object. |
+| deployment.replicas | int | `1` | The number of replicas. |
+| env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| extraArgs | list | `[]` | List of extra arguments for the container. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"codercom/code-server"` |  |
-| image.tag | string | `"v4.2.0"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.repository | string | `"codercom/code-server"` | The repository to pull the image from. |
+| image.tag | string | `"v4.2.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
-| persistentVolumeClaim.annotations | object | `{}` |  |
-| persistentVolumeClaim.create | bool | `true` |  |
-| persistentVolumeClaim.ensurePermissions | bool | `true` |  |
-| persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` |  |
-| persistentVolumeClaim.labels | object | `{}` |  |
-| persistentVolumeClaim.mountPath | string | `"/home/coder"` |  |
-| persistentVolumeClaim.projectsPath | string | `"/home/coder/projects"` |  |
-| ports.http.enabled | bool | `true` |  |
-| ports.http.nodePort | string | `nil` |  |
-| ports.http.port | int | `8080` |  |
-| ports.http.protocol | string | `"TCP"` |  |
-| repositories | list | `[]` |  |
-| resources | object | `{}` |  |
-| secret.annotations | object | `{}` |  |
-| secret.create | bool | `true` |  |
-| secret.existingSecret | string | `""` |  |
-| secret.labels | object | `{}` |  |
-| secret.password | string | `""` |  |
-| securityContext.fsGroup | int | `1000` |  |
-| securityContext.runAsGroup | int | `1000` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
-| securityContext.runAsUser | int | `1000` |  |
-| service.annotations | object | `{}` |  |
-| service.enabled | bool | `true` |  |
-| service.labels | object | `{}` |  |
-| service.type | string | `"ClusterIP"` |  |
-| serviceAccount.name | string | `""` |  |
+| persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
+| persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
+| persistentVolumeClaim.ensurePermissions | bool | `true` | Manage permissions automatically. |
+| persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` | Use an existing persistent volume claim object. |
+| persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
+| persistentVolumeClaim.mountPath | string | `"/home/coder"` | Mount path of the persistent volume claim object. |
+| persistentVolumeClaim.projectsPath | string | `"/home/coder/projects"` | Project folder inside the persistent volume claim object. |
+| ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
+| ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
+| ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| repositories | list | `[]` | List of repositories to be cloned / updated automatically. |
+| resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| secret.annotations | object | `{}` | Additional annotations for the secret object. |
+| secret.create | bool | `true` | Create a new secret containing the password. |
+| secret.existingSecret | string | `""` | Use an existing secret to store the password. |
+| secret.labels | object | `{}` | Additional labels for the secret object. |
+| secret.password | string | `""` | Password used when not using an existing secret. |
+| securityContext | object | `{"fsGroup":1000,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| service.annotations | object | `{}` | Additional annotations for the service object. |
+| service.enabled | bool | `true` | Create a service for exposing this chart. |
+| service.labels | object | `{}` | Additional labels for the service object. |
+| service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
 
 ## Maintainers
 

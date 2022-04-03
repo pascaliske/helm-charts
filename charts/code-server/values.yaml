@@ -1,77 +1,115 @@
 image:
+  # -- The repository to pull the image from.
   repository: codercom/code-server
+  # -- The docker tag, if left empty chart's appVersion will be used.
   tag: v4.2.0
+  # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
 deployment:
+  # -- Create a workload for this chart.
   enabled: true
+  # -- Type of the workload object.
   kind: Deployment
+  # -- The number of replicas.
   replicas: 1
+  # -- Additional annotations for the deployment object.
   annotations: {}
+  # -- Additional labels for the deployment object.
   labels: {}
 
 service:
+  # -- Create a service for exposing this chart.
   enabled: true
+  # -- The service type used.
   type: ClusterIP
+  # -- Additional annotations for the service object.
   annotations: {}
+  # -- Additional labels for the service object.
   labels: {}
 
 env:
+  # -- Timezone for the container.
   - name: TZ
     value: UTC
 
+# -- List of extra arguments for the container.
 extraArgs: []
   # - --disable-telemetry
 
 ports:
   http:
+    # -- Enable the port inside the `Deployment` and `Service` objects.
     enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 8080
+    # -- The external port used if `.service.type` == `NodePort`.
     nodePort: null
+    # -- The protocol used for the service.
     protocol: TCP
 
 configMap:
+  # -- Create a new config map object.
   create: true
+  # -- Mount path of the config map object.
   mountPath: /etc/code-server
+  # -- Use an existing config map object.
   existingConfigMap: ''
+  # -- Map containing the [configuration of code-server](https://coder.com/docs/code-server/latest/guide).
   config: {}
-    # bind-addr: 127.0.0.1:8080
-    # cert: false
+  # -- Additional annotations for the config map object.
   annotations: {}
+  # -- Additional labels for the config map object.
   labels: {}
 
 secret:
+  # -- Create a new secret containing the password.
   create: true
+  # -- Use an existing secret to store the password.
   existingSecret: ''
+  # -- Password used when not using an existing secret.
   password: ''
+  # -- Additional annotations for the secret object.
   annotations: {}
+  # -- Additional labels for the secret object.
   labels: {}
 
 persistentVolumeClaim:
+  # -- Create a new persistent volume claim object.
   create: true
+  # -- Mount path of the persistent volume claim object.
   mountPath: /home/coder
+  # -- Project folder inside the persistent volume claim object.
   projectsPath: /home/coder/projects
+  # -- Manage permissions automatically.
   ensurePermissions: true
+  # -- Use an existing persistent volume claim object.
   existingPersistentVolumeClaim: ''
+  # -- Additional annotations for the persistent volume claim object.
   annotations: {}
+  # -- Additional labels for the persistent volume claim object.
   labels: {}
 
+# -- List of repositories to be cloned / updated automatically.
 repositories: []
   # - url: https://github.com/pascaliske/helm-charts
   #   name: helm-charts
 
 serviceAccount:
+  # -- Specify the service account used for the deployment.
   name: ''
 
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext:
   fsGroup: 1000
   runAsNonRoot: true
   runAsGroup: 1000
   runAsUser: 1000
 
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # limits:
   #   cpu: 100m
