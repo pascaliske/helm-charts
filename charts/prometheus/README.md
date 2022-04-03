@@ -41,54 +41,53 @@ The following values can be used to adjust the helm chart.
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | configMap.annotations | object | `{}` |  |
-| configMap.create | bool | `true` |  |
-| configMap.existingConfigMap | string | `""` |  |
-| configMap.files | object | `{}` |  |
-| configMap.labels | object | `{}` |  |
-| configMap.mountPath | string | `"/etc/config"` |  |
-| configMapReload.enabled | bool | `true` |  |
-| configMapReload.extraArgs | list | `[]` |  |
+| configMap.create | bool | `true` | Create a new config map object. |
+| configMap.existingConfigMap | string | `""` | Use an existing config map object. |
+| configMap.files | object | `{}` | Map of prometheus configuration files as strings. |
+| configMap.labels | object | `{}` | Additional labels for the config map object. |
+| configMap.mountPath | string | `"/etc/config"` | Mount path of the config map object. |
+| configMapReload.enabled | bool | `true` | Enable automatic config map reload. |
+| configMapReload.extraArgs | list | `[]` | List of extra arguments for the config map reload container. |
 | configMapReload.extraConfigMapMounts | list | `[]` |  |
-| configMapReload.image.pullPolicy | string | `"IfNotPresent"` |  |
-| configMapReload.image.repository | string | `"jimmidyson/configmap-reload"` |  |
-| configMapReload.image.tag | string | `"v0.5.0"` |  |
+| configMapReload.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the config map reloader. |
+| configMapReload.image.repository | string | `"jimmidyson/configmap-reload"` | Image of the config map reloader. |
+| configMapReload.image.tag | string | `"v0.5.0"` | Tag of the config map reloader. |
 | configMapReload.resources | object | `{}` |  |
-| deployment.annotations | object | `{}` |  |
-| deployment.enabled | bool | `true` |  |
-| deployment.kind | string | `"Deployment"` |  |
-| deployment.labels | object | `{}` |  |
-| deployment.replicas | int | `1` |  |
-| deployment.strategy.rollingUpdate.maxSurge | int | `0` |  |
-| deployment.strategy.rollingUpdate.maxUnavailable | int | `1` |  |
-| deployment.strategy.type | string | `"RollingUpdate"` |  |
-| env[0].name | string | `"TZ"` |  |
-| env[0].value | string | `"UTC"` |  |
-| extraArgs | list | `[]` |  |
+| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
+| deployment.enabled | bool | `true` | Create a workload for this chart. |
+| deployment.kind | string | `"Deployment"` | Type of the workload object. |
+| deployment.labels | object | `{}` | Additional labels for the deployment object. |
+| deployment.replicas | int | `1` | The number of replicas. |
+| deployment.strategy.rollingUpdate.maxSurge | int | `0` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
+| deployment.strategy.rollingUpdate.maxUnavailable | int | `1` | Specifies the maximum number of Pods that can be unavailable during the update process. |
+| deployment.strategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
+| env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| extraArgs | list | `[]` | List of extra arguments for the container. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"prom/prometheus"` |  |
-| image.tag | string | `"v2.34.0"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.repository | string | `"prom/prometheus"` | The repository to pull the image from. |
+| image.tag | string | `"v2.34.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
-| persistentVolumeClaim.annotations | object | `{}` |  |
-| persistentVolumeClaim.create | bool | `true` |  |
-| persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` |  |
-| persistentVolumeClaim.labels | object | `{}` |  |
-| persistentVolumeClaim.mountPath | string | `"/prometheus"` |  |
-| ports.http.enabled | bool | `true` |  |
-| ports.http.port | int | `9090` |  |
-| rbac.annotations | object | `{}` |  |
-| rbac.create | bool | `true` |  |
-| rbac.labels | object | `{}` |  |
-| resources | object | `{}` |  |
-| securityContext | object | `{}` |  |
-| service.annotations | object | `{}` |  |
-| service.enabled | bool | `true` |  |
-| service.labels | object | `{}` |  |
-| service.type | string | `"ClusterIP"` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.labels | object | `{}` |  |
-| serviceAccount.name | string | `""` |  |
+| persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
+| persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
+| persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` | Use an existing persistent volume claim object. |
+| persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
+| persistentVolumeClaim.mountPath | string | `"/prometheus"` | Mount path of the persistent volume claim object. |
+| ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.http.port | int | `9090` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
+| rbac.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
+| rbac.create | bool | `true` | Create `Role` and `RoleBinding` objects. |
+| rbac.labels | object | `{}` | Additional labels for the role and role binding objects. |
+| resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| service.annotations | object | `{}` | Additional annotations for the service object. |
+| service.enabled | bool | `true` | Create a service for exposing this chart. |
+| service.labels | object | `{}` | Additional labels for the service object. |
+| service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.annotations | object | `{}` | Additional annotations for the service account object. |
+| serviceAccount.create | bool | `true` | Create a service account for the deployment. |
+| serviceAccount.labels | object | `{}` | Additional labels for the service account object. |
+| serviceAccount.name | string | `""` | Specify the service account name used for the deployment. |
 
 ## Maintainers
 

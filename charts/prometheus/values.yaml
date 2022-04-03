@@ -1,66 +1,98 @@
 image:
+  # -- The repository to pull the image from.
   repository: prom/prometheus
+  # -- The docker tag, if left empty chart's appVersion will be used.
   tag: v2.34.0
+  # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
 deployment:
+  # -- Create a workload for this chart.
   enabled: true
+  # -- Type of the workload object.
   kind: Deployment
+  # -- The number of replicas.
   replicas: 1
   strategy:
+    # -- Strategy used to replace old pods.
     type: RollingUpdate
     rollingUpdate:
+      # -- Specifies the maximum number of Pods that can be created over the desired number of Pods.
       maxSurge: 0
+      # -- Specifies the maximum number of Pods that can be unavailable during the update process.
       maxUnavailable: 1
+  # -- Additional annotations for the deployment object.
   annotations: {}
+  # -- Additional labels for the deployment object.
   labels: {}
 
 service:
+  # -- Create a service for exposing this chart.
   enabled: true
+  # -- The service type used.
   type: ClusterIP
+  # -- Additional annotations for the service object.
   annotations: {}
+  # -- Additional labels for the service object.
   labels: {}
 
 env:
+  # -- Timezone for the container.
   - name: TZ
     value: UTC
 
+# -- List of extra arguments for the container.
 extraArgs: []
 
 ports:
   http:
+    # -- Enable the port inside the `Deployment` and `Service` objects.
     enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 9090
 
 configMap:
+  # -- Create a new config map object.
   create: true
+  # -- Mount path of the config map object.
   mountPath: /etc/config
+  # -- Use an existing config map object.
   existingConfigMap: ''
+  # -- Map of prometheus configuration files as strings.
   files: {}
     # prometheus.yml: |
     #   # global config
     # alert.rules: |
     #   # rules
+  # -- Additional annotations for the config map object.
   annotations: {}
+  # -- Additional labels for the config map object.
   labels: {}
 
 configMapReload:
+  # -- Enable automatic config map reload.
   enabled: true
   image:
+    # -- Image of the config map reloader.
     repository: jimmidyson/configmap-reload
+    # -- Tag of the config map reloader.
     tag: v0.5.0
+    # -- The pull policy for the config map reloader.
     pullPolicy: IfNotPresent
+  # -- List of extra arguments for the config map reload container.
   extraArgs: []
     # - --webhook-method HEAD
     # - --webhook-retries 5
+  # -- List of extra config map mounts for the config map reload container.
   extraConfigMapMounts: []
     # - name: alerts
     #   configMap: prometheus-alerts
     #   mountPath: /etc/alerts
     #   subPath: ''
+  # -- Compute resources used by the config map reload container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
   resources: {}
     # limits:
     #   cpu: 100m
@@ -70,29 +102,43 @@ configMapReload:
     #   memory: 128Mi
 
 persistentVolumeClaim:
+  # -- Create a new persistent volume claim object.
   create: true
+  # -- Mount path of the persistent volume claim object.
   mountPath: /prometheus
+  # -- Use an existing persistent volume claim object.
   existingPersistentVolumeClaim: ''
+  # -- Additional annotations for the persistent volume claim object.
   annotations: {}
+  # -- Additional labels for the persistent volume claim object.
   labels: {}
 
 serviceAccount:
+  # -- Create a service account for the deployment.
   create: true
+  # -- Specify the service account name used for the deployment.
   name: ''
+  # -- Additional annotations for the service account object.
   annotations: {}
+  # -- Additional labels for the service account object.
   labels: {}
 
 rbac:
+  # -- Create `Role` and `RoleBinding` objects.
   create: true
+  # -- Additional annotations for the role and role binding objects.
   annotations: {}
+  # -- Additional labels for the role and role binding objects.
   labels: {}
 
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
   # fsGroup: 9999
   # runAsNonRoot: true
   # runAsGroup: 9999
   # runAsUser: 9999
 
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # limits:
   #   cpu: 500m
