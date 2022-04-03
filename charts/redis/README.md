@@ -40,35 +40,34 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| deployment.annotations | object | `{}` |  |
-| deployment.enabled | bool | `true` |  |
-| deployment.kind | string | `"Deployment"` |  |
-| deployment.labels | object | `{}` |  |
-| deployment.replicas | int | `1` |  |
-| env[0].name | string | `"TZ"` |  |
-| env[0].value | string | `"UTC"` |  |
-| extraArgs | list | `[]` |  |
+| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
+| deployment.enabled | bool | `true` | Create a workload for this chart. |
+| deployment.kind | string | `"Deployment"` | Type of the workload object. |
+| deployment.labels | object | `{}` | Additional labels for the deployment object. |
+| deployment.replicas | int | `1` | The number of replicas. |
+| env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| extraArgs | list | `[]` | List of extra arguments for the container. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"redis"` |  |
-| image.tag | string | `"6.2.6"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.repository | string | `"redis"` | The repository to pull the image from. |
+| image.tag | string | `"6.2.6"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
-| persistentVolumeClaim.annotations | object | `{}` |  |
-| persistentVolumeClaim.create | bool | `false` |  |
-| persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` |  |
-| persistentVolumeClaim.labels | object | `{}` |  |
-| persistentVolumeClaim.mountPath | string | `"/data"` |  |
-| ports.http.enabled | bool | `true` |  |
-| ports.http.nodePort | string | `nil` |  |
-| ports.http.port | int | `6379` |  |
-| ports.http.protocol | string | `"TCP"` |  |
-| resources | object | `{}` |  |
-| securityContext | object | `{}` |  |
-| service.annotations | object | `{}` |  |
-| service.enabled | bool | `true` |  |
-| service.labels | object | `{}` |  |
-| service.type | string | `"ClusterIP"` |  |
-| serviceAccount.name | string | `""` |  |
+| persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
+| persistentVolumeClaim.create | bool | `false` | Create a new persistent volume claim object. |
+| persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` | Use an existing persistent volume claim object. |
+| persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
+| persistentVolumeClaim.mountPath | string | `"/data"` | Mount path of the persistent volume claim object. |
+| ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
+| ports.http.port | int | `6379` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
+| ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| service.annotations | object | `{}` | Additional annotations for the service object. |
+| service.enabled | bool | `true` | Create a service for exposing this chart. |
+| service.labels | object | `{}` | Additional labels for the service object. |
+| service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
 
 ## Maintainers
 
