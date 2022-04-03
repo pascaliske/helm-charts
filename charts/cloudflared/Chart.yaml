@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: cloudflared
 description: A Helm chart for cloudflared DNS over HTTPS tunnel.
-version: 1.2.0
+version: 1.2.1
 appVersion: "2022.3.4"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
