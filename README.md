@@ -48,7 +48,7 @@ helm delete <chart>
 | [`redis`](https://charts.pascaliske.dev/charts/redis)                             | `0.0.3` |      `6.2.6`       |
 | [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)                       | `0.0.2` | `version-724f0af5` |
 | [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)           | `2.0.1` |      `1.0.3`       |
-| [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)                 | `0.0.5` |      `1.13.1`      |
+| [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)                 | `0.0.6` |      `1.13.1`      |
 
 ## Contributors
 
