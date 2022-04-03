@@ -1,37 +1,55 @@
 image:
+  # -- The repository to pull the image from.
   repository: sealife/fritzbox-exporter
+  # -- The docker tag, if left empty chart's appVersion will be used.
   tag: '1.0'
+  # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
 deployment:
+  # -- Create a workload for this chart.
   enabled: true
+  # -- Type of the workload object.
   kind: Deployment
+  # -- The number of replicas.
   replicas: 1
+  # -- Additional annotations for the deployment object.
   annotations: {}
+  # -- Additional labels for the deployment object.
   labels: {}
 
 service:
+  # -- Create a service for exposing this chart.
   enabled: true
+  # -- The service type used.
   type: ClusterIP
+  # -- Additional annotations for the service object.
   annotations: {}
+  # -- Additional labels for the service object.
   labels: {}
 
 env:
+  # -- Timezone for the container.
   - name: TZ
     value: UTC
 
 ports:
   metrics:
+    # -- Enable the port inside the `Deployment` and `Service` objects.
     enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 8765
+    # -- The protocol used for the service.
     protocol: TCP
 
 serviceAccount:
+  # -- Specify the service account used for the deployment.
   name: ''
 
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # requests:
   #   cpu: 100m
