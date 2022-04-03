@@ -1,51 +1,76 @@
 image:
+  # -- The repository to pull the image from.
   repository: louislam/uptime-kuma
+  # -- The docker tag, if left empty chart's appVersion will be used.
   tag: 1.13.1
+  # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
 deployment:
+  # -- Create a workload for this chart.
   enabled: true
+  # -- Type of the workload object.
   kind: Deployment
+  # -- The number of replicas.
   replicas: 1
+  # -- Additional annotations for the deployment object.
   annotations: {}
+  # -- Additional labels for the deployment object.
   labels: {}
 
 service:
+  # -- Create a service for exposing this chart.
   enabled: true
+  # -- The service type used.
   type: ClusterIP
+  # -- Additional annotations for the service object.
   annotations: {}
+  # -- Additional labels for the service object.
   labels: {}
 
 env:
+  # -- Timezone for the container.
   - name: TZ
     value: UTC
 
 ports:
   http:
+    # -- Enable the port inside the `Deployment` and `Service` objects.
     enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 3001
+    # -- The external port used if `.service.type` == `NodePort`.
     nodePort: null
+    # -- The protocol used for the service.
     protocol: TCP
 
 persistentVolumeClaim:
+  # -- Create a new persistent volume claim object.
   create: true
+  # -- Mount path of the persistent volume claim object.
   mountPath: /app/data
+  # -- Use an existing persistent volume claim object.
   existingPersistentVolumeClaim: ''
+  # -- Additional annotations for the persistent volume claim object.
   annotations: {}
+  # -- Additional labels for the persistent volume claim object.
   labels: {}
 
 serviceAccount:
+  # -- Specify the service account used for the deployment.
   name: ''
 
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
   # fsGroup: 1000
   # runAsNonRoot: true
   # runAsGroup: 1000
   # runAsUser: 1000
 
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # limits:
   #   cpu: 100m
