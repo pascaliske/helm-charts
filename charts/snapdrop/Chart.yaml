@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: snapdrop
 description: A Helm chart for snapdrop
-version: 0.0.1
+version: 0.0.2
 appVersion: "version-724f0af5"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop
