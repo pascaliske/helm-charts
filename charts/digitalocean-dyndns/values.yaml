@@ -1,23 +1,35 @@
 image:
+  # -- The repository to pull the image from.
   repository: ghcr.io/pascaliske/digitalocean-dyndns
+  # -- The docker tag, if left empty chart's appVersion will be used.
   tag: '0.0.2'
+  # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
 cronJob:
+  # -- Create a cron job to update the DNS zone.
   enabled: true
+  # -- Update schedule for the cron job.
   schedule: '30 * * * *'
+  # -- Enable/disable the cron job schedule quickly.
   suspend: false
+  # -- The number of successful finished jobs to retain.
   successfulJobsHistoryLimit: 3
+  # -- The number of failed finished jobs to retain.
   failedJobsHistoryLimit: 1
+  # -- Additional annotations for the cronjob object.
   annotations: {}
+  # -- Additional labels for the cronjob object.
   labels: {}
 
 env:
+  # -- Timezone for the container.
   - name: TZ
     value: UTC
+  # -- The IP service used to determine the current public IP.
   - name: IP_SERVICE
     value: ifconfig.co
   # - name: DOMAIN
@@ -26,12 +38,18 @@ env:
   #   value: ''
 
 secret:
+  # -- Create a new secret containing the token.
   create: true
+  # -- Use an existing secret to store the token.
   existingSecret: ''
+  # -- Token used when not using an existing secret.
   token: ''
+  # -- Additional annotations for the secret object.
   annotations: {}
+  # -- Additional labels for the secret object.
   labels: {}
 
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # requests:
   #   cpu: 100m
