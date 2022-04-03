@@ -2,10 +2,11 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)[![AppVersion: 6.2.6](https://img.shields.io/badge/AppVersion-6.2.6-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)[![AppVersion: 6.2.6](https://img.shields.io/badge/AppVersion-6.2.6-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
+* <https://github.com/redis/redis>
 * <https://redis.io>
 
 ## Requirements
