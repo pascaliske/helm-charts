@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 0.0.1
+version: 0.0.2
 appVersion: "1.8.8"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
