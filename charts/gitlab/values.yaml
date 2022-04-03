@@ -1,97 +1,153 @@
 image:
+  # -- The repository to pull the image from.
   repository: gitlab/gitlab-ce
+  # -- The docker tag, if left empty chart's appVersion will be used.
   tag: 14.9.1-ce.0
+  # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
 deployment:
+  # -- Create a workload for this chart.
   enabled: true
+  # -- Type of the workload object.
   kind: Deployment
+  # -- The number of replicas.
   replicas: 1
   strategy:
+    # -- Strategy used to replace old pods.
     type: RollingUpdate
     rollingUpdate:
+      # -- Specifies the maximum number of Pods that can be created over the desired number of Pods.
       maxSurge: 0
+      # -- Specifies the maximum number of Pods that can be unavailable during the update process.
       maxUnavailable: 1
+  # -- Additional annotations for the deployment object.
   annotations: {}
+  # -- Additional labels for the deployment object.
   labels: {}
 
 service:
+  # -- Create a service for exposing this chart.
   enabled: true
+  # -- The service type used.
   type: ClusterIP
+  # -- Additional annotations for the service object.
   annotations: {}
+  # -- Additional labels for the service object.
   labels: {}
 
 env:
+  # -- Timezone for the container.
   - name: TZ
     value: UTC
 
 ports:
   http:
+    # -- Enable the port inside the `Deployment` and `Service` objects.
     enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 80
+    # -- The external port used if `.service.type` == `NodePort`.
     nodePort: null
+    # -- The protocol used for the service.
     protocol: TCP
 
 configMap:
+  # -- Create a new config map object.
   create: true
+  # -- Mount path of the config map object.
   existingConfigMap: ''
+  # -- Use an existing config map object.
   key: gitlab.rb
+  # -- String containing the [configuration of gitlab]().
   config: |
     # external_url 'https://gitlab.example.com'
+  # -- Additional annotations for the config map object.
   annotations: {}
+  # -- Additional labels for the config map object.
   labels: {}
 
 persistentVolumeClaims:
   - name: secrets
+    # -- Create a new secret persistent volume claim object.
     create: true
+    # -- Mount path of the secret persistent volume claim object.
     mountPath: /etc/gitlab
+    # -- Use an existing secret persistent volume claim object.
     existingPersistentVolumeClaim: ''
+    # -- The size of the created secret persistent volume claim object.
     size: 128Mi
+    # -- Additional annotations for the secret persistent volume claim object.
     annotations: {}
+    # -- Additional labels for the secret persistent volume claim object.
     labels: {}
   - name: storage
+    # -- Create a new storage persistent volume claim object.
     create: true
+    # -- Mount path of the storage persistent volume claim object.
     mountPath: /var/opt/gitlab
+    # -- Use an existing storage persistent volume claim object.
     existingPersistentVolumeClaim: ''
+    # -- The size of the created secret storage persistent volume claim object.
     size: 30Gi
+    # -- Additional annotations for the storage persistent volume claim object.
     annotations: {}
+    # -- Additional labels for the storage persistent volume claim object.
     labels: {}
 
 healthCheck:
+  # -- Enable health checks for the deployment.
   enabled: true
+  # -- Configure the internal health check whitelist of gitlab.
   whitelist:
     - 127.0.0.1
 
 backups:
+  # -- Enable backup-related volume mounts.
   enabled: true
+  # -- Mount path of backups inside the container.
   mountPath: /backups
+  # -- Host path to store the created backups to.
   hostPath: ''
   cronJob:
+    # -- Create a `CronJob` object for automated backups.
     enabled: false
+    # -- Schedule for automated backups.
     schedule: '0 3 * * 1'
+    # -- Enable/disable the cron job schedule quickly.
     suspend: false
+    # -- The number of successful finished jobs to retain.
     successfulJobsHistoryLimit: 3
+    # -- The number of failed finished jobs to retain.
     failedJobsHistoryLimit: 1
+    # -- Additional annotations for the cronjob object.
     annotations: {}
+    # -- Additional labels for the cronjob object.
     labels: {}
 
 serviceAccount:
+  # -- Specify the service account used for the deployment.
   name: ''
 
 rbac:
+  # -- Create `Role` and `RoleBinding` objects.
   create: true
+  # -- Additional annotations for the role and role binding objects.
   annotations: {}
+  # -- Additional labels for the role and role binding objects.
   labels: {}
 
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
   # fsGroup: 1000
   # runAsNonRoot: true
   # runAsGroup: 1000
   # runAsUser: 1000
 
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # limits:
   #   cpu: 100m
