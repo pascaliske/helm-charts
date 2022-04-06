@@ -2,7 +2,7 @@
 
 > A Helm chart for a CronJob based Cloudflare DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![AppVersion: 0.0.2](https://img.shields.io/badge/AppVersion-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![AppVersion: 0.0.3](https://img.shields.io/badge/AppVersion-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-cloudflare-dyndns>
@@ -51,7 +51,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"ghcr.io/pascaliske/cloudflare-dyndns"` | The repository to pull the image from. |
-| image.tag | string | `"0.0.2"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"0.0.3"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | secret.annotations | object | `{}` | Additional annotations for the secret object. |
