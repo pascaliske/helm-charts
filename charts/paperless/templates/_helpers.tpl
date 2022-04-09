@@ -93,3 +93,36 @@ Consumption enabled
 {{- printf "false" }}
 {{- end }}
 {{- end }}
+
+{{/*
+Export host path
+*/}}
+{{- define "paperless.export.hostPath" -}}
+{{- if .Values.export.enabled }}
+{{- .Values.export.hostPath }}
+{{- end }}
+{{- end }}
+
+{{/*
+Export mount path
+*/}}
+{{- define "paperless.export.mountPath" -}}
+{{- if .Values.export.enabled }}
+{{- default "/export" .Values.export.mountPath }}
+{{- end }}
+{{- end }}
+
+{{/*
+Export enabled
+*/}}
+{{- define "paperless.export.enabled" -}}
+{{- if .Values.export.enabled }}
+{{- if and (include "paperless.export.hostPath" .) (include "paperless.export.mountPath" .) }}
+{{- printf "true" }}
+{{- else }}
+{{- printf "false" }}
+{{- end }}
+{{- else }}
+{{- printf "false" }}
+{{- end }}
+{{- end }}

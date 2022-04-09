@@ -79,6 +79,14 @@ consumption:
   # -- Host path of the consumption directory outside the container.
   hostPath: ''
 
+export:
+  # -- Enable the volume mount of an export directory for [backups](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups) using the [document exporter](https://paperless-ngx.readthedocs.io/en/latest/administration.html#utilities-exporter).
+  enabled: true
+  # -- Mount path of the export directory inside the container.
+  mountPath: /export
+  # -- Host path of the export directory outside the container.
+  hostPath: ''
+
 serviceAccount:
   # -- Specify the service account used for the deployment.
   name: ''
