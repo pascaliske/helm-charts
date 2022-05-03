@@ -86,7 +86,7 @@ The following values can be used to adjust the helm chart.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| pascaliske | info@pascaliske.dev | https://pascaliske.dev |
+| pascaliske | <info@pascaliske.dev> | <https://pascaliske.dev> |
 
 ## License
 

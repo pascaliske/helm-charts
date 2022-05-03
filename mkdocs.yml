@@ -38,6 +38,8 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.top
+    - toc.follow
+    - toc.integrate
     - content.code.annotate
     - content.tabs.link
 

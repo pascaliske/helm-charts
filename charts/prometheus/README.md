@@ -40,7 +40,7 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| configMap.annotations | object | `{}` |  |
+| configMap.annotations | object | `{}` | Additional annotations for the config map object. |
 | configMap.create | bool | `true` | Create a new config map object. |
 | configMap.existingConfigMap | string | `""` | Use an existing config map object. |
 | configMap.files | object | `{}` | Map of prometheus configuration files as strings. |
@@ -48,11 +48,11 @@ The following values can be used to adjust the helm chart.
 | configMap.mountPath | string | `"/etc/config"` | Mount path of the config map object. |
 | configMapReload.enabled | bool | `true` | Enable automatic config map reload. |
 | configMapReload.extraArgs | list | `[]` | List of extra arguments for the config map reload container. |
-| configMapReload.extraConfigMapMounts | list | `[]` |  |
+| configMapReload.extraConfigMapMounts | list | `[]` | List of extra config map mounts for the config map reload container. |
 | configMapReload.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the config map reloader. |
 | configMapReload.image.repository | string | `"jimmidyson/configmap-reload"` | Image of the config map reloader. |
 | configMapReload.image.tag | string | `"v0.5.0"` | Tag of the config map reloader. |
-| configMapReload.resources | object | `{}` |  |
+| configMapReload.resources | object | `{}` | Compute resources used by the config map reload container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
 | deployment.enabled | bool | `true` | Create a workload for this chart. |
 | deployment.kind | string | `"Deployment"` | Type of the workload object. |
@@ -93,7 +93,7 @@ The following values can be used to adjust the helm chart.
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| pascaliske | info@pascaliske.dev | https://pascaliske.dev |
+| pascaliske | <info@pascaliske.dev> | <https://pascaliske.dev> |
 
 ## License
 
