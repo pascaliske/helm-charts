@@ -20,7 +20,7 @@
     "docs": "helm-docs --chart-search-root ./charts --template-files README.md.tmpl"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.4",
+    "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^16.2.4",
     "husky": "^8.0.1"
   }
