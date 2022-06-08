@@ -1,0 +1,18 @@
+apiVersion: v2
+type: application
+name: homer
+description: A Helm chart for Kubernetes
+version: 0.0.1
+appVersion: "22.02.2"
+
+home: https://github.com/pascaliske/helm-charts/tree/master/charts/homer
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/bastienwirtz/homer
+keywords:
+  - dashboard
+  - homer
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev

@@ -1,0 +1,79 @@
+{{- if .Values.deployment.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "homer.fullname" . }}
+  labels:
+    {{- include "homer.labels" . | nindent 4 }}
+    {{- with .Values.deployment.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "homer.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
+        config/checksum: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.deployment.annotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      labels:
+        {{- include "homer.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "homer.serviceAccountName" . }}
+      containers:
+        - name: {{ template "homer.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- range $key, $val := .Values.ports }}
+            {{- if $val.enabled }}
+            - name: {{ $key | quote }}
+              containerPort: {{ $val.port }}
+              protocol: {{ default "TCP" $val.protocol | quote }}
+            {{- end }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- end }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: {{ .Values.configMap.mountPath }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      volumes:
+        - name: config-volume
+          configMap:
+            {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
+            name: {{ printf "%s-config" (include "homer.fullname" . ) }}
+            {{- else }}
+            name: {{ .Values.configMap.existingConfigMap }}
+            {{- end }}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+{{- end }}

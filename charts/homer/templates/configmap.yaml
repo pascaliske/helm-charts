@@ -1,0 +1,18 @@
+{{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-config" (include "homer.fullname" .) }}
+  labels:
+    {{- include "homer.labels" . | nindent 4 }}
+    {{- with .Values.configMap.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.configMap.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+data:
+  {{ default "config.yml" .Values.configMap.key }}: |
+    {{- .Values.configMap.config | nindent 4 }}
+{{- end }}
