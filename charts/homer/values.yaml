@@ -51,7 +51,7 @@ configMap:
   # -- Create a new config map object.
   create: true
   # -- Mount path of the config map object.
-  mountPath: /etc/code-server
+  mountPath: /www/assets
   # -- Use an existing config map object.
   existingConfigMap: ''
   # -- Specify a different key inside config map object.

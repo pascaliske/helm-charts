@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: homer
 description: A Helm chart for Kubernetes
-version: 0.0.1
+version: 0.0.2
 appVersion: "22.02.2"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/homer

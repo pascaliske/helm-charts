@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![AppVersion: 22.02.2](https://img.shields.io/badge/AppVersion-22.02.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![AppVersion: 22.02.2](https://img.shields.io/badge/AppVersion-22.02.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/bastienwirtz/homer>
@@ -45,7 +45,7 @@ The following values can be used to adjust the helm chart.
 | configMap.existingConfigMap | string | `""` | Use an existing config map object. |
 | configMap.key | string | `"config.yml"` | Specify a different key inside config map object. |
 | configMap.labels | object | `{}` | Additional labels for the config map object. |
-| configMap.mountPath | string | `"/etc/code-server"` | Mount path of the config map object. |
+| configMap.mountPath | string | `"/www/assets"` | Mount path of the config map object. |
 | deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
 | deployment.enabled | bool | `true` | Create a workload for this chart. |
 | deployment.kind | string | `"Deployment"` | Type of the workload object. |
