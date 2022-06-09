@@ -2,8 +2,8 @@ apiVersion: v2
 type: application
 name: gitlab
 description: A Helm chart for GitLab Omnibus
-version: 0.2.5
-appVersion: "14.9.2-ce.0"
+version: 0.2.6
+appVersion: "15.0.2-ce.0"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
 sources:

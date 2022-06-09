@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: gitlab/gitlab-ce
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 14.9.1-ce.0
+  tag: 15.0.2-ce.0
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
@@ -50,6 +50,15 @@ ports:
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 80
+    # -- The external port used if `.service.type` == `NodePort`.
+    nodePort: null
+    # -- The protocol used for the service.
+    protocol: TCP
+  registry:
+    # -- Enable the port inside the `Deployment` and `Service` objects.
+    enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
+    port: 5005
     # -- The external port used if `.service.type` == `NodePort`.
     nodePort: null
     # -- The protocol used for the service.
