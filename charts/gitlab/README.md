@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.0.2-ce.0](https://img.shields.io/badge/AppVersion-15.0.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.0.2-ce.0](https://img.shields.io/badge/AppVersion-15.0.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -39,7 +39,7 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| affinity | object | `{}` |  |
+| affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | backups.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
 | backups.cronJob.enabled | bool | `false` | Create a `CronJob` object for automated backups. |
 | backups.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
@@ -104,7 +104,7 @@ The following values can be used to adjust the helm chart.
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
-| tolerations | object | `{}` |  |
+| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 
