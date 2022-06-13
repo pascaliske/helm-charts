@@ -2,7 +2,7 @@
 
 > A Helm chart for linkding
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![AppVersion: 1.8.8](https://img.shields.io/badge/AppVersion-1.8.8-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![AppVersion: 1.11.0](https://img.shields.io/badge/AppVersion-1.11.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/sissbruecker/linkding>
@@ -39,6 +39,7 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
 | deployment.enabled | bool | `true` | Create a workload for this chart. |
 | deployment.kind | string | `"Deployment"` | Type of the workload object. |
@@ -48,7 +49,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"sissbruecker/linkding"` | The repository to pull the image from. |
-| image.tag | string | `"1.8.8"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"1.11.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
 | persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
@@ -66,6 +67,7 @@ The following values can be used to adjust the helm chart.
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
+| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 
