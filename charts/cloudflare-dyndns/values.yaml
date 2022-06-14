@@ -20,6 +20,8 @@ cronJob:
   successfulJobsHistoryLimit: 3
   # -- The number of failed finished jobs to retain.
   failedJobsHistoryLimit: 1
+  # -- The nameservers used to resolve ip service domain. Leave empty to inherit from cluster/node.
+  nameservers: []
   # -- Additional annotations for the cronjob object.
   annotations: {}
   # -- Additional labels for the cronjob object.

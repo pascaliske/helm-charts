@@ -2,7 +2,7 @@
 
 > A Helm chart for a CronJob based Cloudflare DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![AppVersion: 0.0.3](https://img.shields.io/badge/AppVersion-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)[![AppVersion: 0.0.3](https://img.shields.io/badge/AppVersion-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-cloudflare-dyndns>
@@ -43,6 +43,7 @@ The following values can be used to adjust the helm chart.
 | cronJob.enabled | bool | `true` | Create a cron job to update the DNS zone. |
 | cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
 | cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
+| cronJob.nameservers | list | `[]` | The nameservers used to resolve ip service domain. Leave empty to inherit from cluster/node. |
 | cronJob.schedule | string | `"30 * * * *"` | Update schedule for the cron job. |
 | cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
 | cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |

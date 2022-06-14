@@ -36,7 +36,7 @@ helm delete <chart>
 
 | Chart                                                                             | Version |     AppVersion     |
 | --------------------------------------------------------------------------------- | :-----: | :----------------: |
-| [`cloudflare-dyndns`](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)    | `0.0.3` |      `0.0.3`       |
+| [`cloudflare-dyndns`](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)    | `0.0.4` |      `0.0.3`       |
 | [`cloudflared`](https://charts.pascaliske.dev/charts/cloudflared)                 | `1.2.2` |     `2022.5.0`     |
 | [`code-server`](https://charts.pascaliske.dev/charts/code-server)                 | `0.1.3` |      `4.4.0`       |
 | [`digitalocean-dyndns`](https://charts.pascaliske.dev/charts/digitalocean-dyndns) | `0.2.2` |      `0.0.3`       |
