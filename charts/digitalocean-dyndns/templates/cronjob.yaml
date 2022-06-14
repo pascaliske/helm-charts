@@ -48,4 +48,9 @@ spec:
                 {{- if .Values.resources }}
                 {{- toYaml .Values.resources | nindent 16 }}
                 {{- end }}
+          {{- with .Values.cronJob.nameservers }}
+          dnsConfig:
+            nameservers:
+              {{- toYaml . | nindent 14 }}
+          {{- end }}
 {{- end -}}
