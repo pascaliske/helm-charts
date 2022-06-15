@@ -1,0 +1,36 @@
+{{- if and .Values.serviceMonitor.enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "fritzbox-exporter.fullname" . }}
+  labels:
+    {{- include "fritzbox-exporter.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  endpoints:
+    {{- range $key, $val := .Values.ports }}
+    {{- if $val.enabled }}
+    - targetPort: {{ $val.port }}
+      path: /metrics
+      {{- if $.Values.serviceMonitor.interval }}
+      interval: {{ $.Values.serviceMonitor.interval }}
+      {{- end }}
+      {{- if $.Values.serviceMonitor.timeout }}
+      scrapeTimeout: {{ $.Values.serviceMonitor.timeout }}
+      {{- end }}
+    {{- end }}
+    {{- end }}
+  jobLabel: {{ include "fritzbox-exporter.fullname" . }}
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      {{- include "fritzbox-exporter.selectorLabels" . | nindent 6 }}
+{{- end }}

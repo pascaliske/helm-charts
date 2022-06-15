@@ -2,7 +2,7 @@
 
 > A Helm chart for fritzbox-exporter
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)[![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)[![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://git.r3ktm8.de/SeaLife-Docker/fritzbox_exporter>
@@ -59,6 +59,11 @@ The following values can be used to adjust the helm chart.
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
+| serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
+| serviceMonitor.enabled | bool | `true` | Create a service monitor for prometheus operator. |
+| serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
+| serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
+| serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
 
 ## Maintainers
 
