@@ -29,7 +29,7 @@ spec:
         spec:
           restartPolicy: Never
           containers:
-            - name: {{ printf "%s-autoupdate" (template "code-server.fullname" .) }}
+            - name: {{ printf "%s-autoupdate" (include "code-server.fullname" .) }}
               image: alpine/git:latest
               imagePullPolicy: IfNotPresent
               workingDir: {{ .Values.persistentVolumeClaim.projectsPath }}
