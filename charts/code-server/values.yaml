@@ -98,6 +98,22 @@ repositories: []
   # - url: https://github.com/pascaliske/helm-charts
   #   name: helm-charts
 
+cronJob:
+  # -- Create a cron job to auto update repositories.
+  enabled: true
+  # -- Update schedule for the cron job.
+  schedule: '0 */4 * * *'
+  # -- Enable/disable the cron job schedule quickly.
+  suspend: false
+  # -- The number of successful finished jobs to retain.
+  successfulJobsHistoryLimit: 3
+  # -- The number of failed finished jobs to retain.
+  failedJobsHistoryLimit: 1
+  # -- Additional annotations for the cronjob object.
+  annotations: {}
+  # -- Additional labels for the cronjob object.
+  labels: {}
+
 serviceAccount:
   # -- Specify the service account used for the deployment.
   name: ''

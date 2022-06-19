@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/coder/code-server>
@@ -46,6 +46,13 @@ The following values can be used to adjust the helm chart.
 | configMap.existingConfigMap | string | `""` | Use an existing config map object. |
 | configMap.labels | object | `{}` | Additional labels for the config map object. |
 | configMap.mountPath | string | `"/etc/code-server"` | Mount path of the config map object. |
+| cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
+| cronJob.enabled | bool | `true` | Create a cron job to auto update repositories. |
+| cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
+| cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
+| cronJob.schedule | string | `"0 */4 * * *"` | Update schedule for the cron job. |
+| cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
+| cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
 | deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
 | deployment.enabled | bool | `true` | Create a workload for this chart. |
 | deployment.kind | string | `"Deployment"` | Type of the workload object. |

@@ -1,0 +1,43 @@
+{{- if and .Values.cronJob.enabled (not (empty .Values.repositories)) -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "code-server.fullname" . }}
+  labels:
+    {{- include "code-server.labels" . | nindent 4 }}
+    {{- with .Values.cronJob.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.cronJob.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  schedule: {{ include "code-server.schedule" . }}
+  suspend: {{ .Values.cronJob.suspend }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.cronJob.failedJobsHistoryLimit }}
+  jobTemplate:
+    {{- with .Values.cronJob.annotations }}
+    metadata:
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: {{ printf "%s-autoupdate" (template "code-server.fullname" .) }}
+              image: alpine/git:latest
+              imagePullPolicy: IfNotPresent
+              workingDir: {{ .Values.persistentVolumeClaim.projectsPath }}
+              command: ['/bin/sh']
+              args: ['/scripts/repo-updater.sh']
+              volumeMounts:
+                - name: script-volume
+                  mountPath: /scripts
+                - name: storage-volume
+                  mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+{{- end -}}
