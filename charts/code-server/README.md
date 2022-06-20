@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/coder/code-server>
@@ -58,6 +58,7 @@ The following values can be used to adjust the helm chart.
 | deployment.kind | string | `"Deployment"` | Type of the workload object. |
 | deployment.labels | object | `{}` | Additional labels for the deployment object. |
 | deployment.replicas | int | `1` | The number of replicas. |
+| dnsConfig | object | `{}` | Pod-level dns config. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#hostname-and-name-resolution). |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraArgs | list | `[]` | List of extra arguments for the container. |
 | fullnameOverride | string | `""` |  |

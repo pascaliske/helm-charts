@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "code-server.fullname" . }}
+  name: {{ printf "%s-autoupdate" (include "code-server.fullname" .) }}
   labels:
     {{- include "code-server.labels" . | nindent 4 }}
     {{- with .Values.cronJob.labels }}
@@ -29,7 +29,7 @@ spec:
         spec:
           restartPolicy: Never
           containers:
-            - name: {{ printf "%s-autoupdate" (include "code-server.fullname" .) }}
+            - name: {{ printf "%s-repositories" (include "code-server.fullname" $) }}
               image: alpine/git:latest
               imagePullPolicy: IfNotPresent
               workingDir: {{ .Values.persistentVolumeClaim.projectsPath }}
@@ -57,6 +57,10 @@ spec:
           {{- if .Values.securityContext }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- end }}
+          {{- if .Values.dnsConfig }}
+          dnsConfig:
+            {{- toYaml .Values.dnsConfig | nindent 12 }}
           {{- end }}
           {{- with .Values.affinity }}
           affinity:
