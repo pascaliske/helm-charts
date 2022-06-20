@@ -56,14 +56,14 @@ spec:
                 {{- end }}
           {{- if .Values.securityContext }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 8 }}
+            {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
           {{- with .Values.affinity }}
           affinity:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.tolerations }}
           tolerations:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
 {{- end -}}
