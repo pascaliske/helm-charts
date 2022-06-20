@@ -31,5 +31,5 @@ spec:
     - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      {{- include "cloudflared.selectorLabels" . | nindent 6 }}
+      service: {{ printf "%s-metrics" (include "cloudflared.fullname" .) }}
 {{- end }}

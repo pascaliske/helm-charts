@@ -8,6 +8,7 @@ metadata:
     {{- with .Values.service.dns.labels }}
     {{ toYaml . | indent 4 }}
     {{- end }}
+    service: {{ printf "%s-dns-tcp" (include "cloudflared.fullname" .) }}
   {{- with .Values.service.dns.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}

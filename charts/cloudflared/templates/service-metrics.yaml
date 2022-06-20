@@ -8,6 +8,7 @@ metadata:
     {{- with .Values.service.metrics.labels }}
     {{ toYaml . | indent 4 }}
     {{- end }}
+    service: {{ printf "%s-metrics" (include "cloudflared.fullname" .) }}
   {{- with .Values.service.metrics.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
