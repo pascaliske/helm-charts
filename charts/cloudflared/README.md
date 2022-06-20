@@ -2,7 +2,7 @@
 
 > A Helm chart for cloudflared DNS over HTTPS tunnel.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![Version: 1.2.2](https://img.shields.io/badge/Version-1.2.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![AppVersion: 2022.5.0](https://img.shields.io/badge/AppVersion-2022.5.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)[![AppVersion: 2022.5.0](https://img.shields.io/badge/AppVersion-2022.5.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/crazy-max/docker-cloudflared>
@@ -69,6 +69,11 @@ The following values can be used to adjust the helm chart.
 | service.metrics.port | int | `49312` | The service port used. |
 | service.metrics.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
+| serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
+| serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
+| serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
+| serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
+| serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
 | tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers

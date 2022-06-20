@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "cloudflared.fullname" . }}-test-connection"
+  name: "{{ include "cloudflared.fullname" . }}-test-metrics"
   labels:
     {{- include "cloudflared.labels" . | nindent 4 }}
   annotations:
@@ -12,6 +12,6 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "cloudflared.fullname" . }}:{{ .Values.service.metrics.port }}']
+      args: ['{{ printf "%s-metrics" (include "cloudflared.fullname" .) }}:{{ .Values.service.metrics.port }}']
   restartPolicy: Never
 {{- end }}
