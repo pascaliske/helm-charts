@@ -82,6 +82,8 @@ persistentVolumeClaim:
   create: true
   # -- Mount path of the persistent volume claim object.
   mountPath: /home/coder
+  # -- Storage class name for the persistent volume claim object.
+  storageClassName: ''
   # -- Project folder inside the persistent volume claim object.
   projectsPath: /home/coder/projects
   # -- Manage permissions automatically.

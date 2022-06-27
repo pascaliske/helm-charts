@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![AppVersion: 4.4.0](https://img.shields.io/badge/AppVersion-4.4.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/coder/code-server>
@@ -73,6 +73,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
 | persistentVolumeClaim.mountPath | string | `"/home/coder"` | Mount path of the persistent volume claim object. |
 | persistentVolumeClaim.projectsPath | string | `"/home/coder/projects"` | Project folder inside the persistent volume claim object. |
+| persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |

@@ -19,5 +19,7 @@ spec:
     requests:
       storage: 1Gi
   volumeMode: Filesystem
-  storageClassName: local-path
+  {{- with .Values.persistentVolumeClaim.storageClassName }}
+  storageClassName: {{ . }}
+  {{- end }}
 {{- end }}
