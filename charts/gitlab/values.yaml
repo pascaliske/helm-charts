@@ -85,6 +85,8 @@ persistentVolumeClaims:
     create: true
     # -- Mount path of the secret persistent volume claim object.
     mountPath: /etc/gitlab
+    # -- Storage class name for the persistent volume claim object.
+    storageClassName: ''
     # -- Use an existing secret persistent volume claim object.
     existingPersistentVolumeClaim: ''
     # -- The size of the created secret persistent volume claim object.
@@ -98,6 +100,8 @@ persistentVolumeClaims:
     create: true
     # -- Mount path of the storage persistent volume claim object.
     mountPath: /var/opt/gitlab
+    # -- Storage class name for the persistent volume claim object.
+    storageClassName: ''
     # -- Use an existing storage persistent volume claim object.
     existingPersistentVolumeClaim: ''
     # -- The size of the created secret storage persistent volume claim object.

@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.0.2-ce.0](https://img.shields.io/badge/AppVersion-15.0.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 0.2.8](https://img.shields.io/badge/Version-0.2.8-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.0.2-ce.0](https://img.shields.io/badge/AppVersion-15.0.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -79,6 +79,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaims[0].mountPath | string | `"/etc/gitlab"` | Mount path of the secret persistent volume claim object. |
 | persistentVolumeClaims[0].name | string | `"secrets"` |  |
 | persistentVolumeClaims[0].size | string | `"128Mi"` | The size of the created secret persistent volume claim object. |
+| persistentVolumeClaims[0].storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | persistentVolumeClaims[1].annotations | object | `{}` | Additional annotations for the storage persistent volume claim object. |
 | persistentVolumeClaims[1].create | bool | `true` | Create a new storage persistent volume claim object. |
 | persistentVolumeClaims[1].existingPersistentVolumeClaim | string | `""` | Use an existing storage persistent volume claim object. |
@@ -86,6 +87,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaims[1].mountPath | string | `"/var/opt/gitlab"` | Mount path of the storage persistent volume claim object. |
 | persistentVolumeClaims[1].name | string | `"storage"` |  |
 | persistentVolumeClaims[1].size | string | `"30Gi"` | The size of the created secret storage persistent volume claim object. |
+| persistentVolumeClaims[1].storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `80` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |

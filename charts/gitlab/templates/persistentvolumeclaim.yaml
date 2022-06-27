@@ -21,6 +21,8 @@ spec:
     requests:
       storage: {{ default "1Gi" $pvc.size }}
   volumeMode: Filesystem
-  storageClassName: local-path
+  {{- with .Values.persistentVolumeClaim.storageClassName }}
+  storageClassName: {{ . }}
+  {{- end }}
 {{- end }}
 {{- end }}
