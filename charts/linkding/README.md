@@ -2,7 +2,7 @@
 
 > A Helm chart for linkding
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![AppVersion: 1.11.0](https://img.shields.io/badge/AppVersion-1.11.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![AppVersion: 1.11.0](https://img.shields.io/badge/AppVersion-1.11.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/sissbruecker/linkding>
@@ -56,6 +56,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` | Use an existing persistent volume claim object. |
 | persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
 | persistentVolumeClaim.mountPath | string | `"/etc/linkding/data"` | Mount path of the persistent volume claim object. |
+| persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `9090` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
