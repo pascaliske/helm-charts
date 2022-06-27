@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![AppVersion: 1.13.1](https://img.shields.io/badge/AppVersion-1.13.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![AppVersion: 1.17.1](https://img.shields.io/badge/AppVersion-1.17.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>
@@ -55,6 +55,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` | Use an existing persistent volume claim object. |
 | persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
 | persistentVolumeClaim.mountPath | string | `"/app/data"` | Mount path of the persistent volume claim object. |
+| persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `3001` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
