@@ -55,6 +55,6 @@ jobs:
           cp -f .cr-index/index.yaml docs/index.yaml || curl https://${{ secrets.PROD_DOMAIN }}/index.yaml --output docs/index.yaml
 
       # deploy docs
-      - uses: mhausenblas/mkdocs-deploy-gh-pages@1.24
+      - uses: mhausenblas/mkdocs-deploy-gh-pages@1.25
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
