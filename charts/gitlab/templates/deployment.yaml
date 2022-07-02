@@ -60,8 +60,8 @@ spec:
               value: {{ $val.value | quote }}
             {{- end }}
           volumeMounts:
-            {{- range $i, $pvc := .Values.persistentVolumeClaims }}
-            - name: {{ printf "%s-volume" ($pvc.name) }}
+            {{- range $name, $pvc := .Values.persistentVolumeClaims }}
+            - name: {{ printf "%s-volume" $name }}
               mountPath: {{ $pvc.mountPath }}
             {{- end }}
             {{- if eq (include "gitlab.backups.enabled" . ) "true" }}
@@ -89,11 +89,11 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
       volumes:
-        {{- range $i, $pvc := .Values.persistentVolumeClaims }}
-        - name: {{ printf "%s-volume" ($pvc.name) }}
+        {{- range $name, $pvc := .Values.persistentVolumeClaims }}
+        - name: {{ printf "%s-volume" $name }}
           persistentVolumeClaim:
             {{- if and $pvc.create (empty $pvc.existingPersistentVolumeClaim) }}
-            claimName: {{ printf "%s-%s" (include "gitlab.fullname" $ ) $pvc.name }}
+            claimName: {{ printf "%s-%s" (include "gitlab.fullname" $ ) $name }}
             {{- else }}
             claimName: {{ $pvc.existingPersistentVolumeClaim }}
             {{- end }}

@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: gitlab/gitlab-ce
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 15.0.2-ce.0
+  tag: 15.1.1-ce.0
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
@@ -80,7 +80,7 @@ configMap:
   labels: {}
 
 persistentVolumeClaims:
-  - name: secrets
+  secrets:
     # -- Create a new secret persistent volume claim object.
     create: true
     # -- Mount path of the secret persistent volume claim object.
@@ -95,7 +95,7 @@ persistentVolumeClaims:
     annotations: {}
     # -- Additional labels for the secret persistent volume claim object.
     labels: {}
-  - name: storage
+  storage:
     # -- Create a new storage persistent volume claim object.
     create: true
     # -- Mount path of the storage persistent volume claim object.
