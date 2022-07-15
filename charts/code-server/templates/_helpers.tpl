@@ -84,3 +84,43 @@ Schedule
 {{ .Values.cronJob.schedule }}
 {{- end -}}
 {{- end }}
+
+{{/*
+Certificate name
+*/}}
+{{- define "code-server.certificate.name" -}}
+{{- if not (empty .Values.certificate.dnsNames) }}
+{{- first .Values.certificate.dnsNames }}
+{{- else }}
+{{- include "code-server.fullname" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate secret name
+*/}}
+{{- define "code-server.certificate.secretName" -}}
+{{- if not (empty .Values.certificate.secretName) }}
+{{- .Values.certificate.secretName }}
+{{- else }}
+{{- include "code-server.certificate.name" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate issuer reference name
+*/}}
+{{- define "code-server.certificate.issuerRefName" -}}
+{{- required "Mandatory field \".certificate.issuerRef.name\" is empty!" .Values.certificate.issuerRef.name -}}
+{{- end }}
+
+{{/*
+IngressRoute TLS secret name
+*/}}
+{{- define "code-server.ingressRoute.tlsSecretName" -}}
+{{- if not (empty .Values.ingressRoute.tlsSecretName) }}
+{{- .Values.ingressRoute.tlsSecretName }}
+{{- else if .Values.certificate.enabled }}
+{{- include "code-server.certificate.name" . }}
+{{- end }}
+{{- end }}
