@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: ghcr.io/paperless-ngx/paperless-ngx
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 1.6.0
+  tag: 1.7.1
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
@@ -29,6 +29,39 @@ service:
   # -- Additional annotations for the service object.
   annotations: {}
   # -- Additional labels for the service object.
+  labels: {}
+
+ingressRoute:
+  # -- Create an IngressRoute object for exposing this chart.
+  create: false
+  # -- List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available.
+  entryPoints: []
+  # -- [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router.
+  rule: ''
+  # -- List of [middleware objects](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware) for the ingress route.
+  middlewares: []
+  # -- Use an existing secret containing the TLS certificate.
+  tlsSecretName: ''
+  # -- Additional annotations for the ingress route object.
+  annotations: {}
+  # -- Additional labels for the ingress route object.
+  labels: {}
+
+certificate:
+  # -- Create an Certificate object for the exposed chart.
+  create: false
+  # -- List of subject alternative names for the certificate.
+  dnsNames: []
+  # -- Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames.
+  secretName: ''
+  issuerRef:
+    # -- Type of the referenced certificate issuer. Can be "Issuer" or "ClusterIssuer".
+    kind: ClusterIssuer
+    # -- Name of the referenced certificate issuer.
+    name: ''
+  # -- Additional annotations for the certificate object.
+  annotations: {}
+  # -- Additional labels for the certificate object.
   labels: {}
 
 env:
