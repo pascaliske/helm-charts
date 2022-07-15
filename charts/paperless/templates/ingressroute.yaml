@@ -1,4 +1,4 @@
-{{- if and .Values.ingressRoute.enabled .Values.service.enabled -}}
+{{- if and .Values.ingressRoute.create .Values.service.enabled -}}
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:

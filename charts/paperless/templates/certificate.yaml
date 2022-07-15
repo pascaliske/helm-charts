@@ -1,4 +1,4 @@
-{{- if and .Values.certificate.enabled .Values.service.enabled -}}
+{{- if and .Values.certificate.create .Values.service.enabled -}}
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
