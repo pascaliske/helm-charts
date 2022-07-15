@@ -34,11 +34,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            {{- range $key, $val := .Values.ports }}
-            {{- if $val.enabled }}
-            - name: {{ $key | quote }}
-              containerPort: {{ $val.port }}
-              protocol: {{ default "TCP" $val.protocol | quote }}
+            {{- with .Values.ports.http }}
+            {{- if .enabled }}
+            - name: http
+              containerPort: {{ .port }}
+              protocol: {{ default "TCP" .protocol | quote }}
             {{- end }}
             {{- end }}
           env:
