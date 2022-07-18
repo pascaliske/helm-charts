@@ -60,3 +60,43 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Certificate name
+*/}}
+{{- define "homer.certificate.name" -}}
+{{- if not (empty .Values.certificate.dnsNames) }}
+{{- first .Values.certificate.dnsNames }}
+{{- else }}
+{{- include "homer.fullname" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate secret name
+*/}}
+{{- define "homer.certificate.secretName" -}}
+{{- if not (empty .Values.certificate.secretName) }}
+{{- .Values.certificate.secretName }}
+{{- else }}
+{{- include "homer.certificate.name" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate issuer reference name
+*/}}
+{{- define "homer.certificate.issuerRefName" -}}
+{{- required "Mandatory field \".certificate.issuerRef.name\" is empty!" .Values.certificate.issuerRef.name -}}
+{{- end }}
+
+{{/*
+IngressRoute TLS secret name
+*/}}
+{{- define "homer.ingressRoute.tlsSecretName" -}}
+{{- if not (empty .Values.ingressRoute.tlsSecretName) }}
+{{- .Values.ingressRoute.tlsSecretName }}
+{{- else if .Values.certificate.create }}
+{{- include "homer.certificate.name" . }}
+{{- end }}
+{{- end }}

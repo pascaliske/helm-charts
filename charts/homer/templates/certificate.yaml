@@ -1,0 +1,26 @@
+{{- if and .Values.certificate.create .Values.service.enabled -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "homer.certificate.name" . }}
+  labels:
+    {{- include "homer.labels" . | nindent 4 }}
+    {{- with .Values.certificate.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.certificate.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  secretName: {{ include "homer.certificate.secretName" . }}
+  {{- with .Values.certificate.dnsNames }}
+  dnsNames:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.certificate.issuerRef }}
+  issuerRef:
+    kind: {{ default "ClusterIssuer" .kind }}
+    name: {{ include "homer.certificate.issuerRefName" $ }}
+  {{- end }}
+{{- end }}
