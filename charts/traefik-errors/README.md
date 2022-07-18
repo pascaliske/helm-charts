@@ -2,7 +2,7 @@
 
 > A Helm chart for custom traefik error pages
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 2.0.1](https://img.shields.io/badge/Version-2.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-traefik-errors>
@@ -39,6 +39,13 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
+| certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
+| certificate.dnsNames | list | `[]` | List of subject alternative names for the certificate. |
+| certificate.issuerRef.kind | string | `"ClusterIssuer"` | Type of the referenced certificate issuer. Can be "Issuer" or "ClusterIssuer". |
+| certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
+| certificate.labels | object | `{}` | Additional labels for the certificate object. |
+| certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
 | deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
 | deployment.enabled | bool | `true` | Create a workload for this chart. |
 | deployment.kind | string | `"Deployment"` | Type of the workload object. |
@@ -49,6 +56,13 @@ The following values can be used to adjust the helm chart.
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"ghcr.io/pascaliske/traefik-errors"` | The repository to pull the image from. |
 | image.tag | string | `"1.0.3"` | The docker tag, if left empty chart's appVersion will be used. |
+| ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
+| ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
+| ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
+| ingressRoute.labels | object | `{}` | Additional labels for the ingress route object. |
+| ingressRoute.middlewares | list | `[]` | List of [middleware objects](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware) for the ingress route. |
+| ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
+| ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
 | nameOverride | string | `""` |  |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |

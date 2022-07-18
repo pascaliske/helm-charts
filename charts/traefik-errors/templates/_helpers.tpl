@@ -56,3 +56,43 @@ Create the name of the service account to use
 {{- define "traefik-errors.serviceAccountName" -}}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
+
+{{/*
+Certificate name
+*/}}
+{{- define "traefik-errors.certificate.name" -}}
+{{- if not (empty .Values.certificate.dnsNames) }}
+{{- first .Values.certificate.dnsNames }}
+{{- else }}
+{{- include "traefik-errors.fullname" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate secret name
+*/}}
+{{- define "traefik-errors.certificate.secretName" -}}
+{{- if not (empty .Values.certificate.secretName) }}
+{{- .Values.certificate.secretName }}
+{{- else }}
+{{- include "traefik-errors.certificate.name" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate issuer reference name
+*/}}
+{{- define "traefik-errors.certificate.issuerRefName" -}}
+{{- required "Mandatory field \".certificate.issuerRef.name\" is empty!" .Values.certificate.issuerRef.name -}}
+{{- end }}
+
+{{/*
+IngressRoute TLS secret name
+*/}}
+{{- define "traefik-errors.ingressRoute.tlsSecretName" -}}
+{{- if not (empty .Values.ingressRoute.tlsSecretName) }}
+{{- .Values.ingressRoute.tlsSecretName }}
+{{- else if .Values.certificate.create }}
+{{- include "traefik-errors.certificate.name" . }}
+{{- end }}
+{{- end }}
