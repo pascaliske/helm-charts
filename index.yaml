@@ -1,0 +1,1481 @@
+apiVersion: v1
+entries:
+  cloudflare-dyndns:
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2022-06-14T07:55:42.626309235Z"
+    description: A Helm chart for a CronJob based Cloudflare DynDNS client.
+    digest: 2e62b318e294617890874608d1dad6e8c3f217474e652393a149973bcc4b52e4
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns
+    keywords:
+    - cloudflare
+    - dyndns
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflare-dyndns
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-cloudflare-dyndns
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflare-dyndns-0.0.4/cloudflare-dyndns-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2022-04-06T17:36:35.619669368Z"
+    description: A Helm chart for a CronJob based Cloudflare DynDNS client.
+    digest: aa1ad8ec0d4002e6d626b07436ae6b0059827c14dc4551424fb8f2436f87fe7f
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns
+    keywords:
+    - cloudflare
+    - dyndns
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflare-dyndns
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-cloudflare-dyndns
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflare-dyndns-0.0.3/cloudflare-dyndns-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2022-03-30T08:45:16.950744791Z"
+    description: A Helm chart for a CronJob based Cloudflare DynDNS client.
+    digest: 0f1c04dbc89076ea0fd96ca7878ebd559c45edefb898ace2b265331d51dc3868
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns
+    keywords:
+    - cloudflare
+    - dyndns
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflare-dyndns
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-cloudflare-dyndns
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflare-dyndns-0.0.2/cloudflare-dyndns-0.0.2.tgz
+    version: 0.0.2
+  cloudflared:
+  - apiVersion: v2
+    appVersion: 2022.5.0
+    created: "2022-06-20T14:07:39.471330608Z"
+    description: A Helm chart for cloudflared DNS over HTTPS tunnel.
+    digest: 083148eda28ef4aa4fbb9b87900c5ecfffd679857bf9da15c312a5091faa6461
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
+    keywords:
+    - cloudflared
+    - dns-over-https
+    - dns-proxy
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflared
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/crazy-max/docker-cloudflared
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflared-1.3.1/cloudflared-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: 2022.5.0
+    created: "2022-06-20T08:37:23.828175148Z"
+    description: A Helm chart for cloudflared DNS over HTTPS tunnel.
+    digest: 6d58cc6d8bbf45f686e613adfa9a4b8a1e452ffcd832a3d5863842f1182889b4
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
+    keywords:
+    - cloudflared
+    - dns-over-https
+    - dns-proxy
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflared
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/crazy-max/docker-cloudflared
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflared-1.3.0/cloudflared-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
+    appVersion: 2022.5.0
+    created: "2022-06-11T22:56:37.806843674Z"
+    description: A Helm chart for cloudflared DNS over HTTPS tunnel.
+    digest: c13c21ec04182768f1965178f3ba92bef3ebfde85cc635bbf41c1e69b3591f64
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
+    keywords:
+    - cloudflared
+    - dns-over-https
+    - dns-proxy
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflared
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/crazy-max/docker-cloudflared
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflared-1.2.2/cloudflared-1.2.2.tgz
+    version: 1.2.2
+  - apiVersion: v2
+    appVersion: 2022.3.4
+    created: "2022-04-03T09:07:58.174609441Z"
+    description: A Helm chart for cloudflared DNS over HTTPS tunnel.
+    digest: 703a0b5e542af3d4e94623fd27540aed0fe5e3ea9d55865c9114618bf1ee2bc2
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
+    keywords:
+    - cloudflared
+    - dns-over-https
+    - dns-proxy
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflared
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/crazy-max/docker-cloudflared
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflared-1.2.1/cloudflared-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: 2022.3.0
+    created: "2022-03-30T08:45:17.089561794Z"
+    description: A Helm chart for cloudflared DNS over HTTPS tunnel.
+    digest: 742037336730e172eecf8ba1c42875f0bd731545ac57a584d98c34daffb1aab0
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
+    keywords:
+    - cloudflared
+    - dns-over-https
+    - dns-proxy
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: cloudflared
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/crazy-max/docker-cloudflared
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/cloudflared-1.2.0/cloudflared-1.2.0.tgz
+    version: 1.2.0
+  code-server:
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-07-15T08:19:39.895885565Z"
+    description: A Helm chart for Kubernetes
+    digest: cc9c9325fdd9271089c34afbed12d53823d7ff4dd6c9158bbd93c3a1915cc6e9
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.3.0/code-server-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-27T22:34:55.527596585Z"
+    description: A Helm chart for Kubernetes
+    digest: b0f9757a965d9fe77302a48cf05caa2dd0e2b0679be6ee84cee20f6a22599b41
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.2.1/code-server-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-20T21:06:05.757104264Z"
+    description: A Helm chart for Kubernetes
+    digest: 52f013a96c616760c0db5e38cb48ac8860db9abed184e24ede73b6d767fd0eb8
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.2.0/code-server-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-20T06:22:04.157241479Z"
+    description: A Helm chart for Kubernetes
+    digest: fc3c8f91dcf3a840174b8e9686d64b4a78cea2080e12bf5cb6bde7dd0e339b0c
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.9/code-server-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-20T06:11:22.968584655Z"
+    description: A Helm chart for Kubernetes
+    digest: 94e368eb4500923ff4480cf3a8e9d37135c3388e6018036ff94e2db7acb19e38
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.8/code-server-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-19T23:44:26.533425627Z"
+    description: A Helm chart for Kubernetes
+    digest: a6ea892b9ead6a15f28110c83599d2af8ac05a9faeca1fc3278d4b39cce1e0ca
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.7/code-server-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-19T23:40:11.792404366Z"
+    description: A Helm chart for Kubernetes
+    digest: f308868c8792bfe4fc06f83aa3433b5b4f840ae42a613553e54c5fcd2c4289f5
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.6/code-server-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-19T23:35:15.496031556Z"
+    description: A Helm chart for Kubernetes
+    digest: 29ed08208bc4477743c71ceb234d83901c7b0caa44e10b9ccbd26fa314559b06
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.5/code-server-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-19T20:49:30.951382361Z"
+    description: A Helm chart for Kubernetes
+    digest: c911616782f7a21b14f008c2e09cdc35dbf2bb0971f308034ff7a01c8db3445e
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.4/code-server-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-06-09T22:02:41.168889543Z"
+    description: A Helm chart for Kubernetes
+    digest: 29b4ff458f173e46d8859f71323c6ce0876f1899cfee79bdd5d5538737f96072
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.3/code-server-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: v4.2.0
+    created: "2022-04-03T09:08:11.003021446Z"
+    description: A Helm chart for Kubernetes
+    digest: 871771cfeede8eac8eb3b0d489a884b67b6eb72ee1326349e403779c1d1eff02
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.2/code-server-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v4.0.2
+    created: "2022-03-30T08:45:17.21705568Z"
+    description: A Helm chart for Kubernetes
+    digest: e9f319f9f7c8c84d1e65141e0e588cc7c0b6386cdf4518a21d2963977bfdcc1e
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+    keywords:
+    - vscode
+    - code-server
+    - browser-ide
+    - ide
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: code-server
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/coder/code-server
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/code-server-0.1.1/code-server-0.1.1.tgz
+    version: 0.1.1
+  digitalocean-dyndns:
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2022-06-14T07:56:59.049567526Z"
+    description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
+    digest: 86e79163558a10674e05fc6d06e10cd1c53fa90fccf28c921959b4a3b9622865
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns
+    keywords:
+    - digitalocean
+    - dyndns
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: digitalocean-dyndns
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-digitalocean-dyndns
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/digitalocean-dyndns-0.2.3/digitalocean-dyndns-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2022-04-06T18:21:05.706583001Z"
+    description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
+    digest: a5ffebec14db1ef83170d090998ab1cdfaf2aa91c028a0fbfd676ebc9537e2cb
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns
+    keywords:
+    - digitalocean
+    - dyndns
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: digitalocean-dyndns
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-digitalocean-dyndns
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/digitalocean-dyndns-0.2.2/digitalocean-dyndns-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 0.0.2
+    created: "2022-04-03T09:08:54.079688413Z"
+    description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
+    digest: a0821b358b735568e725ef3e273169b8caf4d7986ee69fe22bdaae405f5a694a
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns
+    keywords:
+    - digitalocean
+    - dyndns
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: digitalocean-dyndns
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-digitalocean-dyndns
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/digitalocean-dyndns-0.2.1/digitalocean-dyndns-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2022-03-30T08:45:17.389815733Z"
+    description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
+    digest: 45f671bee555908b842c39e74b1fd3c5905ce0ecc7a42892a2b508c0460e13d1
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns
+    keywords:
+    - digitalocean
+    - dyndns
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: digitalocean-dyndns
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-digitalocean-dyndns
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/digitalocean-dyndns-0.2.0/digitalocean-dyndns-0.2.0.tgz
+    version: 0.2.0
+  fritzbox-exporter:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2022-06-15T22:55:40.050717082Z"
+    description: A Helm chart for fritzbox-exporter
+    digest: 3075f015882edc185134719bea54d68bdabda8922eaf3f8db3cf95b6fe39ba5b
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter
+    keywords:
+    - fritzbox-exporter
+    - fritzbox
+    - prometheus
+    - metrics
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: fritzbox-exporter
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://git.r3ktm8.de/SeaLife-Docker/fritzbox_exporter
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/fritzbox-exporter-1.1.0/fritzbox-exporter-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2022-03-30T08:45:17.557240477Z"
+    description: A Helm chart for fritzbox-exporter
+    digest: a6bb5717e75057ea65577028e1ccf673b4de89066ac3d5b8b85d4a6228df5d85
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/fritzbox-exporter
+    keywords:
+    - fritzbox-exporter
+    - fritzbox
+    - prometheus
+    - metrics
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: fritzbox-exporter
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://git.r3ktm8.de/SeaLife-Docker/fritzbox_exporter
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/fritzbox-exporter-1.0.1/fritzbox-exporter-1.0.1.tgz
+    version: 1.0.1
+  gitlab:
+  - apiVersion: v2
+    appVersion: 15.1.1-ce.0
+    created: "2022-07-02T20:38:15.314378027Z"
+    description: A Helm chart for GitLab Omnibus
+    digest: 0cd86a6f47e5e25e42cebd965237d79df4a6b0ff40053277ceaf23afa2ca70fb
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
+    keywords:
+    - gitlab
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: gitlab
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://docs.gitlab.com
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/gitlab-1.0.0/gitlab-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
+    appVersion: 15.0.2-ce.0
+    created: "2022-06-27T22:59:16.361058277Z"
+    description: A Helm chart for GitLab Omnibus
+    digest: 78f90903191f13dc051f5fcdd07a0a761cabfdb41d895f2873b5f5f28ee42119
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
+    keywords:
+    - gitlab
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: gitlab
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://docs.gitlab.com
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/gitlab-0.2.9/gitlab-0.2.9.tgz
+    version: 0.2.9
+  - apiVersion: v2
+    appVersion: 15.0.2-ce.0
+    created: "2022-06-27T22:32:43.606417666Z"
+    description: A Helm chart for GitLab Omnibus
+    digest: 09fb021334d1629b4b7f0587b8f2825ff4bd6216635a406c98dc1314df21be78
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
+    keywords:
+    - gitlab
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: gitlab
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://docs.gitlab.com
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/gitlab-0.2.8/gitlab-0.2.8.tgz
+    version: 0.2.8
+  - apiVersion: v2
+    appVersion: 15.0.2-ce.0
+    created: "2022-06-09T11:21:58.629742559Z"
+    description: A Helm chart for GitLab Omnibus
+    digest: ff59de412ed9557f25ab90c739b1f8fd830301ced99a591b581191620d1373bd
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
+    keywords:
+    - gitlab
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: gitlab
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://docs.gitlab.com
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/gitlab-0.2.7/gitlab-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v2
+    appVersion: 15.0.2-ce.0
+    created: "2022-06-09T11:19:30.334793269Z"
+    description: A Helm chart for GitLab Omnibus
+    digest: 0290c235e3082ed8e8eb27be467c2fe1c7900d64fc99db8fa5d3bac09b31d5cc
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
+    keywords:
+    - gitlab
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: gitlab
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://docs.gitlab.com
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/gitlab-0.2.6/gitlab-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
+    appVersion: 14.9.2-ce.0
+    created: "2022-04-03T09:09:08.846237134Z"
+    description: A Helm chart for GitLab Omnibus
+    digest: 6ebb5c07f7b2f931026b4926a3ef5fe7dc4d5a0d4bf041781f90a2d8e2b286b2
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
+    keywords:
+    - gitlab
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: gitlab
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://docs.gitlab.com
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/gitlab-0.2.5/gitlab-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
+    appVersion: 14.7.2-ce.0
+    created: "2022-03-30T08:45:17.693577277Z"
+    description: A Helm chart for GitLab Omnibus
+    digest: 5d6cefe8e7b8823d27b0e2732d2968fb34992a78378d77d14bbc32ca76bd6460
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab
+    keywords:
+    - gitlab
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: gitlab
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://docs.gitlab.com
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/gitlab-0.2.4/gitlab-0.2.4.tgz
+    version: 0.2.4
+  homer:
+  - apiVersion: v2
+    appVersion: 22.02.2
+    created: "2022-07-18T04:20:39.091152982Z"
+    description: A Helm chart for Kubernetes
+    digest: fb9ac5a06479b342251e41a8e52f2787f402da371df3641d9e759c5a6a06d57a
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/homer
+    keywords:
+    - dashboard
+    - homer
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: homer
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/bastienwirtz/homer
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/homer-0.1.0/homer-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 22.02.2
+    created: "2022-06-08T21:44:38.329569083Z"
+    description: A Helm chart for Kubernetes
+    digest: 4919f53ec45b05e2b2925e61159dadc448a6e023ad5603320bb0e8c9fa865e31
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/homer
+    keywords:
+    - dashboard
+    - homer
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: homer
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/bastienwirtz/homer
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/homer-0.0.2/homer-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 22.02.2
+    created: "2022-06-08T21:34:37.283897601Z"
+    description: A Helm chart for Kubernetes
+    digest: 78ca9f05af3a88cd5987144afaf1be09d3766942c05ddaa0bb2b46c0c6b87126
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/homer
+    keywords:
+    - dashboard
+    - homer
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: homer
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/bastienwirtz/homer
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/homer-0.0.1/homer-0.0.1.tgz
+    version: 0.0.1
+  linkding:
+  - apiVersion: v2
+    appVersion: 1.11.0
+    created: "2022-07-18T04:27:17.726092085Z"
+    description: A Helm chart for linkding
+    digest: 632a030f507f4d356464c00bdeca96f4e046cd2613e8e73fc5812a9305aab359
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+    keywords:
+    - linkding
+    - bookmarks
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: linkding
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/linkding-0.1.0/linkding-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 1.11.0
+    created: "2022-06-27T21:40:27.519694875Z"
+    description: A Helm chart for linkding
+    digest: 3644633c52c3a3282ed27a162addc7b90e4deb5b9682c8108c25ac781a7d3c27
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+    keywords:
+    - linkding
+    - bookmarks
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: linkding
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/linkding-0.0.4/linkding-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 1.11.0
+    created: "2022-06-13T05:25:32.259011767Z"
+    description: A Helm chart for linkding
+    digest: abd603b86b49cfe1805a57b5a93fcefbd3e82ba25994ddde8713ef9b07347bf1
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+    keywords:
+    - linkding
+    - bookmarks
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: linkding
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/linkding-0.0.3/linkding-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 1.8.8
+    created: "2022-04-03T09:09:16.104448557Z"
+    description: A Helm chart for linkding
+    digest: 5ed164a90ac956ae120fb9b86dbb99cdd61d02cadfceabd9a9a4a91096c07ddc
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+    keywords:
+    - linkding
+    - bookmarks
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: linkding
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/linkding-0.0.2/linkding-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 1.8.4
+    created: "2022-03-30T08:45:17.810719548Z"
+    description: A Helm chart for linkding
+    digest: 56bd5b63d41facd5feaeb7f3dcab4efa7924e1fbc6ffed28744cc2741fab59d2
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+    keywords:
+    - linkding
+    - bookmarks
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: linkding
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/linkding-0.0.1/linkding-0.0.1.tgz
+    version: 0.0.1
+  paperless:
+  - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2022-07-18T05:06:13.101213669Z"
+    description: A Helm chart for paperless-ngx
+    digest: ace823fe912440263632d4dcb78babf7e3428f7d6fb598a3457c0b160f61108b
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.2.2/paperless-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2022-07-15T06:39:20.306881949Z"
+    description: A Helm chart for paperless-ngx
+    digest: c34b6b72a8f3152ca0536a661734aa39733429479a7cebade3fcb658d7868717
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.2.1/paperless-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2022-07-15T05:41:50.398012614Z"
+    description: A Helm chart for paperless-ngx
+    digest: ac2e306b81829c2258f7ebc0954fd3271d5e2c8e54684d6880c25ca72ba2e6eb
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.2.0/paperless-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2022-06-28T06:10:30.118573125Z"
+    description: A Helm chart for paperless-ngx
+    digest: 5e8f11ed23fbb85305f2c390c77832220bb4e9b475b891569c8075bda04569e3
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.1.6/paperless-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2022-06-27T21:38:37.307632691Z"
+    description: A Helm chart for paperless-ngx
+    digest: 4317deaf5607ba574f728435bc41e0c29a2b8c8822247925de7384bd37a1c6bf
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.1.5/paperless-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2022-06-11T20:56:16.424750952Z"
+    description: A Helm chart for paperless-ngx
+    digest: 33c752ed33a01b6241ad2498618742f2520aceefdac696b84ed44bb60a605bbf
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.1.4/paperless-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.6.0
+    created: "2022-04-09T07:59:09.315707633Z"
+    description: A Helm chart for paperless-ngx
+    digest: 9f2b20358e1a9a7c032d85fb362dbadeb2bdb1d0b549e93196a164382e6b3a4a
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.1.3/paperless-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 1.6.0
+    created: "2022-04-03T09:09:33.355637009Z"
+    description: A Helm chart for paperless-ngx
+    digest: 26642f2fce7bacfcb35af29fba9df9abd86a06fa14f4594ec9db710bf0fdd343
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.1.2/paperless-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.6.0
+    created: "2022-03-30T08:45:17.931311124Z"
+    description: A Helm chart for paperless-ngx
+    digest: 8e70b22c62120f9556ffe0af209f610d5a925bd5305b2c1b9b6dc910c8c1de87
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+    keywords:
+    - paperless
+    - paperless-ngx
+    - document-management-system
+    - dms
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: paperless
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/paperless-ngx/paperless-ngx
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/paperless-0.1.1/paperless-0.1.1.tgz
+    version: 0.1.1
+  prometheus:
+  - apiVersion: v2
+    appVersion: v2.34.0
+    created: "2022-07-18T05:04:06.330420098Z"
+    description: A Helm chart for prometheus
+    digest: fe13221b91a11a0c47a2ed89b47cf92b04208adc153a4f4023bcb17d92701cef
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus
+    keywords:
+    - prometheus
+    - metrics
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: prometheus
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/prometheus/prometheus
+    - https://prometheus.io
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/prometheus-1.3.0/prometheus-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
+    appVersion: v2.34.0
+    created: "2022-05-03T08:23:03.587021863Z"
+    description: A Helm chart for prometheus
+    digest: 1e4dc20b67814d16b6f0d7d8b5dd474c1605dce4d9842e18eebcff3ae8aee2e6
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus
+    keywords:
+    - prometheus
+    - metrics
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: prometheus
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/prometheus/prometheus
+    - https://prometheus.io
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/prometheus-1.2.1/prometheus-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: v2.33.1
+    created: "2022-03-30T08:45:18.060072312Z"
+    description: A Helm chart for prometheus
+    digest: 2e60523cbb7ffbc27310a991dacaff2d773ad57b41a69932c1ec859c254821c0
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus
+    keywords:
+    - prometheus
+    - metrics
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: prometheus
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/prometheus/prometheus
+    - https://prometheus.io
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/prometheus-1.2.0/prometheus-1.2.0.tgz
+    version: 1.2.0
+  redis:
+  - apiVersion: v2
+    appVersion: 6.2.6
+    created: "2022-06-27T21:36:34.927282022Z"
+    description: A Helm chart for Redis
+    digest: 14f544683ab72052088c9ebf497eecf888c146e68c079b01304bd32ce929a6ac
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/redis
+    keywords:
+    - redis
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: redis
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/docker-library/redis
+    - https://github.com/redis/redis
+    - https://redis.io
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/redis-0.0.4/redis-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 6.2.6
+    created: "2022-04-03T09:10:00.229922957Z"
+    description: A Helm chart for Redis
+    digest: 9cee9196335a12860beffee5b60ffb20ebb4c97d34d5e3155fd8d4bc75453708
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/redis
+    keywords:
+    - redis
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: redis
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/docker-library/redis
+    - https://github.com/redis/redis
+    - https://redis.io
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/redis-0.0.3/redis-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 6.2.6
+    created: "2022-03-30T08:45:18.190456002Z"
+    description: A Helm chart for Redis
+    digest: a58d5fbd22513c660869a618ce93950eb05229fc34dea7d8035eda03339944e9
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/redis
+    keywords:
+    - redis
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: redis
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/docker-library/redis
+    - https://redis.io
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/redis-0.0.2/redis-0.0.2.tgz
+    version: 0.0.2
+  snapdrop:
+  - apiVersion: v2
+    appVersion: version-724f0af5
+    created: "2022-07-18T05:01:55.670805545Z"
+    description: A Helm chart for snapdrop
+    digest: 18b2941001cc3be55fe1e1213d25915b35b17f8349b8fccc9e37251372d0f62d
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop
+    keywords:
+    - snapdrop
+    - airdrop
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: snapdrop
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/linuxserver/docker-snapdrop
+    - https://github.com/RobinLinus/snapdrop
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/snapdrop-0.1.0/snapdrop-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: version-724f0af5
+    created: "2022-04-03T09:10:12.694752193Z"
+    description: A Helm chart for snapdrop
+    digest: 4d7d956e60f1e00e7a67f2f8ef54ec1cbc9ffb6484c5246d1f75dedcf74b02d7
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop
+    keywords:
+    - snapdrop
+    - airdrop
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: snapdrop
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/linuxserver/docker-snapdrop
+    - https://github.com/RobinLinus/snapdrop
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/snapdrop-0.0.2/snapdrop-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: version-78a8b167
+    created: "2022-03-30T08:45:18.321862594Z"
+    description: A Helm chart for snapdrop
+    digest: 0af2b8e0c2939e30bc79ad862f249cc33d5584331fdfcebfb2d96c414dfd05ac
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop
+    keywords:
+    - snapdrop
+    - airdrop
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: snapdrop
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/linuxserver/docker-snapdrop
+    - https://github.com/RobinLinus/snapdrop
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/snapdrop-0.0.1/snapdrop-0.0.1.tgz
+    version: 0.0.1
+  traefik-errors:
+  - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2022-07-18T05:01:35.74727804Z"
+    description: A Helm chart for custom traefik error pages
+    digest: 33ebe2724fdec52459cf03a1b48ea9c06dbf2df197b1e510b17bdf235b18c616
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors
+    keywords:
+    - traefik-errors
+    - traefik
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: traefik-errors
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-traefik-errors
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/traefik-errors-2.1.0/traefik-errors-2.1.0.tgz
+    version: 2.1.0
+  - apiVersion: v2
+    appVersion: 1.0.3
+    created: "2022-04-03T09:10:22.706810492Z"
+    description: A Helm chart for custom traefik error pages
+    digest: e1cf82ae78ea0acce98cf4d52da014719a48f33164f62e519c700c2afa6a8b3b
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors
+    keywords:
+    - traefik-errors
+    - traefik
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: traefik-errors
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-traefik-errors
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/traefik-errors-2.0.1/traefik-errors-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2022-03-30T08:45:18.481652928Z"
+    description: A Helm chart for custom traefik error pages
+    digest: 6ad947b1d57dba975f9862e497c8c30a77963060b5bfe2c334dfebb0d320ebd0
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors
+    keywords:
+    - traefik-errors
+    - traefik
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: traefik-errors
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/pascaliske/docker-traefik-errors
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/traefik-errors-2.0.0/traefik-errors-2.0.0.tgz
+    version: 2.0.0
+  uptime-kuma:
+  - apiVersion: v2
+    appVersion: 1.17.1
+    created: "2022-07-18T04:27:35.330860613Z"
+    description: A Helm chart for Kubernetes
+    digest: 3fc7ba0a1179fb582a3bacded8199584222fd3d96f6d1581834b281db2879251
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma
+    keywords:
+    - uptime
+    - uptime-kuma
+    - monitoring
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: uptime-kuma
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/uptime-kuma-0.2.0/uptime-kuma-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.17.1
+    created: "2022-07-11T06:39:02.282491231Z"
+    description: A Helm chart for Kubernetes
+    digest: 3c0220a5cd22c75bea35da0eb26305218461da21f783d1585238be4a60ff40b5
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma
+    keywords:
+    - uptime
+    - uptime-kuma
+    - monitoring
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: uptime-kuma
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 1.17.1
+    created: "2022-06-27T21:31:18.545554231Z"
+    description: A Helm chart for Kubernetes
+    digest: 063b595ccce8ba83548582a98a5c435bf8468ee9c985786e42c95f35b5fe1336
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma
+    keywords:
+    - uptime
+    - uptime-kuma
+    - monitoring
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: uptime-kuma
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/uptime-kuma-0.0.7/uptime-kuma-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
+    appVersion: 1.13.1
+    created: "2022-05-03T08:23:04.376087539Z"
+    description: A Helm chart for Kubernetes
+    digest: 0e86283e43956ad4bef42be640c8ff202bba62cef8f5cea846af34bb524cb5d9
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma
+    keywords:
+    - uptime
+    - uptime-kuma
+    - monitoring
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: uptime-kuma
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/uptime-kuma-0.0.6/uptime-kuma-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
+    appVersion: 1.10.2
+    created: "2022-03-30T08:45:18.58569568Z"
+    description: A Helm chart for Kubernetes
+    digest: ae590f7a1e7dcc923d5a65fc1a6a24760207f396fdf419e99fac92af7e68e713
+    home: https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma
+    keywords:
+    - uptime
+    - uptime-kuma
+    - monitoring
+    maintainers:
+    - email: info@pascaliske.dev
+      name: pascaliske
+      url: https://pascaliske.dev
+    name: uptime-kuma
+    sources:
+    - https://github.com/pascaliske/helm-charts
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/pascaliske/helm-charts/releases/download/uptime-kuma-0.0.5/uptime-kuma-0.0.5.tgz
+    version: 0.0.5
+generated: "2022-07-18T05:06:13.101432068Z"
