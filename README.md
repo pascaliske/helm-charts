@@ -47,7 +47,7 @@ helm delete <chart>
 | [`paperless`](https://charts.pascaliske.dev/charts/paperless)                     | `0.2.1` |      `1.7.1`       |
 | [`prometheus`](https://charts.pascaliske.dev/charts/prometheus)                   | `1.2.1` |     `v2.34.0`      |
 | [`redis`](https://charts.pascaliske.dev/charts/redis)                             | `0.0.4` |      `6.2.6`       |
-| [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)                       | `0.0.2` | `version-724f0af5` |
+| [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)                       | `0.1.0` | `version-724f0af5` |
 | [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)           | `2.1.0` |      `1.0.3`       |
 | [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)                 | `0.2.0` |      `1.17.1`      |
 

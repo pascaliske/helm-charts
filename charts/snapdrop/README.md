@@ -2,7 +2,7 @@
 
 > A Helm chart for snapdrop
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/linuxserver/docker-snapdrop>
@@ -40,6 +40,13 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
+| certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
+| certificate.dnsNames | list | `[]` | List of subject alternative names for the certificate. |
+| certificate.issuerRef.kind | string | `"ClusterIssuer"` | Type of the referenced certificate issuer. Can be "Issuer" or "ClusterIssuer". |
+| certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
+| certificate.labels | object | `{}` | Additional labels for the certificate object. |
+| certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
 | deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
 | deployment.enabled | bool | `true` | Create a workload for this chart. |
 | deployment.kind | string | `"Deployment"` | Type of the workload object. |
@@ -52,6 +59,13 @@ The following values can be used to adjust the helm chart.
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"ghcr.io/linuxserver/snapdrop"` | The repository to pull the image from. |
 | image.tag | string | `"version-724f0af5"` | The docker tag, if left empty chart's appVersion will be used. |
+| ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
+| ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
+| ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
+| ingressRoute.labels | object | `{}` | Additional labels for the ingress route object. |
+| ingressRoute.middlewares | list | `[]` | List of [middleware objects](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware) for the ingress route. |
+| ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
+| ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
 | nameOverride | string | `""` |  |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
