@@ -120,7 +120,7 @@ IngressRoute TLS secret name
 {{- define "code-server.ingressRoute.tlsSecretName" -}}
 {{- if not (empty .Values.ingressRoute.tlsSecretName) }}
 {{- .Values.ingressRoute.tlsSecretName }}
-{{- else if .Values.certificate.enabled }}
+{{- else if .Values.certificate.create }}
 {{- include "code-server.certificate.name" . }}
 {{- end }}
 {{- end }}
