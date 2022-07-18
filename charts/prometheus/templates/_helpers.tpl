@@ -60,3 +60,43 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Certificate name
+*/}}
+{{- define "prometheus.certificate.name" -}}
+{{- if not (empty .Values.certificate.dnsNames) }}
+{{- first .Values.certificate.dnsNames }}
+{{- else }}
+{{- include "prometheus.fullname" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate secret name
+*/}}
+{{- define "prometheus.certificate.secretName" -}}
+{{- if not (empty .Values.certificate.secretName) }}
+{{- .Values.certificate.secretName }}
+{{- else }}
+{{- include "prometheus.certificate.name" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate issuer reference name
+*/}}
+{{- define "prometheus.certificate.issuerRefName" -}}
+{{- required "Mandatory field \".certificate.issuerRef.name\" is empty!" .Values.certificate.issuerRef.name -}}
+{{- end }}
+
+{{/*
+IngressRoute TLS secret name
+*/}}
+{{- define "prometheus.ingressRoute.tlsSecretName" -}}
+{{- if not (empty .Values.ingressRoute.tlsSecretName) }}
+{{- .Values.ingressRoute.tlsSecretName }}
+{{- else if .Values.certificate.create }}
+{{- include "prometheus.certificate.name" . }}
+{{- end }}
+{{- end }}
