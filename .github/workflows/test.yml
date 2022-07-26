@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: 3.7
 
-      - uses: azure/setup-helm@v3.1
+      - uses: azure/setup-helm@v3.3
 
       - uses: helm/chart-testing-action@v2.2.1
 
