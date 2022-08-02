@@ -60,27 +60,3 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
-
-{{/*
-Timezone
-*/}}
-{{- define "digitalocean-dyndns.timezone" -}}
-{{- $timezone := dict -}}
-{{- range $i, $val := .Values.env -}}
-{{- if eq $val.name "TZ" -}}
-{{- $_ := set $timezone "value" $val.value -}}
-{{- end -}}
-{{- end -}}
-{{- default "UTC" (get $timezone "value") }}
-{{- end }}
-
-{{/*
-Schedule
-*/}}
-{{- define "digitalocean-dyndns.schedule" -}}
-{{- if semverCompare ">= 1.22" .Capabilities.KubeVersion.Version -}}
-{{ printf "CRON_TZ=%s %s" (include "digitalocean-dyndns.timezone" . ) .Values.cronJob.schedule }}
-{{- else -}}
-{{ .Values.cronJob.schedule }}
-{{- end -}}
-{{- end }}
