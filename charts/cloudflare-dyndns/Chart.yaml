@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: cloudflare-dyndns
 description: A Helm chart for a CronJob based Cloudflare DynDNS client.
-version: 0.0.4
+version: 0.0.5
 appVersion: "0.0.3"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns

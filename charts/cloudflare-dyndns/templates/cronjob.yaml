@@ -13,7 +13,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  schedule: {{ include "cloudflare-dyndns.schedule" . }}
+  schedule: {{ .Values.cronJob.schedule }}
   suspend: {{ .Values.cronJob.suspend }}
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
