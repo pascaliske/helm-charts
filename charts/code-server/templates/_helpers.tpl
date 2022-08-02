@@ -62,30 +62,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Timezone
-*/}}
-{{- define "code-server.timezone" -}}
-{{- $timezone := dict -}}
-{{- range $i, $val := .Values.env -}}
-{{- if eq $val.name "TZ" -}}
-{{- $_ := set $timezone "value" $val.value -}}
-{{- end -}}
-{{- end -}}
-{{- default "UTC" (get $timezone "value") }}
-{{- end }}
-
-{{/*
-Schedule
-*/}}
-{{- define "code-server.schedule" -}}
-{{- if semverCompare ">= 1.22" .Capabilities.KubeVersion.Version -}}
-{{ printf "CRON_TZ=%s %s" (include "code-server.timezone" . ) .Values.cronJob.schedule }}
-{{- else -}}
-{{ .Values.cronJob.schedule }}
-{{- end -}}
-{{- end }}
-
-{{/*
 Certificate name
 */}}
 {{- define "code-server.certificate.name" -}}
