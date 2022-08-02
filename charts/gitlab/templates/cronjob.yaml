@@ -13,7 +13,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  schedule: {{ include "gitlab.backups.schedule" . }}
+  schedule: {{ .Values.backups.cronJob.schedule }}
   suspend: {{ .Values.backups.cronJob.suspend }}
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: {{ .Values.backups.cronJob.successfulJobsHistoryLimit }}
