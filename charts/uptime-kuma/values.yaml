@@ -31,6 +31,18 @@ service:
   # -- Additional labels for the service object.
   labels: {}
 
+serviceMonitor:
+  # -- Create a service monitor for prometheus operator.
+  enabled: false
+  # -- How frequently the exporter should be scraped.
+  interval: 30s
+  # -- Timeout value for individual scrapes.
+  timeout: 10s
+  # -- Additional annotations for the service monitor object.
+  annotations: {}
+  # -- Additional labels for the service monitor object.
+  labels: {}
+
 ingressRoute:
   # -- Create an IngressRoute object for exposing this chart.
   create: false

@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Kubernetes
-version: 0.2.0
+version: 0.3.0
 appVersion: "1.17.1"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma
