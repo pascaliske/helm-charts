@@ -19,7 +19,11 @@ spec:
   {{- end }}
   routes:
     - kind: Rule
-      match: {{ required "Mandatory field \".ingressRoute.rule\" is empty!" .Values.ingressRoute.rule }}
+      {{- if .Values.ingressRoute.rule }}
+      match: {{ .Values.ingressRoute.rule }}
+      {{- else }}
+      match: HostRegexp(`{host:.+}`)
+      {{- end }}
       services:
         - kind: Service
           name: {{ include "traefik-errors.fullname" . }}
@@ -29,6 +33,7 @@ spec:
       middlewares:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      priority: 1
   {{- with (include "traefik-errors.ingressRoute.tlsSecretName" .) }}
   tls:
     secretName: {{ . }}
