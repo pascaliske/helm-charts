@@ -1,0 +1,26 @@
+{{- if and .Values.certificate.create .Values.service.enabled -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "gitlab.certificate.name" . }}
+  labels:
+    {{- include "gitlab.labels" . | nindent 4 }}
+    {{- with .Values.certificate.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.certificate.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  secretName: {{ include "gitlab.certificate.secretName" . }}
+  {{- with .Values.certificate.dnsNames }}
+  dnsNames:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.certificate.issuerRef }}
+  issuerRef:
+    kind: {{ default "ClusterIssuer" .kind }}
+    name: {{ include "gitlab.certificate.issuerRefName" $ }}
+  {{- end }}
+{{- end }}

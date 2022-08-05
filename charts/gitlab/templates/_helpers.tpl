@@ -100,3 +100,43 @@ Backups command
 {{- define "gitlab.backups.command" -}}
 {{ printf "kubectl exec -it -n %s deploy/%s -- gitlab-backup create" .Release.Namespace (include "gitlab.fullname" . ) }}
 {{- end }}
+
+{{/*
+Certificate name
+*/}}
+{{- define "gitlab.certificate.name" -}}
+{{- if not (empty .Values.certificate.dnsNames) }}
+{{- first .Values.certificate.dnsNames }}
+{{- else }}
+{{- include "gitlab.fullname" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate secret name
+*/}}
+{{- define "gitlab.certificate.secretName" -}}
+{{- if not (empty .Values.certificate.secretName) }}
+{{- .Values.certificate.secretName }}
+{{- else }}
+{{- include "gitlab.certificate.name" . }}
+{{- end }}
+{{- end }}
+
+{{/*
+Certificate issuer reference name
+*/}}
+{{- define "gitlab.certificate.issuerRefName" -}}
+{{- required "Mandatory field \".certificate.issuerRef.name\" is empty!" .Values.certificate.issuerRef.name -}}
+{{- end }}
+
+{{/*
+IngressRoute TLS secret name
+*/}}
+{{- define "gitlab.ingressRoute.tlsSecretName" -}}
+{{- if not (empty .Values.ingressRoute.tlsSecretName) }}
+{{- .Values.ingressRoute.tlsSecretName }}
+{{- else if .Values.certificate.create }}
+{{- include "gitlab.certificate.name" . }}
+{{- end }}
+{{- end }}

@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.1.1-ce.0](https://img.shields.io/badge/AppVersion-15.1.1--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.2.2-ce.0](https://img.shields.io/badge/AppVersion-15.2.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -50,6 +50,13 @@ The following values can be used to adjust the helm chart.
 | backups.enabled | bool | `true` | Enable backup-related volume mounts. |
 | backups.hostPath | string | `""` | Host path to store the created backups to. |
 | backups.mountPath | string | `"/backups"` | Mount path of backups inside the container. |
+| certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
+| certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
+| certificate.dnsNames | list | `[]` | List of subject alternative names for the certificate. |
+| certificate.issuerRef.kind | string | `"ClusterIssuer"` | Type of the referenced certificate issuer. Can be "Issuer" or "ClusterIssuer". |
+| certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
+| certificate.labels | object | `{}` | Additional labels for the certificate object. |
+| certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
 | configMap.annotations | object | `{}` | Additional annotations for the config map object. |
 | configMap.config | string | `"# external_url 'https://gitlab.example.com'\n"` | String containing the [configuration of gitlab](). |
 | configMap.create | bool | `true` | Create a new config map object. |
@@ -70,7 +77,14 @@ The following values can be used to adjust the helm chart.
 | healthCheck.whitelist | list | `["127.0.0.1"]` | Configure the internal health check whitelist of gitlab. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"gitlab/gitlab-ce"` | The repository to pull the image from. |
-| image.tag | string | `"15.1.1-ce.0"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"15.2.2-ce.0"` | The docker tag, if left empty chart's appVersion will be used. |
+| ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
+| ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
+| ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
+| ingressRoute.labels | object | `{}` | Additional labels for the ingress route object. |
+| ingressRoute.middlewares | list | `[]` | List of [middleware objects](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware) for the ingress route. |
+| ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
+| ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
 | nameOverride | string | `""` |  |
 | persistentVolumeClaims.secrets.annotations | object | `{}` | Additional annotations for the secret persistent volume claim object. |
 | persistentVolumeClaims.secrets.create | bool | `true` | Create a new secret persistent volume claim object. |
