@@ -64,7 +64,7 @@ certificate:
   # -- Additional labels for the certificate object.
   labels: {}
 
-middlewares:
+middleware:
   # -- Create an Middleware object for the exposed chart.
   create: false
   # -- Set explicit name of middleware, defaults to chart name.
