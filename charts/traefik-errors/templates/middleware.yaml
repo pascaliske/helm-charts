@@ -18,9 +18,9 @@ spec:
       name: {{ printf "%s@kubernetescrd" (include "traefik-errors.fullname" . ) }}
       port: {{ .Values.ports.http.port }}
     {{- if not (empty .Values.middleware.homeUrl) }}
-    query: "/{status}?home={{ .Values.middleware.homeUrl }}"
+    query: "/?code={status}&home={{ .Values.middleware.homeUrl }}"
     {{- else }}
-    query: "/{status}"
+    query: "/?code={status}"
     {{- end }}
     {{- with .Values.middleware.statusCodes }}
     status:

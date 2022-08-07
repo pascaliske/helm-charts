@@ -71,7 +71,7 @@ middleware:
   name: ''
   # -- List of error codes which result in an error page.
   statusCodes:
-    - 500-599
+    - 400-599
   # -- Optional home url parameter for the error pages.
   homeUrl: ''
   # -- Additional annotations for the middleware object.

@@ -2,7 +2,7 @@
 
 > A Helm chart for custom traefik error pages
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 2.2.1](https://img.shields.io/badge/Version-2.2.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 2.2.2](https://img.shields.io/badge/Version-2.2.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-traefik-errors>
@@ -68,7 +68,7 @@ The following values can be used to adjust the helm chart.
 | middleware.homeUrl | string | `""` | Optional home url parameter for the error pages. |
 | middleware.labels | object | `{}` | Additional labels for the middleware object. |
 | middleware.name | string | `""` | Set explicit name of middleware, defaults to chart name. |
-| middleware.statusCodes | list | `["500-599"]` | List of error codes which result in an error page. |
+| middleware.statusCodes | list | `["400-599"]` | List of error codes which result in an error page. |
 | nameOverride | string | `""` |  |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
