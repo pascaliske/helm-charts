@@ -1,0 +1,29 @@
+{{- if .Values.middleware.create -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ default (include "traefik-errors.fullname" . ) .Values.middleware.name }}
+  labels:
+    {{- include "traefik-errors.labels" . | nindent 4 }}
+    {{- with .Values.middleware.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.middleware.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  errors:
+    service:
+      name: {{ printf "%s@kubernetescrd" (include "traefik-errors.fullname" . ) }}
+      port: {{ .Values.ports.http.port }}
+    {{- if not (empty .Values.middleware.homeUrl) }}
+    query: "/{status}?home={{ .Values.middleware.homeUrl }}"
+    {{- else }}
+    query: "/{status}"
+    {{- end }}
+    {{- with .Values.middleware.statusCodes }}
+    status:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
+{{- end }}

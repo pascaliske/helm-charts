@@ -64,6 +64,21 @@ certificate:
   # -- Additional labels for the certificate object.
   labels: {}
 
+middlewares:
+  # -- Create an Middleware object for the exposed chart.
+  create: false
+  # -- Set explicit name of middleware, defaults to chart name.
+  name: ''
+  # -- List of error codes which result in an error page.
+  statusCodes:
+    - 500-599
+  # -- Optional home url parameter for the error pages.
+  homeUrl: ''
+  # -- Additional annotations for the middleware object.
+  annotations: {}
+  # -- Additional labels for the middleware object.
+  labels: {}
+
 env:
   # -- Timezone for the container.
   - name: TZ
