@@ -2,7 +2,7 @@
 
 > A Helm chart for custom traefik error pages
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 2.2.2](https://img.shields.io/badge/Version-2.2.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 1.0.3](https://img.shields.io/badge/AppVersion-1.0.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 2.2.3](https://img.shields.io/badge/Version-2.2.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 1.0.4](https://img.shields.io/badge/AppVersion-1.0.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-traefik-errors>
@@ -55,7 +55,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"ghcr.io/pascaliske/traefik-errors"` | The repository to pull the image from. |
-| image.tag | string | `"1.0.3"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"1.0.4"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
