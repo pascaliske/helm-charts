@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: b4bz/homer
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 22.02.2
+  tag: v22.07.2
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
@@ -103,11 +103,13 @@ serviceAccount:
   name: ''
 
 # -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
-securityContext: {}
-  # fsGroup: 1000
-  # runAsNonRoot: true
-  # runAsGroup: 1000
-  # runAsUser: 1000
+securityContext:
+  # -- Enable validation that the container must run as non-root user
+  runAsNonRoot: true
+  # -- Specify the group ID the application will run as
+  runAsGroup: 1000
+  # -- Specify the user ID the application will run as
+  runAsUser: 1000
 
 # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}

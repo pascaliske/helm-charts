@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![AppVersion: 22.02.2](https://img.shields.io/badge/AppVersion-22.02.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![AppVersion: v22.07.2](https://img.shields.io/badge/AppVersion-v22.07.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/bastienwirtz/homer>
@@ -62,7 +62,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"b4bz/homer"` | The repository to pull the image from. |
-| image.tag | string | `"22.02.2"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"v22.07.2"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
@@ -76,7 +76,10 @@ The following values can be used to adjust the helm chart.
 | ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
-| securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| securityContext | object | `{"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| securityContext.runAsGroup | int | `1000` | Specify the group ID the application will run as |
+| securityContext.runAsNonRoot | bool | `true` | Enable validation that the container must run as non-root user |
+| securityContext.runAsUser | int | `1000` | Specify the user ID the application will run as |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
