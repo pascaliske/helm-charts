@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: ghcr.io/crazy-max/cloudflared
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 2022.3.4
+  tag: 2022.8.0
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
