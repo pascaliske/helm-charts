@@ -20,28 +20,14 @@ jobs:
         with:
           version: v3.8.1
 
+      # setup taskfile
+      - uses: arduino/setup-task@v1
+
       # configure git
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-      # create pages for docs
-      - name: Create pages for docs
-        run: |
-          echo "---" > docs/index.md
-          echo "hide:" >> docs/index.md
-          echo "  - navigation" >> docs/index.md
-          echo "---" >> docs/index.md
-          cat README.md >> docs/index.md
-
-          echo "---" > docs/LICENSE.md
-          echo "hide:" >> docs/LICENSE.md
-          echo "  - navigation" >> docs/LICENSE.md
-          echo "---" >> docs/LICENSE.md
-          cat LICENSE.md >> docs/LICENSE.md
-
-          for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
 
       # deploy charts
       - uses: helm/chart-releaser-action@v1.4.0
@@ -49,10 +35,11 @@ jobs:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CR_SKIP_EXISTING: "true"
 
-      # copy chart index to docs folder
-      - name: Copy chart index to docs folder
-        run: |
-          cp -f .cr-index/index.yaml docs/index.yaml || curl https://${{ secrets.PROD_DOMAIN }}/index.yaml --output docs/index.yaml
+      # create pages for docs
+      - name: Create pages for docs
+        run: task docs
+        env:
+          PROD_DOMAIN: ${{ secrets.PROD_DOMAIN }}
 
       # deploy docs
       - uses: mhausenblas/mkdocs-deploy-gh-pages@1.25

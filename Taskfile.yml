@@ -1,0 +1,12 @@
+version: '3'
+
+includes:
+  docs: ./.github/taskfiles/docs.yml
+
+tasks:
+  docs:
+    summary: Documentation specific tasks.
+    cmds:
+      - task: docs:default
+      - for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
+      - cp -f .cr-index/index.yaml docs/index.yaml || curl https://{{.PROD_DOMAIN}}/index.yaml --output docs/index.yaml
