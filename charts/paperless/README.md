@@ -94,6 +94,9 @@ The following values can be used to adjust the helm chart.
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
 | tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
+| trash.enabled | bool | `false` | Enable the volume mount of a [trash directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders). |
+| trash.hostPath | string | `""` | Host path of the trash directory outside the container. |
+| trash.mountPath | string | `"/trash"` | Mount path of the trash directory inside the container. |
 
 ## Maintainers
 

@@ -128,6 +128,39 @@ Export enabled
 {{- end }}
 
 {{/*
+Trash host path
+*/}}
+{{- define "paperless.trash.hostPath" -}}
+{{- if .Values.trash.enabled }}
+{{- .Values.trash.hostPath }}
+{{- end }}
+{{- end }}
+
+{{/*
+Trash mount path
+*/}}
+{{- define "paperless.trash.mountPath" -}}
+{{- if .Values.trash.enabled }}
+{{- default "/export" .Values.trash.mountPath }}
+{{- end }}
+{{- end }}
+
+{{/*
+Trash enabled
+*/}}
+{{- define "paperless.trash.enabled" -}}
+{{- if .Values.trash.enabled }}
+{{- if and (include "paperless.trash.hostPath" .) (include "paperless.trash.mountPath" .) }}
+{{- printf "true" }}
+{{- else }}
+{{- printf "false" }}
+{{- end }}
+{{- else }}
+{{- printf "false" }}
+{{- end }}
+{{- end }}
+
+{{/*
 Certificate name
 */}}
 {{- define "paperless.certificate.name" -}}

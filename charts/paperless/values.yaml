@@ -122,6 +122,14 @@ export:
   # -- Host path of the export directory outside the container.
   hostPath: ''
 
+trash:
+  # -- Enable the volume mount of a [trash directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders).
+  enabled: false
+  # -- Mount path of the trash directory inside the container.
+  mountPath: /trash
+  # -- Host path of the trash directory outside the container.
+  hostPath: ''
+
 serviceAccount:
   # -- Specify the service account used for the deployment.
   name: ''
