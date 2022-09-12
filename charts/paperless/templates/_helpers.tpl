@@ -128,6 +128,13 @@ Export enabled
 {{- end }}
 
 {{/*
+Export command
+*/}}
+{{- define "paperless.export.command" -}}
+{{ printf "kubectl exec -it -n %s deploy/%s -- document_exporter %s" .Release.Namespace (include "paperless.fullname" . ) (include "paperless.export.mountPath" . ) }}
+{{- end }}
+
+{{/*
 Trash host path
 */}}
 {{- define "paperless.trash.hostPath" -}}

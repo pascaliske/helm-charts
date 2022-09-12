@@ -56,6 +56,13 @@ The following values can be used to adjust the helm chart.
 | deployment.labels | object | `{}` | Additional labels for the deployment object. |
 | deployment.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| export.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
+| export.cronJob.enabled | bool | `false` | Create a `CronJob` object for [automated exports](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups). |
+| export.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
+| export.cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
+| export.cronJob.schedule | string | `"0 4 * * 1"` | Schedule for automated exports. |
+| export.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
+| export.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
 | export.enabled | bool | `true` | Enable the volume mount of an export directory for [backups](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups) using the [document exporter](https://paperless-ngx.readthedocs.io/en/latest/administration.html#utilities-exporter). |
 | export.hostPath | string | `""` | Host path of the export directory outside the container. |
 | export.mountPath | string | `"/export"` | Mount path of the export directory inside the container. |

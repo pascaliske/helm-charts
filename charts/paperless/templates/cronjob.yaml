@@ -1,0 +1,42 @@
+{{- if and .Values.export.cronJob.enabled .Values.export.cronJob.schedule -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ printf "%s-export" (include "paperless.fullname" . ) }}
+  labels:
+    {{- include "paperless.labels" . | nindent 4 }}
+    {{- with .Values.export.cronJob.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.export.cronJob.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  schedule: {{ .Values.export.cronJob.schedule }}
+  suspend: {{ .Values.export.cronJob.suspend }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: {{ .Values.export.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.export.cronJob.failedJobsHistoryLimit }}
+  jobTemplate:
+    {{- with .Values.export.cronJob.annotations }}
+    metadata:
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ include "paperless.serviceAccountName" . }}
+          restartPolicy: Never
+          containers:
+            - name: {{ printf "%s-export" (include "paperless.fullname" . ) }}
+              image: ghcr.io/pascaliske/alpine-kubectl:latest
+              imagePullPolicy: Always
+              command: ["/bin/sh"]
+              args: ["-c", "{{ include "paperless.export.command" . }}"]
+              resources: {{ if not .Values.resources -}}{}{{- end }}
+                {{- if .Values.resources }}
+                {{- toYaml .Values.resources | nindent 16 }}
+                {{- end }}
+{{- end }}

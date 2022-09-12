@@ -121,6 +121,21 @@ export:
   mountPath: /export
   # -- Host path of the export directory outside the container.
   hostPath: ''
+  cronJob:
+    # -- Create a `CronJob` object for [automated exports](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups).
+    enabled: false
+    # -- Schedule for automated exports.
+    schedule: '0 4 * * 1'
+    # -- Enable/disable the cron job schedule quickly.
+    suspend: false
+    # -- The number of successful finished jobs to retain.
+    successfulJobsHistoryLimit: 3
+    # -- The number of failed finished jobs to retain.
+    failedJobsHistoryLimit: 1
+    # -- Additional annotations for the cronjob object.
+    annotations: {}
+    # -- Additional labels for the cronjob object.
+    labels: {}
 
 trash:
   # -- Enable the volume mount of a [trash directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders).
