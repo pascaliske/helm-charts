@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: redis
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 6.2.6
+  tag: 7.0.5
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
