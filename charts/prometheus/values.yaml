@@ -112,7 +112,7 @@ configMapReload:
     # -- Image of the config map reloader.
     repository: jimmidyson/configmap-reload
     # -- Tag of the config map reloader.
-    tag: v0.5.0
+    tag: v0.7.1
     # -- The pull policy for the config map reloader.
     pullPolicy: IfNotPresent
   # -- List of extra arguments for the config map reload container.
