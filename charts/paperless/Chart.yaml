@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 1.0.0
+version: 1.0.1
 appVersion: "1.8.0"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
