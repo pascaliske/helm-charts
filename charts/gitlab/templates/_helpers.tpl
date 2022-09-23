@@ -97,7 +97,7 @@ Backups enabled
 {{/*
 Backups command
 */}}
-{{- define "gitlab.backups.command" -}}
+{{- define "gitlab.backup.command" -}}
 {{ printf "kubectl exec -it -n %s deploy/%s -- gitlab-backup create" .Release.Namespace (include "gitlab.fullname" . ) }}
 {{- end }}
 
