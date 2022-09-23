@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: b4bz/homer
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: v22.07.2
+  tag: v22.08.1
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
