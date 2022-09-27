@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: ghcr.io/paperless-ngx/paperless-ngx
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 1.9.1
+  tag: 1.9.2
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
