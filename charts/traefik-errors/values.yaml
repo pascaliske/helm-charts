@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: ghcr.io/pascaliske/traefik-errors
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: '1.0.4'
+  tag: '1.0.5'
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
