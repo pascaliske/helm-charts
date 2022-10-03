@@ -69,9 +69,9 @@ The following values can be used to adjust the helm chart.
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
-| service.clusterIP | string | `nil` | The cluster IP used if service type is == `ClusterIP`. |
+| service.clusterIP | string | `nil` | The cluster IP used if service type is `ClusterIP`. |
 | service.loadBalancerIP | string | `nil` | LoadBalancerIP if service type is `LoadBalancer`. |
-| service.loadBalancerSourceRanges | list | `[]` | Address that are allowed when service is `LoadBalancer`. |
+| service.loadBalancerSourceRanges | list | `[]` | Address that are allowed when service type is `LoadBalancer`. |
 | serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
 
 ## Maintainers
