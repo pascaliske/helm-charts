@@ -20,6 +20,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "catrielmuller",
+      "name": "Catriel Müller",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2272323?v=4",
+      "profile": "https://www.linkedin.com/in/catrielmuller",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
