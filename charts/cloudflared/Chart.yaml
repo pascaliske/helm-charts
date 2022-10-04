@@ -3,7 +3,7 @@ type: application
 name: cloudflared
 description: A Helm chart for cloudflared DNS over HTTPS tunnel.
 version: 1.4.0
-appVersion: "2022.8.0"
+appVersion: "2022.9.0"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
 sources:
