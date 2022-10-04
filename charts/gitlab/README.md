@@ -77,7 +77,7 @@ The following values can be used to adjust the helm chart.
 | healthCheck.whitelist | list | `["127.0.0.1"]` | Configure the internal health check whitelist of gitlab. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"gitlab/gitlab-ce"` | The repository to pull the image from. |
-| image.tag | string | `"15.4.0-ce.0"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"15.4.1-ce.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |

@@ -53,7 +53,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"ghcr.io/crazy-max/cloudflared"` | The repository to pull the image from. |
-| image.tag | string | `"2022.8.0"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"2022.9.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | service.dns.annotations | object | `{}` | Additional annotations for the service object. |
