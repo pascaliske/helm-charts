@@ -34,22 +34,20 @@ helm delete <chart>
 
 ## Charts
 
-| Chart                                                                             | Version |     AppVersion     |
-| --------------------------------------------------------------------------------- | :-----: | :----------------: |
-| [`cloudflare-dyndns`](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)    | `0.0.5` |      `0.0.3`       |
-| [`cloudflared`](https://charts.pascaliske.dev/charts/cloudflared)                 | `1.4.0` |     `2022.8.0`     |
-| [`code-server`](https://charts.pascaliske.dev/charts/code-server)                 | `0.3.2` |      `4.4.0`       |
-| [`digitalocean-dyndns`](https://charts.pascaliske.dev/charts/digitalocean-dyndns) | `0.2.4` |      `0.0.3`       |
-| [`fritzbox-exporter`](https://charts.pascaliske.dev/charts/fritzbox-exporter)     | `1.1.0` |       `1.0`        |
-| [`gitlab`](https://charts.pascaliske.dev/charts/gitlab)                           | `1.3.0` |   `15.4.0-ce.0`    |
-| [`homer`](https://charts.pascaliske.dev/charts/homer)                             | `0.2.0` |     `v22.07.2`     |
-| [`linkding`](https://charts.pascaliske.dev/charts/linkding)                       | `0.1.0` |      `1.11.0`      |
-| [`paperless`](https://charts.pascaliske.dev/charts/paperless)                     | `1.0.1` |      `1.8.0`       |
-| [`prometheus`](https://charts.pascaliske.dev/charts/prometheus)                   | `1.3.0` |     `v2.34.0`      |
-| [`redis`](https://charts.pascaliske.dev/charts/redis)                             | `0.2.0` |      `7.0.5`       |
-| [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)                       | `0.1.0` | `version-724f0af5` |
-| [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)           | `2.2.3` |      `1.0.4`       |
-| [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)                 | `0.3.1` |      `1.17.1`      |
+- [`cloudflare-dyndns`](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)
+- [`cloudflared`](https://charts.pascaliske.dev/charts/cloudflared)
+- [`code-server`](https://charts.pascaliske.dev/charts/code-server)
+- [`digitalocean-dyndns`](https://charts.pascaliske.dev/charts/digitalocean-dyndns)
+- [`fritzbox-exporter`](https://charts.pascaliske.dev/charts/fritzbox-exporter)
+- [`gitlab`](https://charts.pascaliske.dev/charts/gitlab)
+- [`homer`](https://charts.pascaliske.dev/charts/homer)
+- [`linkding`](https://charts.pascaliske.dev/charts/linkding)
+- [`paperless`](https://charts.pascaliske.dev/charts/paperless)
+- [`prometheus`](https://charts.pascaliske.dev/charts/prometheus)
+- [`redis`](https://charts.pascaliske.dev/charts/redis)
+- [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)
+- [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)
+- [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)
 
 ## Contributors
 
@@ -66,7 +64,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
   </tbody>
   <tfoot>
-    
+
   </tfoot>
 </table>
 
