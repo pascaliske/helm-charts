@@ -16,8 +16,7 @@
   },
   "private": true,
   "scripts": {
-    "prepare": "husky install",
-    "docs": "helm-docs --chart-search-root ./charts --template-files README.md.tmpl"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

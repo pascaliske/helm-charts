@@ -10,3 +10,11 @@ tasks:
       - task: docs:default
       - for chart in charts/*; do cp $chart/README.md docs/$chart.md; done
       - cp -f .cr-index/index.yaml docs/index.yaml || curl https://{{.PROD_DOMAIN}}/index.yaml --output docs/index.yaml
+
+  chart-docs:
+    summary: Generate Helm chart documentation.
+    cmds:
+      - helm-docs --chart-search-root {{.CHART_SEARCH_ROOT}} --template-files README.md.tmpl
+    vars:
+      CHART_SEARCH_ROOT:
+        sh: dirname {{ default "./charts/xyz" .CLI_ARGS}} | head -n 1
