@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![AppVersion: 1.18.3](https://img.shields.io/badge/AppVersion-1.18.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![AppVersion: 1.18.4](https://img.shields.io/badge/AppVersion-1.18.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>
@@ -56,7 +56,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"louislam/uptime-kuma"` | The repository to pull the image from. |
-| image.tag | string | `"1.18.3"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"1.18.4"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
