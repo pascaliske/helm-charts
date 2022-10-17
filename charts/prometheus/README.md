@@ -2,7 +2,7 @@
 
 > A Helm chart for prometheus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![AppVersion: v2.39.1](https://img.shields.io/badge/AppVersion-v2.39.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![AppVersion: v2.39.1](https://img.shields.io/badge/AppVersion-v2.39.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/prometheus/prometheus>
@@ -58,7 +58,7 @@ The following values can be used to adjust the helm chart.
 | configMapReload.extraConfigMapMounts | list | `[]` | List of extra config map mounts for the config map reload container. |
 | configMapReload.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the config map reloader. |
 | configMapReload.image.repository | string | `"jimmidyson/configmap-reload"` | Image of the config map reloader. |
-| configMapReload.image.tag | string | `"v0.7.1"` | Tag of the config map reloader. |
+| configMapReload.image.tag | string | `"v0.8.0"` | Tag of the config map reloader. |
 | configMapReload.resources | object | `{}` | Compute resources used by the config map reload container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
 | deployment.enabled | bool | `true` | Create a workload for this chart. |
