@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: gitlab/gitlab-ce
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 15.4.3-ce.0
+  tag: 15.5.0-ce.0
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
