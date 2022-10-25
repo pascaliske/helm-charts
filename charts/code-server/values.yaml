@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: codercom/code-server
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 4.7.1
+  tag: 4.8.0
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
