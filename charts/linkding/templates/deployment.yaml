@@ -69,7 +69,7 @@ spec:
             {{- end }}
             {{- $additionalContainers = append $additionalContainers $container }}
           {{- end }}
-          {{- tpl (toYaml $additionalContainers) $ | nindent 2 }}
+          {{- tpl (toYaml $additionalContainers) $ | nindent 8 }}
         {{- end }}
       volumes:
         - name: storage-volume
