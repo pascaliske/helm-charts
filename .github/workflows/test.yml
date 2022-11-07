@@ -1,5 +1,4 @@
 name: Test Charts
-
 on:
   push:
     branches:
