@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 1.3.3](https://img.shields.io/badge/Version-1.3.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.5.2-ce.0](https://img.shields.io/badge/AppVersion-15.5.2--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![Version: 1.3.4](https://img.shields.io/badge/Version-1.3.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)[![AppVersion: 15.5.3-ce.0](https://img.shields.io/badge/AppVersion-15.5.3--ce.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/gitlab)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -77,7 +77,7 @@ The following values can be used to adjust the helm chart.
 | healthCheck.whitelist | list | `["127.0.0.1"]` | Configure the internal health check whitelist of gitlab. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"gitlab/gitlab-ce"` | The repository to pull the image from. |
-| image.tag | string | `"15.5.2-ce.0"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"15.5.3-ce.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
