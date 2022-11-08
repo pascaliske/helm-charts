@@ -2,7 +2,7 @@
 
 > A Helm chart for prometheus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![AppVersion: v2.39.1](https://img.shields.io/badge/AppVersion-v2.39.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)[![AppVersion: v2.40.0](https://img.shields.io/badge/AppVersion-v2.40.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/prometheus/prometheus>
@@ -73,7 +73,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"prom/prometheus"` | The repository to pull the image from. |
-| image.tag | string | `"v2.39.1"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"v2.40.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
