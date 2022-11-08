@@ -2,8 +2,8 @@ apiVersion: v2
 type: application
 name: code-server
 description: A Helm chart for Kubernetes
-version: 0.3.4
-appVersion: "4.8.2"
+version: 0.3.5
+appVersion: "4.8.3"
 
 home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
 sources:
