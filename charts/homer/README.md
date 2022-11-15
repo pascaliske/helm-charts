@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![AppVersion: v22.10.2](https://img.shields.io/badge/AppVersion-v22.10.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![AppVersion: v22.11.1](https://img.shields.io/badge/AppVersion-v22.11.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/bastienwirtz/homer>
@@ -62,7 +62,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"b4bz/homer"` | The repository to pull the image from. |
-| image.tag | string | `"v22.10.2"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"v22.11.1"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
