@@ -2,7 +2,7 @@ image:
   # -- The repository to pull the image from.
   repository: prom/prometheus
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: v2.40.2
+  tag: v2.40.3
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 
