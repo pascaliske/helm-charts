@@ -92,6 +92,12 @@ spec:
             - name: trash-volume
               mountPath: {{ include "paperless.trash.mountPath" . }}
             {{- end }}
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            failureThreshold: 30
+            periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
