@@ -5,7 +5,7 @@ description: A Helm chart for prometheus
 version: 1.3.4
 appVersion: "v2.40.5"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/prometheus
+home: https://charts.pascaliske.dev/charts/prometheus/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/prometheus/prometheus

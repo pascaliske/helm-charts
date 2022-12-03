@@ -5,7 +5,7 @@ description: A Helm chart for Redis
 version: 0.2.0
 appVersion: "7.0.5"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/redis
+home: https://charts.pascaliske.dev/charts/redis/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/docker-library/redis

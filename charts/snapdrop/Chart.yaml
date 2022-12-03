@@ -5,7 +5,7 @@ description: A Helm chart for snapdrop
 version: 0.1.0
 appVersion: "version-724f0af5"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop
+home: https://charts.pascaliske.dev/charts/snapdrop/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/linuxserver/docker-snapdrop

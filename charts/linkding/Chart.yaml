@@ -5,7 +5,7 @@ description: A Helm chart for linkding
 version: 0.2.1
 appVersion: "1.15.1"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/linkding
+home: https://charts.pascaliske.dev/charts/linkding/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/sissbruecker/linkding

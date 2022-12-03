@@ -5,7 +5,7 @@ description: A Helm chart for paperless-ngx
 version: 1.1.1
 appVersion: "1.10.1"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/paperless
+home: https://charts.pascaliske.dev/charts/paperless/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/paperless-ngx/paperless-ngx

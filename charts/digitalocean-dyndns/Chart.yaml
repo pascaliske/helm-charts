@@ -5,7 +5,7 @@ description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
 version: 0.2.4
 appVersion: "0.0.3"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/digitalocean-dyndns
+home: https://charts.pascaliske.dev/charts/digitalocean-dyndns/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/pascaliske/docker-digitalocean-dyndns

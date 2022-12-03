@@ -5,7 +5,7 @@ description: A Helm chart for cloudflared DNS over HTTPS tunnel.
 version: 1.4.1
 appVersion: "2022.10.2"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflared
+home: https://charts.pascaliske.dev/charts/cloudflared/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/crazy-max/docker-cloudflared

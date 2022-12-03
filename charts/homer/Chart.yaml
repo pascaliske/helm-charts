@@ -5,7 +5,7 @@ description: A Helm chart for Kubernetes
 version: 0.2.4
 appVersion: "v22.11.2"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/homer
+home: https://charts.pascaliske.dev/charts/homer/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/bastienwirtz/homer

@@ -5,7 +5,7 @@ description: A Helm chart for a CronJob based Cloudflare DynDNS client.
 version: 0.1.1
 appVersion: "0.1.1"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/cloudflare-dyndns
+home: https://charts.pascaliske.dev/charts/cloudflare-dyndns/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/pascaliske/docker-cloudflare-dyndns

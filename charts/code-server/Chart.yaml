@@ -5,7 +5,7 @@ description: A Helm chart for Kubernetes
 version: 0.3.5
 appVersion: "4.8.3"
 
-home: https://github.com/pascaliske/helm-charts/tree/master/charts/code-server
+home: https://charts.pascaliske.dev/charts/code-server/
 sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/coder/code-server
