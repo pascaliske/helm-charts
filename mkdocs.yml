@@ -72,6 +72,10 @@ extra:
     - icon: fontawesome/brands/docker
       link: https://hub.docker.com/u/pascaliske
 
+# customizations
+extra_css:
+  - styles/custom.css
+
 # code highlighting
 markdown_extensions:
   - admonition
@@ -81,11 +85,12 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.tabbed:
       alternate_style: true
-
-# customizations
-extra_css:
-  - styles/custom.css
