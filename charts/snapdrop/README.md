@@ -1,8 +1,8 @@
-# [`snapdrop`](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)
+# [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop/)
 
 > A Helm chart for snapdrop
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/snapdrop)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/linuxserver/docker-snapdrop>

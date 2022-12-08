@@ -1,8 +1,8 @@
-# [`homer`](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
+# [`homer`](https://charts.pascaliske.dev/charts/homer/)
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![Version: 0.2.4](https://img.shields.io/badge/Version-0.2.4-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)[![AppVersion: v22.11.2](https://img.shields.io/badge/AppVersion-v22.11.2-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/homer)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)[![Version: 0.2.4](https://img.shields.io/badge/Version-0.2.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)[![AppVersion: v22.11.2](https://img.shields.io/badge/AppVersion-v22.11.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/bastienwirtz/homer>

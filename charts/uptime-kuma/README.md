@@ -1,8 +1,8 @@
-# [`uptime-kuma`](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)
+# [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)[![AppVersion: 1.18.5](https://img.shields.io/badge/AppVersion-1.18.5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/uptime-kuma)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.18.5](https://img.shields.io/badge/AppVersion-1.18.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>

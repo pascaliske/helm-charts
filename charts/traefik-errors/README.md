@@ -1,8 +1,8 @@
-# [`traefik-errors`](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
+# [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors/)
 
 > A Helm chart for custom traefik error pages
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![Version: 2.3.0](https://img.shields.io/badge/Version-2.3.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)[![AppVersion: 1.0.5](https://img.shields.io/badge/AppVersion-1.0.5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/traefik-errors)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)[![Version: 2.3.0](https://img.shields.io/badge/Version-2.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)[![AppVersion: 1.0.5](https://img.shields.io/badge/AppVersion-1.0.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-traefik-errors>

@@ -1,8 +1,8 @@
-# [`linkding`](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)
+# [`linkding`](https://charts.pascaliske.dev/charts/linkding/)
 
 > A Helm chart for linkding
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)[![AppVersion: 1.15.1](https://img.shields.io/badge/AppVersion-1.15.1-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/linkding)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![AppVersion: 1.15.1](https://img.shields.io/badge/AppVersion-1.15.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/sissbruecker/linkding>

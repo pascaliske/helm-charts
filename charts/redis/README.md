@@ -1,8 +1,8 @@
-# [`redis`](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)
+# [`redis`](https://charts.pascaliske.dev/charts/redis/)
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)[![AppVersion: 7.0.5](https://img.shields.io/badge/AppVersion-7.0.5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/redis)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.0.5](https://img.shields.io/badge/AppVersion-7.0.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
