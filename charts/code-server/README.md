@@ -1,8 +1,8 @@
-# [`code-server`](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
+# [`code-server`](https://charts.pascaliske.dev/charts/code-server/)
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![Version: 0.3.5](https://img.shields.io/badge/Version-0.3.5-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)[![AppVersion: 4.8.3](https://img.shields.io/badge/AppVersion-4.8.3-informational?style=flat-square) ](https://github.com/pascaliske/helm-charts/tree/master/charts/code-server)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![Version: 0.3.6](https://img.shields.io/badge/Version-0.3.6-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![AppVersion: 4.9.0](https://img.shields.io/badge/AppVersion-4.9.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/coder/code-server>
@@ -71,7 +71,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"codercom/code-server"` | The repository to pull the image from. |
-| image.tag | string | `"4.8.3"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `"4.9.0"` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
