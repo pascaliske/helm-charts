@@ -2,8 +2,8 @@ apiVersion: v2
 type: application
 name: redis
 description: A Helm chart for Redis
-version: 0.2.0
-appVersion: "7.0.5"
+version: 0.2.1
+appVersion: "7.0.6"
 
 home: https://charts.pascaliske.dev/charts/redis/
 sources:
