@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
 
       # setup helm
-      - uses: azure/setup-helm@v3.4
+      - uses: azure/setup-helm@v3.5
         with:
           version: v3.8.1
 
