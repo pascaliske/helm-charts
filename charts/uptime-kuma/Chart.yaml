@@ -3,6 +3,7 @@ type: application
 name: uptime-kuma
 description: A Helm chart for Kubernetes
 version: 0.3.3
+# renovate: image=louislam/uptime-kuma
 appVersion: "1.18.5"
 
 home: https://charts.pascaliske.dev/charts/uptime-kuma/

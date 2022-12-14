@@ -3,6 +3,16 @@
   "extends": ["config:base", ":preserveSemverRanges", ":disableRateLimiting"],
   "assigneesFromCodeOwners": true,
   "labels": ["dependencies"],
+  "regexManagers": [
+    {
+      "description": "Process app versions in Chart files",
+      "fileMatch": ["(^|/)Chart\\.yaml$"],
+      "matchStrings": [
+        "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?\\\"?(?<currentValue>[\\w+\\.\\-]*)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ],
   "packageRules": [
     {
       "matchPackagePatterns": ["commitlint"],

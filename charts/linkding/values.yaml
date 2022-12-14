@@ -2,7 +2,8 @@ image:
   # -- The repository to pull the image from.
   repository: sissbruecker/linkding
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: 1.15.1
+  # @default -- `.Chart.AppVersion`
+  tag: ''
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 

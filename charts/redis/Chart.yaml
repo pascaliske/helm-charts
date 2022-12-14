@@ -3,6 +3,7 @@ type: application
 name: redis
 description: A Helm chart for Redis
 version: 0.2.1
+# renovate: image=redis
 appVersion: "7.0.6"
 
 home: https://charts.pascaliske.dev/charts/redis/
