@@ -3,6 +3,7 @@ type: application
 name: code-server
 description: A Helm chart for Kubernetes
 version: 0.3.6
+# renovate: image=codercom/code-server
 appVersion: "4.9.0"
 
 home: https://charts.pascaliske.dev/charts/code-server/

@@ -3,6 +3,7 @@ type: application
 name: fritzbox-exporter
 description: A Helm chart for fritzbox-exporter
 version: 1.1.0
+# renovate: image=sealife/fritzbox-exporter
 appVersion: "1.0"
 
 home: https://charts.pascaliske.dev/charts/fritzbox-exporter/
