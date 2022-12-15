@@ -3,6 +3,7 @@ type: application
 name: snapdrop
 description: A Helm chart for snapdrop
 version: 0.1.0
+# renovate: image=ghcr.io/linuxserver/snapdrop
 appVersion: "version-724f0af5"
 
 home: https://charts.pascaliske.dev/charts/snapdrop/

@@ -2,7 +2,8 @@ image:
   # -- The repository to pull the image from.
   repository: ghcr.io/linuxserver/snapdrop
   # -- The docker tag, if left empty chart's appVersion will be used.
-  tag: version-724f0af5
+  # @default -- `.Chart.AppVersion`
+  tag: ''
   # -- The pull policy for the deployment.
   pullPolicy: IfNotPresent
 

@@ -48,7 +48,7 @@ The following values can be used to adjust the helm chart.
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
 | image.repository | string | `"sealife/fritzbox-exporter"` | The repository to pull the image from. |
-| image.tag | string | `"1.0"` | The docker tag, if left empty chart's appVersion will be used. |
+| image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | ports.metrics.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.metrics.port | int | `8765` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
