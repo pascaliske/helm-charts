@@ -1,0 +1,68 @@
+{{- if .Values.deployment.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "unbound.fullname" . }}
+  labels:
+    {{- include "unbound.labels" . | nindent 4 }}
+    {{- with .Values.deployment.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "unbound.selectorLabels" . | nindent 6 }}
+  {{- with .Values.deployment.strategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  template:
+    metadata:
+      {{- with .Values.deployment.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "unbound.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "unbound.serviceAccountName" . }}
+      containers:
+        - name: {{ template "unbound.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: dns-udp
+              containerPort: {{ .Values.service.dns.port }}
+              protocol: UDP
+            - name: dns-tcp
+              containerPort: {{ .Values.service.dns.port }}
+              protocol: TCP
+          env:
+            - name: UNBOUND_PORT
+              value: {{ .Values.service.dns.port | squote }}
+          livenessProbe:
+            exec:
+              command: ['dig', '@127.0.0.1', '-p', {{ .Values.service.dns.port | squote }}, 'cloudflare.com']
+          readinessProbe:
+            exec:
+              command: ['dig', '@127.0.0.1', '-p', {{ .Values.service.dns.port | squote }}, 'cloudflare.com']
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

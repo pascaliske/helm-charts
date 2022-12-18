@@ -1,0 +1,39 @@
+{{- if and .Values.service.dns.enabled .Values.service.dns.single -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "%s-dns" (include "unbound.fullname" .) }}
+  labels:
+    {{- include "unbound.labels" . | nindent 4 }}
+    {{- with .Values.service.dns.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+    service: {{ printf "%s-dns" (include "unbound.fullname" .) }}
+  {{- with .Values.service.dns.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.dns.type }}
+  ports:
+    {{- with .Values.service.dns }}
+    {{- if .enabled }}
+    - name: dns-tcp
+      port: {{ .port }}
+      targetPort: dns-tcp
+      {{- if and (eq .type "NodePort") .nodePort }}
+      nodePort: {{ .nodePort }}
+      {{- end }}
+      protocol: TCP
+    - name: dns-udp
+      port: {{ .port }}
+      targetPort: dns-udp
+      {{- if and (eq .type "NodePort") .nodePort }}
+      nodePort: {{ .nodePort }}
+      {{- end }}
+      protocol: UDP
+    {{- end }}
+    {{- end }}
+  selector:
+    {{- include "unbound.selectorLabels" . | nindent 4 }}
+{{- end }}

@@ -1,0 +1,18 @@
+1. Get the application URL by running these commands:
+{{- if contains "NodePort" .Values.service.dns.type }}
+  export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "unbound.fullname" . }})
+  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo http://$NODE_IP:$NODE_PORT
+{{- else if contains "LoadBalancer" .Values.service.dns.type }}
+     NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+           You can watch the status of by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "unbound.fullname" . }}'
+  export SERVICE_IP_UDP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "unbound.fullname" . }}-dns-udp --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
+  export SERVICE_IP_TCP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "unbound.fullname" . }}-dns-tcp --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
+  echo "DNS via TCP: $SERVICE_IP_TCP:{{ .Values.service.dns.port }}"
+  echo "DNS via UDP: $SERVICE_IP_UDP:{{ .Values.service.dns.port }}"
+{{- else if contains "ClusterIP" .Values.service.dns.type }}
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "unbound.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
+  export CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+  echo "Visit http://127.0.0.1:5053 to use your application"
+  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 5053:$CONTAINER_PORT
+{{- end }}

@@ -1,0 +1,47 @@
+# [`{{ template "chart.name" . }}`]({{ template "chart.homepage" . }})
+
+{{ template "chart.deprecationWarning" . }}
+
+> {{ template "chart.description" . }}
+
+[{{ template "chart.typeBadge" .  }}]({{ template "chart.homepage" . }})[{{ template "chart.versionBadge" . }}]({{ template "chart.homepage" . }})[{{ template "chart.appVersionBadge" . }}]({{ template "chart.homepage" . }})
+
+{{ template "chart.sourcesList" . }}
+
+## Requirements
+
+- [`helm`](https://helm.sh) - Refer to their [docs](https://helm.sh/docs) to get started.
+
+## Usage
+
+To use this chart add the repo as follows:
+
+```sh
+helm repo add pascaliske https://charts.pascaliske.dev
+```
+
+If you had already added this repo earlier, run `helm repo update` to retrieve the latest versions of the packages.
+
+To install this chart simply run the following command:
+
+```sh
+helm install {{ template "chart.name" . }} pascaliske/{{ template "chart.name" . }}
+```
+
+To uninstall this chart simply run the following command:
+
+```sh
+helm delete {{ template "chart.name" . }}
+```
+
+{{ template "chart.valuesHeader" . }}
+
+The following values can be used to adjust the helm chart.
+
+{{ template "chart.valuesTable" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+## License
+
+[MIT](../LICENSE.md) – © {{ now | date "2006" }} [Pascal Iske](https://pascaliske.dev)
