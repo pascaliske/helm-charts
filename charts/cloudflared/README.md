@@ -61,6 +61,7 @@ The following values can be used to adjust the helm chart.
 | service.dns.labels | object | `{}` | Additional labels for the service object. |
 | service.dns.nodePort | string | `nil` | If the service is NodePort, specify a node port value here. |
 | service.dns.port | int | `5053` | The service port used. |
+| service.dns.single | bool | `true` | Combine TCP and UDP endpoints in a single service. |
 | service.dns.type | string | `"ClusterIP"` | The service type used. |
 | service.metrics.annotations | object | `{}` | Additional annotations for the service object. |
 | service.metrics.enabled | bool | `false` | Create a service for the metrics endpoint. |
