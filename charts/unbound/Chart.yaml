@@ -1,0 +1,21 @@
+apiVersion: v2
+type: application
+name: unbound
+description: A Helm chart for unbound DNS resolver.
+version: 0.0.1
+# renovate: image=ghcr.io/pascaliske/unbound
+appVersion: "0.1.0"
+
+home: https://charts.pascaliske.dev/charts/unbound/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/pascaliske/docker-cloudflared
+keywords:
+  - unbound
+  - dns-over-https
+  - dns-proxy
+  - recursive-dns
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
