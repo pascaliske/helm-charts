@@ -9,7 +9,8 @@ appVersion: "0.1.0"
 home: https://charts.pascaliske.dev/charts/unbound/
 sources:
   - https://github.com/pascaliske/helm-charts
-  - https://github.com/pascaliske/docker-cloudflared
+  - https://github.com/pascaliske/docker-unbound
+  - https://github.com/NLnetLabs/unbound
 keywords:
   - unbound
   - dns-over-https
