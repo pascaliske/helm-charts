@@ -2,6 +2,7 @@ version: '3'
 
 includes:
   docs: ./.github/taskfiles/docs.yml
+  helm: ./.github/taskfiles/helm.yml
 
 tasks:
   docs:

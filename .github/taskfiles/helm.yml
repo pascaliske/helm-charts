@@ -1,0 +1,6 @@
+version: '3'
+
+tasks:
+  template:
+    cmds:
+      - helm template {{.CLI_ARGS}} ./charts/{{.CLI_ARGS}} --debug | pbcopy
