@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![Version: 0.3.6](https://img.shields.io/badge/Version-0.3.6-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![AppVersion: 4.9.0](https://img.shields.io/badge/AppVersion-4.9.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![Version: 0.3.7](https://img.shields.io/badge/Version-0.3.7-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![AppVersion: 4.9.1](https://img.shields.io/badge/AppVersion-4.9.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/coder/code-server>
