@@ -34,6 +34,8 @@ service:
   dns:
     # -- Create a service for DNS endpoints.
     enabled: true
+    # -- Combine TCP and UDP endpoints in a single service.
+    single: true
     # -- The service type used.
     type: ClusterIP
     # -- The service port used.

@@ -1,4 +1,4 @@
-{{- if .Values.service.dns.enabled -}}
+{{- if and .Values.service.dns.enabled (not .Values.service.dns.single) -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -21,7 +21,7 @@ spec:
     - name: dns-tcp
       port: {{ .port }}
       targetPort: dns-tcp
-      {{- if and (eq $.Values.service.dns.type "NodePort") .nodePort }}
+      {{- if and (eq .type "NodePort") .nodePort }}
       nodePort: {{ .nodePort }}
       {{- end }}
       protocol: TCP
