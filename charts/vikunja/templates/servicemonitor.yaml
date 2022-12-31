@@ -1,0 +1,34 @@
+{{- if and .Values.serviceMonitor.enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "vikunja.fullname" . }}
+  labels:
+    {{- include "vikunja.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  endpoints:
+    {{- if .Values.ports.api.enabled }}
+    - targetPort: api
+      path: /metrics
+      {{- if .Values.serviceMonitor.interval }}
+      interval: {{ .Values.serviceMonitor.interval }}
+      {{- end }}
+      {{- if .Values.serviceMonitor.timeout }}
+      scrapeTimeout: {{ .Values.serviceMonitor.timeout }}
+      {{- end }}
+    {{- end }}
+  jobLabel: {{ include "vikunja.fullname" . }}
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      {{- include "vikunja.selectorLabels" . | nindent 6 }}
+{{- end }}
