@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.20.1](https://img.shields.io/badge/AppVersion-0.20.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.20.1](https://img.shields.io/badge/AppVersion-0.20.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://code.vikunja.io>
