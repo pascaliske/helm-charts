@@ -1,0 +1,20 @@
+apiVersion: v2
+type: application
+name: vikunja
+description: A Helm chart for Kubernetes
+version: 0.0.1
+# renovate: image=vikunja/api
+appVersion: "0.20.1"
+
+home: https://charts.pascaliske.dev/charts/vikunja/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://code.vikunja.io
+  - https://vikunja.io
+keywords:
+  - vikunja
+  - todos
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
