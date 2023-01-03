@@ -19,7 +19,7 @@ spec:
   {{- end }}
   routes:
     - kind: Rule
-      match: '{{ required "Mandatory field \".ingressRoute.rule\" is empty!" .Values.ingressRoute.rule }} && PathPrefix(`/(api|dav|\.well-known)`)'
+      match: '{{ required "Mandatory field \".ingressRoute.rule\" is empty!" .Values.ingressRoute.rule }} && (PathPrefix(`/api`) || PathPrefix(`/dav`) || PathPrefix(`/.well-known`))'
       services:
         - kind: Service
           name: {{ printf "%s-web" (include "vikunja.fullname" . ) }}
