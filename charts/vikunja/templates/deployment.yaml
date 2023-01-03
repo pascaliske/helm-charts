@@ -43,6 +43,14 @@ spec:
             {{- range $i, $val := .Values.env }}
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
+            {{- if eq $val.name "TZ" }}
+            - name: PAPERLESS_TIME_ZONE
+              value: {{ $val.value | quote }}
+            {{- end }}
+            {{- end }}
+            {{- if and .Values.serviceMonitor.enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") }}
+            - name: VIKUNJA_METRICS_ENABLED
+              value: 'true'
             {{- end }}
           volumeMounts:
             - name: storage-volume
