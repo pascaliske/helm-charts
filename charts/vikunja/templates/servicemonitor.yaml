@@ -16,7 +16,7 @@ spec:
   endpoints:
     {{- if .Values.ports.api.enabled }}
     - targetPort: api
-      path: /metrics
+      path: /api/v1/metrics
       {{- if .Values.serviceMonitor.interval }}
       interval: {{ .Values.serviceMonitor.interval }}
       {{- end }}
