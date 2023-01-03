@@ -44,7 +44,7 @@ spec:
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- if eq $val.name "TZ" }}
-            - name: PAPERLESS_TIME_ZONE
+            - name: VIKUNJA_SERVICE_TIMEZONE
               value: {{ $val.value | quote }}
             {{- end }}
             {{- end }}
