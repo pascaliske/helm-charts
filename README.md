@@ -48,6 +48,7 @@ helm delete <chart>
 - [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)
 - [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)
 - [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)
+- [`vikunja`](https://charts.pascaliske.dev/charts/vikunja)
 
 ## Contributors
 
