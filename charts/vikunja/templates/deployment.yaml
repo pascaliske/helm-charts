@@ -53,6 +53,10 @@ spec:
             - name: VIKUNJA_SERVICE_TIMEZONE
               value: {{ $val.value | quote }}
             {{- end }}
+            {{- if and (eq $val.name "VIKUNJA_DATABASE_TYPE") (eq $val.value "sqlite") }}
+            - name: VIKUNJA_DATABASE_PATH
+              value: {{ .Values.persistentVolumeClaim.mountPath }}/vikunja.db
+            {{- end }}
             {{- end }}
             {{- if and .Values.serviceMonitor.enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") }}
             - name: VIKUNJA_METRICS_ENABLED

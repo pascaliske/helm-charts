@@ -70,7 +70,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
 | persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` | Use an existing persistent volume claim object. |
 | persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
-| persistentVolumeClaim.mountPath | string | `"/app/vikunja"` | Mount path of the persistent volume claim object. |
+| persistentVolumeClaim.mountPath | string | `"/app/vikunja/files"` | Mount path of the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | ports.api.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
 | ports.api.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |

@@ -106,7 +106,7 @@ persistentVolumeClaim:
   # -- Create a new persistent volume claim object.
   create: true
   # -- Mount path of the persistent volume claim object.
-  mountPath: /app/vikunja
+  mountPath: /app/vikunja/files
   # -- Storage class name for the persistent volume claim object.
   storageClassName: ''
   # -- Use an existing persistent volume claim object.
