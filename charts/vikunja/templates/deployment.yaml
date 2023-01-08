@@ -41,8 +41,14 @@ spec:
             {{- end }}
           env:
             {{- range $i, $val := .Values.env }}
+            {{- if $val.value }}
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
+            {{- else if $val.valueFrom }}
+            - name: {{ $val.name | quote }}
+              valueFrom:
+                {{- toYaml $val.valueFrom | nindent 16 }}
+            {{- end }}
             {{- if eq $val.name "TZ" }}
             - name: VIKUNJA_SERVICE_TIMEZONE
               value: {{ $val.value | quote }}
