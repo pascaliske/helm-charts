@@ -52,9 +52,11 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+          {{- if or .Values.persistentVolumeClaim.create .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
           volumeMounts:
             - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -77,6 +79,7 @@ spec:
           {{- end }}
           {{- tpl (toYaml $additionalContainers) $ | nindent 8 }}
         {{- end }}
+      {{- if or .Values.persistentVolumeClaim.create .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
       volumes:
         - name: storage-volume
           persistentVolumeClaim:
@@ -85,6 +88,7 @@ spec:
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
+      {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}
