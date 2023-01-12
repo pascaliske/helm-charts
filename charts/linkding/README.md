@@ -2,7 +2,7 @@
 
 > A Helm chart for linkding
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![AppVersion: 1.15.1](https://img.shields.io/badge/AppVersion-1.15.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![AppVersion: 1.15.1](https://img.shields.io/badge/AppVersion-1.15.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/sissbruecker/linkding>
@@ -93,4 +93,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2022 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
