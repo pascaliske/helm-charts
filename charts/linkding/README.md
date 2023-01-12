@@ -2,7 +2,7 @@
 
 > A Helm chart for linkding
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![AppVersion: 1.15.1](https://img.shields.io/badge/AppVersion-1.15.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)[![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/linkding/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/sissbruecker/linkding>
