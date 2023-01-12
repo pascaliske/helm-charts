@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: cloudflared
 description: A Helm chart for cloudflared DNS over HTTPS tunnel.
-version: 1.5.0
+version: 1.5.1
 # renovate: image=ghcr.io/crazy-max/cloudflared
 appVersion: "2022.12.1"
 
