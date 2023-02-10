@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
+apiVersion: v2
+type: application
+name: plausible
+description: A Helm chart for Plausible
+version: 0.0.1
+# renovate: image=plausible/analytics
+appVersion: "v1.5.1"
+
+home: https://charts.pascaliske.dev/charts/plausible/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/plausible/analytics
+  - https://github.com/plausible/hosting
+  - https://plausible.io
+keywords:
+  - plausible
+  - analytics
+  - privacy-focused
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.0.2
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |-
+    - kind: changed
+      description: 'Setup Plausible Helm Chart.'

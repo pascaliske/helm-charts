@@ -1,0 +1,101 @@
+{{- if .Values.controller.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "plausible.fullname" . }}
+  labels:
+    {{- include "plausible.labels" . | nindent 4 }}
+    {{- with .Values.controller.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.controller.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.controller.replicas }}
+  replicas: {{ .Values.controller.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "plausible.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.controller.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "plausible.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "plausible.serviceAccountName" . }}
+      initContainers:
+        - name: init-database
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - sleep 30 && /entrypoint.sh db createdb && /entrypoint.sh db migrate
+          env:
+            {{- range $i, $val := .Values.env }}
+            {{- if $val.value }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- else if $val.valueFrom }}
+            - name: {{ $val.name | quote }}
+              valueFrom:
+                {{- toYaml $val.valueFrom | nindent 16 }}
+            {{- end }}
+            {{- end }}
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      containers:
+        - name: {{ template "plausible.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- if .Values.ports.http.enabled }}
+            - name: http
+              containerPort: {{ .Values.ports.http.port }}
+              protocol: {{ default "TCP" .Values.ports.http.protocol | quote }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            {{- if $val.value }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- else if $val.valueFrom }}
+            - name: {{ $val.name | quote }}
+              valueFrom:
+                {{- toYaml $val.valueFrom | nindent 16 }}
+            {{- end }}
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}
