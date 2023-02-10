@@ -43,6 +43,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*
+Controller kind
+*/}}
+{{- define "redis.controller.kind" -}}
+{{- if eq .Values.controller.kind "StatefulSet" -}}
+{{- printf "StatefulSet" }}
+{{- else -}}
+{{- printf "Deployment" }}
+{{- end -}}
+{{- end }}
+
+{{/*
 Selector labels
 */}}
 {{- define "redis.selectorLabels" -}}
@@ -69,5 +80,54 @@ Flag if persistence is enabled.
 {{- printf "true" }}
 {{- else }}
 {{- printf "false" }}
+{{- end }}
+{{- end }}
+
+{{/*
+Flag if persistence should be created.
+*/}}
+{{- define "redis.persistence.created" -}}
+{{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
+{{- printf "true" }}
+{{- else }}
+{{- printf "false" }}
+{{- end }}
+{{- end }}
+
+{{/*
+Persistence controller type
+*/}}
+{{- define "redis.persistence.type" -}}
+{{- if eq (include "redis.persistence.created" . ) "true" -}}
+{{- if eq (include "redis.controller.kind" . ) "StatefulSet" -}}
+{{- printf "volumeClaimTemplates" }}
+{{- else }}
+{{- printf "volumes" }}
+{{- end }}
+{{- else }}
+{{- printf "volumes" }}
+{{- end }}
+{{- end }}
+
+
+{{/*
+Persistence object name
+*/}}
+{{- define "redis.persistence.name" -}}
+{{ printf "%s-storage" (include "redis.fullname" . ) }}
+{{- end }}
+
+{{/*
+Persistence object specification
+*/}}
+{{- define "redis.persistence.spec" -}}
+accessModes:
+  - ReadWriteOnce
+resources:
+  requests:
+    storage: 1Gi
+volumeMode: Filesystem
+{{- with .Values.persistentVolumeClaim.storageClassName }}
+storageClassName: {{ . }}
 {{- end }}
 {{- end }}

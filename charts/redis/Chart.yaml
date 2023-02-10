@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
 apiVersion: v2
 type: application
 name: redis
 description: A Helm chart for Redis
-version: 0.2.2
+version: 1.0.0
 # renovate: image=redis
 appVersion: "7.0.8"
 
@@ -18,3 +19,10 @@ maintainers:
   - name: pascaliske
     email: info@pascaliske.dev
     url: https://pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: Controller values are now configured using `controller: {}`
+    - kind: changed
+      description: Default controller kind changed from `Deployment` to `StatefulSet`
