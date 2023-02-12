@@ -21,8 +21,8 @@ maintainers:
     url: https://pascaliske.dev
 
 annotations:
-  artifacthub.io/changes: |
+  artifacthub.io/changes: |-
     - kind: changed
-      description: Controller values are now configured using `controller: {}`
+      description: 'Controller values are now configured using `controller: {}`'
     - kind: changed
-      description: Default controller kind changed from `Deployment` to `StatefulSet`
+      description: 'Default controller kind changed from `Deployment` to `StatefulSet`'
