@@ -2,7 +2,7 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.0.7](https://img.shields.io/badge/AppVersion-7.0.7-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.0.8](https://img.shields.io/badge/AppVersion-7.0.8-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
@@ -41,25 +41,25 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
-| deployment.enabled | bool | `true` | Create a workload for this chart. |
-| deployment.kind | string | `"Deployment"` | Type of the workload object. |
-| deployment.labels | object | `{}` | Additional labels for the deployment object. |
-| deployment.replicas | int | `1` | The number of replicas. |
+| controller.annotations | object | `{}` | Additional annotations for the controller object. |
+| controller.enabled | bool | `true` | Create a workload for this chart. |
+| controller.kind | string | `"StatefulSet"` | Type of the workload object. |
+| controller.labels | object | `{}` | Additional labels for the controller object. |
+| controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraArgs | list | `[]` | List of extra arguments for the container. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"redis"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
-| persistentVolumeClaim.create | bool | `false` | Create a new persistent volume claim object. |
+| persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
 | persistentVolumeClaim.existingPersistentVolumeClaim | string | `""` | Use an existing persistent volume claim object. |
 | persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
 | persistentVolumeClaim.mountPath | string | `"/data"` | Mount path of the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
-| ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.http.enabled | bool | `true` | Enable the port inside the `Controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `6379` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
@@ -72,7 +72,7 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerIP | string | `""` | LoadBalancerIP if service type is `LoadBalancer`. |
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
-| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
+| serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 
 ## Maintainers
 

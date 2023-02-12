@@ -1,0 +1,21 @@
+{{- if eq (include "redis.controller.kind" . ) "StatefulSet" -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "redis.fullname" . }}-headless
+  labels:
+    {{- include "redis.labels" . | nindent 4 }}
+spec:
+  clusterIP: None
+  ports:
+    {{- range $key, $val := .Values.ports }}
+    {{- if $val.enabled }}
+    - name: {{ $key | quote }}
+      port: {{ $val.port }}
+      targetPort: {{ $key | quote }}
+      protocol: {{ default "TCP" $val.protocol | quote }}
+    {{- end }}
+    {{- end }}
+  selector:
+    {{- include "redis.selectorLabels" . | nindent 4 }}
+{{- end }}

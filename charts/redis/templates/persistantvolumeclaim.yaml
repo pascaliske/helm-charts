@@ -1,4 +1,5 @@
-{{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) -}}
+{{- if eq (include "redis.persistence.enabled" . ) "true" -}}
+{{- if eq (include "redis.persistence.type" . ) "volumes" -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -13,13 +14,6 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-  volumeMode: Filesystem
-  {{- with .Values.persistentVolumeClaim.storageClassName }}
-  storageClassName: {{ . }}
-  {{- end }}
+  {{- include "redis.persistence.spec" .  | nindent 2 }}
+{{- end }}
 {{- end }}
