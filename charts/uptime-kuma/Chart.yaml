@@ -4,7 +4,7 @@ name: uptime-kuma
 description: A Helm chart for Kubernetes
 version: 0.3.4
 # renovate: image=louislam/uptime-kuma
-appVersion: "1.20.0"
+appVersion: "1.20.1"
 
 home: https://charts.pascaliske.dev/charts/uptime-kuma/
 sources:
