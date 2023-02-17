@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
 apiVersion: v2
 type: application
 name: cloudflared
 description: A Helm chart for cloudflared DNS over HTTPS tunnel.
-version: 1.5.1
+version: 2.0.0
 # renovate: image=ghcr.io/crazy-max/cloudflared
 appVersion: "2022.12.1"
 
@@ -18,3 +19,13 @@ maintainers:
   - name: pascaliske
     email: info@pascaliske.dev
     url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.0.1
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: Controller values are now configured using `controller: {}`
