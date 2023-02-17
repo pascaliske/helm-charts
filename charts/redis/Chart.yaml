@@ -20,6 +20,11 @@ maintainers:
     email: info@pascaliske.dev
     url: https://pascaliske.dev
 
+# dependencies:
+#   - name: base
+#     version: 1.0.0
+#     repository: https://charts.pascaliske.dev
+
 annotations:
   artifacthub.io/changes: |-
     - kind: changed

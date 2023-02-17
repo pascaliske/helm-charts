@@ -1,0 +1,29 @@
+# [`{{ template "chart.name" . }}`]({{ template "chart.homepage" . }})
+
+{{ template "chart.deprecationWarning" . }}
+
+> {{ template "chart.description" . }}
+
+[{{ template "chart.typeBadge" .  }}]({{ template "chart.homepage" . }})[{{ template "chart.versionBadge" . }}]({{ template "chart.homepage" . }})
+
+{{ template "chart.sourcesList" . }}
+
+## Requirements
+
+- [`helm`](https://helm.sh) - Refer to their [docs](https://helm.sh/docs) to get started.
+
+## Usage
+
+**Note:** This chart is a library chart which can not be used directly!
+
+{{ template "chart.valuesHeader" . }}
+
+The following values can be used to adjust the helm chart.
+
+{{ template "chart.valuesTable" . }}
+
+{{ template "chart.maintainersSection" . }}
+
+## License
+
+[MIT](../LICENSE.md) – © {{ now | date "2006" }} [Pascal Iske](https://pascaliske.dev)
