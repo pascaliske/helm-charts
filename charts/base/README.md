@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square) ]()[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ]()
+[![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square) ]()[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ]()
 
 ## Requirements
 
