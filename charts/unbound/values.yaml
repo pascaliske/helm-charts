@@ -4,13 +4,13 @@ image:
   # -- The docker tag, if left empty chart's appVersion will be used.
   # @default -- `.Chart.AppVersion`
   tag: ''
-  # -- The pull policy for the deployment.
+  # -- The pull policy for the controller.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
-deployment:
+controller:
   # -- Create a workload for this chart.
   enabled: true
   # -- Type of the workload object.
@@ -25,9 +25,9 @@ deployment:
       maxSurge: 1
       # -- Specifies the maximum number of Pods that can be unavailable during the update process.
       maxUnavailable: 0
-  # -- Additional annotations for the deployment object.
+  # -- Additional annotations for the controller object.
   annotations: {}
-  # -- Additional labels for the deployment object.
+  # -- Additional labels for the controller object.
   labels: {}
 
 service:
@@ -53,7 +53,7 @@ env:
     value: UTC
 
 serviceAccount:
-  # -- Specify the service account used for the deployment.
+  # -- Specify the service account used for the controller.
   name: ''
 
 # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
