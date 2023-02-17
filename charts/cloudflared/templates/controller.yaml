@@ -1,31 +1,34 @@
-{{- if .Values.deployment.enabled -}}
+{{- if .Values.controller.enabled -}}
 apiVersion: apps/v1
-kind: {{ .Values.deployment.kind }}
+kind: {{ include "cloudflared.controller.kind" . }}
 metadata:
   name: {{ include "cloudflared.fullname" . }}
   labels:
     {{- include "cloudflared.labels" . | nindent 4 }}
-    {{- with .Values.deployment.labels }}
+    {{- with .Values.controller.labels }}
     {{ toYaml . | indent 4 }}
     {{- end }}
-  {{- with .Values.deployment.annotations }}
+  {{- with .Values.controller.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if .Values.deployment.replicas }}
-  replicas: {{ .Values.deployment.replicas }}
+  {{- if .Values.controller.replicas }}
+  replicas: {{ .Values.controller.replicas }}
+  {{- end }}
+  {{- if eq (include "cloudflared.controller.kind" . ) "StatefulSet" }}
+  serviceName: {{ include "cloudflared.fullname" . }}-headless
   {{- end }}
   selector:
     matchLabels:
       {{- include "cloudflared.selectorLabels" . | nindent 6 }}
-  {{- with .Values.deployment.strategy }}
+  {{- with .Values.controller.strategy }}
   strategy:
     {{- toYaml . | nindent 4 }}
   {{- end }}
   template:
     metadata:
-      {{- with .Values.deployment.annotations }}
+      {{- with .Values.controller.annotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
