@@ -1,20 +1,23 @@
-{{- if .Values.deployment.enabled -}}
+{{- if .Values.controller.enabled -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: {{ include "base.controller.kind" . }}
 metadata:
   name: {{ include "homer.fullname" . }}
   labels:
     {{- include "homer.labels" . | nindent 4 }}
-    {{- with .Values.deployment.labels }}
+    {{- with .Values.controller.labels }}
     {{ toYaml . | indent 4 }}
     {{- end }}
-  {{- with .Values.deployment.annotations }}
+  {{- with .Values.controller.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if .Values.deployment.replicas }}
-  replicas: {{ .Values.deployment.replicas }}
+  {{- if .Values.controller.replicas }}
+  replicas: {{ .Values.controller.replicas }}
+  {{- end }}
+  {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
+  serviceName: {{ include "redis.fullname" . }}-headless
   {{- end }}
   selector:
     matchLabels:
@@ -25,7 +28,7 @@ spec:
         {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
         config/checksum: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
         {{- end }}
-        {{- with .Values.deployment.annotations }}
+        {{- with .Values.controller.annotations }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
       labels:
