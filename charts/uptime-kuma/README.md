@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 0.3.4](https://img.shields.io/badge/Version-0.3.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.19.4](https://img.shields.io/badge/AppVersion-1.19.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.20.1](https://img.shields.io/badge/AppVersion-1.20.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>
@@ -47,14 +47,14 @@ The following values can be used to adjust the helm chart.
 | certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
 | certificate.labels | object | `{}` | Additional labels for the certificate object. |
 | certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
-| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
-| deployment.enabled | bool | `true` | Create a workload for this chart. |
-| deployment.kind | string | `"Deployment"` | Type of the workload object. |
-| deployment.labels | object | `{}` | Additional labels for the deployment object. |
-| deployment.replicas | int | `1` | The number of replicas. |
+| controller.annotations | object | `{}` | Additional annotations for the controller object. |
+| controller.enabled | bool | `true` | Create a workload for this chart. |
+| controller.kind | string | `"Deployment"` | Type of the workload object. |
+| controller.labels | object | `{}` | Additional labels for the controller object. |
+| controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"louislam/uptime-kuma"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
@@ -71,7 +71,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
 | persistentVolumeClaim.mountPath | string | `"/app/data"` | Mount path of the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
-| ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.http.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `3001` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
@@ -81,7 +81,7 @@ The following values can be used to adjust the helm chart.
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
-| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
+| serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
 | serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
 | serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
