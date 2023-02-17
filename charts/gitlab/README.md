@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 1.3.8](https://img.shields.io/badge/Version-1.3.8-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 15.7.3-ce.0](https://img.shields.io/badge/AppVersion-15.7.3--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 15.8.3-ce.0](https://img.shields.io/badge/AppVersion-15.8.3--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -63,19 +63,19 @@ The following values can be used to adjust the helm chart.
 | configMap.existingConfigMap | string | `""` | Mount path of the config map object. |
 | configMap.key | string | `"gitlab.rb"` | Use an existing config map object. |
 | configMap.labels | object | `{}` | Additional labels for the config map object. |
-| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
-| deployment.enabled | bool | `true` | Create a workload for this chart. |
-| deployment.kind | string | `"Deployment"` | Type of the workload object. |
-| deployment.labels | object | `{}` | Additional labels for the deployment object. |
-| deployment.replicas | int | `1` | The number of replicas. |
-| deployment.strategy.rollingUpdate.maxSurge | int | `0` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
-| deployment.strategy.rollingUpdate.maxUnavailable | int | `1` | Specifies the maximum number of Pods that can be unavailable during the update process. |
-| deployment.strategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
+| controller.annotations | object | `{}` | Additional annotations for the controller object. |
+| controller.enabled | bool | `true` | Create a workload for this chart. |
+| controller.kind | string | `"Deployment"` | Type of the workload object. |
+| controller.labels | object | `{}` | Additional labels for the controller object. |
+| controller.replicas | int | `1` | The number of replicas. |
+| controller.strategy.rollingUpdate.maxSurge | int | `0` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
+| controller.strategy.rollingUpdate.maxUnavailable | int | `1` | Specifies the maximum number of Pods that can be unavailable during the update process. |
+| controller.strategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
-| healthCheck.enabled | bool | `true` | Enable health checks for the deployment. |
+| healthCheck.enabled | bool | `true` | Enable health checks for the controller. |
 | healthCheck.whitelist | list | `["127.0.0.1"]` | Configure the internal health check whitelist of gitlab. |
-| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"gitlab/gitlab-ce"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
@@ -100,11 +100,11 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaims.storage.mountPath | string | `"/var/opt/gitlab"` | Mount path of the storage persistent volume claim object. |
 | persistentVolumeClaims.storage.size | string | `"30Gi"` | The size of the created secret storage persistent volume claim object. |
 | persistentVolumeClaims.storage.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
-| ports.http.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.http.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `80` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
-| ports.registry.enabled | bool | `true` | Enable the port inside the `Deployment` and `Service` objects. |
+| ports.registry.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.registry.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.registry.port | int | `5005` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.registry.protocol | string | `"TCP"` | The protocol used for the service. |
@@ -117,7 +117,7 @@ The following values can be used to adjust the helm chart.
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
-| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
+| serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers

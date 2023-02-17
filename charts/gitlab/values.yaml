@@ -4,13 +4,13 @@ image:
   # -- The docker tag, if left empty chart's appVersion will be used.
   # @default -- `.Chart.AppVersion`
   tag: ''
-  # -- The pull policy for the deployment.
+  # -- The pull policy for the controller.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
-deployment:
+controller:
   # -- Create a workload for this chart.
   enabled: true
   # -- Type of the workload object.
@@ -25,9 +25,9 @@ deployment:
       maxSurge: 0
       # -- Specifies the maximum number of Pods that can be unavailable during the update process.
       maxUnavailable: 1
-  # -- Additional annotations for the deployment object.
+  # -- Additional annotations for the controller object.
   annotations: {}
-  # -- Additional labels for the deployment object.
+  # -- Additional labels for the controller object.
   labels: {}
 
 service:
@@ -80,7 +80,7 @@ env:
 
 ports:
   http:
-    # -- Enable the port inside the `Deployment` and `Service` objects.
+    # -- Enable the port inside the `controller` and `Service` objects.
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 80
@@ -89,7 +89,7 @@ ports:
     # -- The protocol used for the service.
     protocol: TCP
   registry:
-    # -- Enable the port inside the `Deployment` and `Service` objects.
+    # -- Enable the port inside the `controller` and `Service` objects.
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 5005
@@ -146,7 +146,7 @@ persistentVolumeClaims:
     labels: {}
 
 healthCheck:
-  # -- Enable health checks for the deployment.
+  # -- Enable health checks for the controller.
   enabled: true
   # -- Configure the internal health check whitelist of gitlab.
   whitelist:
@@ -176,7 +176,7 @@ backups:
     labels: {}
 
 serviceAccount:
-  # -- Specify the service account used for the deployment.
+  # -- Specify the service account used for the controller.
   name: ''
 
 rbac:
