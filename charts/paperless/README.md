@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.11.3](https://img.shields.io/badge/AppVersion-1.11.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.13.0](https://img.shields.io/badge/AppVersion-1.13.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
@@ -50,11 +50,11 @@ The following values can be used to adjust the helm chart.
 | consumption.enabled | bool | `true` | Enable the volume mount of a [consumption directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders). |
 | consumption.hostPath | string | `""` | Host path of the consumption directory outside the container. |
 | consumption.mountPath | string | `"/consumption"` | Mount path of the consumption directory inside the container. |
-| deployment.annotations | object | `{}` | Additional annotations for the deployment object. |
-| deployment.enabled | bool | `true` | Create a workload for this chart. |
-| deployment.kind | string | `"Deployment"` | Type of the workload object. |
-| deployment.labels | object | `{}` | Additional labels for the deployment object. |
-| deployment.replicas | int | `1` | The number of replicas. |
+| controller.annotations | object | `{}` | Additional annotations for the controller object. |
+| controller.enabled | bool | `true` | Create a workload for this chart. |
+| controller.kind | string | `"Deployment"` | Type of the workload object. |
+| controller.labels | object | `{}` | Additional labels for the controller object. |
+| controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | export.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
 | export.cronJob.enabled | bool | `false` | Create a `CronJob` object for [automated exports](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups). |
@@ -67,7 +67,7 @@ The following values can be used to adjust the helm chart.
 | export.hostPath | string | `""` | Host path of the export directory outside the container. |
 | export.mountPath | string | `"/export"` | Mount path of the export directory inside the container. |
 | fullnameOverride | string | `""` |  |
-| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the deployment. |
+| image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"ghcr.io/paperless-ngx/paperless-ngx"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
@@ -102,7 +102,7 @@ The following values can be used to adjust the helm chart.
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
-| serviceAccount.name | string | `""` | Specify the service account used for the deployment. |
+| serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | trash.enabled | bool | `false` | Enable the volume mount of a [trash directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders). |
 | trash.hostPath | string | `""` | Host path of the trash directory outside the container. |
