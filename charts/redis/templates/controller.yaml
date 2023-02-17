@@ -1,6 +1,6 @@
 {{- if .Values.controller.enabled -}}
 apiVersion: apps/v1
-kind: {{ include "redis.controller.kind" . }}
+kind: {{ include "base.controller.kind" . }}
 metadata:
   name: {{ include "redis.fullname" . }}
   labels:
@@ -16,7 +16,7 @@ spec:
   {{- if .Values.controller.replicas }}
   replicas: {{ .Values.controller.replicas }}
   {{- end }}
-  {{- if eq (include "redis.controller.kind" . ) "StatefulSet" }}
+  {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
   serviceName: {{ include "redis.fullname" . }}-headless
   {{- end }}
   selector:
@@ -49,7 +49,7 @@ spec:
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- end }}
-          {{- if eq (include "redis.persistence.enabled" . ) "true" }}
+          {{- if eq (include "base.persistence.enabled" . ) "true" }}
           args:
             - 'redis-server'
             - '--save 60 1'
@@ -66,9 +66,9 @@ spec:
             - {{ $val }}
             {{- end }}
           {{- end }}
-          {{- if eq (include "redis.persistence.enabled" . ) "true" }}
+          {{- if eq (include "base.persistence.enabled" . ) "true" }}
           volumeMounts:
-            - name: {{ include "redis.persistence.name" . }}
+            - name: {{ include "base.persistence.suffix" (include "redis.fullname" . ) }}
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
           {{- end }}
           livenessProbe:
@@ -85,13 +85,13 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
-      {{- if eq (include "redis.persistence.enabled" . ) "true" }}
-      {{- if eq (include "redis.persistence.type" . ) "volumes" }}
+      {{- if eq (include "base.persistence.enabled" . ) "true" }}
+      {{- if eq (include "base.persistence.type" . ) "volumes" }}
       volumes:
-        - name: {{ include "redis.persistence.name" . }}
+        - name: {{ include "base.persistence.suffix" (include "redis.fullname" . ) }}
           persistentVolumeClaim:
-            {{- if eq (include "redis.persistence.created" . ) "true" }}
-            claimName: {{ include "redis.persistence.name" . }}
+            {{- if eq (include "base.persistence.created" . ) "true" }}
+            claimName: {{ include "base.persistence.suffix" (include "redis.fullname" . ) }}
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
@@ -101,13 +101,13 @@ spec:
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}
       {{- end }}
-  {{- if eq (include "redis.persistence.enabled" . ) "true" }}
-  {{- if eq (include "redis.persistence.type" . ) "volumeClaimTemplates" }}
+  {{- if eq (include "base.persistence.enabled" . ) "true" }}
+  {{- if eq (include "base.persistence.type" . ) "volumeClaimTemplates" }}
   volumeClaimTemplates:
     - metadata:
-        name: {{ include "redis.persistence.name" . }}
+        name: {{ include "base.persistence.suffix" (include "redis.fullname" . ) }}
       spec:
-        {{- include "redis.persistence.spec" . | nindent 8 }}
+        {{- include "base.persistence.spec" . | nindent 8 }}
   {{- end }}
   {{- end }}
 {{- end }}

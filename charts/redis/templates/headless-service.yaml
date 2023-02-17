@@ -1,4 +1,4 @@
-{{- if eq (include "redis.controller.kind" . ) "StatefulSet" -}}
+{{- if eq (include "base.controller.kind" . ) "StatefulSet" -}}
 apiVersion: v1
 kind: Service
 metadata:

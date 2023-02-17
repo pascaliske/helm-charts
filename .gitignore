@@ -1,5 +1,10 @@
+# docs
 .cache
 docs/index.md
 docs/index.yaml
 docs/license.md
 docs/charts/*.md
+
+# helm resources
+charts/**/Chart.lock
+charts/**/charts
