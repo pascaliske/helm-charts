@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
 apiVersion: v2
 type: application
 name: unbound
 description: A Helm chart for unbound DNS resolver.
-version: 0.0.1
+version: 1.0.0
 # renovate: image=ghcr.io/pascaliske/unbound
 appVersion: "0.1.0"
 
@@ -20,3 +21,13 @@ maintainers:
   - name: pascaliske
     email: info@pascaliske.dev
     url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.0.1
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: 'Controller values are now configured using `controller: {}`'
