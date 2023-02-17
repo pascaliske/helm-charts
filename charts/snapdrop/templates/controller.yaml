@@ -16,6 +16,9 @@ spec:
   {{- if .Values.deployment.replicas }}
   replicas: {{ .Values.deployment.replicas }}
   {{- end }}
+  {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
+  serviceName: {{ include "snapdrop.fullname" . }}-headless
+  {{- end }}
   selector:
     matchLabels:
       {{- include "snapdrop.selectorLabels" . | nindent 6 }}
