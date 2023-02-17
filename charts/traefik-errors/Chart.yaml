@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
 apiVersion: v2
 type: application
 name: traefik-errors
 description: A Helm chart for custom traefik error pages
-version: 2.3.0
+version: 3.0.0
 # renovate: image=ghcr.io/pascaliske/traefik-errors
 appVersion: "1.0.5"
 
@@ -17,3 +18,13 @@ maintainers:
   - name: pascaliske
     email: info@pascaliske.dev
     url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.0.1
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: 'Controller values are now configured using `controller: {}`'
