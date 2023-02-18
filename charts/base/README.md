@@ -1,8 +1,10 @@
-# [`base`]()
+# [`base`](https://charts.pascaliske.dev)
 
 > A Helm chart for Kubernetes
 
-[![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square) ]()[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ]()
+[![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square) ](https://charts.pascaliske.dev)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev)
+
+* <https://github.com/pascaliske/helm-charts>
 
 ## Requirements
 
@@ -18,6 +20,12 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| pascaliske | <info@pascaliske.dev> | <https://pascaliske.dev> |
 
 ## License
 

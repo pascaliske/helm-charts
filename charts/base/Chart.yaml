@@ -1,6 +1,17 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
 apiVersion: v2
 type: library
 name: base
 description: A Helm chart for Kubernetes
 version: 1.0.1
 appVersion: ""
+
+home: https://charts.pascaliske.dev
+sources:
+  - https://github.com/pascaliske/helm-charts
+keywords:
+  - library-chart
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
