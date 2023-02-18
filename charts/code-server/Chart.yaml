@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: code-server
 description: A Helm chart for Kubernetes
-version: 1.0.0
+version: 1.0.1
 # renovate: image=codercom/code-server
 appVersion: "4.10.0"
 
