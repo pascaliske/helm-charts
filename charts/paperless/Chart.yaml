@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 2.0.0
+version: 2.0.1
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.13.0"
 
