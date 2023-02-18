@@ -85,10 +85,10 @@ spec:
       {{- if eq (include "base.persistence.enabled" . ) "true" }}
       {{- if eq (include "base.persistence.type" . ) "volumes" }}
       volumes:
-        - name: {{ include "base.persistence.suffix" (include "redis.fullname" . ) }}
+        - name: {{ include "base.persistence.suffix" (include "linkding.fullname" . ) }}
           persistentVolumeClaim:
             {{- if eq (include "base.persistence.created" . ) "true" }}
-            claimName: {{ include "base.persistence.suffix" (include "redis.fullname" . ) }}
+            claimName: {{ include "base.persistence.suffix" (include "linkding.fullname" . ) }}
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
@@ -110,7 +110,7 @@ spec:
   {{- if eq (include "base.persistence.type" . ) "volumeClaimTemplates" }}
   volumeClaimTemplates:
     - metadata:
-        name: {{ include "base.persistence.suffix" (include "redis.fullname" . ) }}
+        name: {{ include "base.persistence.suffix" (include "linkding.fullname" . ) }}
       spec:
         {{- include "base.persistence.spec" . | nindent 8 }}
   {{- end }}
