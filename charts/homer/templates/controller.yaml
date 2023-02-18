@@ -17,7 +17,7 @@ spec:
   replicas: {{ .Values.controller.replicas }}
   {{- end }}
   {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
-  serviceName: {{ include "redis.fullname" . }}-headless
+  serviceName: {{ include "homer.fullname" . }}-headless
   {{- end }}
   selector:
     matchLabels:
