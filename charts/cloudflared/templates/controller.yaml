@@ -1,6 +1,6 @@
 {{- if .Values.controller.enabled -}}
 apiVersion: apps/v1
-kind: {{ include "cloudflared.controller.kind" . }}
+kind: {{ include "base.controller.kind" . }}
 metadata:
   name: {{ include "cloudflared.fullname" . }}
   labels:
@@ -16,7 +16,7 @@ spec:
   {{- if .Values.controller.replicas }}
   replicas: {{ .Values.controller.replicas }}
   {{- end }}
-  {{- if eq (include "cloudflared.controller.kind" . ) "StatefulSet" }}
+  {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
   serviceName: {{ include "cloudflared.fullname" . }}-headless
   {{- end }}
   selector:
