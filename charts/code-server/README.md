@@ -80,6 +80,7 @@ The following values can be used to adjust the helm chart.
 | ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
 | ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
 | nameOverride | string | `""` |  |
+| persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` | Access mode of the persistent volume claim object. |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
 | persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
 | persistentVolumeClaim.ensurePermissions | bool | `true` | Manage permissions automatically. |
@@ -87,7 +88,9 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.labels | object | `{}` | Additional labels for the persistent volume claim object. |
 | persistentVolumeClaim.mountPath | string | `"/home/coder"` | Mount path of the persistent volume claim object. |
 | persistentVolumeClaim.projectsPath | string | `"/home/coder/projects"` | Project folder inside the persistent volume claim object. |
+| persistentVolumeClaim.size | string | `"1Gi"` | Storage request size for the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
+| persistentVolumeClaim.volumeMode | string | `"Filesystem"` | Volume mode of the persistent volume claim object. |
 | ports.http.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
