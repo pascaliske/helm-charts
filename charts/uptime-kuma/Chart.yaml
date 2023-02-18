@@ -28,4 +28,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Controller values are now configured using `controller: {}`'
+      description: 'Add missing PVC values and conditionals'

@@ -98,6 +98,12 @@ persistentVolumeClaim:
   create: true
   # -- Mount path of the persistent volume claim object.
   mountPath: /app/data
+  # -- Access mode of the persistent volume claim object.
+  accessMode: ReadWriteOnce
+  # -- Volume mode of the persistent volume claim object.
+  volumeMode: Filesystem
+  # -- Storage request size for the persistent volume claim object.
+  size: 1Gi
   # -- Storage class name for the persistent volume claim object.
   storageClassName: ''
   # -- Use an existing persistent volume claim object.
