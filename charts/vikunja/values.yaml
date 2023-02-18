@@ -4,22 +4,22 @@ image:
   # -- The docker tag, if left empty chart's appVersion will be used.
   # @default -- `.Chart.AppVersion`
   tag: ''
-  # -- The pull policy for the deployment.
+  # -- The pull policy for the controller.
   pullPolicy: IfNotPresent
 
 nameOverride: ''
 fullnameOverride: ''
 
-deployment:
+controller:
   # -- Create a workload for this chart.
   enabled: true
   # -- Type of the workload object.
   kind: Deployment
   # -- The number of replicas.
   replicas: 1
-  # -- Additional annotations for the deployment object.
+  # -- Additional annotations for the controller object.
   annotations: {}
-  # -- Additional labels for the deployment object.
+  # -- Additional labels for the controller object.
   labels: {}
 
 service:
@@ -84,7 +84,7 @@ env:
 
 ports:
   api:
-    # -- Enable the port inside the `Deployment` and `Service` objects.
+    # -- Enable the port inside the `controller` and `Service` objects.
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 3456
@@ -93,7 +93,7 @@ ports:
     # -- The protocol used for the service.
     protocol: TCP
   frontend:
-    # -- Enable the port inside the `Deployment` and `Service` objects.
+    # -- Enable the port inside the `controller` and `Service` objects.
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 80
@@ -107,6 +107,12 @@ persistentVolumeClaim:
   create: true
   # -- Mount path of the persistent volume claim object.
   mountPath: /app/vikunja/files
+  # -- Access mode of the persistent volume claim object.
+  accessMode: ReadWriteOnce
+  # -- Volume mode of the persistent volume claim object.
+  volumeMode: Filesystem
+  # -- Storage request size for the persistent volume claim object.
+  size: 1Gi
   # -- Storage class name for the persistent volume claim object.
   storageClassName: ''
   # -- Use an existing persistent volume claim object.
@@ -117,7 +123,7 @@ persistentVolumeClaim:
   labels: {}
 
 serviceAccount:
-  # -- Specify the service account used for the deployment.
+  # -- Specify the service account used for the controller.
   name: ''
 
 # -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
