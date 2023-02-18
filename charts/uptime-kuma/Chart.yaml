@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Kubernetes
-version: 1.0.0
+version: 1.0.1
 # renovate: image=louislam/uptime-kuma
 appVersion: "1.20.1"
 
