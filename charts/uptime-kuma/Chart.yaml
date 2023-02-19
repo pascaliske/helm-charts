@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Kubernetes
-version: 1.0.1
+version: 1.0.2
 # renovate: image=louislam/uptime-kuma
 appVersion: "1.20.1"
 
@@ -22,10 +22,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Add missing PVC values and conditionals'
+      description: 'Upgrade base chart to 1.0.2'
