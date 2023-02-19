@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: redis
 description: A Helm chart for Redis
-version: 1.1.0
+version: 1.1.1
 # renovate: image=redis
 appVersion: "7.0.8"
 
@@ -22,10 +22,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: 'Use extracted base chart as dependency'
+      description: 'Upgrade base chart to 1.0.2'
