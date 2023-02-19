@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 2.0.1
+version: 2.0.2
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.13.0"
 
@@ -23,10 +23,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Add missing PVC values and conditionals'
+      description: 'Upgrade base chart to 1.0.2'
