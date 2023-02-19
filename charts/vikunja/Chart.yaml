@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vikunja
 description: A Helm chart for Kubernetes
-version: 3.0.0
+version: 3.0.1
 # renovate: image=vikunja/api
 appVersion: "0.20.2"
 
@@ -22,10 +22,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Controller values are now configured using `controller: {}`'
+      description: 'Upgrade base chart to 1.0.2'
