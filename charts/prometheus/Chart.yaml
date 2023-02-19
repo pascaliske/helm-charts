@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
 apiVersion: v2
 type: application
 name: prometheus
@@ -5,6 +6,7 @@ description: A Helm chart for prometheus
 version: 1.3.7
 # renovate: image=prom/prometheus
 appVersion: "v2.42.0"
+deprecated: true
 
 home: https://charts.pascaliske.dev/charts/prometheus/
 sources:
@@ -14,7 +16,3 @@ sources:
 keywords:
   - prometheus
   - metrics
-maintainers:
-  - name: pascaliske
-    email: info@pascaliske.dev
-    url: https://pascaliske.dev
