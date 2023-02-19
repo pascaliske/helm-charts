@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: unbound
 description: A Helm chart for unbound DNS resolver.
-version: 1.0.0
+version: 1.0.1
 # renovate: image=ghcr.io/pascaliske/unbound
 appVersion: "0.1.0"
 
@@ -24,10 +24,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Controller values are now configured using `controller: {}`'
+      description: 'Upgrade base chart to 1.0.2'
