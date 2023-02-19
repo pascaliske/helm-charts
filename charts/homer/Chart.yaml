@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: homer
 description: A Helm chart for Kubernetes
-version: 1.0.1
+version: 1.0.2
 # renovate: image=b4bz/homer
 appVersion: "v23.02.1"
 
@@ -21,10 +21,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Controller values are now configured using `controller: {}`'
+      description: 'Upgrade base chart to 1.0.2'
