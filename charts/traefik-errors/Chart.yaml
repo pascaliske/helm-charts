@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: traefik-errors
 description: A Helm chart for custom traefik error pages
-version: 3.0.0
+version: 3.0.1
 # renovate: image=ghcr.io/pascaliske/traefik-errors
 appVersion: "1.0.5"
 
@@ -21,10 +21,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Controller values are now configured using `controller: {}`'
+      description: 'Upgrade base chart to 1.0.2'
