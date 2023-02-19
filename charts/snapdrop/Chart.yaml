@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: snapdrop
 description: A Helm chart for snapdrop
-version: 1.0.1
+version: 1.0.2
 # renovate: image=ghcr.io/linuxserver/snapdrop
 appVersion: "version-724f0af5"
 
@@ -22,10 +22,10 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.1
+    version: 1.0.2
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Use correct value paths for controller values'
+      description: 'Upgrade base chart to 1.0.2'
