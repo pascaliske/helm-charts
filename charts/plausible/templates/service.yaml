@@ -1,0 +1,41 @@
+{{- if .Values.service.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "%s-web" (include "plausible.fullname" . ) }}
+  labels:
+    {{- include "plausible.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  {{- if and (eq .Values.service.type "LoadBalancer") .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+  {{- end }}
+  {{- if and (eq .Values.service.type "LoadBalancer") .Values.service.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges:
+    {{- with .Values.service.loadBalancerSourceRanges }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- end }}
+  {{- if and (eq .Values.service.type "ClusterIP") .Values.service.clusterIP }}
+  clusterIP: {{ .Values.service.clusterIP }}
+  {{- end }}
+  ports:
+    {{- if .Values.ports.http.enabled }}
+    - name: http
+      port: {{ .Values.ports.http.port }}
+      targetPort: http
+      {{- if and (eq $.Values.service.type "NodePort") .Values.ports.http.nodePort }}
+      nodePort: {{ .Values.ports.http.nodePort }}
+      {{- end }}
+      protocol: {{ default "TCP" .Values.ports.http.protocol | quote }}
+    {{- end }}
+  selector:
+    {{- include "plausible.selectorLabels" . | nindent 4 }}
+{{- end }}
