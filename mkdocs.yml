@@ -47,6 +47,7 @@ theme:
 nav:
   - Home: index.md
   - Charts:
+      - clickhouse: charts/clickhouse.md
       - cloudflare-dyndns: charts/cloudflare-dyndns.md
       - cloudflared: charts/cloudflared.md
       - code-server: charts/code-server.md

@@ -1,0 +1,108 @@
+image:
+  # -- The repository to pull the image from.
+  repository: clickhouse/clickhouse-server
+  # -- The docker tag, if left empty chart's appVersion will be used.
+  # @default -- `.Chart.AppVersion`
+  tag: ''
+  # -- The pull policy for the controller.
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+controller:
+  # -- Create a workload for this chart.
+  enabled: true
+  # -- Type of the workload object.
+  kind: StatefulSet
+  # -- The number of replicas.
+  replicas: 1
+  # -- Additional annotations for the controller object.
+  annotations: {}
+  # -- Additional labels for the controller object.
+  labels: {}
+
+service:
+  # -- Create a service for exposing this chart.
+  enabled: true
+  # -- The service type used.
+  type: ClusterIP
+  # -- ClusterIP used if service type is `ClusterIP`.
+  clusterIP: ''
+  # -- LoadBalancerIP if service type is `LoadBalancer`.
+  loadBalancerIP: ''
+  # -- Allowed addresses when service type is `LoadBalancer`.
+  loadBalancerSourceRanges: []
+  # -- Additional annotations for the service object.
+  annotations: {}
+  # -- Additional labels for the service object.
+  labels: {}
+
+env:
+  # -- Timezone for the container.
+  - name: TZ
+    value: UTC
+
+# -- List of extra arguments for the container.
+extraArgs: []
+  # - --loglevel warning
+
+ports:
+  rest:
+    # -- Enable the port inside the `Controller` and `Service` objects.
+    enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
+    port: 8123
+    # -- The external port used if `.service.type` == `NodePort`.
+    nodePort: null
+    # -- The protocol used for the service.
+    protocol: TCP
+  rpc:
+    # -- Enable the port inside the `Controller` and `Service` objects.
+    enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
+    port: 9000
+    # -- The external port used if `.service.type` == `NodePort`.
+    nodePort: null
+    # -- The protocol used for the service.
+    protocol: TCP
+
+persistentVolumeClaim:
+  # -- Create a new persistent volume claim object.
+  create: true
+  # -- Mount path of the persistent volume claim object.
+  mountPath: /var/lib/clickhouse
+  # -- Access mode of the persistent volume claim object.
+  accessMode: ReadWriteOnce
+  # -- Volume mode of the persistent volume claim object.
+  volumeMode: Filesystem
+  # -- Storage request size for the persistent volume claim object.
+  size: 1Gi
+  # -- Storage class name for the persistent volume claim object.
+  storageClassName: ''
+  # -- Use an existing persistent volume claim object.
+  existingPersistentVolumeClaim: ''
+  # -- Additional annotations for the persistent volume claim object.
+  annotations: {}
+  # -- Additional labels for the persistent volume claim object.
+  labels: {}
+
+serviceAccount:
+  # -- Specify the service account used for the controller.
+  name: ''
+
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
+securityContext: {}
+  # fsGroup: 1000
+  # runAsNonRoot: true
+  # runAsGroup: 1000
+  # runAsUser: 1000
+
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi

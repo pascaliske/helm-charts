@@ -1,0 +1,98 @@
+{{- if .Values.controller.enabled -}}
+apiVersion: apps/v1
+kind: {{ include "base.controller.kind" . }}
+metadata:
+  name: {{ include "clickhouse.fullname" . }}
+  labels:
+    {{- include "clickhouse.labels" . | nindent 4 }}
+    {{- with .Values.controller.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.controller.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.controller.replicas }}
+  replicas: {{ .Values.controller.replicas }}
+  {{- end }}
+  {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
+  serviceName: {{ include "clickhouse.fullname" . }}-headless
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "clickhouse.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.controller.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "clickhouse.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "clickhouse.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- range $key, $val := .Values.ports }}
+            {{- if $val.enabled }}
+            - name: {{ $key | quote }}
+              containerPort: {{ $val.port }}
+              protocol: {{ default "TCP" $val.protocol | quote }}
+            {{- end }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- end }}
+          args: {{ if not .Values.extraArgs -}}[]{{- end }}
+            {{- range $i, $val := .Values.extraArgs }}
+            - {{ $val }}
+            {{- end }}
+          {{- if eq (include "base.persistence.enabled" . ) "true" }}
+          volumeMounts:
+            - name: {{ include "base.persistence.suffix" (include "clickhouse.fullname" . ) }}
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+          {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: rest
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: rest
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+      {{- if eq (include "base.persistence.enabled" . ) "true" }}
+      {{- if eq (include "base.persistence.type" . ) "volumes" }}
+      volumes:
+        - name: {{ include "base.persistence.suffix" (include "clickhouse.fullname" . ) }}
+          persistentVolumeClaim:
+            {{- if eq (include "base.persistence.created" . ) "true" }}
+            claimName: {{ include "base.persistence.suffix" (include "clickhouse.fullname" . ) }}
+            {{- else }}
+            claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            {{- end }}
+      {{- end }}
+      {{- end }}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+  {{- if eq (include "base.persistence.enabled" . ) "true" }}
+  {{- if eq (include "base.persistence.type" . ) "volumeClaimTemplates" }}
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ include "base.persistence.suffix" (include "clickhouse.fullname" . ) }}
+      spec:
+        {{- include "base.persistence.spec" . | nindent 8 }}
+  {{- end }}
+  {{- end }}
+{{- end }}
