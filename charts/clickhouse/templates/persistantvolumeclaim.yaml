@@ -1,0 +1,19 @@
+{{- if eq (include "base.persistence.enabled" . ) "true" -}}
+{{- if eq (include "base.persistence.type" . ) "volumes" -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-storage" (include "clickhouse.fullname" .) }}
+  labels:
+    {{- include "clickhouse.labels" . | nindent 4 }}
+    {{- with .Values.persistentVolumeClaim.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.persistentVolumeClaim.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- include "base.persistence.spec" .  | nindent 2 }}
+{{- end }}
+{{- end }}
