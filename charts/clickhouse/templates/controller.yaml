@@ -53,11 +53,23 @@ spec:
             {{- range $i, $val := .Values.extraArgs }}
             - {{ $val }}
             {{- end }}
-          {{- if eq (include "base.persistence.enabled" . ) "true" }}
           volumeMounts:
+            - name: config-volume
+              mountPath: /etc/clickhouse-server/config.d/logging.xml
+              subPath: clickhouse-config.xml
+              readOnly: true
+            - name: config-volume
+              mountPath: /etc/clickhouse-server/users.d/logging.xml
+              subPath: clickhouse-user-config.xml
+              readOnly: true
+            {{- if .Values.configMap.files }}
+            - name: config-volume
+              mountPath: {{ .Values.configMap.mountPath }}
+            {{- end }}
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
             - name: {{ include "base.persistence.suffix" (include "clickhouse.fullname" . ) }}
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
-          {{- end }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /ping
@@ -70,9 +82,16 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
-      {{- if eq (include "base.persistence.enabled" . ) "true" }}
-      {{- if eq (include "base.persistence.type" . ) "volumes" }}
       volumes:
+        - name: config-volume
+          configMap:
+            {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
+            name: {{ printf "%s-config" (include "clickhouse.fullname" . ) }}
+            {{- else }}
+            name: {{ .Values.configMap.existingConfigMap }}
+            {{- end }}
+        {{- if eq (include "base.persistence.enabled" . ) "true" }}
+        {{- if eq (include "base.persistence.type" . ) "volumes" }}
         - name: {{ include "base.persistence.suffix" (include "clickhouse.fullname" . ) }}
           persistentVolumeClaim:
             {{- if eq (include "base.persistence.created" . ) "true" }}
@@ -80,8 +99,8 @@ spec:
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
-      {{- end }}
-      {{- end }}
+        {{- end }}
+        {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}

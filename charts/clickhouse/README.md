@@ -40,6 +40,12 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| configMap.annotations | object | `{}` | Additional annotations for the config map object. |
+| configMap.create | bool | `true` | Create a new config map object. |
+| configMap.existingConfigMap | string | `""` | Use an existing config map object. |
+| configMap.files | object | `{}` | Map of configuration files as strings. |
+| configMap.labels | object | `{}` | Additional labels for the config map object. |
+| configMap.mountPath | string | `"/etc/config"` | Mount path of the config map object. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"StatefulSet"` | Type of the workload object. |

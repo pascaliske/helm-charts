@@ -67,6 +67,24 @@ ports:
     # -- The protocol used for the service.
     protocol: TCP
 
+configMap:
+  # -- Create a new config map object.
+  create: true
+  # -- Mount path of the config map object.
+  mountPath: /etc/config
+  # -- Use an existing config map object.
+  existingConfigMap: ''
+  # -- Map of configuration files as strings.
+  files: {}
+    # file1.yml: |
+    #   # contents
+    # file2.yml: |
+    #   # contents
+  # -- Additional annotations for the config map object.
+  annotations: {}
+  # -- Additional labels for the config map object.
+  labels: {}
+
 persistentVolumeClaim:
   # -- Create a new persistent volume claim object.
   create: true
