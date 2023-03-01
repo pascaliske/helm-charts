@@ -2,7 +2,7 @@
 
 > A Helm chart for ClickHouse
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![AppVersion: 23.1.3.5-alpine](https://img.shields.io/badge/AppVersion-23.1.3.5--alpine-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![AppVersion: 23.2.1.2537-alpine](https://img.shields.io/badge/AppVersion-23.2.1.2537--alpine-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/clickhouse/clickhouse>
@@ -40,6 +40,7 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | configMap.annotations | object | `{}` | Additional annotations for the config map object. |
 | configMap.create | bool | `true` | Create a new config map object. |
 | configMap.existingConfigMap | string | `""` | Use an existing config map object. |
@@ -85,6 +86,7 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
+| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 

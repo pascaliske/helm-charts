@@ -27,4 +27,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: 'Setup default config files and allow additional config files.'
+      description: 'Allow specifying affinities and tolerations.'
