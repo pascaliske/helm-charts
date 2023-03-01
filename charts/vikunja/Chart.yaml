@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vikunja
 description: A Helm chart for Kubernetes
-version: 3.0.1
+version: 3.0.2
 # renovate: image=vikunja/api
 appVersion: "0.20.2"
 
