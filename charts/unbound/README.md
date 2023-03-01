@@ -2,7 +2,7 @@
 
 > A Helm chart for unbound DNS resolver.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-unbound>
