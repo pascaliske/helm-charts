@@ -1,6 +1,6 @@
 {{- if .Values.controller.enabled -}}
 apiVersion: apps/v1
-kind: controller
+kind: {{ include "base.controller.kind" . }}
 metadata:
   name: {{ include "vikunja.fullname" . }}
   labels:
