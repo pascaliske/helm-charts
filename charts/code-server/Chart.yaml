@@ -29,4 +29,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: fixed
-      description: 'Use correct claim name and controller kind values'
+      description: 'Use correct claim name for cronjob.'

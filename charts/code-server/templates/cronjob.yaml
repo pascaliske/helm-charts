@@ -38,7 +38,7 @@ spec:
               volumeMounts:
                 - name: script-volume
                   mountPath: /scripts
-                - name: storage-volume
+                - name: {{ include "base.persistence.suffix" (include "code-server.fullname" . ) }}
                   mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
           volumes:
             {{- if not (empty .Values.repositories) }}
@@ -49,8 +49,8 @@ spec:
             {{- end }}
             - name: storage-volume
               persistentVolumeClaim:
-                {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
-                claimName: {{ printf "%s-storage" (include "code-server.fullname" . ) }}
+                {{- if eq (include "base.persistence.created" . ) "true" }}
+                claimName: {{ include "base.persistence.suffix" (include "code-server.fullname" . ) }}
                 {{- else }}
                 claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
                 {{- end }}
