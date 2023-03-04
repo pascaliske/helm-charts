@@ -1,0 +1,21 @@
+{{- if eq (include "base.controller.kind" . ) "StatefulSet" -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "code-server.fullname" . }}-headless
+  labels:
+    {{- include "code-server.labels" . | nindent 4 }}
+spec:
+  clusterIP: None
+  ports:
+    {{- range $key, $val := .Values.ports }}
+    {{- if $val.enabled }}
+    - name: {{ $key | quote }}
+      port: {{ $val.port }}
+      targetPort: {{ $key | quote }}
+      protocol: {{ default "TCP" $val.protocol | quote }}
+    {{- end }}
+    {{- end }}
+  selector:
+    {{- include "code-server.selectorLabels" . | nindent 4 }}
+{{- end }}

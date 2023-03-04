@@ -28,5 +28,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: 'Upgrade base chart to 1.0.2'
+    - kind: fixed
+      description: 'Use correct claim name and controller kind values'

@@ -3,7 +3,7 @@
   {{- fail "Empty projects path detected in \".Values.persistentVolumeClaim.projectsPath\"!" -}}
 {{- end -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: {{ include "base.controller.kind" . }}
 metadata:
   name: {{ include "code-server.fullname" . }}
   labels:
@@ -144,10 +144,10 @@ spec:
             {{- end }}
         {{- if eq (include "base.persistence.enabled" . ) "true" }}
         {{- if eq (include "base.persistence.type" . ) "volumes" }}
-        - name: storage-volume
+        - name: {{ include "base.persistence.suffix" (include "code-server.fullname" . ) }}
           persistentVolumeClaim:
-            {{- if and .Values.persistentVolumeClaim.create (empty .Values.persistentVolumeClaim.existingPersistentVolumeClaim) }}
-            claimName: {{ printf "%s-storage" (include "code-server.fullname" . ) }}
+            {{- if eq (include "base.persistence.created" . ) "true" }}
+            claimName: {{ include "base.persistence.suffix" (include "code-server.fullname" . ) }}
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
