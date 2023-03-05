@@ -47,13 +47,15 @@ spec:
                 name: {{ printf "%s-scripts" (include "code-server.fullname" . ) }}
                 defaultMode: 0777
             {{- end }}
-            - name: storage-volume
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
+            - name: {{ include "base.persistence.suffix" (include "code-server.fullname" . ) }}
               persistentVolumeClaim:
                 {{- if eq (include "base.persistence.created" . ) "true" }}
                 claimName: {{ include "base.persistence.suffix" (include "code-server.fullname" . ) }}
                 {{- else }}
                 claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
                 {{- end }}
+            {{- end }}
           {{- if .Values.securityContext }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}

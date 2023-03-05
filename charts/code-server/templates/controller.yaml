@@ -61,8 +61,10 @@ spec:
           volumeMounts:
             - name: script-volume
               mountPath: /scripts
-            - name: storage-volume
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
+            - name: {{ include "base.persistence.suffix" (include "code-server.fullname" . ) }}
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+            {{- end }}
         {{- end }}
       containers:
         - name: {{ template "code-server.name" . }}
