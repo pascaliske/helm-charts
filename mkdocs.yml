@@ -57,6 +57,7 @@ nav:
       - homer: charts/homer.md
       - linkding: charts/linkding.md
       - paperless: charts/paperless.md
+      - plausible: charts/plausible.md
       - prometheus: charts/prometheus.md
       - redis: charts/redis.md
       - snapdrop: charts/snapdrop.md
