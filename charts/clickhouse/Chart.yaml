@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: clickhouse
 description: A Helm chart for ClickHouse
-version: 0.2.0
+version: 0.2.1
 # renovate: image=clickhouse/clickhouse-server
 appVersion: "23.2.3.17-alpine"
 
@@ -27,4 +27,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: changed
-      description: 'Allow specifying affinities and tolerations.'
+      description: 'Upgrade app to 23.2.3.17-alpine.'
