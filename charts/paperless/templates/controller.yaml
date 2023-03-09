@@ -62,15 +62,19 @@ spec:
               value: {{ include "paperless.trash.mountPath" . }}
             {{- end }}
             {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
-            - name: PAPERLESS_SECRET_KEY
+            {{- range $key, $val := .Values.secret.values }}
+            {{- if and $key $val }}
+            - name: {{ $key }}
               valueFrom:
                 secretKeyRef:
-                {{- if .Values.secret.existingSecret }}
-                  name: {{ .Values.secret.existingSecret }}
+                {{- if $.Values.secret.existingSecret }}
+                  name: {{ $.Values.secret.existingSecret }}
                 {{- else }}
-                  name: {{ printf "%s-secret-key" (include "paperless.fullname" .) }}
+                  name: {{ printf "%s-secrets" (include "paperless.fullname" $ ) }}
                 {{- end }}
-                  key: secretKey
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
             {{- end }}
             {{- if and .Values.ports.http.enabled (eq (include "paperless.fullname" .) "paperless") }}
             - name: PAPERLESS_PORT
