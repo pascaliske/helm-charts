@@ -45,6 +45,7 @@ helm delete <chart>
 - [`linkding`](https://charts.pascaliske.dev/charts/linkding)
 - [`paperless`](https://charts.pascaliske.dev/charts/paperless)
 - [`plausible`](https://charts.pascaliske.dev/charts/plausible)
+- [`plausible-exporter`](https://charts.pascaliske.dev/charts/plausible-exporter)
 - [`prometheus`](https://charts.pascaliske.dev/charts/prometheus)
 - [`redis`](https://charts.pascaliske.dev/charts/redis)
 - [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)

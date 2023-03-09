@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
+apiVersion: v2
+type: application
+name: plausible-exporter
+description: A Helm chart for plausible-exporter
+version: 0.0.1
+# renovate: image=ghcr.io/riesinger/plausible-exporter
+appVersion: "1.1.0"
+
+home: https://charts.pascaliske.dev/charts/plausible-exporter/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/riesinger/plausible-exporter
+keywords:
+  - plausible-exporter
+  - plausible
+  - prometheus
+  - metrics
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.0.2
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |
+    - kind: added
+      description: 'Initial chart implementation'
