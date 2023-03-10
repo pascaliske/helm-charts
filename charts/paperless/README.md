@@ -94,6 +94,8 @@ The following values can be used to adjust the helm chart.
 | rbac.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | rbac.create | bool | `true` | Create `Role` and `RoleBinding` objects. |
 | rbac.labels | object | `{}` | Additional labels for the role and role binding objects. |
+| redis | object | `{"enabled":false}` | Configure `redis` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/redis/). |
+| redis.enabled | bool | `false` | Enable `redis` subchart. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | secret.annotations | object | `{}` | Additional annotations for the secret object. |
 | secret.create | bool | `true` | Create a new secret containing the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). |

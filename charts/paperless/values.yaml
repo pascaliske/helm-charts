@@ -204,3 +204,9 @@ tolerations: {}
   # - key: node-role.kubernetes.io/control-plane
   #   operator: Exists
   #   effect: NoSchedule
+
+# -- Configure `redis` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/redis/).
+redis:
+  # -- Enable `redis` subchart.
+  # @default -- `false`
+  enabled: false

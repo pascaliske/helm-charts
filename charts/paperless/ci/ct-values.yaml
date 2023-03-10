@@ -1,0 +1,7 @@
+env:
+  - name: PAPERLESS_REDIS
+    value: redis://redis:6379
+
+redis:
+  enabled: true
+  fullnameOverride: redis
