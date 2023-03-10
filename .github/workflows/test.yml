@@ -45,10 +45,10 @@ jobs:
       # lint charts
       - name: Lint charts
         run: |
-          ct lint --all
+          ct lint --config .ct/ct-lint.yml --all
 
       # test charts
       - name: Test charts
         if: steps.list-changed.outputs.changed == 'true'
         run: |
-          ct install
+          ct install --config .ct/ct-install.yml
