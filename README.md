@@ -6,7 +6,7 @@
 
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
 
@@ -67,6 +67,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://www.b1-systems.de"><img src="https://avatars.githubusercontent.com/u/26167225?v=4?s=100" width="100px;" alt="Johannes Kastl"/><br /><sub><b>Johannes Kastl</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=johanneskastl" title="Code">💻</a> <a href="https://github.com/pascaliske/helm-charts/commits?author=johanneskastl" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/catrielmuller"><img src="https://avatars.githubusercontent.com/u/2272323?v=4?s=100" width="100px;" alt="Catriel Müller"/><br /><sub><b>Catriel Müller</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=catrielmuller" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/astralhpi"><img src="https://avatars.githubusercontent.com/u/1402102?v=4?s=100" width="100px;" alt="Jake(Jaehak Song)"/><br /><sub><b>Jake(Jaehak Song)</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=astralhpi" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/rabejens"><img src="https://avatars.githubusercontent.com/u/8402886?v=4?s=100" width="100px;" alt="Jens Rabe"/><br /><sub><b>Jens Rabe</b></sub></a><br /><a href="#ideas-rabejens" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
