@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: snapdrop
 description: A Helm chart for snapdrop
-version: 1.0.2
+version: 1.0.3
 # renovate: image=ghcr.io/linuxserver/snapdrop
 appVersion: "version-724f0af5"
 
