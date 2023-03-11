@@ -71,10 +71,10 @@ env:
     value: UTC
   # -- UID to be used at runtime inside the container.
   - name: PUID
-    value: 1000
+    value: ''
   # -- GID to be used at runtime inside the container.
   - name: PGID
-    value: 1000
+    value: ''
 
 ports:
   http:
