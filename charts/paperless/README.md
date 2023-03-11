@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.13.0](https://img.shields.io/badge/AppVersion-1.13.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.13.0](https://img.shields.io/badge/AppVersion-1.13.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
@@ -47,9 +47,14 @@ The following values can be used to adjust the helm chart.
 | certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
 | certificate.labels | object | `{}` | Additional labels for the certificate object. |
 | certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
+| consumption.csi | object | `{}` | CSI storage volume for the consumption directory. Only used if type equals `csi`. |
+| consumption.emptyDir | object | `{}` | Temporary emptyDir volume for the consumption directory. Only used if type equals `emptyDir` or is unknown. |
 | consumption.enabled | bool | `true` | Enable the volume mount of a [consumption directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders). |
-| consumption.hostPath | string | `""` | Host path of the consumption directory outside the container. |
+| consumption.hostPath | object | `{}` | Host path volume for the consumption directory. Only used if type equals `hostPath`. |
 | consumption.mountPath | string | `"/consumption"` | Mount path of the consumption directory inside the container. |
+| consumption.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
+| consumption.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
+| consumption.type | string | `"hostPath"` | Type of the target volume for the consumption directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
@@ -63,9 +68,14 @@ The following values can be used to adjust the helm chart.
 | export.cronJob.schedule | string | `"0 4 * * 1"` | Schedule for automated exports. |
 | export.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
 | export.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
+| export.csi | object | `{}` | CSI storage volume for the consumption directory. Only used if type equals `csi`. |
+| export.emptyDir | object | `{}` | Temporary emptyDir volume for the consumption directory. Only used if type equals `emptyDir` or is unknown. |
 | export.enabled | bool | `true` | Enable the volume mount of an export directory for [backups](https://docs.paperless-ngx.com/administration/#backup) using the [document exporter](https://docs.paperless-ngx.com/administration/#exporter). |
-| export.hostPath | string | `""` | Host path of the export directory outside the container. |
+| export.hostPath | object | `{}` | Host path volume for the consumption directory. Only used if type equals `hostPath`. |
 | export.mountPath | string | `"/export"` | Mount path of the export directory inside the container. |
+| export.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
+| export.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
+| export.type | string | `"hostPath"` | Type of the target volume for the export directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"ghcr.io/paperless-ngx/paperless-ngx"` | The repository to pull the image from. |
@@ -110,9 +120,14 @@ The following values can be used to adjust the helm chart.
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
+| trash.csi | object | `{}` | CSI storage volume for the consumption directory. Only used if type equals `csi`. |
+| trash.emptyDir | object | `{}` | Temporary emptyDir volume for the consumption directory. Only used if type equals `emptyDir` or is unknown. |
 | trash.enabled | bool | `false` | Enable the volume mount of a [trash directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders). |
-| trash.hostPath | string | `""` | Host path of the trash directory outside the container. |
+| trash.hostPath | object | `{}` | Host path volume for the consumption directory. Only used if type equals `hostPath`. |
 | trash.mountPath | string | `"/trash"` | Mount path of the trash directory inside the container. |
+| trash.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
+| trash.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
+| trash.type | string | `"hostPath"` | Type of the target volume for the trash directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 
 ## Maintainers
 

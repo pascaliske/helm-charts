@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 3.0.0
+version: 4.0.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.13.0"
 
@@ -23,7 +23,7 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.2
+    version: 1.1.0
     repository: https://charts.pascaliske.dev
   - name: redis
     version: 1.1.2
@@ -33,6 +33,6 @@ dependencies:
 annotations:
   artifacthub.io/changes: |
     - kind: added
-      description: 'Allow management of admin secrets through chart values.'
-    - kind: removed
-      description: 'The .Values.secret.secretKey was removed. Please use new .Values.secret.values object.'
+      description: 'Allow multiple types of volumes for consumption, export and trash directories.'
+    - kind: changed
+      description: '.Values.{consumption,export,trash}.hostPath now requires a full HostPath specification.'
