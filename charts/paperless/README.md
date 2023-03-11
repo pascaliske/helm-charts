@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 2.0.2](https://img.shields.io/badge/Version-2.0.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.13.0](https://img.shields.io/badge/AppVersion-1.13.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.13.0](https://img.shields.io/badge/AppVersion-1.13.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
@@ -47,7 +47,7 @@ The following values can be used to adjust the helm chart.
 | certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
 | certificate.labels | object | `{}` | Additional labels for the certificate object. |
 | certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
-| consumption.enabled | bool | `true` | Enable the volume mount of a [consumption directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders). |
+| consumption.enabled | bool | `true` | Enable the volume mount of a [consumption directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders). |
 | consumption.hostPath | string | `""` | Host path of the consumption directory outside the container. |
 | consumption.mountPath | string | `"/consumption"` | Mount path of the consumption directory inside the container. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
@@ -57,13 +57,13 @@ The following values can be used to adjust the helm chart.
 | controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | export.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
-| export.cronJob.enabled | bool | `false` | Create a `CronJob` object for [automated exports](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups). |
+| export.cronJob.enabled | bool | `false` | Create a `CronJob` object for [automated exports](https://docs.paperless-ngx.com/administration/#backup). |
 | export.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
 | export.cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
 | export.cronJob.schedule | string | `"0 4 * * 1"` | Schedule for automated exports. |
 | export.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
 | export.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
-| export.enabled | bool | `true` | Enable the volume mount of an export directory for [backups](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups) using the [document exporter](https://paperless-ngx.readthedocs.io/en/latest/administration.html#utilities-exporter). |
+| export.enabled | bool | `true` | Enable the volume mount of an export directory for [backups](https://docs.paperless-ngx.com/administration/#backup) using the [document exporter](https://docs.paperless-ngx.com/administration/#exporter). |
 | export.hostPath | string | `""` | Host path of the export directory outside the container. |
 | export.mountPath | string | `"/export"` | Mount path of the export directory inside the container. |
 | fullnameOverride | string | `""` |  |
@@ -94,12 +94,15 @@ The following values can be used to adjust the helm chart.
 | rbac.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | rbac.create | bool | `true` | Create `Role` and `RoleBinding` objects. |
 | rbac.labels | object | `{}` | Additional labels for the role and role binding objects. |
+| redis | object | `{"enabled":false}` | Configure `redis` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/redis/). |
+| redis.enabled | bool | `false` | Enable `redis` subchart. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | secret.annotations | object | `{}` | Additional annotations for the secret object. |
-| secret.create | bool | `true` | Create a new secret containing the [secret key](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#hosting-security). |
-| secret.existingSecret | string | `""` | Use an existing secret to store the [secret key](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#hosting-security). |
+| secret.create | bool | `true` | Create a new secret containing the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). |
+| secret.existingSecret | string | `""` | Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below! |
 | secret.labels | object | `{}` | Additional labels for the secret object. |
-| secret.secretKey | string | `""` | [Secret key](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#hosting-security) used when not using an existing secret. |
+| secret.values | object | `{"PAPERLESS_SECRET_KEY":"{{ randAlphaNum 42 | b64enc }}"}` | Secret values used when not using an existing secret. Helm templates are supported for values. |
+| secret.values.PAPERLESS_SECRET_KEY | string | `"{{ randAlphaNum 42 | b64enc }}"` | Secret key for session tokens. |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
@@ -107,7 +110,7 @@ The following values can be used to adjust the helm chart.
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
-| trash.enabled | bool | `false` | Enable the volume mount of a [trash directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders). |
+| trash.enabled | bool | `false` | Enable the volume mount of a [trash directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders). |
 | trash.hostPath | string | `""` | Host path of the trash directory outside the container. |
 | trash.mountPath | string | `"/trash"` | Mount path of the trash directory inside the container. |
 

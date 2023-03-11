@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 2.0.2
+version: 3.0.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.13.0"
 
@@ -25,8 +25,14 @@ dependencies:
   - name: base
     version: 1.0.2
     repository: https://charts.pascaliske.dev
+  - name: redis
+    version: 1.1.2
+    repository: https://charts.pascaliske.dev
+    condition: redis.enabled
 
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Upgrade base chart to 1.0.2'
+    - kind: added
+      description: 'Allow management of admin secrets through chart values.'
+    - kind: removed
+      description: 'The .Values.secret.secretKey was removed. Please use new .Values.secret.values object.'

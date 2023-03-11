@@ -82,12 +82,20 @@ ports:
     protocol: TCP
 
 secret:
-  # -- Create a new secret containing the [secret key](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#hosting-security).
+  # -- Create a new secret containing the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security).
   create: true
-  # -- Use an existing secret to store the [secret key](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#hosting-security).
+  # -- Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below!
   existingSecret: ''
-  # -- [Secret key](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#hosting-security) used when not using an existing secret.
-  secretKey: ''
+  # -- Secret values used when not using an existing secret. Helm templates are supported for values.
+  values:
+    # -- Secret key for session tokens.
+    PAPERLESS_SECRET_KEY: '{{ randAlphaNum 42 | b64enc }}'
+    # -- Optional. Initial admin username.
+    # PAPERLESS_ADMIN_USER: ''
+    # -- Optional. Initial admin password.
+    # PAPERLESS_ADMIN_PASSWORD: ''
+    # -- Optional. Initial admin email.
+    # PAPERLESS_ADMIN_MAIL: ''
   # -- Additional annotations for the secret object.
   annotations: {}
   # -- Additional labels for the secret object.
@@ -114,7 +122,7 @@ persistentVolumeClaim:
   labels: {}
 
 consumption:
-  # -- Enable the volume mount of a [consumption directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders).
+  # -- Enable the volume mount of a [consumption directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
   enabled: true
   # -- Mount path of the consumption directory inside the container.
   mountPath: /consumption
@@ -122,14 +130,14 @@ consumption:
   hostPath: ''
 
 export:
-  # -- Enable the volume mount of an export directory for [backups](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups) using the [document exporter](https://paperless-ngx.readthedocs.io/en/latest/administration.html#utilities-exporter).
+  # -- Enable the volume mount of an export directory for [backups](https://docs.paperless-ngx.com/administration/#backup) using the [document exporter](https://docs.paperless-ngx.com/administration/#exporter).
   enabled: true
   # -- Mount path of the export directory inside the container.
   mountPath: /export
   # -- Host path of the export directory outside the container.
   hostPath: ''
   cronJob:
-    # -- Create a `CronJob` object for [automated exports](https://paperless-ngx.readthedocs.io/en/latest/administration.html#making-backups).
+    # -- Create a `CronJob` object for [automated exports](https://docs.paperless-ngx.com/administration/#backup).
     enabled: false
     # -- Schedule for automated exports.
     schedule: '0 4 * * 1'
@@ -145,7 +153,7 @@ export:
     labels: {}
 
 trash:
-  # -- Enable the volume mount of a [trash directory](https://paperless-ngx.readthedocs.io/en/latest/configuration.html#paths-and-folders).
+  # -- Enable the volume mount of a [trash directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
   enabled: false
   # -- Mount path of the trash directory inside the container.
   mountPath: /trash
@@ -196,3 +204,9 @@ tolerations: {}
   # - key: node-role.kubernetes.io/control-plane
   #   operator: Exists
   #   effect: NoSchedule
+
+# -- Configure `redis` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/redis/).
+redis:
+  # -- Enable `redis` subchart.
+  # @default -- `false`
+  enabled: false
