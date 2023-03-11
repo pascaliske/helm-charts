@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  template:
+    summary: Render chart templates based on default values.
+    cmds:
+      - helm template {{.CLI_ARGS}} ./charts/{{.CLI_ARGS}} --debug --values ./charts/{{.CLI_ARGS}}/values.yaml | pbcopy
+
+  docs:
+    summary: Generate Helm chart documentation.
+    cmds:
+      - helm-docs --chart-search-root {{.CHART_SEARCH_ROOT}} --template-files README.md.tmpl
+    vars:
+      CHART_SEARCH_ROOT:
+        sh: dirname {{ default "./charts/xyz" .CLI_ARGS}} | head -n 1
