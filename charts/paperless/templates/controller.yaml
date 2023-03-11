@@ -125,24 +125,18 @@ spec:
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
-        {{- if eq (include "paperless.consumption.enabled" .) "true" }}
-        - name: consumption-volume
-          hostPath:
-            type: Directory
-            path: {{ include "paperless.consumption.hostPath" . }}
-        {{- end }}
-        {{- if eq (include "paperless.export.enabled" .) "true" }}
-        - name: export-volume
-          hostPath:
-            type: Directory
-            path: {{ include "paperless.export.hostPath" . }}
-        {{- end }}
-        {{- if eq (include "paperless.trash.enabled" .) "true" }}
-        - name: trash-volume
-          hostPath:
-            type: Directory
-            path: {{ include "paperless.trash.hostPath" . }}
-        {{- end }}
+        {{- if eq (include "paperless.consumption.enabled" .) "true" -}}
+        {{- $_ := set .Values.consumption "name" "consumption-volume" -}}
+        {{- include "base.persistence.volumeSpec" .Values.consumption | nindent 8 }}
+        {{- end -}}
+        {{- if eq (include "paperless.export.enabled" .) "true" -}}
+        {{- $_ := set .Values.export "name" "export-volume" -}}
+        {{- include "base.persistence.volumeSpec" .Values.export | nindent 8 }}
+        {{- end -}}
+        {{- if eq (include "paperless.trash.enabled" .) "true" -}}
+        {{- $_ := set .Values.trash "name" "trash-volume" -}}
+        {{- include "base.persistence.volumeSpec" .Values.trash | nindent 8 }}
+        {{- end -}}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}

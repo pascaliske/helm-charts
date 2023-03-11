@@ -39,13 +39,28 @@
         "consumption": {
             "type": "object",
             "properties": {
+                "csi": {
+                    "type": "object"
+                },
+                "emptyDir": {
+                    "type": "object"
+                },
                 "enabled": {
                     "type": "boolean"
                 },
                 "hostPath": {
-                    "type": "string"
+                    "type": "object"
                 },
                 "mountPath": {
+                    "type": "string"
+                },
+                "nfs": {
+                    "type": "object"
+                },
+                "persistentVolumeClaim": {
+                    "type": "object"
+                },
+                "type": {
                     "type": "string"
                 }
             }
@@ -113,13 +128,28 @@
                         }
                     }
                 },
+                "csi": {
+                    "type": "object"
+                },
+                "emptyDir": {
+                    "type": "object"
+                },
                 "enabled": {
                     "type": "boolean"
                 },
                 "hostPath": {
-                    "type": "string"
+                    "type": "object"
                 },
                 "mountPath": {
+                    "type": "string"
+                },
+                "nfs": {
+                    "type": "object"
+                },
+                "persistentVolumeClaim": {
+                    "type": "object"
+                },
+                "type": {
                     "type": "string"
                 }
             }
@@ -308,13 +338,28 @@
         "trash": {
             "type": "object",
             "properties": {
+                "csi": {
+                    "type": "object"
+                },
+                "emptyDir": {
+                    "type": "object"
+                },
                 "enabled": {
                     "type": "boolean"
                 },
                 "hostPath": {
-                    "type": "string"
+                    "type": "object"
                 },
                 "mountPath": {
+                    "type": "string"
+                },
+                "nfs": {
+                    "type": "object"
+                },
+                "persistentVolumeClaim": {
+                    "type": "object"
+                },
+                "type": {
                     "type": "string"
                 }
             }

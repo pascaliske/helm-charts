@@ -62,15 +62,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Consumption host path
-*/}}
-{{- define "paperless.consumption.hostPath" -}}
-{{- if .Values.consumption.enabled }}
-{{- .Values.consumption.hostPath }}
-{{- end }}
-{{- end }}
-
-{{/*
 Consumption mount path
 */}}
 {{- define "paperless.consumption.mountPath" -}}
@@ -83,23 +74,10 @@ Consumption mount path
 Consumption enabled
 */}}
 {{- define "paperless.consumption.enabled" -}}
-{{- if .Values.consumption.enabled }}
-{{- if and (include "paperless.consumption.hostPath" .) (include "paperless.consumption.mountPath" .) }}
+{{- if and .Values.consumption.enabled (include "paperless.consumption.mountPath" . ) -}}
 {{- printf "true" }}
 {{- else }}
 {{- printf "false" }}
-{{- end }}
-{{- else }}
-{{- printf "false" }}
-{{- end }}
-{{- end }}
-
-{{/*
-Export host path
-*/}}
-{{- define "paperless.export.hostPath" -}}
-{{- if .Values.export.enabled }}
-{{- .Values.export.hostPath }}
 {{- end }}
 {{- end }}
 
@@ -116,12 +94,8 @@ Export mount path
 Export enabled
 */}}
 {{- define "paperless.export.enabled" -}}
-{{- if .Values.export.enabled }}
-{{- if and (include "paperless.export.hostPath" .) (include "paperless.export.mountPath" .) }}
+{{- if and .Values.export.enabled (include "paperless.export.mountPath" . ) -}}
 {{- printf "true" }}
-{{- else }}
-{{- printf "false" }}
-{{- end }}
 {{- else }}
 {{- printf "false" }}
 {{- end }}
@@ -132,15 +106,6 @@ Export command
 */}}
 {{- define "paperless.export.command" -}}
 {{ printf "kubectl exec -it -n %s deploy/%s -- document_exporter %s" .Release.Namespace (include "paperless.fullname" . ) (include "paperless.export.mountPath" . ) }}
-{{- end }}
-
-{{/*
-Trash host path
-*/}}
-{{- define "paperless.trash.hostPath" -}}
-{{- if .Values.trash.enabled }}
-{{- .Values.trash.hostPath }}
-{{- end }}
 {{- end }}
 
 {{/*
@@ -156,12 +121,8 @@ Trash mount path
 Trash enabled
 */}}
 {{- define "paperless.trash.enabled" -}}
-{{- if .Values.trash.enabled }}
-{{- if and (include "paperless.trash.hostPath" .) (include "paperless.trash.mountPath" .) }}
+{{- if and .Values.trash.enabled (include "paperless.trash.mountPath" . ) -}}
 {{- printf "true" }}
-{{- else }}
-{{- printf "false" }}
-{{- end }}
 {{- else }}
 {{- printf "false" }}
 {{- end }}
