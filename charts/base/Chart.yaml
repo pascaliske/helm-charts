@@ -3,7 +3,7 @@ apiVersion: v2
 type: library
 name: base
 description: A Helm chart for Kubernetes
-version: 1.0.2
+version: 1.1.0
 appVersion: ""
 
 home: https://charts.pascaliske.dev

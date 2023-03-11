@@ -59,3 +59,32 @@ volumeMode: {{ . }}
 storageClassName: {{ . }}
 {{- end }}
 {{- end }}
+
+{{/*
+Persistence volume specification (for pods)
+*/}}
+{{- define "base.persistence.volumeSpec" -}}
+{{- if and (eq .type "hostPath") .hostPath -}}
+- name: {{ .name }}
+  hostPath:
+    {{- toYaml .hostPath | nindent 4 -}}
+{{- else if and (eq .type "pvc") .persistentVolumeClaim -}}
+- name: {{ .name }}
+  persistentVolumeClaim:
+    {{- toYaml .persistentVolumeClaim | nindent 4 -}}
+{{- else if and (eq .type "csi") .csi -}}
+- name: {{ .name }}
+  csi:
+    {{- toYaml .csi | nindent 4 -}}
+{{- else if and (eq .type "nfs") .nfs -}}
+- name: {{ .name }}
+  nfs:
+    {{- toYaml .nfs | nindent 4 -}}
+{{- else -}}
+- name: {{ .name }}
+  emptyDir: {{ if empty .emptyDir -}}{}{{- end -}}
+    {{- if .emptyDir -}}
+    {{- toYaml .emptyDir | nindent 4 -}}
+    {{- end -}}
+{{- end -}}
+{{- end -}}
