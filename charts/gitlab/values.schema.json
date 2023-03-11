@@ -1,0 +1,360 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "affinity": {
+            "type": "object"
+        },
+        "backups": {
+            "type": "object",
+            "properties": {
+                "cronJob": {
+                    "type": "object",
+                    "properties": {
+                        "annotations": {
+                            "type": "object"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "failedJobsHistoryLimit": {
+                            "type": "integer"
+                        },
+                        "labels": {
+                            "type": "object"
+                        },
+                        "schedule": {
+                            "type": "string"
+                        },
+                        "successfulJobsHistoryLimit": {
+                            "type": "integer"
+                        },
+                        "suspend": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "hostPath": {
+                    "type": "string"
+                },
+                "mountPath": {
+                    "type": "string"
+                }
+            }
+        },
+        "certificate": {
+            "type": "object",
+            "properties": {
+                "annotations": {
+                    "type": "object"
+                },
+                "create": {
+                    "type": "boolean"
+                },
+                "dnsNames": {
+                    "type": "array"
+                },
+                "issuerRef": {
+                    "type": "object",
+                    "properties": {
+                        "kind": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object"
+                },
+                "secretName": {
+                    "type": "string"
+                }
+            }
+        },
+        "configMap": {
+            "type": "object",
+            "properties": {
+                "annotations": {
+                    "type": "object"
+                },
+                "config": {
+                    "type": "string"
+                },
+                "create": {
+                    "type": "boolean"
+                },
+                "existingConfigMap": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object"
+                }
+            }
+        },
+        "controller": {
+            "type": "object",
+            "properties": {
+                "annotations": {
+                    "type": "object"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "object"
+                },
+                "replicas": {
+                    "type": "integer"
+                },
+                "strategy": {
+                    "type": "object",
+                    "properties": {
+                        "rollingUpdate": {
+                            "type": "object",
+                            "properties": {
+                                "maxSurge": {
+                                    "type": "integer"
+                                },
+                                "maxUnavailable": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "type": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "env": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "fullnameOverride": {
+            "type": "string"
+        },
+        "healthCheck": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "whitelist": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingressRoute": {
+            "type": "object",
+            "properties": {
+                "annotations": {
+                    "type": "object"
+                },
+                "create": {
+                    "type": "boolean"
+                },
+                "entryPoints": {
+                    "type": "array"
+                },
+                "labels": {
+                    "type": "object"
+                },
+                "middlewares": {
+                    "type": "array"
+                },
+                "rule": {
+                    "type": "string"
+                },
+                "tlsSecretName": {
+                    "type": "string"
+                }
+            }
+        },
+        "nameOverride": {
+            "type": "string"
+        },
+        "persistentVolumeClaims": {
+            "type": "object",
+            "properties": {
+                "secrets": {
+                    "type": "object",
+                    "properties": {
+                        "annotations": {
+                            "type": "object"
+                        },
+                        "create": {
+                            "type": "boolean"
+                        },
+                        "existingPersistentVolumeClaim": {
+                            "type": "string"
+                        },
+                        "labels": {
+                            "type": "object"
+                        },
+                        "mountPath": {
+                            "type": "string"
+                        },
+                        "size": {
+                            "type": "string"
+                        },
+                        "storageClassName": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "storage": {
+                    "type": "object",
+                    "properties": {
+                        "annotations": {
+                            "type": "object"
+                        },
+                        "create": {
+                            "type": "boolean"
+                        },
+                        "existingPersistentVolumeClaim": {
+                            "type": "string"
+                        },
+                        "labels": {
+                            "type": "object"
+                        },
+                        "mountPath": {
+                            "type": "string"
+                        },
+                        "size": {
+                            "type": "string"
+                        },
+                        "storageClassName": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "ports": {
+            "type": "object",
+            "properties": {
+                "http": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "nodePort": {
+                            "type": "null"
+                        },
+                        "port": {
+                            "type": "integer"
+                        },
+                        "protocol": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "registry": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "nodePort": {
+                            "type": "null"
+                        },
+                        "port": {
+                            "type": "integer"
+                        },
+                        "protocol": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "rbac": {
+            "type": "object",
+            "properties": {
+                "annotations": {
+                    "type": "object"
+                },
+                "create": {
+                    "type": "boolean"
+                },
+                "labels": {
+                    "type": "object"
+                }
+            }
+        },
+        "resources": {
+            "type": "object"
+        },
+        "securityContext": {
+            "type": "object"
+        },
+        "service": {
+            "type": "object",
+            "properties": {
+                "annotations": {
+                    "type": "object"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "labels": {
+                    "type": "object"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "serviceAccount": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "tolerations": {
+            "type": "object"
+        }
+    }
+}
