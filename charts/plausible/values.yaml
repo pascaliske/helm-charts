@@ -99,6 +99,23 @@ ports:
     # -- The protocol used for the service.
     protocol: TCP
 
+geoip:
+  # -- Enable support for MaxMinds GeoLite2 database.
+  enabled: false
+  image:
+    # -- The repository for the geoip image.
+    repository: maxmindinc/geoipupdate
+    # -- The docker tag for the geoip image.
+    tag: v4.10.0
+  # -- Required. MaxMind account ID.
+  accountId: ''
+  # -- Required. Case-sensitive MaxMind license key.
+  licenseKey: ''
+  # -- Optional. Space separated list of database edition IDs. Defaults to "GeoLite2-Country".
+  editionIds: GeoLite2-Country
+  # -- Optional. Database update frequency. Defaults to "168" which equals 7 days.
+  frequency: 168
+
 serviceAccount:
   # -- Specify the service account used for the controller.
   name: ''

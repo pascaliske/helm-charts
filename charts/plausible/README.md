@@ -2,7 +2,7 @@
 
 > A Helm chart for Plausible
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v1.5.1](https://img.shields.io/badge/AppVersion-v1.5.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v1.5.1](https://img.shields.io/badge/AppVersion-v1.5.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/plausible/analytics>
@@ -56,6 +56,13 @@ The following values can be used to adjust the helm chart.
 | controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
+| geoip.accountId | string | `""` | Required. MaxMind account ID. |
+| geoip.editionIds | string | `"GeoLite2-Country"` | Optional. Space separated list of database edition IDs. Defaults to "GeoLite2-Country". |
+| geoip.enabled | bool | `false` | Enable support for MaxMinds GeoLite2 database. |
+| geoip.frequency | int | `168` | Optional. Database update frequency. Defaults to "168" which equals 7 days. |
+| geoip.image.repository | string | `"maxmindinc/geoipupdate"` | The repository for the geoip image. |
+| geoip.image.tag | string | `"v4.10.0"` | The docker tag for the geoip image. |
+| geoip.licenseKey | string | `""` | Required. Case-sensitive MaxMind license key. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"plausible/analytics"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
