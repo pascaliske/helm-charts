@@ -2,7 +2,7 @@ apiVersion: v2
 type: application
 name: digitalocean-dyndns
 description: A Helm chart for a CronJob based DigitalOcean DynDNS client.
-version: 0.2.4
+version: 0.2.5
 # renovate: image=ghcr.io/pascaliske/digitalocean-dyndns
 appVersion: "0.0.3"
 
@@ -17,3 +17,8 @@ maintainers:
   - name: pascaliske
     email: info@pascaliske.dev
     url: https://pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |-
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
