@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: plausible-exporter
 description: A Helm chart for plausible-exporter
-version: 0.0.1
+version: 0.0.2
 # renovate: image=ghcr.io/riesinger/plausible-exporter
 appVersion: "1.1.0"
 
@@ -28,5 +28,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: added
-      description: 'Initial chart implementation'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
