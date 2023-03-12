@@ -205,7 +205,7 @@
             }
         },
         "tolerations": {
-            "type": "object"
+            "type": "array"
         }
     }
 }
