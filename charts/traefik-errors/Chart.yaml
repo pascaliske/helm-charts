@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: traefik-errors
 description: A Helm chart for custom traefik error pages
-version: 3.0.2
+version: 3.0.3
 # renovate: image=ghcr.io/pascaliske/traefik-errors
 appVersion: "1.0.5"
 
@@ -26,5 +26,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct empty default value'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
