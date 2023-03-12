@@ -2,7 +2,7 @@
 
 > A Helm chart for cloudflared DNS over HTTPS tunnel.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![Version: 2.0.2](https://img.shields.io/badge/Version-2.0.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![AppVersion: 2022.12.1](https://img.shields.io/badge/AppVersion-2022.12.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![Version: 2.0.3](https://img.shields.io/badge/Version-2.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![AppVersion: 2022.12.1](https://img.shields.io/badge/AppVersion-2022.12.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/crazy-max/docker-cloudflared>
@@ -75,7 +75,7 @@ The following values can be used to adjust the helm chart.
 | serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
 | serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
 | serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
-| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 
