@@ -2,7 +2,7 @@
 
 > A Helm chart for unbound DNS resolver.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)[![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/unbound/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-unbound>
@@ -64,7 +64,7 @@ The following values can be used to adjust the helm chart.
 | service.dns.single | bool | `true` | Combine TCP and UDP endpoints in a single service. |
 | service.dns.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
-| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 
