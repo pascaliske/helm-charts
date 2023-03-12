@@ -79,9 +79,6 @@
                 "accountId": {
                     "type": "string"
                 },
-                "editionIds": {
-                    "type": "string"
-                },
                 "enabled": {
                     "type": "boolean"
                 },

@@ -111,8 +111,6 @@ geoip:
   accountId: ''
   # -- Required. Case-sensitive MaxMind license key.
   licenseKey: ''
-  # -- Optional. Space separated list of database edition IDs. Defaults to "GeoLite2-Country".
-  editionIds: GeoLite2-Country
   # -- Optional. Database update frequency. Defaults to "168" which equals 7 days.
   frequency: 168
 

@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: plausible
 description: A Helm chart for Plausible
-version: 0.1.1
+version: 0.1.2
 # renovate: image=plausible/analytics
 appVersion: "v1.5.1"
 
@@ -30,4 +30,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: fixed
-      description: 'Use correct empty default value'
+      description: 'Hardcode GeoIP database edition ID'

@@ -57,7 +57,6 @@ The following values can be used to adjust the helm chart.
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
 | geoip.accountId | string | `""` | Required. MaxMind account ID. |
-| geoip.editionIds | string | `"GeoLite2-Country"` | Optional. Space separated list of database edition IDs. Defaults to "GeoLite2-Country". |
 | geoip.enabled | bool | `false` | Enable support for MaxMinds GeoLite2 database. |
 | geoip.frequency | int | `168` | Optional. Database update frequency. Defaults to "168" which equals 7 days. |
 | geoip.image.repository | string | `"maxmindinc/geoipupdate"` | The repository for the geoip image. |

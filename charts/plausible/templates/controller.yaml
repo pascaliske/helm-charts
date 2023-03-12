@@ -74,6 +74,10 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+            {{- if .Values.geoip.enabled }}
+            - name: GEOLITE2_COUNTRY_DB
+              value: /geoip/GeoLite2-Country.mmdb
+            {{- end }}
           {{- if .Values.geoip.enabled }}
           volumeMounts:
             - name: geoip-volume
@@ -101,10 +105,10 @@ spec:
               value: {{ .Values.geoip.accountId | quote }}
             - name: GEOIPUPDATE_LICENSE_KEY
               value: {{ .Values.geoip.licenseKey | quote }}
-            - name: GEOIPUPDATE_EDITION_IDS
-              value: {{ .Values.geoip.editionIds | quote }}
             - name: GEOIPUPDATE_FREQUENCY
               value: {{ .Values.geoip.frequency | quote }}
+            - name: GEOIPUPDATE_EDITION_IDS
+              value: GeoLite2-Country
           volumeMounts:
             - name: geoip-volume
               mountPath: /usr/share/GeoIP
