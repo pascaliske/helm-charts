@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: unbound
 description: A Helm chart for unbound DNS resolver.
-version: 1.0.2
+version: 1.0.3
 # renovate: image=ghcr.io/pascaliske/unbound
 appVersion: "0.1.0"
 
@@ -29,5 +29,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct empty default value'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
