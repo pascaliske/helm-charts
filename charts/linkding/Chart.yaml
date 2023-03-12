@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 1.0.4
+version: 1.0.5
 # renovate: image=sissbruecker/linkding
 appVersion: "1.17.2"
 
@@ -26,5 +26,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct empty default value'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
