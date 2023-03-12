@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vikunja
 description: A Helm chart for Kubernetes
-version: 3.0.3
+version: 3.0.4
 # renovate: image=vikunja/api
 appVersion: "0.20.3"
 
@@ -27,5 +27,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct empty default value'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
