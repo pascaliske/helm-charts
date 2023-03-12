@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: gitlab
 description: A Helm chart for GitLab Omnibus
-version: 2.0.4
+version: 2.0.5
 # renovate: image=gitlab/gitlab-ce
 appVersion: "15.9.3-ce.0"
 
@@ -25,5 +25,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct empty default value'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
