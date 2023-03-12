@@ -1,4 +1,3 @@
 {
-  "charts/**/{Chart,values}.yaml": ["task chart:docs --", "git add charts/**/README.md"],
-  "charts/**/values.yaml": ["task chart:schema --", "git add charts/**/values.schema.json"]
+  "charts/**/{Chart,values}.yaml": ["task chart:docs --", "git add charts/**/README.md"]
 }

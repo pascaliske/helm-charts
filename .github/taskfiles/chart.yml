@@ -6,14 +6,6 @@ tasks:
     cmds:
       - helm template {{.CLI_ARGS}} ./charts/{{.CLI_ARGS}} --debug --values ./charts/{{.CLI_ARGS}}/values.yaml | pbcopy
 
-  schema:
-    summary:
-    cmds:
-      - helm schema-gen {{.CHART_SEARCH_ROOT}}/values.yaml > {{.CHART_SEARCH_ROOT}}/values.schema.json
-    vars:
-      CHART_SEARCH_ROOT:
-        sh: dirname {{ default "./charts/xyz" .CLI_ARGS}} | head -n 1
-
   docs:
     summary: Generate Helm chart documentation.
     cmds:
