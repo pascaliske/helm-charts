@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: snapdrop
 description: A Helm chart for snapdrop
-version: 1.0.3
+version: 1.0.4
 # renovate: image=ghcr.io/linuxserver/snapdrop
 appVersion: "version-724f0af5"
 
@@ -27,5 +27,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Remove default values for user IDs.'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
