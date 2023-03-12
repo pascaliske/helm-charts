@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: cloudflared
 description: A Helm chart for cloudflared DNS over HTTPS tunnel.
-version: 2.0.3
+version: 2.0.4
 # renovate: image=ghcr.io/crazy-max/cloudflared
 appVersion: "2022.12.1"
 
@@ -27,5 +27,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct empty default value'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
