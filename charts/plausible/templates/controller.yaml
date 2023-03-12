@@ -74,6 +74,12 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+          {{- if .Values.geoip.enabled }}
+          volumeMounts:
+            - name: geoip-volume
+              mountPath: /geoip
+              readOnly: true
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /api/health
@@ -86,6 +92,28 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
+        {{- if .Values.geoip.enabled }}
+        - name: geoip
+          image: "{{ .Values.geoip.image.repository }}:{{ .Values.geoip.image.tag }}"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: GEOIPUPDATE_ACCOUNT_ID
+              value: {{ .Values.geoip.accountId | quote }}
+            - name: GEOIPUPDATE_LICENSE_KEY
+              value: {{ .Values.geoip.licenseKey | quote }}
+            - name: GEOIPUPDATE_EDITION_IDS
+              value: {{ .Values.geoip.editionIds | quote }}
+            - name: GEOIPUPDATE_FREQUENCY
+              value: {{ .Values.geoip.frequency | quote }}
+          volumeMounts:
+            - name: geoip-volume
+              mountPath: /usr/share/GeoIP
+        {{- end }}
+      {{- if .Values.geoip.enabled }}
+      volumes:
+        - name: geoip-volume
+          emptyDir: {}
+      {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}

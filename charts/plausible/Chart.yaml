@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: plausible
 description: A Helm chart for Plausible
-version: 0.0.1
+version: 0.1.0
 # renovate: image=plausible/analytics
 appVersion: "v1.5.1"
 
@@ -24,10 +24,12 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.0.2
+    version: 1.1.0
     repository: https://charts.pascaliske.dev
 
 annotations:
   artifacthub.io/changes: |-
+    - kind: added
+      description: 'Added support for using MaxMinds GeoLite2 database.'
     - kind: changed
-      description: 'Setup Plausible Helm Chart.'
+      description: 'Upgrade base chart to 1.1.0.'
