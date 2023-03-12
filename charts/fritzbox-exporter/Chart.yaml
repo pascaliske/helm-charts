@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: fritzbox-exporter
 description: A Helm chart for fritzbox-exporter
-version: 2.0.2
+version: 2.0.3
 # renovate: image=sealife/fritzbox-exporter
 appVersion: "1.0"
 
@@ -28,5 +28,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Upgrade base chart to 1.0.2'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
