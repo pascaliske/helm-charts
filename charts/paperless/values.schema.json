@@ -333,7 +333,7 @@
             }
         },
         "tolerations": {
-            "type": "object"
+            "type": "array"
         },
         "trash": {
             "type": "object",

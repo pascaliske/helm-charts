@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 4.0.0
+version: 4.0.1
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.13.0"
 
@@ -32,7 +32,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: added
-      description: 'Allow multiple types of volumes for consumption, export and trash directories.'
-    - kind: changed
-      description: '.Values.{consumption,export,trash}.hostPath now requires a full HostPath specification.'
+    - kind: fixed
+      description: 'Use correct empty default value'
