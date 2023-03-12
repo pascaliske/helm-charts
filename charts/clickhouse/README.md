@@ -2,7 +2,7 @@
 
 > A Helm chart for ClickHouse
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![AppVersion: 23.2.3.17-alpine](https://img.shields.io/badge/AppVersion-23.2.3.17--alpine-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![AppVersion: 23.2.4.12-alpine](https://img.shields.io/badge/AppVersion-23.2.4.12--alpine-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/clickhouse/clickhouse>
@@ -86,7 +86,7 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
-| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 

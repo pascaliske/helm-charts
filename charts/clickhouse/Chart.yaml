@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: clickhouse
 description: A Helm chart for ClickHouse
-version: 0.2.1
+version: 0.2.2
 # renovate: image=clickhouse/clickhouse-server
 appVersion: "23.2.4.12-alpine"
 
@@ -26,5 +26,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |-
-    - kind: changed
-      description: 'Upgrade app to 23.2.3.17-alpine.'
+    - kind: fixed
+      description: 'Use correct empty default value'
