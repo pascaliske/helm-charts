@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 3.0.2](https://img.shields.io/badge/Version-3.0.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.20.2](https://img.shields.io/badge/AppVersion-0.20.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 3.0.3](https://img.shields.io/badge/Version-3.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.20.3](https://img.shields.io/badge/AppVersion-0.20.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://code.vikunja.io>
@@ -95,7 +95,7 @@ The following values can be used to adjust the helm chart.
 | serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
 | serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
 | serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
-| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 
