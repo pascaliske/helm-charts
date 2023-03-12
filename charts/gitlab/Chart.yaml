@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: gitlab
 description: A Helm chart for GitLab Omnibus
-version: 2.0.3
+version: 2.0.4
 # renovate: image=gitlab/gitlab-ce
 appVersion: "15.9.3-ce.0"
 
@@ -25,5 +25,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Upgrade app to 15.9.2-ce.0'
+    - kind: fixed
+      description: 'Use correct empty default value'
