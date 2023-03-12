@@ -2,7 +2,7 @@
 
 > A Helm chart for Plausible
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v1.5.1](https://img.shields.io/badge/AppVersion-v1.5.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v1.5.1](https://img.shields.io/badge/AppVersion-v1.5.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/plausible/analytics>
@@ -93,7 +93,7 @@ The following values can be used to adjust the helm chart.
 | serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
 | serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
 | serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
-| tolerations | object | `{}` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 

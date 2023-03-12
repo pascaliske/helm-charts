@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: plausible
 description: A Helm chart for Plausible
-version: 0.1.0
+version: 0.1.1
 # renovate: image=plausible/analytics
 appVersion: "v1.5.1"
 
@@ -29,7 +29,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |-
-    - kind: added
-      description: 'Added support for using MaxMinds GeoLite2 database.'
-    - kind: changed
-      description: 'Upgrade base chart to 1.1.0.'
+    - kind: fixed
+      description: 'Use correct empty default value'
