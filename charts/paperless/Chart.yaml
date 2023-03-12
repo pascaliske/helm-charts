@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 4.0.1
+version: 4.0.2
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.13.0"
 
@@ -32,5 +32,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct empty default value'
+    - kind: removed
+      description: 'Remove values schema due to issues with flux variable substitution.'
