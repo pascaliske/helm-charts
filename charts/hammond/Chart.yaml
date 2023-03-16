@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
+apiVersion: v2
+type: application
+name: hammond
+description: A Helm chart for hammond
+version: 0.0.1
+# renovate: image=ghcr.io/alfhou/hammond
+appVersion: "v0.0.3"
+
+home: https://charts.pascaliske.dev/charts/hammond/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/AlfHou/hammond
+keywords:
+  - hammond
+  - vehicle-management
+  - expenses-management
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.1.1
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |-
+    - kind: added
+      description: 'Initial chart implementation.'

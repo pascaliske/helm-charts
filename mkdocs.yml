@@ -54,6 +54,7 @@ nav:
       - digitalocean-dyndns: charts/digitalocean-dyndns.md
       - fritzbox-exporter: charts/fritzbox-exporter.md
       - gitlab: charts/gitlab.md
+      - hammond: charts/hammond.md
       - homer: charts/homer.md
       - linkding: charts/linkding.md
       - paperless: charts/paperless.md
