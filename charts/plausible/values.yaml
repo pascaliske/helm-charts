@@ -106,7 +106,7 @@ geoip:
     # -- The repository for the geoip image.
     repository: maxmindinc/geoipupdate
     # -- The docker tag for the geoip image.
-    tag: v4.10.0
+    tag: v4.11.0
   # -- Required. MaxMind account ID.
   accountId: ''
   # -- Required. Case-sensitive MaxMind license key.
