@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: hammond
 description: A Helm chart for hammond
-version: 0.0.1
+version: 0.1.0
 # renovate: image=ghcr.io/alfhou/hammond
 appVersion: "v0.0.3"
 
@@ -28,4 +28,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: 'Initial chart implementation.'
+      description: 'Support data persistence for config and asset volumes.'
