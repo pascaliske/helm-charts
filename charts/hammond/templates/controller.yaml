@@ -29,6 +29,16 @@ spec:
         {{- include "hammond.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "hammond.serviceAccountName" . }}
+      {{- if eq (include "base.persistence.enabled" . ) "true" }}
+      initContainers:
+        - name: init-volumes
+          image: busybox:latest
+          imagePullPolicy: IfNotPresent
+          command: ['sh', '-c', 'mkdir -p {{ .Values.persistentVolumeClaim.mountPath }}/config {{ .Values.persistentVolumeClaim.mountPath }}/assets']
+          volumeMounts:
+            - name: {{ include "base.persistence.suffix" (include "hammond.fullname" . ) }}
+              mountPath: {{ required "Mandatory value .Values.persistentVolumeClaim.mountPath is empty!" .Values.persistentVolumeClaim.mountPath }}
+      {{- end }}
       containers:
         - name: {{ template "hammond.name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -50,6 +60,19 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
+            {{- if not (empty .Values.persistentVolumeClaim.mountPath) }}
+            - name: CONFIG
+              value: {{ .Values.persistentVolumeClaim.mountPath }}/config
+            - name: DATA
+              value: {{ .Values.persistentVolumeClaim.mountPath }}/assets
+            {{- end }}
+            {{- end }}
+          {{- if eq (include "base.persistence.enabled" . ) "true" }}
+          volumeMounts:
+            - name: {{ include "base.persistence.suffix" (include "hammond.fullname" . ) }}
+              mountPath: {{ required "Mandatory value .Values.persistentVolumeClaim.mountPath is empty!" .Values.persistentVolumeClaim.mountPath }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -62,6 +85,18 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
+      {{- if eq (include "base.persistence.enabled" . ) "true" }}
+      {{- if eq (include "base.persistence.type" . ) "volumes" }}
+      volumes:
+        - name: {{ include "base.persistence.suffix" (include "hammond.fullname" . ) }}
+          persistentVolumeClaim:
+            {{- if eq (include "base.persistence.created" . ) "true" }}
+            claimName: {{ include "base.persistence.suffix" (include "hammond.fullname" . ) }}
+            {{- else }}
+            claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            {{- end }}
+      {{- end }}
+      {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}
