@@ -26,6 +26,14 @@ dependencies:
   - name: base
     version: 1.2.0
     repository: https://charts.pascaliske.dev
+  - name: postgresql
+    version: 13.1.5
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+  - name: clickhouse
+    version: 0.2.3
+    repository: https://charts.pascaliske.dev
+    condition: clickhouse.enabled
 
 annotations:
   artifacthub.io/changes: |-

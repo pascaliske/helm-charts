@@ -49,6 +49,8 @@ The following values can be used to adjust the helm chart.
 | certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
 | certificate.labels | object | `{}` | Additional labels for the certificate object. |
 | certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
+| clickhouse | object | `{"enabled":false}` | Configure `clickhouse` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/clickhouse/). |
+| clickhouse.enabled | bool | `false` | Enable `clickhouse` subchart. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
@@ -78,6 +80,8 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `8000` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| postgresql | object | `{"enabled":false}` | Configure `postgresql` subchart under this key. More info [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql). |
+| postgresql.enabled | bool | `false` | Enable `postgresql` subchart. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
