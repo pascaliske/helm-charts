@@ -152,3 +152,15 @@ tolerations: []
   # - key: node-role.kubernetes.io/control-plane
   #   operator: Exists
   #   effect: NoSchedule
+
+# -- Configure `postgresql` subchart under this key. More info [here](https://github.com/bitnami/charts/tree/main/bitnami/postgresql).
+postgresql:
+  # -- Enable `postgresql` subchart.
+  # @default -- `false`
+  enabled: false
+
+# -- Configure `clickhouse` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/clickhouse/).
+clickhouse:
+  # -- Enable `clickhouse` subchart.
+  # @default -- `false`
+  enabled: false
