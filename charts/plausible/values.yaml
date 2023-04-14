@@ -104,7 +104,7 @@ geoip:
   enabled: false
   image:
     # -- The repository for the geoip image.
-    repository: maxmindinc/geoipupdate
+    repository: ghcr.io/maxmind/geoipupdate
     # -- The docker tag for the geoip image.
     tag: v5.0.2
   # -- Required. MaxMind account ID.
