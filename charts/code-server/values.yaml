@@ -1,6 +1,6 @@
 image:
   # -- The repository to pull the image from.
-  repository: codercom/code-server
+  repository: ghcr.io/coder/code-server
   # -- The docker tag, if left empty chart's appVersion will be used.
   # @default -- `.Chart.AppVersion`
   tag: ''

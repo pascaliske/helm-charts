@@ -4,7 +4,7 @@ type: application
 name: code-server
 description: A Helm chart for Kubernetes
 version: 1.0.7
-# renovate: image=codercom/code-server
+# renovate: image=ghcr.io/coder/code-server
 appVersion: "4.11.0"
 
 home: https://charts.pascaliske.dev/charts/code-server/
