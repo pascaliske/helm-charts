@@ -5,7 +5,7 @@ name: homer
 description: A Helm chart for Kubernetes
 version: 1.0.4
 # renovate: image=b4bz/homer
-appVersion: "v23.02.2"
+appVersion: "v23.05.1"
 
 home: https://charts.pascaliske.dev/charts/homer/
 sources:
