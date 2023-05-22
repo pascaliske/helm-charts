@@ -1,4 +1,4 @@
-{{- if eq (include "base.persistence.enabled" . ) "true" -}}
+{{- if eq (include "base.persistence.created" . ) "true" -}}
 {{- if eq (include "base.persistence.type" . ) "volumes" -}}
 apiVersion: v1
 kind: PersistentVolumeClaim

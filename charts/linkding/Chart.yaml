@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 1.0.5
+version: 1.0.6
 # renovate: image=sissbruecker/linkding
 appVersion: "1.19.0"
 
@@ -26,5 +26,7 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+    - kind: fixed
+      description: 'Use correct volume mount name and PVC create conditional.'
+    - kind: changed
+      description: 'Updated Linkding to v1.19.0.'
