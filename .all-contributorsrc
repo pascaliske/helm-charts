@@ -56,6 +56,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kalmarz",
+      "name": "Zoltan Kalmar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/65083756?v=4",
+      "profile": "https://github.com/kalmarz",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "commitType": "docs"

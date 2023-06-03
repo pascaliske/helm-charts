@@ -6,7 +6,7 @@
 
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
 
@@ -69,6 +69,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/astralhpi"><img src="https://avatars.githubusercontent.com/u/1402102?v=4?s=100" width="100px;" alt="Jake(Jaehak Song)"/><br /><sub><b>Jake(Jaehak Song)</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=astralhpi" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/rabejens"><img src="https://avatars.githubusercontent.com/u/8402886?v=4?s=100" width="100px;" alt="Jens Rabe"/><br /><sub><b>Jens Rabe</b></sub></a><br /><a href="#ideas-rabejens" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://blog.dzeri.me"><img src="https://avatars.githubusercontent.com/u/13813363?v=4?s=100" width="100px;" alt="Dzeri96"/><br /><sub><b>Dzeri96</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=Dzeri96" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kalmarz"><img src="https://avatars.githubusercontent.com/u/65083756?v=4?s=100" width="100px;" alt="Zoltan Kalmar"/><br /><sub><b>Zoltan Kalmar</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/issues?q=author%3Akalmarz" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
