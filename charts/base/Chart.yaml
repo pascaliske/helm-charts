@@ -18,5 +18,5 @@ maintainers:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+    - kind: added
+      description: 'Added helpers for environment variables.'
