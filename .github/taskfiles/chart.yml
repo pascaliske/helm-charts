@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: '3'
 
 tasks:
@@ -5,6 +6,18 @@ tasks:
     summary: Render chart templates based on default values.
     cmds:
       - helm template {{.CLI_ARGS}} ./charts/{{.CLI_ARGS}} --debug --values ./charts/{{.CLI_ARGS}}/values.yaml | pbcopy
+
+  update:
+    summary: Update chart dependencies based on Chart.yaml file.
+    dir: charts/{{.CLI_ARGS}}
+    cmds:
+      - helm dependency update
+
+  build:
+    summary: Build chart dependencies based on Chart.lock file.
+    dir: charts/{{.CLI_ARGS}}
+    cmds:
+      - helm dependency build
 
   docs:
     summary: Generate Helm chart documentation.
