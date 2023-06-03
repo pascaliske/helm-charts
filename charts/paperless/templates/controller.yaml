@@ -1,8 +1,8 @@
 {{- if .Values.controller.enabled -}}
 {{- $redisEnvVar := include "base.findEnvValue" (dict "Envs" .Values.env "EnvVarName" "PAPERLESS_REDIS") -}}
-{{- if or (not (or .Values.redis.enabled $redisEnvVar)) (and .Values.redis.enabled $redisEnvVar)}}
-  {{- fail "Either redis.enables or the ENV variable PAPERLESS_REDIS have to be set!" -}}
-{{- end }}
+{{- if or (not (or .Values.redis.enabled $redisEnvVar)) (and .Values.redis.enabled $redisEnvVar) -}}
+  {{- fail "Either \".Values.redis.enabled\" or the environment variable \"PAPERLESS_REDIS\" have to be set!" -}}
+{{- end -}}
 apiVersion: apps/v1
 kind: {{ include "base.controller.kind" . }}
 metadata:
@@ -65,7 +65,7 @@ spec:
             - name: PAPERLESS_TRASH_DIR
               value: {{ include "paperless.trash.mountPath" . }}
             {{- end }}
-            {{- if .Values.redis.enabled}}
+            {{- if .Values.redis.enabled }}
             - name: PAPERLESS_REDIS
               value: {{ printf "redis://%s:%v" (include "redis.fullname" .Subcharts.redis) .Values.redis.ports.http.port }}
             {{- end }}
