@@ -1,8 +1,8 @@
 {{- define "base.findEnvValue" -}}
-  {{- $EnvVarName := .EnvVarName}}
+  {{- $EnvVarName := .EnvVarName -}}
   {{- range .Envs -}}
     {{- if eq .name $EnvVarName -}}
       {{ .value }}
     {{- end }}
-  {{- end}}
-{{- end}}
+  {{- end }}
+{{- end }}
