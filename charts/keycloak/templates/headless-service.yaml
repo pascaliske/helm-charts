@@ -1,0 +1,24 @@
+{{- if eq (include "base.controller.kind" . ) "StatefulSet" -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "keycloak.fullname" . }}-headless
+  labels:
+    {{- include "keycloak.labels" . | nindent 4 }}
+spec:
+  clusterIP: None
+  ports:
+    {{- with .Values.ports.http }}
+    {{- if .enabled }}
+    - name: http
+      port: {{ .port }}
+      targetPort: http
+      {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
+      nodePort: {{ .nodePort }}
+      {{- end }}
+      protocol: {{ default "TCP" .protocol | quote }}
+    {{- end }}
+    {{- end }}
+  selector:
+    {{- include "keycloak.selectorLabels" . | nindent 4 }}
+{{- end }}

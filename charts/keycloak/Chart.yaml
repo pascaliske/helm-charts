@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
+apiVersion: v2
+type: application
+name: keycloak
+description: A Helm chart for Keycloak
+version: 0.0.1
+# renovate: image=quay.io/keycloak/keycloak
+appVersion: "21.1.1"
+
+home: https://charts.pascaliske.dev/charts/keycloak/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/keycloak/keycloak
+  - https://keycloak.org
+keywords:
+  - keycloak
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.2.0
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |-
+    - kind: added
+      description: 'Initial implementation of Chart.'

@@ -43,6 +43,7 @@ helm delete <chart>
 - [`gitlab`](https://charts.pascaliske.dev/charts/gitlab)
 - [`hammond`](https://charts.pascaliske.dev/charts/hammond)
 - [`homer`](https://charts.pascaliske.dev/charts/homer)
+- [`keycloak`](https://charts.pascaliske.dev/charts/keycloak)
 - [`linkding`](https://charts.pascaliske.dev/charts/linkding)
 - [`paperless`](https://charts.pascaliske.dev/charts/paperless)
 - [`plausible`](https://charts.pascaliske.dev/charts/plausible)
