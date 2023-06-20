@@ -50,8 +50,14 @@ spec:
             {{- end }}
           env:
             {{- range $i, $val := .Values.env }}
+            {{- if $val.value }}
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
+            {{- else if $val.valueFrom }}
+            - name: {{ $val.name | quote }}
+              valueFrom:
+                {{- toYaml $val.valueFrom | nindent 16 }}
+            {{- end }}
             {{- end }}
             {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
             {{- range $key, $val := .Values.secret.values }}

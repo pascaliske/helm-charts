@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: keycloak
 description: A Helm chart for Keycloak
-version: 0.0.2
+version: 0.0.3
 # renovate: image=quay.io/keycloak/keycloak
 appVersion: "21.1.1"
 
@@ -26,5 +26,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |-
-    - kind: removed
-      description: 'Removed default value for extra args.'
+    - kind: added
+      description: 'Added the possibility to specify env values from secrets.'

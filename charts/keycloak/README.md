@@ -2,7 +2,7 @@
 
 > A Helm chart for Keycloak
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 21.1.1](https://img.shields.io/badge/AppVersion-21.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 21.1.1](https://img.shields.io/badge/AppVersion-21.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/keycloak/keycloak>
