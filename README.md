@@ -41,6 +41,7 @@ helm delete <chart>
 - [`digitalocean-dyndns`](https://charts.pascaliske.dev/charts/digitalocean-dyndns)
 - [`fritzbox-exporter`](https://charts.pascaliske.dev/charts/fritzbox-exporter)
 - [`gitlab`](https://charts.pascaliske.dev/charts/gitlab)
+- [`hammond`](https://charts.pascaliske.dev/charts/hammond)
 - [`homer`](https://charts.pascaliske.dev/charts/homer)
 - [`linkding`](https://charts.pascaliske.dev/charts/linkding)
 - [`paperless`](https://charts.pascaliske.dev/charts/paperless)
