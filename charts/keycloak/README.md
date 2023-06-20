@@ -47,7 +47,7 @@ The following values can be used to adjust the helm chart.
 | controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraArgs | list | `["start-dev"]` | List of extra arguments for the container. |
-| extraArgs[0] | string | `"start-dev"` | Please note: do not use `start-dev` for production deployments! See here: https://www.keycloak.org/server/containers. |
+| extraArgs[0] | string | `"start-dev"` | Please note: do not use `start-dev` for production deployments! More info [here](https://www.keycloak.org/server/containers). |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"quay.io/keycloak/keycloak"` | The repository to pull the image from. |
