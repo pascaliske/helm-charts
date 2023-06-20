@@ -1,0 +1,32 @@
+{{- if and .Values.serviceMonitor.enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "keycloak.fullname" . }}
+  labels:
+    {{- include "keycloak.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  endpoints:
+    - targetPort: {{ .Values.ports.http.port }}
+      path: /metrics
+      {{- if $.Values.serviceMonitor.interval }}
+      interval: {{ $.Values.serviceMonitor.interval }}
+      {{- end }}
+      {{- if $.Values.serviceMonitor.timeout }}
+      scrapeTimeout: {{ $.Values.serviceMonitor.timeout }}
+      {{- end }}
+  jobLabel: {{ include "keycloak.fullname" . }}
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      service: {{ include "keycloak.fullname" . }}
+{{- end }}
