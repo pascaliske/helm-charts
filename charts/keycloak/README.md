@@ -2,7 +2,7 @@
 
 > A Helm chart for Keycloak
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 21.1.1](https://img.shields.io/badge/AppVersion-21.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 21.1.1](https://img.shields.io/badge/AppVersion-21.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/keycloak/keycloak>
@@ -46,8 +46,7 @@ The following values can be used to adjust the helm chart.
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
-| extraArgs | list | `["start-dev"]` | List of extra arguments for the container. |
-| extraArgs[0] | string | `"start-dev"` | Please note: do not use `start-dev` for production deployments! More info [here](https://www.keycloak.org/server/containers). |
+| extraArgs | list | `[]` | List of extra arguments for the container. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"quay.io/keycloak/keycloak"` | The repository to pull the image from. |

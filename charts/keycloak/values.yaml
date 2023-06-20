@@ -58,9 +58,9 @@ env:
     value: UTC
 
 # -- List of extra arguments for the container.
-extraArgs:
+extraArgs: []
   # -- Please note: do not use `start-dev` for production deployments! More info [here](https://www.keycloak.org/server/containers).
-  - start-dev
+  # - start-dev
 
 ports:
   http:
