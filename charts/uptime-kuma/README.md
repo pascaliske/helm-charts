@@ -1,6 +1,6 @@
 # [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
-> A Helm chart for Kubernetes
+> A Helm chart for Uptime-Kuma
 
 [![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.22.1](https://img.shields.io/badge/AppVersion-1.22.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
