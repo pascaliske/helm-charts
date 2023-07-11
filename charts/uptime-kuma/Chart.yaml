@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Kubernetes
-version: 1.0.5
+version: 1.0.6
 # renovate: image=louislam/uptime-kuma
 appVersion: "1.22.1"
 
@@ -27,5 +27,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+    - kind: changed
+      description: 'Updated Uptime-Kuma to v1.22.1.'
