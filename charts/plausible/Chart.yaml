@@ -5,7 +5,7 @@ name: plausible
 description: A Helm chart for Plausible
 version: 0.1.4
 # renovate: image=plausible/analytics
-appVersion: "v1.5.1"
+appVersion: "v2.0.0"
 
 home: https://charts.pascaliske.dev/charts/plausible/
 sources:
