@@ -5,7 +5,7 @@ name: code-server
 description: A Helm chart for Kubernetes
 version: 1.0.7
 # renovate: image=ghcr.io/coder/code-server
-appVersion: "4.16.0"
+appVersion: "4.16.1"
 
 home: https://charts.pascaliske.dev/charts/code-server/
 sources:
