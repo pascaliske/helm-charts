@@ -5,7 +5,7 @@ name: linkding
 description: A Helm chart for linkding
 version: 1.0.6
 # renovate: image=sissbruecker/linkding
-appVersion: "1.19.1"
+appVersion: "1.20.0"
 
 home: https://charts.pascaliske.dev/charts/linkding/
 sources:
