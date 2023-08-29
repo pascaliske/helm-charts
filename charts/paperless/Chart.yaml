@@ -5,7 +5,7 @@ name: paperless
 description: A Helm chart for paperless-ngx
 version: 4.1.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
-appVersion: "1.17.2"
+appVersion: "1.17.3"
 
 home: https://charts.pascaliske.dev/charts/paperless/
 sources:
