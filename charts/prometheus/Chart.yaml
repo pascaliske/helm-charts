@@ -5,7 +5,7 @@ name: prometheus
 description: A Helm chart for prometheus
 version: 1.3.8
 # renovate: image=prom/prometheus
-appVersion: "v2.45.0"
+appVersion: "v2.47.0"
 deprecated: true
 
 home: https://charts.pascaliske.dev/charts/prometheus/
