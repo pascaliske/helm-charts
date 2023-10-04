@@ -5,7 +5,7 @@ name: keycloak
 description: A Helm chart for Keycloak
 version: 0.0.3
 # renovate: image=quay.io/keycloak/keycloak
-appVersion: "22.0.3"
+appVersion: "22.0.4"
 
 home: https://charts.pascaliske.dev/charts/keycloak/
 sources:
