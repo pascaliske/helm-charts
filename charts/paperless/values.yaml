@@ -65,6 +65,7 @@ certificate:
   # -- Additional labels for the certificate object.
   labels: {}
 
+# -- Allow passing in environment variables to the container - supported are both `value` and `valueFrom`.
 env:
   # -- Timezone for the container.
   - name: TZ

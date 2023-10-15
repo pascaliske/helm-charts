@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 4.1.0](https://img.shields.io/badge/Version-4.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.14.5](https://img.shields.io/badge/AppVersion-1.14.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 4.1.0](https://img.shields.io/badge/Version-4.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.17.4](https://img.shields.io/badge/AppVersion-1.17.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
@@ -60,6 +60,7 @@ The following values can be used to adjust the helm chart.
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
+| env | list | `[{"name":"TZ","value":"UTC"}]` | Allow passing in environment variables to the container - supported are both `value` and `valueFrom`. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | export.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
 | export.cronJob.enabled | bool | `false` | Create a `CronJob` object for [automated exports](https://docs.paperless-ngx.com/administration/#backup). |
