@@ -65,6 +65,7 @@ certificate:
   # -- Additional labels for the certificate object.
   labels: {}
 
+# -- Allow passing in environment variables to the container - supported are both `value` and `valueFrom`.
 env:
   # -- Timezone for the container.
   - name: TZ
@@ -84,9 +85,9 @@ ports:
 secret:
   # -- Create a new secret containing the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security).
   create: true
-  # -- Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below!
+  # -- Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below and still need to be provided with non-empty values!
   existingSecret: ''
-  # -- Secret values used when not using an existing secret. Helm templates are supported for values.
+  # -- Secret values used when not using an existing secret. Helm templates are supported for values. Please note: this values are still required if you use the existing secret option!
   values:
     # -- Secret key for session tokens.
     PAPERLESS_SECRET_KEY: '{{ randAlphaNum 42 | b64enc }}'

@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 4.1.0
+version: 4.2.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.17.4"
 
@@ -33,4 +33,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |
     - kind: added
-      description: 'Auto-generating PAPERLESS_REDIS environment variable.'
+      description: 'Allow passing env values from non-hardcoded objects'

@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 4.1.0](https://img.shields.io/badge/Version-4.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.14.5](https://img.shields.io/badge/AppVersion-1.14.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 4.2.0](https://img.shields.io/badge/Version-4.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.17.4](https://img.shields.io/badge/AppVersion-1.17.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
@@ -60,6 +60,7 @@ The following values can be used to adjust the helm chart.
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
+| env | list | `[{"name":"TZ","value":"UTC"}]` | Allow passing in environment variables to the container - supported are both `value` and `valueFrom`. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | export.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
 | export.cronJob.enabled | bool | `false` | Create a `CronJob` object for [automated exports](https://docs.paperless-ngx.com/administration/#backup). |
@@ -109,9 +110,9 @@ The following values can be used to adjust the helm chart.
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | secret.annotations | object | `{}` | Additional annotations for the secret object. |
 | secret.create | bool | `true` | Create a new secret containing the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). |
-| secret.existingSecret | string | `""` | Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below! |
+| secret.existingSecret | string | `""` | Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below and still need to be provided with non-empty values! |
 | secret.labels | object | `{}` | Additional labels for the secret object. |
-| secret.values | object | `{"PAPERLESS_SECRET_KEY":"{{ randAlphaNum 42 | b64enc }}"}` | Secret values used when not using an existing secret. Helm templates are supported for values. |
+| secret.values | object | `{"PAPERLESS_SECRET_KEY":"{{ randAlphaNum 42 | b64enc }}"}` | Secret values used when not using an existing secret. Helm templates are supported for values. Please note: this values are still required if you use the existing secret option! |
 | secret.values.PAPERLESS_SECRET_KEY | string | `"{{ randAlphaNum 42 | b64enc }}"` | Secret key for session tokens. |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
