@@ -110,9 +110,9 @@ The following values can be used to adjust the helm chart.
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | secret.annotations | object | `{}` | Additional annotations for the secret object. |
 | secret.create | bool | `true` | Create a new secret containing the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). |
-| secret.existingSecret | string | `""` | Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below! |
+| secret.existingSecret | string | `""` | Use an existing secret to store the [secret values](https://docs.paperless-ngx.com/configuration/#hosting-and-security). Please note: keys inside the existing secret must match the keys from below and still need to be provided with non-empty values! |
 | secret.labels | object | `{}` | Additional labels for the secret object. |
-| secret.values | object | `{"PAPERLESS_SECRET_KEY":"{{ randAlphaNum 42 | b64enc }}"}` | Secret values used when not using an existing secret. Helm templates are supported for values. |
+| secret.values | object | `{"PAPERLESS_SECRET_KEY":"{{ randAlphaNum 42 | b64enc }}"}` | Secret values used when not using an existing secret. Helm templates are supported for values. Please note: this values are still required if you use the existing secret option! |
 | secret.values.PAPERLESS_SECRET_KEY | string | `"{{ randAlphaNum 42 | b64enc }}"` | Secret key for session tokens. |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
