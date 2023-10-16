@@ -1,3 +1,4 @@
+{{- $contextPathEnvVar := default "" (include "base.findEnvValue" (dict "Envs" .Values.env "EnvVarName" "LD_CONTEXT_PATH")) -}}
 {{- if .Values.controller.enabled -}}
 apiVersion: apps/v1
 kind: {{ include "base.controller.kind" . }}
@@ -62,11 +63,11 @@ spec:
           {{- end }}
           livenessProbe:
             httpGet:
-              path: /health
+              path: /{{ $contextPathEnvVar }}health
               port: http
           readinessProbe:
             httpGet:
-              path: /health
+              path: /{{ $contextPathEnvVar }}health
               port: http
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
