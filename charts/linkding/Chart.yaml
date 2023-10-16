@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 1.0.6
+version: 1.0.7
 # renovate: image=sissbruecker/linkding
 appVersion: "1.22.1"
 
@@ -27,6 +27,6 @@ dependencies:
 annotations:
   artifacthub.io/changes: |
     - kind: fixed
-      description: 'Use correct volume mount name and PVC create conditional.'
+      description: 'Use correct endpoint for health probes.'
     - kind: changed
-      description: 'Updated Linkding to v1.19.0.'
+      description: 'Updated Linkding to v1.22.1.'
