@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: code-server
 description: A Helm chart for Kubernetes
-version: 1.0.7
+version: 2.0.0
 # renovate: image=ghcr.io/coder/code-server
 appVersion: "4.18.0"
 
@@ -29,4 +29,6 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+      description: 'Remove support for CRDs from "traefik.containo.us".'
+    - kind: added
+      description: 'Add support for CRDs from "traefik.io".'
