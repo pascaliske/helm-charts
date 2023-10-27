@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 1.1.0
+version: 2.0.0
 # renovate: image=sissbruecker/linkding
 appVersion: "1.22.1"
 
@@ -26,9 +26,7 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct endpoint for health probes.'
-    - kind: changed
-      description: 'Updated Linkding to v1.22.1.'
+    - kind: removed
+      description: 'Remove support for CRDs from "traefik.containo.us".'
     - kind: added
-      description: 'Added support for context path setting of Linkding.'
+      description: 'Add support for CRDs from "traefik.io".'
