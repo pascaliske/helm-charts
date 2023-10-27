@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: snapdrop
 description: A Helm chart for snapdrop
-version: 1.0.4
+version: 2.0.0
 # renovate: image=ghcr.io/linuxserver/snapdrop
 appVersion: "version-724f0af5"
 
@@ -28,4 +28,6 @@ dependencies:
 annotations:
   artifacthub.io/changes: |
     - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+      description: 'Remove support for CRDs from "traefik.containo.us".'
+    - kind: added
+      description: 'Add support for CRDs from "traefik.io".'

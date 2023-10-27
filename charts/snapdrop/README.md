@@ -2,7 +2,7 @@
 
 > A Helm chart for snapdrop
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/linuxserver/docker-snapdrop>
