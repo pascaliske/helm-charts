@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: traefik-errors
 description: A Helm chart for custom traefik error pages
-version: 3.0.3
+version: 4.0.0
 # renovate: image=ghcr.io/pascaliske/traefik-errors
 appVersion: "1.1.0"
 
@@ -27,4 +27,6 @@ dependencies:
 annotations:
   artifacthub.io/changes: |
     - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+      description: 'Remove support for CRDs from "traefik.containo.us".'
+    - kind: added
+      description: 'Add support for CRDs from "traefik.io".'

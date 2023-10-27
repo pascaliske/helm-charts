@@ -2,7 +2,7 @@
 
 > A Helm chart for custom traefik error pages
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)[![Version: 3.0.3](https://img.shields.io/badge/Version-3.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)[![AppVersion: 1.0.5](https://img.shields.io/badge/AppVersion-1.0.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)[![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)[![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/traefik-errors/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-traefik-errors>
