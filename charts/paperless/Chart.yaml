@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 4.2.1
+version: 5.0.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "1.17.4"
 
@@ -32,5 +32,7 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Bump chart version to force update index.'
+    - kind: removed
+      description: 'Remove support for CRDs from "traefik.containo.us".'
+    - kind: added
+      description: 'Add support for CRDs from "traefik.io".'
