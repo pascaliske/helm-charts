@@ -76,12 +76,12 @@ spec:
             {{- end }}
             {{- if .Values.geoip.enabled }}
             - name: GEOLITE2_COUNTRY_DB
-              value: /geoip/GeoLite2-Country.mmdb
+              value: {{ default "/geoip" .Values.geoip.mountPath }}/GeoLite2-Country.mmdb
             {{- end }}
           {{- if .Values.geoip.enabled }}
           volumeMounts:
             - name: geoip-volume
-              mountPath: /geoip
+              mountPath: {{ default "/geoip" .Values.geoip.mountPath | quote }}
               readOnly: true
           {{- end }}
           livenessProbe:
@@ -101,6 +101,8 @@ spec:
           image: "{{ .Values.geoip.image.repository }}:{{ .Values.geoip.image.tag }}"
           imagePullPolicy: IfNotPresent
           env:
+            - name: GEOIPUPDATE_DB_DIR
+              value: {{ default "/geoip" .Values.geoip.mountPath | quote }}
             - name: GEOIPUPDATE_ACCOUNT_ID
               value: {{ .Values.geoip.accountId | quote }}
             - name: GEOIPUPDATE_LICENSE_KEY
@@ -111,7 +113,7 @@ spec:
               value: GeoLite2-Country
           volumeMounts:
             - name: geoip-volume
-              mountPath: /usr/share/GeoIP
+              mountPath: {{ default "/geoip" .Values.geoip.mountPath | quote }}
         {{- end }}
       {{- if .Values.geoip.enabled }}
       volumes:

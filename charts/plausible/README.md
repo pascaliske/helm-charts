@@ -2,7 +2,7 @@
 
 > A Helm chart for Plausible
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v2.0.0](https://img.shields.io/badge/AppVersion-v2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v2.0.0](https://img.shields.io/badge/AppVersion-v2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/plausible/analytics>
@@ -62,6 +62,7 @@ The following values can be used to adjust the helm chart.
 | geoip.image.repository | string | `"ghcr.io/maxmind/geoipupdate"` | The repository for the geoip image. |
 | geoip.image.tag | string | `"v6.0.0"` | The docker tag for the geoip image. |
 | geoip.licenseKey | string | `""` | Required. Case-sensitive MaxMind license key. |
+| geoip.mountPath | string | `"/geoip"` | Optional. Specify the database mount path inside the containers. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"plausible/analytics"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |

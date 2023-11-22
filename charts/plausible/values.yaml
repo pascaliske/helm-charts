@@ -113,6 +113,8 @@ geoip:
   licenseKey: ''
   # -- Optional. Database update frequency. Defaults to "168" which equals 7 days.
   frequency: 168
+  # -- Optional. Specify the database mount path inside the containers.
+  mountPath: /geoip
 
 serviceAccount:
   # -- Specify the service account used for the controller.

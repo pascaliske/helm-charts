@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: plausible
 description: A Helm chart for Plausible
-version: 1.0.0
+version: 1.1.0
 # renovate: image=plausible/analytics
 appVersion: "v2.0.0"
 
@@ -29,9 +29,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |-
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
     - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
-    - kind: changed
-      description: 'Switch to GHCR based image for GeoIP database.'
+      description: 'Add support for customizing the mount path of the GeoIP database.'
