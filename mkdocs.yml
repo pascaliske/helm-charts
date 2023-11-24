@@ -33,19 +33,19 @@ theme:
   icon:
     repo: fontawesome/brands/github
   features:
+    - content.code.annotate
+    - content.tabs.link
+    - navigation.footer
     - navigation.instant
-    - navigation.tracking
-    - navigation.tabs
     - navigation.sections
+    - navigation.tracking
     - navigation.top
     - toc.follow
     - toc.integrate
-    - content.code.annotate
-    - content.tabs.link
 
 # navigation
 nav:
-  - Home: index.md
+  - Introduction: index.md
   - Charts:
       - clickhouse: charts/clickhouse.md
       - cloudflare-dyndns: charts/cloudflare-dyndns.md
