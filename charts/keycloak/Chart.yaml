@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: keycloak
 description: A Helm chart for Keycloak
-version: 0.1.0
+version: 0.1.1
 # renovate: image=quay.io/keycloak/keycloak
 appVersion: "23.0.3"
 
@@ -26,5 +26,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |-
-    - kind: added
-      description: 'Implement ingress route and certificate objects.'
+    - kind: fixed
+      description: 'Removed wrong ingress route rule.'
