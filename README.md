@@ -84,4 +84,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## License
 
-[MIT](LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
