@@ -1,0 +1,47 @@
+{{- if and .Values.ingressRoute.create .Values.service.enabled -}}
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ printf "%s-route" (include "keycloak.fullname" . ) }}
+  labels:
+    {{- include "keycloak.labels" . | nindent 4 }}
+    {{- with .Values.ingressRoute.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.ingressRoute.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- with .Values.ingressRoute.entryPoints }}
+  entryPoints:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  routes:
+    - kind: Rule
+      match: '{{ required "Mandatory field \".ingressRoute.rule\" is empty!" .Values.ingressRoute.rule }} && (PathPrefix(`/api`) || PathPrefix(`/dav`) || PathPrefix(`/.well-known`))'
+      services:
+        - kind: Service
+          name: {{ printf "%s-web" (include "keycloak.fullname" . ) }}
+          namespace: {{ .Release.Namespace }}
+          port: {{ .Values.ports.api.port }}
+      {{- with .Values.ingressRoute.middlewares }}
+      middlewares:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    - kind: Rule
+      match: {{ required "Mandatory field \".ingressRoute.rule\" is empty!" .Values.ingressRoute.rule }}
+      services:
+        - kind: Service
+          name: {{ printf "%s-web" (include "keycloak.fullname" . ) }}
+          namespace: {{ .Release.Namespace }}
+          port: {{ .Values.ports.frontend.port }}
+      {{- with .Values.ingressRoute.middlewares }}
+      middlewares:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- with (include "keycloak.ingressRoute.tlsSecretName" .) }}
+  tls:
+    secretName: {{ . }}
+  {{- end }}
+{{- end }}

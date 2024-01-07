@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: keycloak
 description: A Helm chart for Keycloak
-version: 0.0.3
+version: 0.1.0
 # renovate: image=quay.io/keycloak/keycloak
 appVersion: "23.0.3"
 
@@ -27,4 +27,4 @@ dependencies:
 annotations:
   artifacthub.io/changes: |-
     - kind: added
-      description: 'Added the possibility to specify env values from secrets.'
+      description: 'Implement ingress route and certificate objects.'

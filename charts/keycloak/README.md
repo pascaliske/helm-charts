@@ -2,7 +2,7 @@
 
 > A Helm chart for Keycloak
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 21.1.1](https://img.shields.io/badge/AppVersion-21.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 23.0.3](https://img.shields.io/badge/AppVersion-23.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/keycloak/keycloak>
@@ -40,6 +40,13 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
+| certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
+| certificate.dnsNames | list | `[]` | List of subject alternative names for the certificate. |
+| certificate.issuerRef.kind | string | `"ClusterIssuer"` | Type of the referenced certificate issuer. Can be "Issuer" or "ClusterIssuer". |
+| certificate.issuerRef.name | string | `""` | Name of the referenced certificate issuer. |
+| certificate.labels | object | `{}` | Additional labels for the certificate object. |
+| certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"StatefulSet"` | Type of the workload object. |
@@ -52,6 +59,13 @@ The following values can be used to adjust the helm chart.
 | image.repository | string | `"quay.io/keycloak/keycloak"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | imagePullSecrets | list | `[]` |  |
+| ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
+| ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
+| ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
+| ingressRoute.labels | object | `{}` | Additional labels for the ingress route object. |
+| ingressRoute.middlewares | list | `[]` | List of [middleware objects](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware) for the ingress route. |
+| ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
+| ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
 | nameOverride | string | `""` |  |
 | ports.http.enabled | bool | `true` | Enable the port inside the `Controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
@@ -86,4 +100,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
