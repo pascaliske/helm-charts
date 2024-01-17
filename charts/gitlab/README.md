@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 16.5.0-ce.0](https://img.shields.io/badge/AppVersion-16.5.0--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 16.7.3-ce.0](https://img.shields.io/badge/AppVersion-16.7.3--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -111,6 +111,14 @@ The following values can be used to adjust the helm chart.
 | rbac.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | rbac.create | bool | `true` | Create `Role` and `RoleBinding` objects. |
 | rbac.labels | object | `{}` | Additional labels for the role and role binding objects. |
+| registryGarbageCollection.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
+| registryGarbageCollection.cronJob.enabled | bool | `false` | Create a `CronJob` object for automated garbage collection. |
+| registryGarbageCollection.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
+| registryGarbageCollection.cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
+| registryGarbageCollection.cronJob.removeUntaggedManifests | bool | `false` | Include untagged manifests and unreferenced layers if set to true. |
+| registryGarbageCollection.cronJob.schedule | string | `"0 3 * * 1"` | Schedule for automated garbage collections. |
+| registryGarbageCollection.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
+| registryGarbageCollection.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
@@ -128,4 +136,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)

@@ -1,0 +1,42 @@
+{{- if and .Values.registryGarbageCollection.cronJob.enabled .Values.registryGarbageCollection.cronJob.schedule -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ printf "%s-registry-gc" (include "gitlab.fullname" . ) }}
+  labels:
+    {{- include "gitlab.labels" . | nindent 4 }}
+    {{- with .Values.registryGarbageCollection.cronJob.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.registryGarbageCollection.cronJob.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  schedule: {{ .Values.registryGarbageCollection.cronJob.schedule }}
+  suspend: {{ .Values.registryGarbageCollection.cronJob.suspend }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: {{ .Values.registryGarbageCollection.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.registryGarbageCollection.cronJob.failedJobsHistoryLimit }}
+  jobTemplate:
+    {{- with .Values.registryGarbageCollection.cronJob.annotations }}
+    metadata:
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ include "gitlab.serviceAccountName" . }}
+          restartPolicy: Never
+          containers:
+            - name: {{ printf "%s-registry-gc" (include "gitlab.fullname" . ) }}
+              image: ghcr.io/pascaliske/alpine-kubectl:latest
+              imagePullPolicy: Always
+              command: ["/bin/sh"]
+              args: ["-c", "{{ include "gitlab.registryGarbageCollection.command" . }}"]
+              resources: {{ if not .Values.resources -}}{}{{- end }}
+                {{- if .Values.resources }}
+                {{- toYaml .Values.resources | nindent 16 }}
+                {{- end }}
+{{- end }}

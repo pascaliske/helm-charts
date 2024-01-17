@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: gitlab
 description: A Helm chart for GitLab Omnibus
-version: 3.0.0
+version: 3.1.0
 # renovate: image=gitlab/gitlab-ce
 appVersion: "16.7.3-ce.0"
 
@@ -25,7 +25,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
     - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+      description: 'Automate registry garbage collection via cron job.'
