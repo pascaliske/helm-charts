@@ -175,6 +175,25 @@ backups:
     # -- Additional labels for the cronjob object.
     labels: {}
 
+registryGarbageCollection:
+  cronJob:
+    # -- Create a `CronJob` object for automated garbage collection.
+    enabled: false
+    # -- Schedule for automated garbage collections.
+    schedule: '0 3 * * 1'
+    # -- Enable/disable the cron job schedule quickly.
+    suspend: false
+    # -- Include untagged manifests and unreferenced layers if set to true.
+    removeUntaggedManifests: false
+    # -- The number of successful finished jobs to retain.
+    successfulJobsHistoryLimit: 3
+    # -- The number of failed finished jobs to retain.
+    failedJobsHistoryLimit: 1
+    # -- Additional annotations for the cronjob object.
+    annotations: {}
+    # -- Additional labels for the cronjob object.
+    labels: {}
+
 serviceAccount:
   # -- Specify the service account used for the controller.
   name: ''

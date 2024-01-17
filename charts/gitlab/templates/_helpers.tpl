@@ -102,6 +102,17 @@ Backups command
 {{- end }}
 
 {{/*
+Registry garbage collection command
+*/}}
+{{- define "gitlab.registryGarbageCollection.command" -}}
+{{- if .Values.registryGarbageCollection.cronJob.removeUntaggedManifests }}
+{{- printf "kubectl exec -it -n %s deploy/%s -- gitlab-ctl registry-garbage-collect -m" .Release.Namespace (include "gitlab.fullname" . ) }}
+{{- else }}
+{{- printf "kubectl exec -it -n %s deploy/%s -- gitlab-ctl registry-garbage-collect" .Release.Namespace (include "gitlab.fullname" . ) }}
+{{- end }}
+{{- end }}
+
+{{/*
 Certificate name
 */}}
 {{- define "gitlab.certificate.name" -}}
