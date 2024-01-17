@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.1.0](https://img.shields.io/badge/Version-3.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 16.7.3-ce.0](https://img.shields.io/badge/AppVersion-16.7.3--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.1.1](https://img.shields.io/badge/Version-3.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 16.7.3-ce.0](https://img.shields.io/badge/AppVersion-16.7.3--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -44,6 +44,7 @@ The following values can be used to adjust the helm chart.
 | backups.cronJob.enabled | bool | `false` | Create a `CronJob` object for automated backups. |
 | backups.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
 | backups.cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
+| backups.cronJob.resources | object | `{}` | Compute resources used by the container inside the cronjob. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | backups.cronJob.schedule | string | `"0 3 * * 1"` | Schedule for automated backups. |
 | backups.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
 | backups.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
@@ -116,6 +117,7 @@ The following values can be used to adjust the helm chart.
 | registryGarbageCollection.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
 | registryGarbageCollection.cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
 | registryGarbageCollection.cronJob.removeUntaggedManifests | bool | `false` | Include untagged manifests and unreferenced layers if set to true. |
+| registryGarbageCollection.cronJob.resources | object | `{}` | Compute resources used by the container inside the cronjob. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | registryGarbageCollection.cronJob.schedule | string | `"0 3 * * 1"` | Schedule for automated garbage collections. |
 | registryGarbageCollection.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
 | registryGarbageCollection.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |

@@ -35,8 +35,8 @@ spec:
               imagePullPolicy: Always
               command: ["/bin/sh"]
               args: ["-c", "{{ include "gitlab.registryGarbageCollection.command" . }}"]
-              resources: {{ if not .Values.resources -}}{}{{- end }}
-                {{- if .Values.resources }}
-                {{- toYaml .Values.resources | nindent 16 }}
+              resources: {{ if not .Values.registryGarbageCollection.cronJob.resources -}}{}{{- end }}
+                {{- if .Values.registryGarbageCollection.cronJob.resources }}
+                {{- toYaml .Values.registryGarbageCollection.cronJob.resources | nindent 16 }}
                 {{- end }}
 {{- end }}

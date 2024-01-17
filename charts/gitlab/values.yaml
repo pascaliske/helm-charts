@@ -170,6 +170,8 @@ backups:
     successfulJobsHistoryLimit: 3
     # -- The number of failed finished jobs to retain.
     failedJobsHistoryLimit: 1
+    # -- Compute resources used by the container inside the cronjob. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+    resources: {}
     # -- Additional annotations for the cronjob object.
     annotations: {}
     # -- Additional labels for the cronjob object.
@@ -189,6 +191,8 @@ registryGarbageCollection:
     successfulJobsHistoryLimit: 3
     # -- The number of failed finished jobs to retain.
     failedJobsHistoryLimit: 1
+    # -- Compute resources used by the container inside the cronjob. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+    resources: {}
     # -- Additional annotations for the cronjob object.
     annotations: {}
     # -- Additional labels for the cronjob object.
