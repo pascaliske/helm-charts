@@ -55,6 +55,14 @@ The following values can be used to adjust the helm chart.
 | consumption.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
 | consumption.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
 | consumption.type | string | `"hostPath"` | Type of the target volume for the consumption directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
+| media.csi | object | `{}` | CSI storage volume for the media directory. Only used if type equals `csi`. |
+| media.emptyDir | object | `{}` | Temporary emptyDir volume for the media directory. Only used if type equals `emptyDir` or is unknown. |
+| media.enabled | bool | `true` | Enable the volume mount of a [media directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders). |
+| media.hostPath | object | `{}` | Host path volume for the media directory. Only used if type equals `hostPath`. |
+| media.mountPath | string | `"/media"` | Mount path of the media directory inside the container. |
+| media.nfs | object | `{}` | NFS storage volume for the media directory. Only used if type equals `nfs`. |
+| media.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the media directory. Only used if type equals `pvc`. |
+| media.type | string | `"hostPath"` | Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"Deployment"` | Type of the workload object. |

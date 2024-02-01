@@ -140,6 +140,24 @@ consumption:
   # -- Temporary emptyDir volume for the consumption directory. Only used if type equals `emptyDir` or is unknown.
   emptyDir: {}
 
+media:
+  # -- Enable the volume mount of a [media directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
+  enabled: true
+  # -- Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`.
+  type: hostPath
+  # -- Mount path of the media directory inside the container.
+  mountPath: /media
+  # -- Host path volume for the media directory. Only used if type equals `hostPath`.
+  hostPath: {}
+  # -- PersistentVolumeClaim for the media directory. Only used if type equals `pvc`.
+  persistentVolumeClaim: {}
+  # -- CSI storage volume for the media directory. Only used if type equals `csi`.
+  csi: {}
+  # -- NFS storage volume for the media directory. Only used if type equals `nfs`.
+  nfs: {}
+  # -- Temporary emptyDir volume for the media directory. Only used if type equals `emptyDir` or is unknown.
+  emptyDir: {}
+
 export:
   # -- Enable the volume mount of an export directory for [backups](https://docs.paperless-ngx.com/administration/#backup) using the [document exporter](https://docs.paperless-ngx.com/administration/#exporter).
   enabled: true
