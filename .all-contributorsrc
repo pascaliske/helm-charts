@@ -65,6 +65,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "MoJo2600",
+      "name": "Christian Erhardt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2462817?v=4",
+      "profile": "http://www.mojo2k.de",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "commitType": "docs"
