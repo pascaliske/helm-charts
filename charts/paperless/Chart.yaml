@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 5.0.0
+version: 5.1.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "2.4.3"
 
@@ -32,7 +32,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
     - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+      description: 'Add support for configuring the media root. Thanks @MoJo2600!'

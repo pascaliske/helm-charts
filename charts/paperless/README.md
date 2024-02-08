@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 5.0.0](https://img.shields.io/badge/Version-5.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 1.17.4](https://img.shields.io/badge/AppVersion-1.17.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 5.1.0](https://img.shields.io/badge/Version-5.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 2.4.3](https://img.shields.io/badge/AppVersion-2.4.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
@@ -55,14 +55,6 @@ The following values can be used to adjust the helm chart.
 | consumption.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
 | consumption.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
 | consumption.type | string | `"hostPath"` | Type of the target volume for the consumption directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
-| media.csi | object | `{}` | CSI storage volume for the media directory. Only used if type equals `csi`. |
-| media.emptyDir | object | `{}` | Temporary emptyDir volume for the media directory. Only used if type equals `emptyDir` or is unknown. |
-| media.enabled | bool | `true` | Enable the volume mount of a [media directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders). |
-| media.hostPath | object | `{}` | Host path volume for the media directory. Only used if type equals `hostPath`. |
-| media.mountPath | string | `"/media"` | Mount path of the media directory inside the container. |
-| media.nfs | object | `{}` | NFS storage volume for the media directory. Only used if type equals `nfs`. |
-| media.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the media directory. Only used if type equals `pvc`. |
-| media.type | string | `"hostPath"` | Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
@@ -96,6 +88,14 @@ The following values can be used to adjust the helm chart.
 | ingressRoute.middlewares | list | `[]` | List of [middleware objects](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware) for the ingress route. |
 | ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
 | ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
+| media.csi | object | `{}` | CSI storage volume for the media directory. Only used if type equals `csi`. |
+| media.emptyDir | object | `{}` | Temporary emptyDir volume for the media directory. Only used if type equals `emptyDir` or is unknown. |
+| media.enabled | bool | `false` | Enable the volume mount of a [media directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders). |
+| media.hostPath | object | `{}` | Host path volume for the media directory. Only used if type equals `hostPath`. |
+| media.mountPath | string | `"/media"` | Mount path of the media directory inside the container. |
+| media.nfs | object | `{}` | NFS storage volume for the media directory. Only used if type equals `nfs`. |
+| media.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the media directory. Only used if type equals `pvc`. |
+| media.type | string | `"hostPath"` | Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | nameOverride | string | `""` |  |
 | persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` | Access mode of the persistent volume claim object. |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
@@ -146,4 +146,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
