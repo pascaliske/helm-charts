@@ -82,6 +82,26 @@ Consumption enabled
 {{- end }}
 
 {{/*
+Media mount path
+*/}}
+{{- define "paperless.media.mountPath" -}}
+{{- if .Values.media.enabled }}
+{{- default "/media" .Values.media.mountPath }}
+{{- end }}
+{{- end }}
+
+{{/*
+Media enabled
+*/}}
+{{- define "paperless.media.enabled" -}}
+{{- if and .Values.media.enabled (include "paperless.media.mountPath" . ) -}}
+{{- printf "true" }}
+{{- else }}
+{{- printf "false" }}
+{{- end }}
+{{- end }}
+
+{{/*
 Export mount path
 */}}
 {{- define "paperless.export.mountPath" -}}

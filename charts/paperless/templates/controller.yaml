@@ -67,6 +67,10 @@ spec:
             - name: PAPERLESS_CONSUMPTION_DIR
               value: {{ include "paperless.consumption.mountPath" . }}
             {{- end }}
+            {{- if eq (include "paperless.media.enabled" .) "true" }}
+            - name: PAPERLESS_MEDIA_ROOT
+              value: {{ include "paperless.media.mountPath" . }}
+            {{- end }}
             {{- if eq (include "paperless.trash.enabled" .) "true" }}
             - name: PAPERLESS_TRASH_DIR
               value: {{ include "paperless.trash.mountPath" . }}
@@ -105,6 +109,10 @@ spec:
             - name: consumption-volume
               mountPath: {{ include "paperless.consumption.mountPath" . }}
             {{- end }}
+            {{- if eq (include "paperless.media.enabled" .) "true" }}
+            - name: media-volume
+              mountPath: {{ include "paperless.media.mountPath" . }}
+            {{- end }}
             {{- if eq (include "paperless.export.enabled" .) "true" }}
             - name: export-volume
               mountPath: {{ include "paperless.export.mountPath" . }}
@@ -142,6 +150,10 @@ spec:
         {{- if eq (include "paperless.consumption.enabled" .) "true" -}}
         {{- $_ := set .Values.consumption "name" "consumption-volume" -}}
         {{- include "base.persistence.volumeSpec" .Values.consumption | nindent 8 }}
+        {{- end -}}
+        {{- if eq (include "paperless.media.enabled" .) "true" -}}
+        {{- $_ := set .Values.media "name" "media-volume" -}}
+        {{- include "base.persistence.volumeSpec" .Values.media | nindent 8 }}
         {{- end -}}
         {{- if eq (include "paperless.export.enabled" .) "true" -}}
         {{- $_ := set .Values.export "name" "export-volume" -}}
