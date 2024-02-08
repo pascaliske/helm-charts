@@ -142,7 +142,7 @@ consumption:
 
 media:
   # -- Enable the volume mount of a [media directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
-  enabled: true
+  enabled: false
   # -- Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`.
   type: hostPath
   # -- Mount path of the media directory inside the container.
