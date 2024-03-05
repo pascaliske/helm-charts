@@ -2,7 +2,7 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.0.9](https://img.shields.io/badge/AppVersion-7.0.9-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.2.4](https://img.shields.io/badge/AppVersion-7.2.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
@@ -76,6 +76,15 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
+| serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
+| serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
+| serviceMonitor.image | object | `{"pullPolicy":"IfNotPresent","repository":"oliver006/redis_exporter","tag":"latest"}` | Image for the metric exporter |
+| serviceMonitor.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the exporter. |
+| serviceMonitor.image.repository | string | `"oliver006/redis_exporter"` | The repository to pull the image from. |
+| serviceMonitor.image.tag | string | `latest` | The docker tag, if left empty latest will be used. |
+| serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
+| serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
+| serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
 
 ## Maintainers
 
@@ -85,4 +94,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)

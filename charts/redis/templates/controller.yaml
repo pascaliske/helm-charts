@@ -85,6 +85,30 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
+        {{- if .Values.serviceMonitor.enabled }}
+        # Follow official documentation https://github.com/oliver006/redis_exporter/blob/master/contrib/k8s-redis-and-exporter-deployment.yaml
+        - name: metrics-exporter
+          image: "{{ .Values.serviceMonitor.image.repository }}:{{ .Values.serviceMonitor.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.serviceMonitor.image.pullPolicy }}
+          securityContext:
+            runAsUser: 59000
+            runAsGroup: 59000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+          resources:
+            requests:
+              cpu: 10m
+              memory: 50Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - name: metrics
+              containerPort: 9121
+              protocol: TCP
+        {{- end }}
       {{- if eq (include "base.persistence.enabled" . ) "true" }}
       {{- if eq (include "base.persistence.type" . ) "volumes" }}
       volumes:

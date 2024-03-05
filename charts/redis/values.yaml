@@ -38,6 +38,27 @@ service:
   # -- Additional labels for the service object.
   labels: {}
 
+serviceMonitor:
+  # -- Create a service monitor for prometheus operator.
+  enabled: false
+  # -- How frequently the exporter should be scraped.
+  interval: 30s
+  # -- Timeout value for individual scrapes.
+  timeout: 10s
+  # -- Additional annotations for the service monitor object.
+  annotations: {}
+  # -- Additional labels for the service monitor object.
+  labels: {}
+    # -- Image for the metric exporter
+  image:
+    # -- The repository to pull the image from.
+    repository: oliver006/redis_exporter
+    # -- The docker tag, if left empty latest will be used.
+    # @default -- `latest`
+    tag: 'latest'
+    # -- The pull policy for the exporter.
+    pullPolicy: IfNotPresent
+
 env:
   # -- Timezone for the container.
   - name: TZ
