@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: clickhouse
 description: A Helm chart for ClickHouse
-version: 0.2.3
+version: 0.3.0
 # renovate: image=clickhouse/clickhouse-server
 appVersion: "24.2.1.2248-alpine"
 
@@ -26,5 +26,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |-
-    - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+    - kind: changed
+      description: 'Updated config XMLs to latest versions.'
