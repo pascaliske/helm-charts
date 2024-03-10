@@ -1,0 +1,35 @@
+{{- if and .Values.serviceMonitor.enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") -}}
+{{- if not .Values.redisExporter.enabled -}}
+  {{- fail "\".Values.serviceMonitor.enabled\" also requires \".Values.redisExporter.enabled\" to be set to true!" -}}
+{{- end -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "redis.fullname" . }}
+  labels:
+    {{- include "redis.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  endpoints:
+    - targetPort: metrics
+      path: /metrics
+      {{- if $.Values.serviceMonitor.interval }}
+      interval: {{ $.Values.serviceMonitor.interval }}
+      {{- end }}
+      {{- if $.Values.serviceMonitor.timeout }}
+      scrapeTimeout: {{ $.Values.serviceMonitor.timeout }}
+      {{- end }}
+  jobLabel: {{ include "redis.fullname" . }}
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      service: {{ printf "%s-metrics" (include "redis.fullname" . ) }}
+{{- end }}

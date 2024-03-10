@@ -2,7 +2,7 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.0.9](https://img.shields.io/badge/AppVersion-7.0.9-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.2.4](https://img.shields.io/badge/AppVersion-7.2.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
@@ -66,6 +66,11 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `6379` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| redisExporter.enabled | bool | `false` | Enable optional redis exporter instance as sidecar container. |
+| redisExporter.image | object | `{"pullPolicy":"IfNotPresent","repository":"oliver006/redis_exporter","tag":"latest"}` | Image for the metric exporter |
+| redisExporter.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the exporter. |
+| redisExporter.image.repository | string | `"oliver006/redis_exporter"` | The repository to pull the image from. |
+| redisExporter.image.tag | string | `latest` | The docker tag, if left empty latest will be used. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
@@ -76,6 +81,11 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
+| serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
+| serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
+| serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
+| serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
+| serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
 
 ## Maintainers
 
@@ -85,4 +95,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)

@@ -1,0 +1,25 @@
+{{- if .Values.redisExporter.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "%s-metrics" (include "redis.fullname" . ) }}
+  labels:
+    {{- include "redis.labels" . | nindent 4 }}
+    {{- with .Values.service.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+    service: {{ printf "%s-metrics" (include "redis.fullname" . ) }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: metrics
+      port: 9121
+      targetPort: metrics
+      protocol: TCP
+  selector:
+    {{- include "redis.selectorLabels" . | nindent 4 }}
+{{- end }}

@@ -85,6 +85,29 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
+        {{- if .Values.redisExporter.enabled }}
+        - name: metrics-exporter
+          image: "{{ .Values.redisExporter.image.repository }}:{{ .Values.redisExporter.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.redisExporter.image.pullPolicy }}
+          ports:
+            - name: metrics
+              containerPort: 9121
+              protocol: TCP
+          securityContext:
+            runAsUser: 59000
+            runAsGroup: 59000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+          resources:
+            requests:
+              cpu: 10m
+              memory: 50Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
+        {{- end }}
       {{- if eq (include "base.persistence.enabled" . ) "true" }}
       {{- if eq (include "base.persistence.type" . ) "volumes" }}
       volumes:
