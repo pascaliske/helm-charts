@@ -1,29 +1,7 @@
 {{- if and .Values.serviceMonitor.enabled (.Capabilities.APIVersions.Has "monitoring.coreos.com/v1") -}}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ include "redis.fullname" . }}-metrics
-  labels:
-    service: {{ include "redis.fullname" . }}-metrics
-    {{- include "redis.labels" . | nindent 4 }}
-    {{- with .Values.service.labels }}
-    {{ toYaml . | indent 4 }}
-    {{- end }}
-  {{- with .Values.service.annotations }}
-  annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
-spec:
-  type: ClusterIP
-  ports:
-    - port: 9121
-      targetPort: metrics
-      protocol: TCP
-      name: metrics
-  selector:
-    service: {{ include "redis.selectorLabels" . | nindent 4 }}
----
+{{- if not .Values.redisExporter.enabled -}}
+  {{- fail "\".Values.serviceMonitor.enabled\" also requires \".Values.redisExporter.enabled\" to be set to true!" -}}
+{{- end -}}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -53,5 +31,5 @@ spec:
     - {{ .Release.Namespace }}
   selector:
     matchLabels:
-      service: {{ include "redis.fullname" . }}-metrics
+      service: {{ printf "%s-metrics" (include "redis.fullname" . ) }}
 {{- end }}

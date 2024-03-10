@@ -49,7 +49,11 @@ serviceMonitor:
   annotations: {}
   # -- Additional labels for the service monitor object.
   labels: {}
-    # -- Image for the metric exporter
+
+redisExporter:
+  # -- Enable optional redis exporter instance as sidecar container.
+  enabled: false
+  # -- Image for the metric exporter
   image:
     # -- The repository to pull the image from.
     repository: oliver006/redis_exporter

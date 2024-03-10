@@ -66,6 +66,11 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `6379` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| redisExporter.enabled | bool | `false` | Enable optional redis exporter instance as sidecar container. |
+| redisExporter.image | object | `{"pullPolicy":"IfNotPresent","repository":"oliver006/redis_exporter","tag":"latest"}` | Image for the metric exporter |
+| redisExporter.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the exporter. |
+| redisExporter.image.repository | string | `"oliver006/redis_exporter"` | The repository to pull the image from. |
+| redisExporter.image.tag | string | `latest` | The docker tag, if left empty latest will be used. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
@@ -78,10 +83,6 @@ The following values can be used to adjust the helm chart.
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
 | serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
-| serviceMonitor.image | object | `{"pullPolicy":"IfNotPresent","repository":"oliver006/redis_exporter","tag":"latest"}` | Image for the metric exporter |
-| serviceMonitor.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the exporter. |
-| serviceMonitor.image.repository | string | `"oliver006/redis_exporter"` | The repository to pull the image from. |
-| serviceMonitor.image.tag | string | `latest` | The docker tag, if left empty latest will be used. |
 | serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
 | serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
 | serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
