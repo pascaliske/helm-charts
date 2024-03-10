@@ -6,7 +6,7 @@
 
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
 
@@ -72,6 +72,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://blog.dzeri.me"><img src="https://avatars.githubusercontent.com/u/13813363?v=4?s=100" width="100px;" alt="Dzeri96"/><br /><sub><b>Dzeri96</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=Dzeri96" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kalmarz"><img src="https://avatars.githubusercontent.com/u/65083756?v=4?s=100" width="100px;" alt="Zoltan Kalmar"/><br /><sub><b>Zoltan Kalmar</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/issues?q=author%3Akalmarz" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://www.mojo2k.de"><img src="https://avatars.githubusercontent.com/u/2462817?v=4?s=100" width="100px;" alt="Christian Erhardt"/><br /><sub><b>Christian Erhardt</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=MoJo2600" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MaxenceG2M"><img src="https://avatars.githubusercontent.com/u/4601728?v=4?s=100" width="100px;" alt="MaxenceG2M"/><br /><sub><b>MaxenceG2M</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=MaxenceG2M" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
