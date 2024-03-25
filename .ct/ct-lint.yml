@@ -3,3 +3,4 @@ target-branch: master
 # helm-extra-args: --timeout 600s
 chart-repos:
   - pascaliske=https://charts.pascaliske.dev
+  - bitnami=https://charts.bitnami.com/bitnami

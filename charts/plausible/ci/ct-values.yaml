@@ -1,0 +1,26 @@
+env:
+  - name: BASE_URL
+    value: http://localhost:8000
+  - name: SECRET_KEY_BASE
+    value: 5L9y3F84OKL7EdOw0ckVwYm7CrcAiiO1DUU+HtI+0760AGY9zYBFkGlCH9XPtu+0cSetuPSoC6zkUGpsJdIwoA==
+  - name: DATABASE_URL
+    value: postgres://plausible:plausible@postgres:5432/plausible
+  - name: CLICKHOUSE_DATABASE_URL
+    value: http://clickhouse:8123/plausible
+postgresql:
+  enabled: true
+  fullnameOverride: postgresql
+  auth:
+    username: plausible
+    password: plausible
+    database: plausible
+  containerPorts:
+    postgresql: 5432
+  primary:
+    persistence:
+      enabled: false
+clickhouse:
+  enabled: true
+  fullnameOverride: clickhouse
+  persistentVolumeClaim:
+    create: false
