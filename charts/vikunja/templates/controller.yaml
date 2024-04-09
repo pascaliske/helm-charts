@@ -33,14 +33,14 @@ spec:
     spec:
       serviceAccountName: {{ include "vikunja.serviceAccountName" . }}
       containers:
-        - name: api
+        - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            {{- if .Values.ports.api.enabled }}
-            - name: api
-              containerPort: {{ .Values.ports.api.port }}
-              protocol: {{ default "TCP" .Values.ports.api.protocol | quote }}
+            {{- if .Values.ports.http.enabled }}
+            - name: http
+              containerPort: {{ .Values.ports.http.port }}
+              protocol: {{ default "TCP" .Values.ports.http.protocol | quote }}
             {{- end }}
           env:
             {{- range $i, $val := .Values.env }}
@@ -73,32 +73,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: api
+              port: http
           readinessProbe:
             httpGet:
               path: /health
-              port: api
-          resources: {{ if not .Values.resources -}}{}{{- end }}
-            {{- if .Values.resources }}
-            {{- toYaml .Values.resources | nindent 12 }}
-            {{- end }}
-        - name: frontend
-          image: "vikunja/frontend:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            {{- if .Values.ports.frontend.enabled }}
-            - name: frontend
-              containerPort: {{ .Values.ports.frontend.port }}
-              protocol: {{ default "TCP" .Values.ports.frontend.protocol | quote }}
-            {{- end }}
-          livenessProbe:
-            httpGet:
-              path: /
-              port: frontend
-          readinessProbe:
-            httpGet:
-              path: /
-              port: frontend
+              port: http
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}

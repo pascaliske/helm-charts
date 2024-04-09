@@ -1,6 +1,6 @@
 image:
   # -- The repository to pull the image from.
-  repository: vikunja/api
+  repository: vikunja/vikunja
   # -- The docker tag, if left empty chart's appVersion will be used.
   # @default -- `.Chart.AppVersion`
   tag: ''
@@ -83,20 +83,11 @@ env:
     value: UTC
 
 ports:
-  api:
+  http:
     # -- Enable the port inside the `controller` and `Service` objects.
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 3456
-    # -- The external port used if `.service.type` == `NodePort`.
-    nodePort: null
-    # -- The protocol used for the service.
-    protocol: TCP
-  frontend:
-    # -- Enable the port inside the `controller` and `Service` objects.
-    enabled: true
-    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
-    port: 80
     # -- The external port used if `.service.type` == `NodePort`.
     nodePort: null
     # -- The protocol used for the service.
