@@ -1,7 +1,4 @@
 {{- if .Values.service.enabled -}}
-{{- if not (or .Values.ports.api.enabled .Values.ports.frontend.enabled) -}}
-  {{- fail "All ports are disabled - at least one of \"api, frontend\" needs to be enabled!" -}}
-{{- end -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -17,24 +14,27 @@ metadata:
   {{- end }}
 spec:
   type: {{ .Values.service.type }}
-  ports:
-    {{- if .Values.ports.api.enabled }}
-    - name: api
-      port: {{ .Values.ports.api.port }}
-      targetPort: api
-      {{- if and (eq $.Values.service.type "NodePort") .Values.ports.api.nodePort }}
-      nodePort: {{ .Values.ports.api.nodePort }}
-      {{- end }}
-      protocol: {{ default "TCP" .Values.ports.api.protocol | quote }}
+  {{- if and (eq .Values.service.type "LoadBalancer") .Values.service.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+  {{- end }}
+  {{- if and (eq .Values.service.type "LoadBalancer") .Values.service.loadBalancerSourceRanges }}
+  loadBalancerSourceRanges:
+    {{- with .Values.service.loadBalancerSourceRanges }}
+    {{- toYaml . | nindent 4 }}
     {{- end }}
-    {{- if .Values.ports.frontend.enabled }}
-    - name: frontend
-      port: {{ .Values.ports.frontend.port }}
-      targetPort: frontend
-      {{- if and (eq $.Values.service.type "NodePort") .Values.ports.frontend.nodePort }}
-      nodePort: {{ .Values.ports.frontend.nodePort }}
+  {{- end }}
+  {{- if and (eq .Values.service.type "ClusterIP") .Values.service.clusterIP }}
+  clusterIP: {{ .Values.service.clusterIP }}
+  {{- end }}
+  ports:
+    {{- if .Values.ports.http.enabled }}
+    - name: http
+      port: {{ .Values.ports.http.port }}
+      targetPort: http
+      {{- if and (eq $.Values.service.type "NodePort") .Values.ports.http.nodePort }}
+      nodePort: {{ .Values.ports.http.nodePort }}
       {{- end }}
-      protocol: {{ default "TCP" .Values.ports.frontend.protocol | quote }}
+      protocol: {{ default "TCP" .Values.ports.http.protocol | quote }}
     {{- end }}
   selector:
     {{- include "vikunja.selectorLabels" . | nindent 4 }}

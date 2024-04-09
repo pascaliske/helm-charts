@@ -3,9 +3,9 @@ apiVersion: v2
 type: application
 name: vikunja
 description: A Helm chart for Kubernetes
-version: 4.0.0
-# renovate: image=vikunja/api
-appVersion: "0.22.1"
+version: 5.0.0
+# renovate: image=vikunja/vikunja
+appVersion: "0.23.0"
 
 home: https://charts.pascaliske.dev/charts/vikunja/
 sources:
@@ -27,7 +27,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
-    - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+    - kind: changed
+      description: 'Switch to new combined vikunja image.'

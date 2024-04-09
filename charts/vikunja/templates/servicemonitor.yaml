@@ -14,8 +14,8 @@ metadata:
   {{- end }}
 spec:
   endpoints:
-    {{- if .Values.ports.api.enabled }}
-    - targetPort: api
+    {{- if .Values.ports.http.enabled }}
+    - targetPort: http
       path: /api/v1/metrics
       {{- if .Values.serviceMonitor.interval }}
       interval: {{ .Values.serviceMonitor.interval }}

@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.21.0](https://img.shields.io/badge/AppVersion-0.21.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 5.0.0](https://img.shields.io/badge/Version-5.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.23.0](https://img.shields.io/badge/AppVersion-0.23.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://code.vikunja.io>
@@ -56,7 +56,7 @@ The following values can be used to adjust the helm chart.
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
-| image.repository | string | `"vikunja/api"` | The repository to pull the image from. |
+| image.repository | string | `"vikunja/vikunja"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
@@ -75,14 +75,10 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.size | string | `"1Gi"` | Storage request size for the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | persistentVolumeClaim.volumeMode | string | `"Filesystem"` | Volume mode of the persistent volume claim object. |
-| ports.api.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
-| ports.api.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
-| ports.api.port | int | `3456` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
-| ports.api.protocol | string | `"TCP"` | The protocol used for the service. |
-| ports.frontend.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
-| ports.frontend.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
-| ports.frontend.port | int | `80` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
-| ports.frontend.protocol | string | `"TCP"` | The protocol used for the service. |
+| ports.http.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
+| ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
+| ports.http.port | int | `3456` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
+| ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
@@ -105,4 +101,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
