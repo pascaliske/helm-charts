@@ -5,7 +5,7 @@ name: redis
 description: A Helm chart for Redis
 version: 1.1.4
 # renovate: image=redis
-appVersion: "7.2.4"
+appVersion: "7.2.5"
 
 home: https://charts.pascaliske.dev/charts/redis/
 sources:
