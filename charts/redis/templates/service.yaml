@@ -36,6 +36,9 @@ spec:
       nodePort: {{ $val.nodePort }}
       {{- end }}
       protocol: {{ default "TCP" $val.protocol | quote }}
+      {{- with $val.appProtocol }}
+      appProtocol: {{ . | quote }}
+      {{- end }}
     {{- end }}
     {{- end }}
   selector:

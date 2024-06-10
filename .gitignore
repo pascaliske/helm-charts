@@ -1,4 +1,5 @@
 # docs
+.idea
 .cache
 docs/index.md
 docs/index.yaml
