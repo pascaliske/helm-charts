@@ -94,19 +94,9 @@ spec:
               containerPort: 9121
               protocol: TCP
           securityContext:
-            runAsUser: 59000
-            runAsGroup: 59000
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-              - ALL
+            {{- toYaml .Values.redisExporter.securityContext | nindent 12 }}
           resources:
-            requests:
-              cpu: 10m
-              memory: 50Mi
-            limits:
-              cpu: 100m
-              memory: 100Mi
+            {{- toYaml .Values.redisExporter.resources | nindent 12 }}
         {{- end }}
       {{- if eq (include "base.persistence.enabled" . ) "true" }}
       {{- if eq (include "base.persistence.type" . ) "volumes" }}
