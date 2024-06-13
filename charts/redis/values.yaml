@@ -73,7 +73,7 @@ extraArgs: []
   # - --loglevel warning
 
 ports:
-  http:
+  redis:
     # -- Enable the port inside the `Controller` and `Service` objects.
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
@@ -82,6 +82,8 @@ ports:
     nodePort: null
     # -- The protocol used for the service.
     protocol: TCP
+    # -- The application protocol for this port. Used as hint for implementations to offer richer behavior.
+    appProtocol: redis
 
 persistentVolumeClaim:
   # -- Create a new persistent volume claim object.
