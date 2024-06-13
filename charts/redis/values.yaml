@@ -62,13 +62,7 @@ redisExporter:
     tag: 'latest'
     # -- The pull policy for the exporter.
     pullPolicy: IfNotPresent
-  resources:
-    requests:
-      cpu: 10m
-      memory: 50Mi
-    limits:
-      cpu: 100m
-      memory: 100Mi
+  # -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
   securityContext:
     runAsUser: 59000
     runAsGroup: 59000
@@ -76,6 +70,14 @@ redisExporter:
     capabilities:
       drop:
         - ALL
+  # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+  resources:
+    requests:
+      cpu: 10m
+      memory: 50Mi
+    limits:
+      cpu: 100m
+      memory: 100Mi
 
 env:
   # -- Timezone for the container.
