@@ -2,7 +2,7 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.1.4](https://img.shields.io/badge/Version-1.1.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.2.4](https://img.shields.io/badge/AppVersion-7.2.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.2.5](https://img.shields.io/badge/AppVersion-7.2.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
@@ -62,15 +62,18 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.size | string | `"1Gi"` | Storage request size for the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | persistentVolumeClaim.volumeMode | string | `"Filesystem"` | Volume mode of the persistent volume claim object. |
-| ports.http.enabled | bool | `true` | Enable the port inside the `Controller` and `Service` objects. |
-| ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
-| ports.http.port | int | `6379` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
-| ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| ports.redis.appProtocol | string | `"redis"` | The application protocol for this port. Used as hint for implementations to offer richer behavior. |
+| ports.redis.enabled | bool | `true` | Enable the port inside the `Controller` and `Service` objects. |
+| ports.redis.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
+| ports.redis.port | int | `6379` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
+| ports.redis.protocol | string | `"TCP"` | The protocol used for the service. |
 | redisExporter.enabled | bool | `false` | Enable optional redis exporter instance as sidecar container. |
 | redisExporter.image | object | `{"pullPolicy":"IfNotPresent","repository":"oliver006/redis_exporter","tag":"latest"}` | Image for the metric exporter |
 | redisExporter.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the exporter. |
 | redisExporter.image.repository | string | `"oliver006/redis_exporter"` | The repository to pull the image from. |
 | redisExporter.image.tag | string | `latest` | The docker tag, if left empty latest will be used. |
+| redisExporter.resources | object | `{"limits":{"cpu":"100m","memory":"100Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| redisExporter.securityContext | object | `{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"runAsGroup":59000,"runAsUser":59000}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
