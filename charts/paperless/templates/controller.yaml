@@ -77,7 +77,7 @@ spec:
             {{- end }}
             {{- if .Values.redis.enabled }}
             - name: PAPERLESS_REDIS
-              value: {{ printf "redis://%s:%v" (include "redis.fullname" .Subcharts.redis) .Values.redis.ports.http.port }}
+              value: {{ printf "redis://%s:%v" (include "redis.fullname" .Subcharts.redis) .Values.redis.ports.redis.port }}
             {{- end }}
             {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
             {{- range $key, $val := .Values.secret.values }}
