@@ -2,7 +2,7 @@ name: Test Charts
 on:
   push:
     branches:
-      - master
+      - main
     paths-ignore:
       - '**/README.md'
       - '**/README.md.tmpl'
