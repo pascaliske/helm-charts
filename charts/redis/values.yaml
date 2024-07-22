@@ -141,5 +141,5 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-# -- Optional priority class to be used for couchdb pods
+# -- Optional priority class to be used for Redis pods
 priorityClassName: ""
