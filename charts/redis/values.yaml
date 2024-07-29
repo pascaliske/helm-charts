@@ -125,6 +125,9 @@ serviceAccount:
   # -- Specify the service account used for the controller.
   name: ''
 
+# -- Optional priority class name to be used for pods.
+priorityClassName: ''
+
 # -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
   # fsGroup: 1000
@@ -140,6 +143,3 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
-
-# -- Optional priority class to be used for Redis pods
-priorityClassName: ""

@@ -2,7 +2,7 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.2.5](https://img.shields.io/badge/AppVersion-7.2.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.4.0](https://img.shields.io/badge/Version-1.4.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.2.5](https://img.shields.io/badge/AppVersion-7.2.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
@@ -67,6 +67,7 @@ The following values can be used to adjust the helm chart.
 | ports.redis.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.redis.port | int | `6379` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.redis.protocol | string | `"TCP"` | The protocol used for the service. |
+| priorityClassName | string | `""` | Optional priority class name to be used for pods. |
 | redisExporter.enabled | bool | `false` | Enable optional redis exporter instance as sidecar container. |
 | redisExporter.image | object | `{"pullPolicy":"IfNotPresent","repository":"oliver006/redis_exporter","tag":"latest"}` | Image for the metric exporter |
 | redisExporter.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the exporter. |
