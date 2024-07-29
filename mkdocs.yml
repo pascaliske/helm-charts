@@ -66,6 +66,7 @@ nav:
       - traefik-errors: charts/traefik-errors.md
       - unbound: charts/unbound.md
       - uptime-kuma: charts/uptime-kuma.md
+      - vaultwarden: charts/vaultwarden.md
       - vikunja: charts/vikunja.md
 
 # socials

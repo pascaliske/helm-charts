@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
+apiVersion: v2
+type: application
+name: vaultwarden
+description: A Helm chart for Vaultwarden
+version: 1.0.0
+# renovate: image=ghcr.io/dani-garcia/vaultwarden
+appVersion: "1.31.0"
+
+home: https://charts.pascaliske.dev/charts/vaultwarden/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/dani-garcia/vaultwarden
+keywords:
+  - vaultwarden
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.2.0
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  artifacthub.io/changes: |
+    - kind: added
+      description: 'Initial release of Vaultwarden chart.'
