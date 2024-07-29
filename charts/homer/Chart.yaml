@@ -4,7 +4,7 @@ type: application
 name: homer
 description: A Helm chart for Homer
 version: 2.1.0
-# renovate: image=b4bz/homer
+# renovate: image=ghcr.io/bastienwirtz/homer
 appVersion: "v24.05.1"
 
 home: https://charts.pascaliske.dev/charts/homer/
