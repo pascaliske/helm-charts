@@ -36,3 +36,5 @@ annotations:
       description: 'Add support for affinities.'
     - kind: added
       description: 'Add support for tolerations.'
+    - kind: added
+      description: 'Add support for valueFrom to environment variables.'
