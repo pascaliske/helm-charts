@@ -30,3 +30,5 @@ annotations:
       description: 'Changed the default image to use the GitHub container registry.'
     - kind: added
       description: 'Add support for overwriting the image registry.'
+    - kind: added
+      description: 'Add support for additional containers.'

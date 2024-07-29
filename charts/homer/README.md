@@ -39,6 +39,7 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| additionalContainers | object | `{}` | Specify any additional containers here as dictionary items - each should have it's own key. |
 | certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
 | certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
 | certificate.dnsNames | list | `[]` | List of subject alternative names for the certificate. |
