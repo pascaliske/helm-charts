@@ -26,7 +26,7 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
+    - kind: changed
+      description: 'Changed the default image to use the GitHub container registry.'
     - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+      description: 'Add support for overwriting the image registry.'
