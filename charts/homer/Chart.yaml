@@ -32,3 +32,5 @@ annotations:
       description: 'Add support for overwriting the image registry.'
     - kind: added
       description: 'Add support for additional containers.'
+    - kind: added
+      description: 'Add support for affinities.'
