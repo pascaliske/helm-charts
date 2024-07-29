@@ -92,6 +92,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "diego-ojeda-binbash",
+      "name": "Diego OJeda (BinBash)",
+      "avatar_url": "https://avatars.githubusercontent.com/u/38356409?v=4",
+      "profile": "https://www.binbash.com.ar/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "commitType": "docs"
