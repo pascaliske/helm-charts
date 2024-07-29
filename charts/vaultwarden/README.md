@@ -2,7 +2,7 @@
 
 > A Helm chart for Vaultwarden
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![AppVersion: 1.31.0](https://img.shields.io/badge/AppVersion-1.31.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![AppVersion: 1.31.0](https://img.shields.io/badge/AppVersion-1.31.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/dani-garcia/vaultwarden>

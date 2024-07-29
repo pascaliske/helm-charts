@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vaultwarden
 description: A Helm chart for Vaultwarden
-version: 1.0.0
+version: 1.0.1
 # renovate: image=ghcr.io/dani-garcia/vaultwarden
 appVersion: "1.31.0"
 
@@ -25,5 +25,5 @@ dependencies:
 
 annotations:
   artifacthub.io/changes: |
-    - kind: added
-      description: 'Initial release of Vaultwarden chart.'
+    - kind: changed
+      description: 'Ensure the mount path is propagated to the app if persistence is used.'

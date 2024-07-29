@@ -53,6 +53,10 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
+            - name: DATA_FOLDER
+              value: {{ .Values.persistentVolumeClaim.mountPath }}
+            {{- end }}
             {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
             {{- range $key, $val := .Values.secret.values }}
             {{- if and $key $val }}
