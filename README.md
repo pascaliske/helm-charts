@@ -6,7 +6,7 @@
 
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- prettier-ignore-end -->
 
@@ -76,6 +76,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MaxenceG2M"><img src="https://avatars.githubusercontent.com/u/4601728?v=4?s=100" width="100px;" alt="MaxenceG2M"/><br /><sub><b>MaxenceG2M</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=MaxenceG2M" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://lesaventuresdeyannigdanslemondeit.blogspot.fr/"><img src="https://avatars.githubusercontent.com/u/277760?v=4?s=100" width="100px;" alt="Yannig"/><br /><sub><b>Yannig</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=Yannig" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.binbash.com.ar/"><img src="https://avatars.githubusercontent.com/u/38356409?v=4?s=100" width="100px;" alt="Diego OJeda (BinBash)"/><br /><sub><b>Diego OJeda (BinBash)</b></sub></a><br /><a href="https://github.com/pascaliske/helm-charts/commits?author=diego-ojeda-binbash" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
