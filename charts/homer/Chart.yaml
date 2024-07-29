@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: homer
 description: A Helm chart for Homer
-version: 2.1.0
+version: 2.1.1
 # renovate: image=ghcr.io/bastienwirtz/homer
 appVersion: "v24.05.1"
 
@@ -27,15 +27,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Changed the default image to use the GitHub container registry.'
-    - kind: added
-      description: 'Add support for overwriting the image registry.'
-    - kind: added
-      description: 'Add support for additional containers.'
-    - kind: added
-      description: 'Add support for affinities.'
-    - kind: added
-      description: 'Add support for tolerations.'
-    - kind: added
-      description: 'Add support for valueFrom to environment variables.'
+    - kind: fixed
+      description: 'Ensure image registry is passed to controller.'
