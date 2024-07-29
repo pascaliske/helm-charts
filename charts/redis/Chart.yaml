@@ -26,6 +26,7 @@ dependencies:
     repository: https://charts.pascaliske.dev
 
 annotations:
-  artifacthub.io/changes: |-
+  # possible kinds: added, changed, deprecated, removed, fixed, security
+  artifacthub.io/changes: |
     - kind: changed
       description: 'Make redis exporter security context and resources configurable.'

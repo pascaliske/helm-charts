@@ -28,6 +28,7 @@ dependencies:
     repository: https://charts.pascaliske.dev
 
 annotations:
-  artifacthub.io/changes: |-
+  # possible kinds: added, changed, deprecated, removed, fixed, security
+  artifacthub.io/changes: |
     - kind: added
       description: 'Add support for customizing the mount path of the GeoIP database.'

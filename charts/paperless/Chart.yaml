@@ -31,6 +31,7 @@ dependencies:
     condition: redis.enabled
 
 annotations:
+  # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: fixed
       description: 'Use correct helper to prevent unnecessary PVC creation.'

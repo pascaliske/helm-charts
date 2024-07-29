@@ -24,6 +24,7 @@ dependencies:
     repository: https://charts.pascaliske.dev
 
 annotations:
+  # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: changed
       description: 'Ensure the mount path is propagated to the app if persistence is used.'

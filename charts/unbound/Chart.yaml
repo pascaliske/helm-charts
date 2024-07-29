@@ -28,6 +28,7 @@ dependencies:
     repository: https://charts.pascaliske.dev
 
 annotations:
+  # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: removed
       description: 'Remove values schema due to issues with flux variable substitution.'

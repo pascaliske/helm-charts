@@ -26,7 +26,8 @@ dependencies:
     repository: https://charts.pascaliske.dev
 
 annotations:
-  artifacthub.io/changes: |-
+  # possible kinds: added, changed, deprecated, removed, fixed, security
+  artifacthub.io/changes: |
     - kind: removed
       description: 'Remove support for CRDs from "traefik.containo.us".'
     - kind: added

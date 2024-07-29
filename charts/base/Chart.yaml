@@ -17,6 +17,7 @@ maintainers:
     url: https://pascaliske.dev
 
 annotations:
+  # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: added
       description: 'Added helpers for environment variables.'
