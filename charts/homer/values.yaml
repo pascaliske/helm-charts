@@ -139,3 +139,9 @@ affinity: {}
   #             operator: In
   #             values:
   #               - my-node-xyz
+
+# -- Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
+tolerations: []
+  # - key: node-role.kubernetes.io/control-plane
+  #   operator: Exists
+  #   effect: NoSchedule

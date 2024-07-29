@@ -88,6 +88,7 @@ The following values can be used to adjust the helm chart.
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 

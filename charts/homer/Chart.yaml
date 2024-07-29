@@ -34,3 +34,5 @@ annotations:
       description: 'Add support for additional containers.'
     - kind: added
       description: 'Add support for affinities.'
+    - kind: added
+      description: 'Add support for tolerations.'
