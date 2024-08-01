@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vaultwarden
 description: A Helm chart for Vaultwarden
-version: 1.0.1
+version: 1.1.0
 # renovate: image=ghcr.io/dani-garcia/vaultwarden
 appVersion: "1.31.0"
 
@@ -26,5 +26,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Ensure the mount path is propagated to the app if persistence is used.'
+    - kind: added
+      description: 'Added support for changing the controller update strategy.'
