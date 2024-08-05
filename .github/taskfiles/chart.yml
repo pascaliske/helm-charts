@@ -2,6 +2,11 @@
 version: '3'
 
 tasks:
+  upgrade:
+    summary: Render chart templates based on default values.
+    cmds:
+      - helm upgrade --install --namespace {{.CLI_ARGS}} --create-namespace {{.CLI_ARGS}} ./charts/{{.CLI_ARGS}} --debug --values ./charts/{{.CLI_ARGS}}/values.yaml
+
   template:
     summary: Render chart templates based on default values.
     cmds:
