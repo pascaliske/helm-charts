@@ -38,6 +38,7 @@ helm delete <chart>
 - [`cloudflare-dyndns`](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)
 - [`cloudflared`](https://charts.pascaliske.dev/charts/cloudflared)
 - [`code-server`](https://charts.pascaliske.dev/charts/code-server)
+- [`ctfd`](https://charts.pascaliske.dev/charts/ctfd)
 - [`digitalocean-dyndns`](https://charts.pascaliske.dev/charts/digitalocean-dyndns)
 - [`fritzbox-exporter`](https://charts.pascaliske.dev/charts/fritzbox-exporter)
 - [`gitlab`](https://charts.pascaliske.dev/charts/gitlab)
@@ -53,6 +54,7 @@ helm delete <chart>
 - [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)
 - [`unbound`](https://charts.pascaliske.dev/charts/unbound)
 - [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)
+- [`vaultwarden`](https://charts.pascaliske.dev/charts/vaultwarden)
 - [`vikunja`](https://charts.pascaliske.dev/charts/vikunja)
 
 ## Contributors
