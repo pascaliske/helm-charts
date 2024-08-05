@@ -1,0 +1,147 @@
+{{- if .Values.controller.enabled -}}
+apiVersion: apps/v1
+kind: {{ include "base.controller.kind" . }}
+metadata:
+  name: {{ include "ctfd.fullname" . }}
+  labels:
+    {{- include "ctfd.labels" . | nindent 4 }}
+    {{- with .Values.controller.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.controller.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.controller.replicas }}
+  replicas: {{ .Values.controller.replicas }}
+  {{- end }}
+  {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
+  serviceName: {{ include "ctfd.fullname" . }}-headless
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "ctfd.selectorLabels" . | nindent 6 }}
+  {{- if eq (include "base.controller.kind" . ) "Deployment" }}
+  {{- with .Values.controller.updateStrategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- end }}
+  template:
+    metadata:
+      {{- with .Values.controller.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "ctfd.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "ctfd.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- if .Values.ports.http.enabled }}
+            - name: http
+              containerPort: {{ .Values.ports.http.port }}
+              protocol: {{ default "TCP" .Values.ports.http.protocol | quote }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            {{- if $val.value }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- else if $val.valueFrom }}
+            - name: {{ $val.name | quote }}
+              valueFrom:
+                {{- toYaml $val.valueFrom | nindent 16 }}
+            {{- end }}
+            {{- end }}
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
+            - name: UPLOAD_FOLDER
+              value: {{ .Values.persistentVolumeClaim.mountPath }}/uploads
+            - name: LOG_FOLDER
+              value: {{ .Values.persistentVolumeClaim.mountPath }}/logs
+            {{- end }}
+            {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
+            {{- range $key, $val := .Values.secret.values }}
+            {{- if and $key $val }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                {{- if $.Values.secret.existingSecret }}
+                  name: {{ $.Values.secret.existingSecret }}
+                {{- else }}
+                  name: {{ printf "%s-secrets" (include "ctfd.fullname" $ ) }}
+                {{- end }}
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
+            {{- end }}
+          {{- if eq (include "base.persistence.enabled" . ) "true" }}
+          volumeMounts:
+            - name: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/uploads
+              subPath: uploads
+            - name: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
+              mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/logs
+              subPath: logs
+          {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: http
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+        {{- with .Values.additionalContainers }}
+          {{- $additionalContainers := list }}
+          {{- range $name, $container := . }}
+            {{- if not $container.name -}}
+              {{- $_ := set $container "name" $name }}
+            {{- end }}
+            {{- $additionalContainers = append $additionalContainers $container }}
+          {{- end }}
+          {{- tpl (toYaml $additionalContainers) $ | nindent 8 }}
+        {{- end }}
+      {{- if eq (include "base.persistence.enabled" . ) "true" }}
+      {{- if eq (include "base.persistence.type" . ) "volumes" }}
+      volumes:
+        - name: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
+          persistentVolumeClaim:
+            {{- if eq (include "base.persistence.created" . ) "true" }}
+            claimName: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
+            {{- else }}
+            claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
+            {{- end }}
+      {{- end }}
+      {{- end }}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- if eq (include "base.persistence.enabled" . ) "true" }}
+  {{- if eq (include "base.persistence.type" . ) "volumeClaimTemplates" }}
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
+      spec:
+        {{- include "base.persistence.spec" . | nindent 8 }}
+  {{- end }}
+  {{- end }}
+{{- end }}
