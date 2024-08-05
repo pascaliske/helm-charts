@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: clickhouse
 description: A Helm chart for ClickHouse
-version: 0.3.0
+version: 0.3.1
 # renovate: image=clickhouse/clickhouse-server
 appVersion: "24.7.2.13-alpine"
 
@@ -27,5 +27,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Updated config XMLs to latest versions.'
+    - kind: fixed
+      description: 'Use correct helper to ensure existing PVC value is working.'
