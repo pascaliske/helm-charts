@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://json.schemastore.org/chart.json
+apiVersion: v2
+type: application
+name: ctfd
+description: A Helm chart for CTFd
+version: 1.0.0
+# renovate: image=ghcr.io/ctfd/ctfd
+appVersion: "3.7.3"
+
+home: https://charts.pascaliske.dev/charts/ctfd/
+sources:
+  - https://github.com/pascaliske/helm-charts
+  - https://github.com/ctfd/ctfd
+  - https://docs.ctfd.io
+  - https://ctfd.io
+keywords:
+  - ctfd
+maintainers:
+  - name: pascaliske
+    email: info@pascaliske.dev
+    url: https://pascaliske.dev
+
+dependencies:
+  - name: base
+    version: 1.2.0
+    repository: https://charts.pascaliske.dev
+
+annotations:
+  # possible kinds: added, changed, deprecated, removed, fixed, security
+  artifacthub.io/changes: |
+    - kind: added
+      description: 'Initial release of CTFd chart.'

@@ -1,0 +1,175 @@
+image:
+  # -- The registry to pull the image from.
+  registry: ghcr.io
+  # -- The repository to pull the image from.
+  repository: ctfd/ctfd
+  # -- The docker tag, if left empty chart's appVersion will be used.
+  # @default -- `.Chart.AppVersion`
+  tag: ''
+  # -- The pull policy for the controller.
+  pullPolicy: IfNotPresent
+
+nameOverride: ''
+fullnameOverride: ''
+
+controller:
+  # -- Create a workload for this chart.
+  enabled: true
+  # -- Type of the workload object.
+  kind: Deployment
+  # -- The number of replicas.
+  replicas: 1
+  # -- The controller update strategy. Currently only applies to controllers of kind `Deployment`.
+  updateStrategy: {}
+  # -- Additional annotations for the controller object.
+  annotations: {}
+  # -- Additional labels for the controller object.
+  labels: {}
+
+service:
+  # -- Create a service for exposing this chart.
+  enabled: true
+  # -- The service type used.
+  type: ClusterIP
+  # -- ClusterIP used if service type is `ClusterIP`.
+  clusterIP: ''
+  # -- LoadBalancerIP if service type is `LoadBalancer`.
+  loadBalancerIP: ''
+  # -- Allowed addresses when service type is `LoadBalancer`.
+  loadBalancerSourceRanges: []
+  # -- Additional annotations for the service object.
+  annotations: {}
+  # -- Additional labels for the service object.
+  labels: {}
+
+ingressRoute:
+  # -- Create an IngressRoute object for exposing this chart.
+  create: false
+  # -- List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available.
+  entryPoints: []
+  # -- [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router.
+  rule: ''
+  # -- List of [middleware objects](https://doc.traefik.io/traefik/routing/providers/kubernetes-crd/#kind-middleware) for the ingress route.
+  middlewares: []
+  # -- Use an existing secret containing the TLS certificate.
+  tlsSecretName: ''
+  # -- Additional annotations for the ingress route object.
+  annotations: {}
+  # -- Additional labels for the ingress route object.
+  labels: {}
+
+certificate:
+  # -- Create a Certificate object for the exposed chart.
+  create: false
+  # -- List of subject alternative names for the certificate.
+  dnsNames: []
+  # -- Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames.
+  secretName: ''
+  issuerRef:
+    # -- The type of the referenced certificate issuer. It can be "Issuer" or "ClusterIssuer".
+    kind: ClusterIssuer
+    # -- Name of the referenced certificate issuer.
+    name: ''
+  # -- Additional annotations for the certificate object.
+  annotations: {}
+  # -- Additional labels for the certificate object.
+  labels: {}
+
+env:
+  # -- Timezone for the container.
+  - name: TZ
+    value: UTC
+
+ports:
+  http:
+    # -- Enable the port inside the `controller` and `Service` objects.
+    enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
+    port: 8000
+    # -- The external port used if `.service.type` == `NodePort`.
+    nodePort: null
+    # -- The protocol used for the service.
+    protocol: TCP
+
+secret:
+  # -- Create a new secret object.
+  create: true
+  # -- Use an existing secret object.
+  existingSecret: ''
+  # -- Secret values used when not using an existing secret. Helm templates are supported for values.
+  values:
+    # -- Secret key for session tokens.
+    SECRET_KEY: '{{ randAlphaNum 42 | b64enc }}'
+  # -- Additional annotations for the secret object.
+  annotations: {}
+  # -- Additional labels for the secret object.
+  labels: {}
+
+persistentVolumeClaim:
+  # -- Create a new persistent volume claim object.
+  create: true
+  # -- Mount path of the persistent volume claim object.
+  mountPath: /data
+  # -- Access mode of the persistent volume claim object.
+  accessMode: ReadWriteOnce
+  # -- Volume mode of the persistent volume claim object.
+  volumeMode: Filesystem
+  # -- Storage request size for the persistent volume claim object.
+  size: 1Gi
+  # -- Storage class name for the persistent volume claim object.
+  storageClassName: ''
+  # -- Use an existing persistent volume claim object.
+  existingPersistentVolumeClaim: ''
+  # -- Additional annotations for the persistent volume claim object.
+  annotations: {}
+  # -- Additional labels for the persistent volume claim object.
+  labels: {}
+
+serviceAccount:
+  # -- Create a `ServiceAccount` object.
+  create: true
+  # -- Specify the service account used for the controller.
+  name: ''
+  # -- Additional annotations for the role and role binding objects.
+  annotations: {}
+  # -- Additional labels for the role and role binding objects.
+  labels: {}
+
+# -- Specify any additional containers here as dictionary items - each should have its own key.
+additionalContainers: {}
+  # container:
+  #   name: my-container
+  #   image: my-org/my-image
+
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
+securityContext:
+  fsGroup: 1001
+  runAsNonRoot: true
+  runAsGroup: 1001
+  runAsUser: 1001
+
+# -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# -- Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
+affinity: {}
+  # nodeAffinity:
+  #   requiredDuringSchedulingIgnoredDuringExecution:
+  #     nodeSelectorTerms:
+  #       - matchExpressions:
+  #           - key: kubernetes.io/hostname
+  #             operator: In
+  #             values:
+  #               - my-node-xyz
+
+# -- Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
+tolerations: []
+  # - key: node-role.kubernetes.io/control-plane
+  #   operator: Exists
+  #   effect: NoSchedule
