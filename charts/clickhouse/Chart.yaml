@@ -5,7 +5,7 @@ name: clickhouse
 description: A Helm chart for ClickHouse
 version: 0.3.1
 # renovate: image=clickhouse/clickhouse-server
-appVersion: "24.7.2.13-alpine"
+appVersion: "24.7.3.42-alpine"
 
 home: https://charts.pascaliske.dev/charts/clickhouse/
 sources:
