@@ -2,7 +2,7 @@
 
 > A Helm chart for Uptime-Kuma
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.3](https://img.shields.io/badge/AppVersion-1.23.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.13](https://img.shields.io/badge/AppVersion-1.23.13-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>
@@ -86,6 +86,10 @@ The following values can be used to adjust the helm chart.
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
+| serviceMonitor.basicAuth | object | `{"passwordKey":"password","secretName":null,"usernameKey":"username"}` | Optional basic authentication for the monitoring endpoint. |
+| serviceMonitor.basicAuth.passwordKey | string | `"password"` | Key inside the secret containing the password. |
+| serviceMonitor.basicAuth.secretName | string | `nil` | Name of the secret containing basic auth values. |
+| serviceMonitor.basicAuth.usernameKey | string | `"username"` | Key inside the secret containing the username. |
 | serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
 | serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
 | serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
@@ -100,4 +104,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)

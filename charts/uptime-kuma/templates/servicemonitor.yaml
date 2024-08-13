@@ -24,6 +24,17 @@ spec:
       {{- with $.Values.serviceMonitor.timeout }}
       scrapeTimeout: {{ . }}
       {{- end }}
+      {{- with $.Values.serviceMonitor.basicAuth }}
+      {{- if .secretName }}
+      basicAuth:
+        username:
+          name: {{ .secretName }}
+          key: {{ default "username" .usernameKey }}
+        password:
+          name: {{ .secretName }}
+          key: {{ default "password" .passwordKey }}
+      {{- end }}
+      {{- end }}
     {{- end }}
     {{- end }}
   jobLabel: {{ include "uptime-kuma.fullname" . }}

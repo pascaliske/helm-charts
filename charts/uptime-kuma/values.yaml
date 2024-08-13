@@ -39,6 +39,14 @@ serviceMonitor:
   interval: 30s
   # -- Timeout value for individual scrapes.
   timeout: 10s
+  # -- Optional basic authentication for the monitoring endpoint.
+  basicAuth:
+    # -- Name of the secret containing basic auth values.
+    secretName:
+    # -- Key inside the secret containing the username.
+    usernameKey: username
+    # -- Key inside the secret containing the password.
+    passwordKey: password
   # -- Additional annotations for the service monitor object.
   annotations: {}
   # -- Additional labels for the service monitor object.

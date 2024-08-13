@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Uptime-Kuma
-version: 2.0.0
+version: 2.1.0
 # renovate: image=louislam/uptime-kuma
 appVersion: "1.23.13"
 
@@ -28,7 +28,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
     - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+      description: 'Implement support for basic authentication inside service monitor.'
