@@ -18,11 +18,11 @@ spec:
     {{- if $val.enabled }}
     - targetPort: {{ $key | quote }}
       path: /metrics
-      {{- if $.Values.serviceMonitor.interval }}
-      interval: {{ $.Values.serviceMonitor.interval }}
+      {{- with $.Values.serviceMonitor.interval }}
+      interval: {{ . }}
       {{- end }}
-      {{- if $.Values.serviceMonitor.timeout }}
-      scrapeTimeout: {{ $.Values.serviceMonitor.timeout }}
+      {{- with $.Values.serviceMonitor.timeout }}
+      scrapeTimeout: {{ . }}
       {{- end }}
     {{- end }}
     {{- end }}
