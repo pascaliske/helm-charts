@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: gitlab
 description: A Helm chart for GitLab Omnibus
-version: 3.1.1
+version: 3.2.0
 # renovate: image=gitlab/gitlab-ce
 appVersion: "17.3.0-ce.0"
 
@@ -26,5 +26,7 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Allow specifying custom compute resources for cron jobs.'
+    - kind: added
+      description: 'Added support for priority class name value.'
+    - kind: changed
+      description: 'Updated GitLab image to version v17.3.0.'

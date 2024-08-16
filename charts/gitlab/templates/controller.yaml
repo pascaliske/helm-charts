@@ -104,6 +104,9 @@ spec:
             type: Directory
             path: {{ include "gitlab.backups.hostPath" . }}
         {{- end }}
+      {{- with .Values.priorityClassName }}
+      priorityClassName: {{ . | quote }}
+      {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
         {{- toYaml .Values.securityContext | nindent 8 }}

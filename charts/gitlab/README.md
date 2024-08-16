@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.1.1](https://img.shields.io/badge/Version-3.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 16.7.3-ce.0](https://img.shields.io/badge/AppVersion-16.7.3--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.2.0](https://img.shields.io/badge/Version-3.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 17.3.0-ce.0](https://img.shields.io/badge/AppVersion-17.3.0--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -109,6 +109,7 @@ The following values can be used to adjust the helm chart.
 | ports.registry.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.registry.port | int | `5005` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.registry.protocol | string | `"TCP"` | The protocol used for the service. |
+| priorityClassName | string | `""` | Optional priority class name to be used for pods. |
 | rbac.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | rbac.create | bool | `true` | Create `Role` and `RoleBinding` objects. |
 | rbac.labels | object | `{}` | Additional labels for the role and role binding objects. |
