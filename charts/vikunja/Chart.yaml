@@ -5,7 +5,7 @@ name: vikunja
 description: A Helm chart for Kubernetes
 version: 5.0.0
 # renovate: image=vikunja/vikunja
-appVersion: "0.24.3"
+appVersion: "0.24.4"
 
 home: https://charts.pascaliske.dev/charts/vikunja/
 sources:
