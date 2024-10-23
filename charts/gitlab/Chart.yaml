@@ -5,7 +5,7 @@ name: gitlab
 description: A Helm chart for GitLab Omnibus
 version: 3.2.0
 # renovate: image=gitlab/gitlab-ce
-appVersion: "17.5.0-ce.0"
+appVersion: "17.5.1-ce.0"
 
 home: https://charts.pascaliske.dev/charts/gitlab/
 sources:
