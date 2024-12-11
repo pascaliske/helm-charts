@@ -23,8 +23,6 @@ jobs:
 
       # prepare
       - uses: actions/setup-python@v5
-        with:
-          python-version: 3.7
 
       # setup helm
       - uses: azure/setup-helm@v3.5
