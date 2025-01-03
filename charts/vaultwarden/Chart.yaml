@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vaultwarden
 description: A Helm chart for Vaultwarden
-version: 1.1.0
+version: 1.2.0
 # renovate: image=ghcr.io/dani-garcia/vaultwarden
 appVersion: "1.32.7"
 
@@ -27,4 +27,4 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: added
-      description: 'Added support for changing the controller update strategy.'
+      description: 'Added support for creating a dedicated service account through the chart.'
