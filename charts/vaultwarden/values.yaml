@@ -132,9 +132,9 @@ serviceAccount:
   create: true
   # -- Specify the service account used for the controller.
   name: ''
-  # -- Additional annotations for the role and role binding objects.
+  # -- Additional annotations for the service account object.
   annotations: {}
-  # -- Additional labels for the role and role binding objects.
+  # -- Additional labels for the service account object.
   labels: {}
 
 rbac:
