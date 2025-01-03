@@ -2,7 +2,7 @@
 
 > A Helm chart for Vaultwarden
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![AppVersion: 1.31.0](https://img.shields.io/badge/AppVersion-1.31.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![AppVersion: 1.32.7](https://img.shields.io/badge/AppVersion-1.32.7-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/dani-garcia/vaultwarden>
@@ -99,6 +99,9 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerIP | string | `""` | LoadBalancerIP if service type is `LoadBalancer`. |
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
+| serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
+| serviceAccount.labels | object | `{}` | Additional labels for the role and role binding objects. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
@@ -110,4 +113,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
