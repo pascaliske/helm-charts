@@ -14,15 +14,6 @@ metadata:
   {{- end }}
 rules:
   - apiGroups: ['']
-    verbs: ['list']
-    resources:
-      - pods
-  - apiGroups: ['apps']
-    verbs: ['get']
-    resources:
-      - deployments
-  - apiGroups: ['']
-    verbs: ['create']
-    resources:
-      - pods/exec
+    resources: ['secrets']
+    verbs: ['get', 'watch', 'list']
 {{- end -}}
