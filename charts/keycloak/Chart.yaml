@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: keycloak
 description: A Helm chart for Keycloak
-version: 0.1.1
+version: 0.2.0
 # renovate: image=quay.io/keycloak/keycloak
 appVersion: "26.0.7"
 
@@ -27,5 +27,9 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Removed wrong ingress route rule.'
+    - kind: added
+      description: 'Added support for an additional metrics port serving the metrics and health endpoints.'
+    - kind: changed
+      description: 'Changed the port value of the ServiceMonitor to the new metrics port.'
+    - kind: changed
+      description: 'Changed the port value of the probes to the new metrics port.'

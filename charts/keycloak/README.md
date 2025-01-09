@@ -2,7 +2,7 @@
 
 > A Helm chart for Keycloak
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 23.0.3](https://img.shields.io/badge/AppVersion-23.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)[![AppVersion: 26.0.7](https://img.shields.io/badge/AppVersion-26.0.7-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/keycloak/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/keycloak/keycloak>
@@ -71,6 +71,10 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| ports.metrics.enabled | bool | `true` | Enable the port inside the `Controller` and `Service` objects. |
+| ports.metrics.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
+| ports.metrics.port | int | `9000` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
+| ports.metrics.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | secret.annotations | object | `{}` | Additional annotations for the secret object. |
 | secret.create | bool | `true` | Create a new secret containing sensitive values required for operation. |
@@ -100,4 +104,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)

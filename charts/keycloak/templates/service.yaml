@@ -38,6 +38,17 @@ spec:
       protocol: {{ default "TCP" .protocol | quote }}
     {{- end }}
     {{- end }}
+    {{- with .Values.ports.metrics }}
+    {{- if .enabled }}
+    - name: metrics
+      port: {{ .port }}
+      targetPort: metrics
+      {{- if and (eq $.Values.service.type "NodePort") .nodePort }}
+      nodePort: {{ .nodePort }}
+      {{- end }}
+      protocol: {{ default "TCP" .protocol | quote }}
+    {{- end }}
+    {{- end }}
   selector:
     {{- include "keycloak.selectorLabels" . | nindent 4 }}
 {{- end }}

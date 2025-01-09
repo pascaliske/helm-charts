@@ -14,7 +14,7 @@ metadata:
   {{- end }}
 spec:
   endpoints:
-    - targetPort: {{ .Values.ports.http.port }}
+    - targetPort: {{ .Values.ports.metrics.port }}
       path: /metrics
       {{- if $.Values.serviceMonitor.interval }}
       interval: {{ $.Values.serviceMonitor.interval }}
