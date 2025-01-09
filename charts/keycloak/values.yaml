@@ -105,6 +105,15 @@ ports:
     nodePort: null
     # -- The protocol used for the service.
     protocol: TCP
+  metrics:
+    # -- Enable the port inside the `Controller` and `Service` objects.
+    enabled: true
+    # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
+    port: 9000
+    # -- The external port used if `.service.type` == `NodePort`.
+    nodePort: null
+    # -- The protocol used for the service.
+    protocol: TCP
 
 secret:
   # -- Create a new secret containing sensitive values required for operation.

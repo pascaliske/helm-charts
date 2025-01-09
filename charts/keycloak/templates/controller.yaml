@@ -48,6 +48,13 @@ spec:
               protocol: {{ default "TCP" .protocol | quote }}
             {{- end }}
             {{- end }}
+            {{- with .Values.ports.metrics }}
+            {{- if .enabled }}
+            - name: metrics
+              containerPort: {{ .port }}
+              protocol: {{ default "TCP" .protocol | quote }}
+            {{- end }}
+            {{- end }}
           env:
             {{- range $i, $val := .Values.env }}
             {{- if $val.value }}
@@ -85,11 +92,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /health/live
-              port: http
+              port: metrics
           readinessProbe:
             httpGet:
               path: /health/ready
-              port: http
+              port: metrics
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
