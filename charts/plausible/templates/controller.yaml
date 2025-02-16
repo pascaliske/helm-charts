@@ -89,6 +89,10 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+            {{- if .Values.ports.http.enabled }}
+            - name: HTTP_PORT
+              value: {{ quote .Values.ports.http.port }}
+            {{- end }}
             {{- if .Values.geoip.enabled }}
             - name: GEOLITE2_COUNTRY_DB
               value: {{ default "/geoip" .Values.geoip.mountPath }}/GeoLite2-Country.mmdb
