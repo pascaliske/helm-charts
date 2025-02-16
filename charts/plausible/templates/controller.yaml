@@ -49,6 +49,21 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+            {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
+            {{- range $key, $val := .Values.secret.values }}
+            {{- if and $key $val }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                {{- if $.Values.secret.existingSecret }}
+                  name: {{ $.Values.secret.existingSecret }}
+                {{- else }}
+                  name: {{ printf "%s-secrets" (include "plausible.fullname" $ ) }}
+                {{- end }}
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
+            {{- end }}
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
@@ -77,6 +92,21 @@ spec:
             {{- if .Values.geoip.enabled }}
             - name: GEOLITE2_COUNTRY_DB
               value: {{ default "/geoip" .Values.geoip.mountPath }}/GeoLite2-Country.mmdb
+            {{- end }}
+            {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
+            {{- range $key, $val := .Values.secret.values }}
+            {{- if and $key $val }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                {{- if $.Values.secret.existingSecret }}
+                  name: {{ $.Values.secret.existingSecret }}
+                {{- else }}
+                  name: {{ printf "%s-secrets" (include "plausible.fullname" $ ) }}
+                {{- end }}
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
             {{- end }}
           {{- if .Values.geoip.enabled }}
           volumeMounts:

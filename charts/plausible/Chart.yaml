@@ -34,3 +34,5 @@ annotations:
       description: 'Update to Plausible Community Edition v2.1.5.'
     - kind: added
       description: 'Add support for automatically creating a custom ServiceAccount.'
+    - kind: added
+      description: 'Add support for automatically creating a Secret.'

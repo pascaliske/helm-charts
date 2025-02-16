@@ -80,6 +80,13 @@ The following values can be used to adjust the helm chart.
 | ports.http.port | int | `8000` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| secret.annotations | object | `{}` | Additional annotations for the secret object. |
+| secret.create | bool | `true` | Create a new secret object. |
+| secret.existingSecret | string | `""` | Use an existing secret object. |
+| secret.labels | object | `{}` | Additional labels for the secret object. |
+| secret.values | object | `{"SECRET_KEY_BASE":"{{ randAlphaNum 42 | b64enc }}","TOTP_VAULT_KEY":"{{ randAlphaNum 32 | b64enc }}"}` | Secret values used when not using an existing secret. Helm templates are supported for values. |
+| secret.values.SECRET_KEY_BASE | string | `"{{ randAlphaNum 42 | b64enc }}"` | Secret key for session tokens. |
+| secret.values.TOTP_VAULT_KEY | string | `"{{ randAlphaNum 32 | b64enc }}"` | Encryption token for TOTP secrets. |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |

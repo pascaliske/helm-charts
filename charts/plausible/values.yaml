@@ -101,6 +101,22 @@ ports:
     # -- The protocol used for the service.
     protocol: TCP
 
+secret:
+  # -- Create a new secret object.
+  create: true
+  # -- Use an existing secret object.
+  existingSecret: ''
+  # -- Secret values used when not using an existing secret. Helm templates are supported for values.
+  values:
+    # -- Secret key for session tokens.
+    SECRET_KEY_BASE: '{{ randAlphaNum 42 | b64enc }}'
+    # -- Encryption token for TOTP secrets.
+    TOTP_VAULT_KEY: '{{ randAlphaNum 32 | b64enc }}'
+  # -- Additional annotations for the secret object.
+  annotations: {}
+  # -- Additional labels for the secret object.
+  labels: {}
+
 geoip:
   # -- Enable support for MaxMinds GeoLite2 database.
   enabled: false
