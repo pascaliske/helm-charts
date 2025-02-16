@@ -88,6 +88,9 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerIP | string | `""` | LoadBalancerIP if service type is `LoadBalancer`. |
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.annotations | object | `{}` | Additional annotations for the service account object. |
+| serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
+| serviceAccount.labels | object | `{}` | Additional labels for the service account object. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
 | serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
