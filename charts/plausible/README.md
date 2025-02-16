@@ -1,12 +1,12 @@
 # [`plausible`](https://charts.pascaliske.dev/charts/plausible/)
 
-> A Helm chart for Plausible
+> A Helm chart for Plausible Community Edition
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v2.0.0](https://img.shields.io/badge/AppVersion-v2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v2.1.5](https://img.shields.io/badge/AppVersion-v2.1.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
 
 * <https://github.com/pascaliske/helm-charts>
+* <https://github.com/plausible/community-edition>
 * <https://github.com/plausible/analytics>
-* <https://github.com/plausible/hosting>
 * <https://plausible.io>
 
 ## Requirements
@@ -60,11 +60,12 @@ The following values can be used to adjust the helm chart.
 | geoip.enabled | bool | `false` | Enable support for MaxMinds GeoLite2 database. |
 | geoip.frequency | int | `168` | Optional. Database update frequency. Defaults to "168" which equals 7 days. |
 | geoip.image.repository | string | `"ghcr.io/maxmind/geoipupdate"` | The repository for the geoip image. |
-| geoip.image.tag | string | `"v6.0.0"` | The docker tag for the geoip image. |
+| geoip.image.tag | string | `"v7.1.0"` | The docker tag for the geoip image. |
 | geoip.licenseKey | string | `""` | Required. Case-sensitive MaxMind license key. |
 | geoip.mountPath | string | `"/geoip"` | Optional. Specify the database mount path inside the containers. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
-| image.repository | string | `"plausible/analytics"` | The repository to pull the image from. |
+| image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
+| image.repository | string | `"plausible/community-edition"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
@@ -103,4 +104,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)

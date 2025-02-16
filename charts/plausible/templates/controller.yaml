@@ -31,13 +31,13 @@ spec:
       serviceAccountName: {{ include "plausible.serviceAccountName" . }}
       initContainers:
         - name: init-database
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /bin/sh
             - -c
           args:
-            - sleep 30 && /entrypoint.sh db createdb && /entrypoint.sh db migrate
+            - sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate
           env:
             {{- range $i, $val := .Values.env }}
             {{- if $val.value }}
@@ -55,7 +55,7 @@ spec:
             {{- end }}
       containers:
         - name: {{ template "plausible.name" . }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             {{- if .Values.ports.http.enabled }}
