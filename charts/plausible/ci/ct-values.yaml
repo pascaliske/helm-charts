@@ -1,0 +1,7 @@
+env:
+  - name: BASE_URL
+    value: http://plausible-web:8000
+
+ports:
+  http:
+    port: 8000
