@@ -1,6 +1,8 @@
 image:
+  # -- The registry to pull the image from.
+  registry: ghcr.io
   # -- The repository to pull the image from.
-  repository: plausible/analytics
+  repository: plausible/community-edition
   # -- The docker tag, if left empty chart's appVersion will be used.
   # @default -- `.Chart.AppVersion`
   tag: ''
@@ -99,6 +101,22 @@ ports:
     # -- The protocol used for the service.
     protocol: TCP
 
+secret:
+  # -- Create a new secret object.
+  create: true
+  # -- Use an existing secret object.
+  existingSecret: ''
+  # -- Secret values used when not using an existing secret. Helm templates are supported for values.
+  values:
+    # -- Secret key for session tokens.
+    SECRET_KEY_BASE: '{{ randAlphaNum 42 | b64enc }}'
+    # -- Encryption token for TOTP secrets.
+    TOTP_VAULT_KEY: '{{ randAlphaNum 32 | b64enc }}'
+  # -- Additional annotations for the secret object.
+  annotations: {}
+  # -- Additional labels for the secret object.
+  labels: {}
+
 geoip:
   # -- Enable support for MaxMinds GeoLite2 database.
   enabled: false
@@ -117,8 +135,14 @@ geoip:
   mountPath: /geoip
 
 serviceAccount:
+  # -- Create a `ServiceAccount` object.
+  create: true
   # -- Specify the service account used for the controller.
   name: ''
+  # -- Additional annotations for the service account object.
+  annotations: {}
+  # -- Additional labels for the service account object.
+  labels: {}
 
 # -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}

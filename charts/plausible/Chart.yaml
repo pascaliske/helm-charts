@@ -2,16 +2,16 @@
 apiVersion: v2
 type: application
 name: plausible
-description: A Helm chart for Plausible
-version: 1.1.0
-# renovate: image=plausible/analytics
-appVersion: "v2.0.0"
+description: A Helm chart for Plausible Community Edition
+version: 2.0.0
+# renovate: image=ghcr.io/plausible/community-edition
+appVersion: "v2.1.5"
 
 home: https://charts.pascaliske.dev/charts/plausible/
 sources:
   - https://github.com/pascaliske/helm-charts
+  - https://github.com/plausible/community-edition
   - https://github.com/plausible/analytics
-  - https://github.com/plausible/hosting
   - https://plausible.io
 keywords:
   - plausible
@@ -30,5 +30,9 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
+    - kind: changed
+      description: 'Update to Plausible Community Edition v2.1.5.'
     - kind: added
-      description: 'Add support for customizing the mount path of the GeoIP database.'
+      description: 'Add support for automatically creating a custom ServiceAccount.'
+    - kind: added
+      description: 'Add support for automatically creating a Secret.'

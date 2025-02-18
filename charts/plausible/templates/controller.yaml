@@ -31,13 +31,13 @@ spec:
       serviceAccountName: {{ include "plausible.serviceAccountName" . }}
       initContainers:
         - name: init-database
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /bin/sh
             - -c
           args:
-            - sleep 30 && /entrypoint.sh db createdb && /entrypoint.sh db migrate
+            - sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate
           env:
             {{- range $i, $val := .Values.env }}
             {{- if $val.value }}
@@ -49,13 +49,28 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+            {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
+            {{- range $key, $val := .Values.secret.values }}
+            {{- if and $key $val }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                {{- if $.Values.secret.existingSecret }}
+                  name: {{ $.Values.secret.existingSecret }}
+                {{- else }}
+                  name: {{ printf "%s-secrets" (include "plausible.fullname" $ ) }}
+                {{- end }}
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
+            {{- end }}
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
       containers:
         - name: {{ template "plausible.name" . }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             {{- if .Values.ports.http.enabled }}
@@ -74,9 +89,28 @@ spec:
                 {{- toYaml $val.valueFrom | nindent 16 }}
             {{- end }}
             {{- end }}
+            {{- if .Values.ports.http.enabled }}
+            - name: HTTP_PORT
+              value: {{ quote .Values.ports.http.port }}
+            {{- end }}
             {{- if .Values.geoip.enabled }}
             - name: GEOLITE2_COUNTRY_DB
               value: {{ default "/geoip" .Values.geoip.mountPath }}/GeoLite2-Country.mmdb
+            {{- end }}
+            {{- if or .Values.secret.create (not (empty .Values.secret.existingSecret)) }}
+            {{- range $key, $val := .Values.secret.values }}
+            {{- if and $key $val }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                {{- if $.Values.secret.existingSecret }}
+                  name: {{ $.Values.secret.existingSecret }}
+                {{- else }}
+                  name: {{ printf "%s-secrets" (include "plausible.fullname" $ ) }}
+                {{- end }}
+                  key: {{ $key }}
+            {{- end }}
+            {{- end }}
             {{- end }}
           {{- if .Values.geoip.enabled }}
           volumeMounts:

@@ -1,12 +1,12 @@
 # [`plausible`](https://charts.pascaliske.dev/charts/plausible/)
 
-> A Helm chart for Plausible
+> A Helm chart for Plausible Community Edition
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v2.0.0](https://img.shields.io/badge/AppVersion-v2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)[![AppVersion: v2.1.5](https://img.shields.io/badge/AppVersion-v2.1.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible/)
 
 * <https://github.com/pascaliske/helm-charts>
+* <https://github.com/plausible/community-edition>
 * <https://github.com/plausible/analytics>
-* <https://github.com/plausible/hosting>
 * <https://plausible.io>
 
 ## Requirements
@@ -60,11 +60,12 @@ The following values can be used to adjust the helm chart.
 | geoip.enabled | bool | `false` | Enable support for MaxMinds GeoLite2 database. |
 | geoip.frequency | int | `168` | Optional. Database update frequency. Defaults to "168" which equals 7 days. |
 | geoip.image.repository | string | `"ghcr.io/maxmind/geoipupdate"` | The repository for the geoip image. |
-| geoip.image.tag | string | `"v6.0.0"` | The docker tag for the geoip image. |
+| geoip.image.tag | string | `"v7.1.0"` | The docker tag for the geoip image. |
 | geoip.licenseKey | string | `""` | Required. Case-sensitive MaxMind license key. |
 | geoip.mountPath | string | `"/geoip"` | Optional. Specify the database mount path inside the containers. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
-| image.repository | string | `"plausible/analytics"` | The repository to pull the image from. |
+| image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
+| image.repository | string | `"plausible/community-edition"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
@@ -79,6 +80,13 @@ The following values can be used to adjust the helm chart.
 | ports.http.port | int | `8000` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
+| secret.annotations | object | `{}` | Additional annotations for the secret object. |
+| secret.create | bool | `true` | Create a new secret object. |
+| secret.existingSecret | string | `""` | Use an existing secret object. |
+| secret.labels | object | `{}` | Additional labels for the secret object. |
+| secret.values | object | `{"SECRET_KEY_BASE":"{{ randAlphaNum 42 | b64enc }}","TOTP_VAULT_KEY":"{{ randAlphaNum 32 | b64enc }}"}` | Secret values used when not using an existing secret. Helm templates are supported for values. |
+| secret.values.SECRET_KEY_BASE | string | `"{{ randAlphaNum 42 | b64enc }}"` | Secret key for session tokens. |
+| secret.values.TOTP_VAULT_KEY | string | `"{{ randAlphaNum 32 | b64enc }}"` | Encryption token for TOTP secrets. |
 | securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |
@@ -87,6 +95,9 @@ The following values can be used to adjust the helm chart.
 | service.loadBalancerIP | string | `""` | LoadBalancerIP if service type is `LoadBalancer`. |
 | service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.annotations | object | `{}` | Additional annotations for the service account object. |
+| serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
+| serviceAccount.labels | object | `{}` | Additional labels for the service account object. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
 | serviceMonitor.enabled | bool | `false` | Create a service monitor for prometheus operator. |
@@ -103,4 +114,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
