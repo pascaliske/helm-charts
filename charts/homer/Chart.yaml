@@ -5,7 +5,7 @@ name: homer
 description: A Helm chart for Homer
 version: 2.1.1
 # renovate: image=ghcr.io/bastienwirtz/homer
-appVersion: "v25.02.1"
+appVersion: "v25.02.2"
 
 home: https://charts.pascaliske.dev/charts/homer/
 sources:
