@@ -46,6 +46,7 @@ helm delete <chart>
 - [`homer`](https://charts.pascaliske.dev/charts/homer)
 - [`keycloak`](https://charts.pascaliske.dev/charts/keycloak)
 - [`linkding`](https://charts.pascaliske.dev/charts/linkding)
+- [`pairdrop`](https://charts.pascaliske.dev/charts/pairdrop)
 - [`paperless`](https://charts.pascaliske.dev/charts/paperless)
 - [`plausible`](https://charts.pascaliske.dev/charts/plausible)
 - [`plausible-exporter`](https://charts.pascaliske.dev/charts/plausible-exporter)
