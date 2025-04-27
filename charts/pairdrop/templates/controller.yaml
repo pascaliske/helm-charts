@@ -1,0 +1,95 @@
+{{- if .Values.controller.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "pairdrop.fullname" . }}
+  labels:
+    {{- include "pairdrop.labels" . | nindent 4 }}
+    {{- with .Values.controller.labels }}
+    {{ toYaml . | indent 4 }}
+    {{- end }}
+  {{- with .Values.controller.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.controller.replicas }}
+  replicas: {{ .Values.controller.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "pairdrop.selectorLabels" . | nindent 6 }}
+  {{- with .Values.controller.updateStrategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  template:
+    metadata:
+      {{- with .Values.controller.annotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "pairdrop.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "pairdrop.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            {{- range $key, $val := .Values.ports }}
+            {{- if $val.enabled }}
+            - name: {{ $key | quote }}
+              containerPort: {{ $val.port }}
+              protocol: {{ default "TCP" $val.protocol | quote }}
+            {{- end }}
+            {{- end }}
+          env:
+            {{- range $i, $val := .Values.env }}
+            - name: {{ $val.name | quote }}
+              value: {{ $val.value | quote }}
+            {{- end }}
+          volumeMounts:
+            - mountPath: /run
+              name: tmpfs
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources: {{ if not .Values.resources -}}{}{{- end }}
+            {{- if .Values.resources }}
+            {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
+          securityContext:
+            readOnlyRootFilesystem: true
+        {{- with .Values.additionalContainers }}
+          {{- $additionalContainers := list }}
+          {{- range $name, $container := . }}
+            {{- if not $container.name -}}
+              {{- $_ := set $container "name" $name }}
+            {{- end }}
+            {{- $additionalContainers = append $additionalContainers $container }}
+          {{- end }}
+          {{- tpl (toYaml $additionalContainers) $ | nindent 8 }}
+        {{- end }}
+      volumes:
+        - name: tmpfs
+          emptyDir: {}
+      {{- if .Values.securityContext }}
+      securityContext:
+        {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}
