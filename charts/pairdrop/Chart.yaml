@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: pairdrop
 description: A Helm chart for PairDrop
-version: 1.0.0
+version: 1.0.1
 # renovate: image=ghcr.io/linuxserver/pairdrop
 appVersion: "version-v1.11.2"
 
@@ -28,5 +28,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: added
-      description: 'Added PairDrop as a replacement for the abandoned pairdrop.'
+    - kind: fixed
+      description: 'Enforce PUID and PGID variables based on security context values.'

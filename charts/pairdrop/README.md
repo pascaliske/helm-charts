@@ -2,7 +2,7 @@
 
 > A Helm chart for PairDrop
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![AppVersion: version-v1.11.2](https://img.shields.io/badge/AppVersion-version--v1.11.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![AppVersion: version-v1.11.2](https://img.shields.io/badge/AppVersion-version--v1.11.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/linuxserver/docker-pairdrop>
@@ -56,8 +56,6 @@ The following values can be used to adjust the helm chart.
 | controller.replicas | int | `1` | The number of replicas. |
 | controller.updateStrategy | object | `{}` | The controller update strategy. Currently only applies to controllers of kind `Deployment`. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
-| env[1] | object | `{"name":"PUID","value":"1000"}` | UID to be used at runtime inside the container. |
-| env[2] | object | `{"name":"PGID","value":"1000"}` | GID to be used at runtime inside the container. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.registry | string | `"ghcr.io"` | The registry to pull the image from. |

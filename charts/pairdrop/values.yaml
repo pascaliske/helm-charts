@@ -79,12 +79,6 @@ env:
   # -- Timezone for the container.
   - name: TZ
     value: UTC
-  # -- UID to be used at runtime inside the container.
-  - name: PUID
-    value: '1000'
-  # -- GID to be used at runtime inside the container.
-  - name: PGID
-    value: '1000'
 
 ports:
   http:

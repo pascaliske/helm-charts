@@ -50,6 +50,14 @@ spec:
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- end }}
+            {{- with .Values.securityContext.runAsUser }}
+            - name: PUID
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.securityContext.runAsGroup }}
+            - name: PGID
+              value: {{ . | quote }}
+            {{- end }}
           volumeMounts:
             - mountPath: /run
               name: tmpfs
