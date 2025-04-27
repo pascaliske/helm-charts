@@ -63,7 +63,6 @@ nav:
       - plausible: charts/plausible.md
       - plausible-exporter: charts/plausible-exporter.md
       - redis: charts/redis.md
-      - snapdrop: charts/snapdrop.md
       - traefik-errors: charts/traefik-errors.md
       - unbound: charts/unbound.md
       - uptime-kuma: charts/uptime-kuma.md

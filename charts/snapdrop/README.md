@@ -1,8 +1,10 @@
 # [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop/)
 
+> **:exclamation: This Helm Chart is deprecated!**
+
 > A Helm chart for snapdrop
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)[![AppVersion: version-724f0af5](https://img.shields.io/badge/AppVersion-version--724f0af5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/snapdrop/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/linuxserver/docker-snapdrop>
@@ -79,12 +81,6 @@ The following values can be used to adjust the helm chart.
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 
-## Maintainers
-
-| Name | Email | Url |
-| ---- | ------ | --- |
-| pascaliske | <info@pascaliske.dev> | <https://pascaliske.dev> |
-
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)

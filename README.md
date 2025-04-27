@@ -50,7 +50,6 @@ helm delete <chart>
 - [`plausible`](https://charts.pascaliske.dev/charts/plausible)
 - [`plausible-exporter`](https://charts.pascaliske.dev/charts/plausible-exporter)
 - [`redis`](https://charts.pascaliske.dev/charts/redis)
-- [`snapdrop`](https://charts.pascaliske.dev/charts/snapdrop)
 - [`traefik-errors`](https://charts.pascaliske.dev/charts/traefik-errors)
 - [`unbound`](https://charts.pascaliske.dev/charts/unbound)
 - [`uptime-kuma`](https://charts.pascaliske.dev/charts/uptime-kuma)

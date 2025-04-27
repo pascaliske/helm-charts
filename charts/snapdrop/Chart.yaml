@@ -3,9 +3,10 @@ apiVersion: v2
 type: application
 name: snapdrop
 description: A Helm chart for snapdrop
-version: 2.0.0
+version: 3.0.0
 # renovate: image=ghcr.io/linuxserver/snapdrop
 appVersion: "version-724f0af5"
+deprecated: true
 
 home: https://charts.pascaliske.dev/charts/snapdrop/
 sources:
@@ -15,10 +16,6 @@ sources:
 keywords:
   - snapdrop
   - airdrop
-maintainers:
-  - name: pascaliske
-    email: info@pascaliske.dev
-    url: https://pascaliske.dev
 
 dependencies:
   - name: base
@@ -28,7 +25,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
-    - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+    - kind: deprecated
+      description: 'Original project snapdrop was acquired by some company that ruined it. Switch to PairDrop instead.'
