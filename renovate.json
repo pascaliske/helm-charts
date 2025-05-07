@@ -1,11 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["pascaliske/renovate-config"],
+  "extends": [
+    "pascaliske/renovate-config"
+  ],
   "customManagers": [
     {
       "customType": "regex",
       "description": "Process app versions in Chart files",
-      "fileMatch": ["(^|/)Chart\\.yaml$"],
+      "managerFilePatterns": [
+        "/(^|/)Chart\\.yaml$/"
+      ],
       "datasourceTemplate": "docker",
       "matchStrings": [
         "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?\\\"?(?<currentValue>[\\w+\\.\\-]*)"
