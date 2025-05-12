@@ -5,7 +5,7 @@
     {
       "customType": "regex",
       "description": "Process app versions in Chart files",
-      "fileMatch": ["(^|/)Chart\\.yaml$"],
+      "managerFilePatterns": ["/(^|/)Chart\\.yaml$/"],
       "datasourceTemplate": "docker",
       "matchStrings": [
         "#\\s?renovate: image=(?<depName>.*?)\\s?appVersion:\\s?\\\"?(?<currentValue>[\\w+\\.\\-]*)"
