@@ -66,6 +66,16 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
+        {{- with .Values.extraContainers }}
+          {{- $extraContainers := list }}
+          {{- range $name, $container := . }}
+            {{- if not $container.name -}}
+              {{- $_ := set $container "name" $name }}
+            {{- end }}
+            {{- $extraContainers = append $extraContainers $container }}
+          {{- end }}
+          {{- tpl (toYaml $extraContainers) $ | nindent 8 }}
+        {{- end }}
       {{- if eq (include "base.persistence.enabled" . ) "true" }}
       {{- if eq (include "base.persistence.type" . ) "volumes" }}
       volumes:

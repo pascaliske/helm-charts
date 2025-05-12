@@ -157,3 +157,9 @@ tolerations: []
   # - key: node-role.kubernetes.io/control-plane
   #   operator: Exists
   #   effect: NoSchedule
+
+# -- Specify any extra containers here as dictionary items - each should have its own key.
+extraContainers: {}
+  # container:
+  #   name: my-container
+  #   image: my-org/my-image

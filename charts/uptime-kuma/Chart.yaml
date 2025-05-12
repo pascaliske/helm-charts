@@ -29,4 +29,4 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: added
-      description: 'Implement support for basic authentication inside service monitor.'
+      description: 'Implement support for extra containers.'
