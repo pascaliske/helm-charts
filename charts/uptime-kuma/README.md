@@ -2,7 +2,7 @@
 
 > A Helm chart for Uptime-Kuma
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.1.0](https://img.shields.io/badge/Version-2.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.16](https://img.shields.io/badge/AppVersion-1.23.16-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.2.0](https://img.shields.io/badge/Version-2.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.16](https://img.shields.io/badge/AppVersion-1.23.16-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>
@@ -39,7 +39,6 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| additionalContainers | object | `{}` | Specify any additional containers here as dictionary items - each should have its own key. |
 | affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
 | certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
@@ -54,6 +53,9 @@ The following values can be used to adjust the helm chart.
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
+| extraVolumeMounts | list | `[]` | Specify extra volume mounts for the default containers. |
+| extraVolumes | list | `[]` | Specify extra volumes for the workload. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"louislam/uptime-kuma"` | The repository to pull the image from. |
