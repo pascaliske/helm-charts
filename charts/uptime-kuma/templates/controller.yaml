@@ -49,10 +49,15 @@ spec:
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- end }}
-          {{- if eq (include "base.persistence.enabled" . ) "true" }}
+          {{- if or (eq (include "base.persistence.enabled" . ) "true") (.Values.extraVolumeMounts) }}
           volumeMounts:
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
             - name: {{ include "base.persistence.suffix" (include "uptime-kuma.fullname" . ) }}
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
+            {{- end }}
+            {{- with .Values.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
           {{- end }}
           livenessProbe:
             httpGet:
@@ -76,9 +81,9 @@ spec:
           {{- end }}
           {{- tpl (toYaml $extraContainers) $ | nindent 8 }}
         {{- end }}
-      {{- if eq (include "base.persistence.enabled" . ) "true" }}
-      {{- if eq (include "base.persistence.type" . ) "volumes" }}
+      {{- if or (and (eq (include "base.persistence.enabled" . ) "true") (eq (include "base.persistence.type" . ) "volumes")) (.Values.extraVolumes) }}
       volumes:
+        {{- if and (eq (include "base.persistence.enabled" . ) "true") (eq (include "base.persistence.type" . ) "volumes") }}
         - name: {{ include "base.persistence.suffix" (include "uptime-kuma.fullname" . ) }}
           persistentVolumeClaim:
             {{- if eq (include "base.persistence.created" . ) "true" }}
@@ -86,7 +91,10 @@ spec:
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
-      {{- end }}
+        {{- end }}
+        {{- with .Values.extraVolumes }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- end }}
       {{- if .Values.securityContext }}
       securityContext:

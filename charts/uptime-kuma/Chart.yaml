@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Uptime-Kuma
-version: 2.1.0
+version: 2.2.0
 # renovate: image=louislam/uptime-kuma
 appVersion: "1.23.16"
 
@@ -30,3 +30,5 @@ annotations:
   artifacthub.io/changes: |
     - kind: added
       description: 'Implement support for extra containers.'
+    - kind: added
+      description: 'Implement support for extra volumes and volume mounts.'
