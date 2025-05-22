@@ -3,9 +3,9 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 2.0.0
-# renovate: image=sissbruecker/linkding
-appVersion: "1.39.1"
+version: 2.1.0
+# renovate: image=ghcr.io/sissbruecker/linkding
+appVersion: "1.40.0"
 
 home: https://charts.pascaliske.dev/charts/linkding/
 sources:
@@ -27,7 +27,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
-    - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+    - kind: changed
+      description: 'Switch to GitHub container registry image.'
