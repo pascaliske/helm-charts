@@ -2,7 +2,7 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.4.0](https://img.shields.io/badge/Version-1.4.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.2.5](https://img.shields.io/badge/AppVersion-7.2.5-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 1.5.0](https://img.shields.io/badge/Version-1.5.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 7.4.3](https://img.shields.io/badge/AppVersion-7.4.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
@@ -99,4 +99,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)

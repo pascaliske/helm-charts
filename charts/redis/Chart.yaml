@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: redis
 description: A Helm chart for Redis
-version: 1.4.0
+version: 1.5.0
 # renovate: image=redis
 appVersion: "7.4.3"
 
@@ -29,4 +29,4 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Make redis exporter security context and resources configurable.'
+      description: 'Update to latest 7.x release of Redis.'
