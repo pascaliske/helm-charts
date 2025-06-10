@@ -29,3 +29,5 @@ annotations:
   artifacthub.io/changes: |
     - kind: added
       description: 'Support changing the update strategy.'
+    - kind: added
+      description: 'Support creating dedicated service account.'
