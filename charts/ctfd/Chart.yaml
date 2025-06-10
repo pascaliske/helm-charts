@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: ctfd
 description: A Helm chart for CTFd
-version: 1.0.0
+version: 1.1.0
 # renovate: image=ghcr.io/ctfd/ctfd
 appVersion: "3.7.7"
 
@@ -29,4 +29,4 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: added
-      description: 'Initial release of CTFd chart.'
+      description: 'Support OCI based chart installation.'

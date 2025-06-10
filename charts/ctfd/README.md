@@ -2,7 +2,7 @@
 
 > A Helm chart for CTFd
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![AppVersion: 3.7.3](https://img.shields.io/badge/AppVersion-3.7.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![AppVersion: 3.7.7](https://img.shields.io/badge/AppVersion-3.7.7-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/ctfd/ctfd>
@@ -112,4 +112,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
