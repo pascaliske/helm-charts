@@ -85,8 +85,11 @@ The following values can be used to adjust the helm chart.
 | securityContext.runAsNonRoot | bool | `true` | Enable validation that the container must run as non-root user |
 | securityContext.runAsUser | int | `1000` | Specify the user ID the application will run as |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
+| service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
+| service.loadBalancerIP | string | `""` | LoadBalancerIP if service type is `LoadBalancer`. |
+| service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |

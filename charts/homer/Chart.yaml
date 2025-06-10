@@ -31,5 +31,7 @@ annotations:
       description: 'Support changing the update strategy.'
     - kind: added
       description: 'Support creating dedicated service account.'
+    - kind: added
+      description: 'Support more values for service configuration.'
     - kind: changed
       description: 'Specify user ids and make filesystem read-only.'
