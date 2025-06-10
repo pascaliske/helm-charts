@@ -27,5 +27,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Ensure image registry is passed to controller.'
+    - kind: added
+      description: 'Support changing the update strategy.'
