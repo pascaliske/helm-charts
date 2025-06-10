@@ -1,8 +1,11 @@
 name: Release Charts
+concurrency: release-charts
 on:
   push:
     branches:
       - main
+    paths:
+      - 'charts/**'
 
 jobs:
   release:
