@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Uptime-Kuma
-version: 2.2.0
+version: 2.3.0
 # renovate: image=louislam/uptime-kuma
 appVersion: "1.23.16"
 
@@ -29,6 +29,4 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: added
-      description: 'Implement support for extra containers.'
-    - kind: added
-      description: 'Implement support for extra volumes and volume mounts.'
+      description: 'Support OCI based chart installation.'
