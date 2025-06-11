@@ -2,7 +2,7 @@
 
 > A Helm chart for Uptime-Kuma
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.3.0](https://img.shields.io/badge/Version-2.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.16](https://img.shields.io/badge/AppVersion-1.23.16-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.4.0](https://img.shields.io/badge/Version-2.4.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.16](https://img.shields.io/badge/AppVersion-1.23.16-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>
@@ -68,6 +68,7 @@ The following values can be used to adjust the helm chart.
 | ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
 | ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
 | nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` | Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` | Access mode of the persistent volume claim object. |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
 | persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
