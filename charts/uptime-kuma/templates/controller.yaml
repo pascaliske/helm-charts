@@ -108,6 +108,10 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
   {{- if eq (include "base.persistence.enabled" . ) "true" }}
   {{- if eq (include "base.persistence.type" . ) "volumeClaimTemplates" }}
   volumeClaimTemplates:
