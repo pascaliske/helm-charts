@@ -9,3 +9,6 @@ docs/charts/*.md
 # helm resources
 charts/**/Chart.lock
 charts/**/charts
+
+# nodejs
+node_modules
