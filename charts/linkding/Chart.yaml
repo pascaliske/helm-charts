@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 2.1.0
+version: 2.2.0
 # renovate: image=ghcr.io/sissbruecker/linkding
 appVersion: "1.41.0"
 
