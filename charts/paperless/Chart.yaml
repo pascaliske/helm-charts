@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 5.1.1
+version: 5.2.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "2.17.1"
 
@@ -33,5 +33,7 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct helper to prevent unnecessary PVC creation.'
+    - kind: changed
+      description: 'Bump Paperless-ngx to v2.17.1.'
+    - kind: changed
+      description: 'Bump Redis subchart to v2 containing Redis v8.'

@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 5.1.1](https://img.shields.io/badge/Version-5.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 2.9.0](https://img.shields.io/badge/AppVersion-2.9.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 5.2.0](https://img.shields.io/badge/Version-5.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 2.17.1](https://img.shields.io/badge/AppVersion-2.17.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
@@ -146,4 +146,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
