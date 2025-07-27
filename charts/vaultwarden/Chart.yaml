@@ -5,7 +5,7 @@ name: vaultwarden
 description: A Helm chart for Vaultwarden
 version: 1.3.0
 # renovate: image=ghcr.io/dani-garcia/vaultwarden
-appVersion: "1.34.1"
+appVersion: "1.34.2"
 
 home: https://charts.pascaliske.dev/charts/vaultwarden/
 sources:
