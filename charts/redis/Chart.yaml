@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: redis
 description: A Helm chart for Redis
-version: 2.0.0
+version: 2.1.0
 # renovate: image=redis
 appVersion: "8.0.3"
 
