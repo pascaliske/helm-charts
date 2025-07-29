@@ -165,6 +165,12 @@ tolerations: []
 nodeSelector: {}
   # label: value
 
+# -- Specify any extra containers here as dictionary items - each should have its own key.
+extraContainers: {}
+  # container:
+  #   name: my-container
+  #   image: my-org/my-image
+
 # -- Specify extra volume mounts for the default containers.
 extraVolumeMounts: []
   # - name: my-volume

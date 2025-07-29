@@ -32,3 +32,5 @@ annotations:
       description: 'Support affinity, tolerations and node selector fields.'
     - kind: added
       description: 'Support extra volumes and extra volume mounts.'
+    - kind: added
+      description: 'Support extra containers.'
