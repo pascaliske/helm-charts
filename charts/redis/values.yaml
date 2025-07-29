@@ -7,6 +7,9 @@ image:
   # -- The pull policy for the controller.
   pullPolicy: IfNotPresent
 
+# -- Optionally supply image pull secrets.
+imagePullSecrets: []
+
 nameOverride: ''
 fullnameOverride: ''
 
