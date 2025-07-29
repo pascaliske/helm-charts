@@ -2,7 +2,7 @@
 
 > A Helm chart for Redis
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 8.0.1](https://img.shields.io/badge/AppVersion-8.0.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)[![AppVersion: 8.0.3](https://img.shields.io/badge/AppVersion-8.0.3-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/redis/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/docker-library/redis>
@@ -41,6 +41,7 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"StatefulSet"` | Type of the workload object. |
@@ -53,6 +54,7 @@ The following values can be used to adjust the helm chart.
 | image.repository | string | `"redis"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` | Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` | Access mode of the persistent volume claim object. |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
 | persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
@@ -90,6 +92,7 @@ The following values can be used to adjust the helm chart.
 | serviceMonitor.interval | string | `"30s"` | How frequently the exporter should be scraped. |
 | serviceMonitor.labels | object | `{}` | Additional labels for the service monitor object. |
 | serviceMonitor.timeout | string | `"10s"` | Timeout value for individual scrapes. |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 
