@@ -49,6 +49,8 @@ The following values can be used to adjust the helm chart.
 | controller.replicas | int | `1` | The number of replicas. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraArgs | list | `[]` | List of extra arguments for the container. |
+| extraVolumeMounts | list | `[]` | Specify extra volume mounts for the default containers. |
+| extraVolumes | list | `[]` | Specify extra volumes for the workload. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.repository | string | `"redis"` | The repository to pull the image from. |
