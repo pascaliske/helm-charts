@@ -20,8 +20,8 @@
   },
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
-    "@commitlint/cli": "^19.0.0",
-    "@commitlint/config-conventional": "^19.0.0",
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "husky": "^9.0.0",
     "lint-staged": "^16.0.0"
   }
