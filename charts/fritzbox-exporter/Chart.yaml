@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: fritzbox-exporter
 description: A Helm chart for fritzbox-exporter
-version: 2.0.3
+version: 2.1.0
 # renovate: image=sealife/fritzbox-exporter
 appVersion: "1.0"
 
@@ -29,5 +29,13 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove values schema due to issues with flux variable substitution.'
+    - kind: added
+      description: 'Support service account creation.'
+    - kind: added
+      description: 'Support specifying the update strategy of the controller.'
+    - kind: added
+      description: 'Support specifying more service values.'
+    - kind: added
+      description: 'Support tolerations and affinity blocks.'
+    - kind: added
+      description: 'Support different image registries.'
