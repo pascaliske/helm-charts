@@ -28,7 +28,7 @@ jobs:
       - uses: azure/setup-helm@v3.5
 
       # setup chart testing
-      - uses: helm/chart-testing-action@v2.7.0
+      - uses: helm/chart-testing-action@v2.8.0
 
       # check if charts changed
       - name: Check if charts changed
