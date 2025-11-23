@@ -49,7 +49,8 @@ The following values can be used to adjust the helm chart.
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
-| image.repository | string | `"ghcr.io/riesinger/plausible-exporter"` | The repository to pull the image from. |
+| image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
+| image.repository | string | `"riesinger/plausible-exporter"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | ports.metrics.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
