@@ -29,6 +29,12 @@ service:
   enabled: true
   # -- The service type used.
   type: ClusterIP
+  # -- ClusterIP used if service type is `ClusterIP`.
+  clusterIP: ''
+  # -- LoadBalancerIP if service type is `LoadBalancer`.
+  loadBalancerIP: ''
+  # -- Allowed addresses when service type is `LoadBalancer`.
+  loadBalancerSourceRanges: []
   # -- Additional annotations for the service object.
   annotations: {}
   # -- Additional labels for the service object.
@@ -57,6 +63,8 @@ ports:
     enabled: true
     # -- The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`.
     port: 8765
+    # -- The external port used if `.service.type` == `NodePort`.
+    nodePort: null
     # -- The protocol used for the service.
     protocol: TCP
 

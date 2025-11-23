@@ -52,12 +52,16 @@ The following values can be used to adjust the helm chart.
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | ports.metrics.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
+| ports.metrics.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.metrics.port | int | `8765` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.metrics.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
+| service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
+| service.loadBalancerIP | string | `""` | LoadBalancerIP if service type is `LoadBalancer`. |
+| service.loadBalancerSourceRanges | list | `[]` | Allowed addresses when service type is `LoadBalancer`. |
 | service.type | string | `"ClusterIP"` | The service type used. |
 | serviceAccount.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
