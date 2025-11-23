@@ -5,7 +5,7 @@ name: ctfd
 description: A Helm chart for CTFd
 version: 1.1.0
 # renovate: image=ghcr.io/ctfd/ctfd
-appVersion: "3.8.0"
+appVersion: "3.8.1"
 
 home: https://charts.pascaliske.dev/charts/ctfd/
 sources:
