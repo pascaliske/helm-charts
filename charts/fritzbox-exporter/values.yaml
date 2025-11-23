@@ -1,4 +1,6 @@
 image:
+  # -- The registry to pull the image from.
+  registry: docker.io
   # -- The repository to pull the image from.
   repository: sealife/fritzbox-exporter
   # -- The docker tag, if left empty chart's appVersion will be used.
