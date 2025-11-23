@@ -2,7 +2,7 @@
 
 > A Helm chart for plausible-exporter
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible-exporter/)[![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible-exporter/)[![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible-exporter/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible-exporter/)[![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible-exporter/)[![AppVersion: 1.1.0](https://img.shields.io/badge/AppVersion-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/plausible-exporter/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/riesinger/plausible-exporter>
