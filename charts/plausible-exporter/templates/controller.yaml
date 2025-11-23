@@ -1,6 +1,6 @@
 {{- if .Values.controller.enabled -}}
 apiVersion: apps/v1
-kind: {{ include "base.controller.kind" . }}
+kind: Deployment
 metadata:
   name: {{ include "plausible-exporter.fullname" . }}
   labels:
@@ -15,9 +15,6 @@ metadata:
 spec:
   {{- if .Values.controller.replicas }}
   replicas: {{ .Values.controller.replicas }}
-  {{- end }}
-  {{- if eq (include "base.controller.kind" . ) "StatefulSet" }}
-  serviceName: {{ include "plausible-exporter.fullname" . }}-headless
   {{- end }}
   selector:
     matchLabels:
