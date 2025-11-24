@@ -5,7 +5,7 @@ name: uptime-kuma
 description: A Helm chart for Uptime-Kuma
 version: 2.4.0
 # renovate: image=louislam/uptime-kuma
-appVersion: "1.23.16"
+appVersion: "1.23.17"
 
 home: https://charts.pascaliske.dev/charts/uptime-kuma/
 sources:
