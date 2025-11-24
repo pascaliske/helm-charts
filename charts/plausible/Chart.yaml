@@ -5,7 +5,7 @@ name: plausible
 description: A Helm chart for Plausible Community Edition
 version: 2.0.0
 # renovate: image=ghcr.io/plausible/community-edition
-appVersion: "v3.0.1"
+appVersion: "v3.1.0"
 
 home: https://charts.pascaliske.dev/charts/plausible/
 sources:
