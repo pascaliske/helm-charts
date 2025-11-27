@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: hammond
 description: A Helm chart for hammond
-version: 1.0.0
+version: 1.1.0
 # renovate: image=ghcr.io/alfhou/hammond
 appVersion: "v0.0.24"
 
@@ -28,7 +28,7 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
     - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+      description: 'Support service account creation.'
+    - kind: added
+      description: 'Support different image registries.'
