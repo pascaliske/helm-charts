@@ -49,9 +49,15 @@ spec:
                 {{- if .Values.resources }}
                 {{- toYaml .Values.resources | nindent 16 }}
                 {{- end }}
+              securityContext:
+                readOnlyRootFilesystem: true
           {{- with .Values.cronJob.nameservers }}
           dnsConfig:
             nameservers:
               {{- toYaml . | nindent 14 }}
+          {{- end }}
+          {{- if .Values.securityContext }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
 {{- end -}}

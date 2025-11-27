@@ -61,6 +61,7 @@ The following values can be used to adjust the helm chart.
 | secret.existingSecret | string | `""` | Use an existing secret to store the token. |
 | secret.labels | object | `{}` | Additional labels for the secret object. |
 | secret.token | string | `""` | Token used when not using an existing secret. |
+| securityContext | object | `{"fsGroup":911,"runAsGroup":911,"runAsNonRoot":true,"runAsUser":911}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | serviceAccount.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
 | serviceAccount.labels | object | `{}` | Additional labels for the role and role binding objects. |

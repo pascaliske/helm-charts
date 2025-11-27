@@ -64,6 +64,13 @@ serviceAccount:
   # -- Additional labels for the role and role binding objects.
   labels: {}
 
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
+securityContext:
+  fsGroup: 911
+  runAsNonRoot: true
+  runAsGroup: 911
+  runAsUser: 911
+
 # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # requests:
