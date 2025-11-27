@@ -19,6 +19,10 @@ spec:
   selector:
     matchLabels:
       {{- include "hammond.selectorLabels" . | nindent 6 }}
+  {{- with .Values.controller.updateStrategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
   template:
     metadata:
       {{- with .Values.controller.annotations }}
