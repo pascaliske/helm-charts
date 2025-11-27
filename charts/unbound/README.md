@@ -52,7 +52,8 @@ The following values can be used to adjust the helm chart.
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
-| image.repository | string | `"ghcr.io/pascaliske/unbound"` | The repository to pull the image from. |
+| image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
+| image.repository | string | `"pascaliske/unbound"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
