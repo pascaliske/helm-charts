@@ -39,6 +39,7 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
 | cronJob.enabled | bool | `true` | Create a cron job to update the DNS zone. |
 | cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
@@ -66,6 +67,7 @@ The following values can be used to adjust the helm chart.
 | serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
 | serviceAccount.labels | object | `{}` | Additional labels for the role and role binding objects. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
+| tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
 ## Maintainers
 
