@@ -23,6 +23,12 @@ spec:
   selector:
     matchLabels:
       {{- include "linkding.selectorLabels" . | nindent 6 }}
+  {{- if eq (include "base.controller.kind" . ) "Deployment" }}
+  {{- with .Values.controller.updateStrategy }}
+  strategy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- end }}
   template:
     metadata:
       {{- with .Values.controller.annotations }}
