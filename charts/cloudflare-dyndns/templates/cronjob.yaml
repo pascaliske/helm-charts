@@ -28,6 +28,7 @@ spec:
       template:
         spec:
           restartPolicy: Never
+          serviceAccountName: {{ include "cloudflare-dyndns.serviceAccountName" . }}
           containers:
             - name: {{ template "cloudflare-dyndns.name" . }}
               image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

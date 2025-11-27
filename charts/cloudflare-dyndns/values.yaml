@@ -54,6 +54,16 @@ secret:
   # -- Additional labels for the secret object.
   labels: {}
 
+serviceAccount:
+  # -- Create a `ServiceAccount` object.
+  create: true
+  # -- Specify the service account used for the controller.
+  name: ''
+  # -- Additional annotations for the role and role binding objects.
+  annotations: {}
+  # -- Additional labels for the role and role binding objects.
+  labels: {}
+
 # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}
   # requests:
