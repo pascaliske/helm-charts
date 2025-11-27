@@ -63,6 +63,9 @@ The following values can be used to adjust the helm chart.
 | service.dns.port | int | `5053` | The service port used. |
 | service.dns.single | bool | `true` | Combine TCP and UDP endpoints in a single service. |
 | service.dns.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
+| serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
+| serviceAccount.labels | object | `{}` | Additional labels for the role and role binding objects. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
@@ -74,4 +77,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
