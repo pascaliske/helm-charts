@@ -2,7 +2,7 @@
 
 > A Helm chart for a CronJob based Cloudflare DynDNS client.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)[![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)[![AppVersion: 0.1.1](https://img.shields.io/badge/AppVersion-0.1.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)[![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)[![AppVersion: 0.2.0](https://img.shields.io/badge/AppVersion-0.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/pascaliske/docker-cloudflare-dyndns>
