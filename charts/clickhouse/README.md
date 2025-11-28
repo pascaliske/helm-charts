@@ -2,7 +2,7 @@
 
 > A Helm chart for ClickHouse
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![AppVersion: 24.12.6.70-alpine](https://img.shields.io/badge/AppVersion-24.12.6.70--alpine-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)[![AppVersion: 24.12.6.70-alpine](https://img.shields.io/badge/AppVersion-24.12.6.70--alpine-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/clickhouse/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/clickhouse/clickhouse>
