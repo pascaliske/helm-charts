@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 2.2.0
+version: 2.3.0
 # renovate: image=ghcr.io/sissbruecker/linkding
 appVersion: "1.44.1"
 
@@ -27,5 +27,11 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Switch to GitHub container registry image.'
+    - kind: added
+      description: 'Support service account creation.'
+    - kind: added
+      description: 'Support specifying the update strategy of the controller.'
+    - kind: added
+      description: 'Support specifying more service values.'
+    - kind: added
+      description: 'Support different image registries.'
