@@ -19,6 +19,8 @@ controller:
   kind: StatefulSet
   # -- The number of replicas.
   replicas: 1
+  # -- The controller update strategy. Currently only applies to controllers of kind `Deployment`.
+  updateStrategy: {}
   # -- Additional annotations for the controller object.
   annotations: {}
   # -- Additional labels for the controller object.

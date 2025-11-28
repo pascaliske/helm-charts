@@ -52,6 +52,7 @@ The following values can be used to adjust the helm chart.
 | controller.kind | string | `"StatefulSet"` | Type of the workload object. |
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
+| controller.updateStrategy | object | `{}` | The controller update strategy. Currently only applies to controllers of kind `Deployment`. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraArgs | list | `[]` | List of extra arguments for the container. |
 | fullnameOverride | string | `""` |  |
