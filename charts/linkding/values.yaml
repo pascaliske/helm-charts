@@ -106,8 +106,14 @@ persistentVolumeClaim:
   labels: {}
 
 serviceAccount:
+  # -- Create a `ServiceAccount` object.
+  create: true
   # -- Specify the service account used for the controller.
   name: ''
+  # -- Additional annotations for the role and role binding objects.
+  annotations: {}
+  # -- Additional labels for the role and role binding objects.
+  labels: {}
 
 # -- Specify any additional containers here as dictionary items - each should have it's own key.
 additionalContainers: {}
