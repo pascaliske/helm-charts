@@ -141,6 +141,12 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+# -- Optional pod-level dns configuration. More info [here](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config).
+dnsConfig: {}
+  # nameservers:
+  #   - 1.2.3.4
+  #   - 4.3.2.1
+
 # -- Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
 affinity: {}
   # nodeAffinity:
