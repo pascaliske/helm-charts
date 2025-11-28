@@ -79,7 +79,7 @@ The following values can be used to adjust the helm chart.
 | ports.rpc.port | int | `9000` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.rpc.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
-| securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| securityContext | object | `{"fsGroup":101,"runAsGroup":101,"runAsNonRoot":true,"runAsUser":101}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
