@@ -2,7 +2,7 @@
 
 > A Helm chart for Uptime-Kuma
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.5.0](https://img.shields.io/badge/Version-2.5.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.17](https://img.shields.io/badge/AppVersion-1.23.17-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![Version: 2.6.0](https://img.shields.io/badge/Version-2.6.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)[![AppVersion: 1.23.17](https://img.shields.io/badge/AppVersion-1.23.17-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/uptime-kuma/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/louislam/uptime-kuma>
@@ -55,6 +55,7 @@ The following values can be used to adjust the helm chart.
 | dnsConfig | object | `{}` | Optional pod-level dns configuration. More info [here](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config). |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
+| extraObjects | list | `[]` | Specify extra objects. |
 | extraVolumeMounts | list | `[]` | Specify extra volume mounts for the default containers. |
 | extraVolumes | list | `[]` | Specify extra volumes for the workload. |
 | fullnameOverride | string | `""` |  |

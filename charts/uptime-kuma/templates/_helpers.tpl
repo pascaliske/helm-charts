@@ -100,3 +100,14 @@ IngressRoute TLS secret name
 {{- include "uptime-kuma.certificate.name" . }}
 {{- end }}
 {{- end }}
+
+{{/*
+Renders a complete tree, even values that contains template.
+*/}}
+{{- define "uptime-kuma.render" -}}
+  {{- if typeIs "string" .value }}
+    {{- tpl .value .context }}
+  {{ else }}
+    {{- tpl (.value | toYaml) .context }}
+  {{- end }}
+{{- end -}}

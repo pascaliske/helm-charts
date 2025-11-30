@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Uptime-Kuma
-version: 2.5.0
+version: 2.6.0
 # renovate: image=louislam/uptime-kuma
 appVersion: "1.23.17"
 
@@ -29,4 +29,4 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: added
-      description: 'Support configuring dns settings for the pod.'
+      description: 'Support deploying extra objects through the chart.'
