@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 5.0.0](https://img.shields.io/badge/Version-5.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.23.0](https://img.shields.io/badge/AppVersion-0.23.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![Version: 5.0.0](https://img.shields.io/badge/Version-5.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)[![AppVersion: 0.24.6](https://img.shields.io/badge/AppVersion-0.24.6-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vikunja/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://code.vikunja.io>
@@ -56,6 +56,7 @@ The following values can be used to adjust the helm chart.
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
+| image.registry | string | `"docker.io"` | The registry to pull the image from. |
 | image.repository | string | `"vikunja/vikunja"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
@@ -101,4 +102,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
