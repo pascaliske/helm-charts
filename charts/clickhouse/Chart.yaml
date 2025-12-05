@@ -35,4 +35,3 @@ annotations:
       description: 'Support specifying the update strategy of the controller.'
     - kind: added
       description: 'Support different image registries.'
-    - kind: added
