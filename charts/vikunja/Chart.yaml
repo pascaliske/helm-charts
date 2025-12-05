@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vikunja
 description: A Helm chart for Kubernetes
-version: 5.0.0
+version: 5.1.0
 # renovate: image=vikunja/vikunja
 appVersion: "0.24.6"
 
@@ -28,5 +28,11 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: changed
-      description: 'Switch to new combined vikunja image.'
+    - kind: added
+      description: 'Support service account creation.'
+    - kind: added
+      description: 'Support specifying more service values.'
+    - kind: added
+      description: 'Support specifying the update strategy of the controller.'
+    - kind: added
+      description: 'Support different image registries.'
