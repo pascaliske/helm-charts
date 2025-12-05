@@ -118,8 +118,14 @@ persistentVolumeClaim:
   labels: {}
 
 serviceAccount:
+  # -- Create a `ServiceAccount` object.
+  create: true
   # -- Specify the service account used for the controller.
   name: ''
+  # -- Additional annotations for the service account object.
+  annotations: {}
+  # -- Additional labels for the service account object.
+  labels: {}
 
 # -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
