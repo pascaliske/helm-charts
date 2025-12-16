@@ -52,6 +52,7 @@ The following values can be used to adjust the helm chart.
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
+| controller.updateStrategy | object | `{}` | The controller update strategy. Currently only applies to controllers of kind `Deployment`. |
 | dnsConfig | object | `{}` | Optional pod-level dns configuration. More info [here](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-dns-config). |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
