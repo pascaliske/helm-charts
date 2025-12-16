@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: A Helm chart for Uptime-Kuma
-version: 2.6.0
+version: 3.0.0
 # renovate: image=louislam/uptime-kuma
 appVersion: "2.0.2"
 
@@ -28,5 +28,17 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
+    - kind: changed
+      description: 'Breaking: Major upgrade to v2 of Uptime-Kuma.'
     - kind: added
-      description: 'Support deploying extra objects through the chart.'
+      description: 'Support different image registries.'
+    - kind: added
+      description: 'Support different image flavors with corresponding security context.'
+    - kind: added
+      description: 'Support environment values using value from syntax.'
+    - kind: added
+      description: 'Support service account creation.'
+    - kind: added
+      description: 'Support specifying more service values.'
+    - kind: added
+      description: 'Support specifying the update strategy of the controller.'
