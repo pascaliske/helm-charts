@@ -91,6 +91,9 @@ The following values can be used to adjust the helm chart.
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |
 | service.type | string | `"ClusterIP"` | The service type used. |
+| serviceAccount.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
+| serviceAccount.create | bool | `true` | Create a `ServiceAccount` object. |
+| serviceAccount.labels | object | `{}` | Additional labels for the role and role binding objects. |
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | serviceMonitor.annotations | object | `{}` | Additional annotations for the service monitor object. |
 | serviceMonitor.basicAuth | object | `{"passwordKey":"password","secretName":null,"usernameKey":"username"}` | Optional basic authentication for the monitoring endpoint. |
