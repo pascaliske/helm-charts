@@ -51,6 +51,15 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
+Image tag
+*/}}
+{{- define "uptime-kuma.imageFlavor" -}}
+{{- if .Values.image.flavor }}
+{{- printf "-%s" .Values.image.flavor }}
+{{- end }}
+{{- end }}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "uptime-kuma.serviceAccountName" -}}

@@ -59,6 +59,7 @@ The following values can be used to adjust the helm chart.
 | extraVolumeMounts | list | `[]` | Specify extra volume mounts for the default containers. |
 | extraVolumes | list | `[]` | Specify extra volumes for the workload. |
 | fullnameOverride | string | `""` |  |
+| image.flavor | string | `"slim-rootless"` | The image flavor. More info [here](https://github.com/louislam/uptime-kuma/wiki/Docker-Tags). |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.registry | string | `"docker.io"` | The registry to pull the image from. |
 | image.repository | string | `"louislam/uptime-kuma"` | The repository to pull the image from. |
@@ -86,7 +87,6 @@ The following values can be used to adjust the helm chart.
 | ports.http.port | int | `3001` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
-| securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
 | service.labels | object | `{}` | Additional labels for the service object. |

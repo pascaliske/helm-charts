@@ -6,6 +6,8 @@ image:
   # -- The docker tag, if left empty chart's appVersion will be used.
   # @default -- `.Chart.AppVersion`
   tag: ''
+  # -- The image flavor. More info [here](https://github.com/louislam/uptime-kuma/wiki/Docker-Tags).
+  flavor: slim-rootless
   # -- The pull policy for the controller.
   pullPolicy: IfNotPresent
 
@@ -126,13 +128,6 @@ persistentVolumeClaim:
 serviceAccount:
   # -- Specify the service account used for the controller.
   name: ''
-
-# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
-securityContext: {}
-  # fsGroup: 1000
-  # runAsNonRoot: true
-  # runAsGroup: 1000
-  # runAsUser: 1000
 
 # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}

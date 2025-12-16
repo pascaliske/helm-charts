@@ -34,7 +34,7 @@ spec:
       serviceAccountName: {{ include "uptime-kuma.serviceAccountName" . }}
       containers:
         - name: {{ template "uptime-kuma.name" . }}
-          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}{{ include "uptime-kuma.imageFlavor" . }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             {{- range $key, $val := .Values.ports }}
@@ -96,9 +96,12 @@ spec:
           {{- toYaml . | nindent 8 }}
         {{- end }}
       {{- end }}
-      {{- if .Values.securityContext }}
+      {{- if contains "rootless" .Values.image.flavor }}
       securityContext:
-        {{- toYaml .Values.securityContext | nindent 8 }}
+        fsGroup: 1000
+        runAsNonRoot: true
+        runAsGroup: 1000
+        runAsUser: 1000
       {{- end }}
       {{- with .Values.dnsConfig }}
       dnsConfig:
