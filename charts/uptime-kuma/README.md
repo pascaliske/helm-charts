@@ -60,6 +60,7 @@ The following values can be used to adjust the helm chart.
 | extraVolumes | list | `[]` | Specify extra volumes for the workload. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
+| image.registry | string | `"docker.io"` | The registry to pull the image from. |
 | image.repository | string | `"louislam/uptime-kuma"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
