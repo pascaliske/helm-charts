@@ -280,6 +280,18 @@ extraContainers: {}
   #   name: my-container
   #   image: my-org/my-image
 
+# -- Specify extra volume mounts for the default containers.
+extraVolumeMounts: []
+  # - name: my-volume
+  #   mountPath: /path/to/volume
+  #   readOnly: false
+
+# -- Specify extra volumes for the workload.
+extraVolumes: []
+  # - name: my-volume
+  #   secret:
+  #     secretName: my-secret
+
 # -- Configure `redis` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/redis/).
 redis:
   # -- Enable `redis` subchart.
