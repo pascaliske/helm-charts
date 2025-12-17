@@ -78,6 +78,7 @@ The following values can be used to adjust the helm chart.
 | export.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
 | export.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
 | export.type | string | `"hostPath"` | Type of the target volume for the export directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
+| extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
