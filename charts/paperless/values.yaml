@@ -31,6 +31,12 @@ service:
   enabled: true
   # -- The service type used.
   type: ClusterIP
+  # -- ClusterIP used if service type is `ClusterIP`.
+  clusterIP: ''
+  # -- LoadBalancerIP if service type is `LoadBalancer`.
+  loadBalancerIP: ''
+  # -- Allowed addresses when service type is `LoadBalancer`.
+  loadBalancerSourceRanges: []
   # -- Additional annotations for the service object.
   annotations: {}
   # -- Additional labels for the service object.
