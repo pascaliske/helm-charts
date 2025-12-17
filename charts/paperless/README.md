@@ -2,7 +2,7 @@
 
 > A Helm chart for paperless-ngx
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 5.2.0](https://img.shields.io/badge/Version-5.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 2.20.1](https://img.shields.io/badge/AppVersion-2.20.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)[![AppVersion: 2.20.2](https://img.shields.io/badge/AppVersion-2.20.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/paperless/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/paperless-ngx/paperless-ngx>
