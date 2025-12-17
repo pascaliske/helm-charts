@@ -79,7 +79,8 @@ The following values can be used to adjust the helm chart.
 | export.type | string | `"hostPath"` | Type of the target volume for the export directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
-| image.repository | string | `"ghcr.io/paperless-ngx/paperless-ngx"` | The repository to pull the image from. |
+| image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
+| image.repository | string | `"paperless-ngx/paperless-ngx"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
