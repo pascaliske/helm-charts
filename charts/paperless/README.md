@@ -60,6 +60,7 @@ The following values can be used to adjust the helm chart.
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
+| controller.updateStrategy | object | `{}` | The controller update strategy. Currently only applies to controllers of kind `Deployment`. |
 | env | list | `[{"name":"TZ","value":"UTC"}]` | Allow passing in environment variables to the container - supported are both `value` and `valueFrom`. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | export.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
