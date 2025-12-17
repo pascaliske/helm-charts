@@ -104,6 +104,14 @@ spec:
             - name: PAPERLESS_PORT
               value: {{ quote .Values.ports.http.port }}
             {{- end }}
+            {{- with .Values.securityContext.runAsUser }}
+            - name: USERMAP_UID
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.securityContext.runAsGroup }}
+            - name: USERMAP_GID
+              value: {{ . | quote }}
+            {{- end }}
           volumeMounts:
             - name: storage-volume
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/data
