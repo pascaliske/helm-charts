@@ -99,6 +99,7 @@ The following values can be used to adjust the helm chart.
 | media.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the media directory. Only used if type equals `pvc`. |
 | media.type | string | `"hostPath"` | Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` | Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` | Access mode of the persistent volume claim object. |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
 | persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |

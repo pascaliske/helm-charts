@@ -270,6 +270,10 @@ tolerations: []
   #   operator: Exists
   #   effect: NoSchedule
 
+# -- Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
+nodeSelector: {}
+  # label: value
+
 # -- Configure `redis` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/redis/).
 redis:
   # -- Enable `redis` subchart.
