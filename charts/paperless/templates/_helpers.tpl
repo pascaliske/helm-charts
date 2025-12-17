@@ -187,3 +187,14 @@ IngressRoute TLS secret name
 {{- include "paperless.certificate.name" . }}
 {{- end }}
 {{- end }}
+
+{{/*
+Renders a complete tree, even values that contains template.
+*/}}
+{{- define "paperless.render" -}}
+  {{- if typeIs "string" .value }}
+    {{- tpl .value .context }}
+  {{ else }}
+    {{- tpl (.value | toYaml) .context }}
+  {{- end }}
+{{- end -}}

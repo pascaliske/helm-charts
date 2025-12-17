@@ -292,6 +292,9 @@ extraVolumes: []
   #   secret:
   #     secretName: my-secret
 
+# -- Specify extra objects.
+extraObjects: []
+
 # -- Configure `redis` subchart under this key. More info [here](https://charts.pascaliske.dev/charts/redis/).
 redis:
   # -- Enable `redis` subchart.
