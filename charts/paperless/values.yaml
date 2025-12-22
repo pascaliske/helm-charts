@@ -132,24 +132,6 @@ persistentVolumeClaim:
   # -- Additional labels for the persistent volume claim object.
   labels: {}
 
-consumption:
-  # -- Enable the volume mount of a [consumption directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
-  enabled: true
-  # -- Type of the target volume for the consumption directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`.
-  type: hostPath
-  # -- Mount path of the consumption directory inside the container.
-  mountPath: /consumption
-  # -- Host path volume for the consumption directory. Only used if type equals `hostPath`.
-  hostPath: {}
-  # -- PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`.
-  persistentVolumeClaim: {}
-  # -- CSI storage volume for the consumption directory. Only used if type equals `csi`.
-  csi: {}
-  # -- NFS storage volume for the consumption directory. Only used if type equals `nfs`.
-  nfs: {}
-  # -- Temporary emptyDir volume for the consumption directory. Only used if type equals `emptyDir` or is unknown.
-  emptyDir: {}
-
 media:
   # -- Enable the volume mount of a [media directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
   enabled: false
@@ -166,6 +148,24 @@ media:
   # -- NFS storage volume for the media directory. Only used if type equals `nfs`.
   nfs: {}
   # -- Temporary emptyDir volume for the media directory. Only used if type equals `emptyDir` or is unknown.
+  emptyDir: {}
+
+consumption:
+  # -- Enable the volume mount of a [consumption directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
+  enabled: true
+  # -- Type of the target volume for the consumption directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`.
+  type: emptyDir
+  # -- Mount path of the consumption directory inside the container.
+  mountPath: /consumption
+  # -- Host path volume for the consumption directory. Only used if type equals `hostPath`.
+  hostPath: {}
+  # -- PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`.
+  persistentVolumeClaim: {}
+  # -- CSI storage volume for the consumption directory. Only used if type equals `csi`.
+  csi: {}
+  # -- NFS storage volume for the consumption directory. Only used if type equals `nfs`.
+  nfs: {}
+  # -- Temporary emptyDir volume for the consumption directory. Only used if type equals `emptyDir` or is unknown.
   emptyDir: {}
 
 export:

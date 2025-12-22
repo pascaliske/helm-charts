@@ -54,7 +54,7 @@ The following values can be used to adjust the helm chart.
 | consumption.mountPath | string | `"/consumption"` | Mount path of the consumption directory inside the container. |
 | consumption.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
 | consumption.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
-| consumption.type | string | `"hostPath"` | Type of the target volume for the consumption directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
+| consumption.type | string | `"emptyDir"` | Type of the target volume for the consumption directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | controller.annotations | object | `{}` | Additional annotations for the controller object. |
 | controller.enabled | bool | `true` | Create a workload for this chart. |
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
