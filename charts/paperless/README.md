@@ -149,7 +149,7 @@ The following values can be used to adjust the helm chart.
 | trash.mountPath | string | `"/trash"` | Mount path of the trash directory inside the container. |
 | trash.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
 | trash.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
-| trash.type | string | `"hostPath"` | Type of the target volume for the trash directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
+| trash.type | string | `"emptyDir"` | Type of the target volume for the trash directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 
 ## Maintainers
 

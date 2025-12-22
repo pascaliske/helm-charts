@@ -205,7 +205,7 @@ trash:
   # -- Enable the volume mount of a [trash directory](https://docs.paperless-ngx.com/configuration/#paths-and-folders).
   enabled: false
   # -- Type of the target volume for the trash directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`.
-  type: hostPath
+  type: emptyDir
   # -- Mount path of the trash directory inside the container.
   mountPath: /trash
   # -- Host path volume for the consumption directory. Only used if type equals `hostPath`.

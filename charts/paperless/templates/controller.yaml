@@ -82,7 +82,7 @@ spec:
               value: {{ include "paperless.export.mountPath" . }}
             {{- end }}
             {{- if eq (include "paperless.trash.enabled" .) "true" }}
-            - name: PAPERLESS_TRASH_DIR
+            - name: PAPERLESS_EMPTY_TRASH_DIR
               value: {{ include "paperless.trash.mountPath" . }}
             {{- end }}
             {{- if .Values.redis.enabled }}
