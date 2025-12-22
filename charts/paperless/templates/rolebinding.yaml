@@ -1,8 +1,9 @@
 {{- if .Values.rbac.create -}}
+{{- if and .Values.export.cronJob.enabled .Values.export.cronJob.schedule -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ include "paperless.fullname" . }}
+  name: {{ printf "%s-export" (include "paperless.fullname" . ) }}
   labels:
     {{- include "paperless.labels" . | nindent 4 }}
     {{- with .Values.rbac.labels }}
@@ -15,9 +16,10 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ include "paperless.fullname" . }}
+  name: {{ printf "%s-export" (include "paperless.fullname" . ) }}
 subjects:
   - kind: ServiceAccount
     name: {{ include "paperless.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}
-{{- end -}}
+{{- end }}
+{{- end }}
