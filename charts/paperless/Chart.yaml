@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: paperless
 description: A Helm chart for paperless-ngx
-version: 6.0.0
+version: 7.0.0
 # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
 appVersion: "2.20.2"
 
@@ -34,22 +34,12 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Bump Paperless-ngx to v2.20.2.'
+      description: 'Switch to empty dir as default type for consumption feature.'
     - kind: changed
-      description: 'Improve default workload security.'
-    - kind: added
-      description: 'Support different image registries.'
-    - kind: added
-      description: 'Support specifying the update strategy of the controller.'
-    - kind: added
-      description: 'Support service account creation.'
-    - kind: added
-      description: 'Support specifying more service values.'
-    - kind: added
-      description: 'Support custom node selector block.'
-    - kind: added
-      description: 'Support specifying extra containers.'
-    - kind: added
-      description: 'Support specifying extra volumes and volume mounts.'
-    - kind: added
-      description: 'Support creation of extra templated objects.'
+      description: 'Switch to disabled empty dir as default type for export feature.'
+    - kind: changed
+      description: 'Switch to disabled empty dir as default type for trash feature.'
+    - kind: changed
+      description: 'Switch to disabled empty dir as default type for media feature.'
+    - kind: changed
+      description: 'Create export rbac objects only if export cronjob is enabled.'
