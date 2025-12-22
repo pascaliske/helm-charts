@@ -170,9 +170,9 @@ consumption:
 
 export:
   # -- Enable the volume mount of an export directory for [backups](https://docs.paperless-ngx.com/administration/#backup) using the [document exporter](https://docs.paperless-ngx.com/administration/#exporter).
-  enabled: true
+  enabled: false
   # -- Type of the target volume for the export directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`.
-  type: hostPath
+  type: emptyDir
   # -- Mount path of the export directory inside the container.
   mountPath: /export
   # -- Host path volume for the consumption directory. Only used if type equals `hostPath`.

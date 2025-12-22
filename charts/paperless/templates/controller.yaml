@@ -77,6 +77,10 @@ spec:
             - name: PAPERLESS_CONSUMPTION_DIR
               value: {{ include "paperless.consumption.mountPath" . }}
             {{- end }}
+            {{- if eq (include "paperless.export.enabled" .) "true" }}
+            - name: PAPERLESS_EXPORT_DIR
+              value: {{ include "paperless.export.mountPath" . }}
+            {{- end }}
             {{- if eq (include "paperless.trash.enabled" .) "true" }}
             - name: PAPERLESS_TRASH_DIR
               value: {{ include "paperless.trash.mountPath" . }}

@@ -72,12 +72,12 @@ The following values can be used to adjust the helm chart.
 | export.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
 | export.csi | object | `{}` | CSI storage volume for the consumption directory. Only used if type equals `csi`. |
 | export.emptyDir | object | `{}` | Temporary emptyDir volume for the consumption directory. Only used if type equals `emptyDir` or is unknown. |
-| export.enabled | bool | `true` | Enable the volume mount of an export directory for [backups](https://docs.paperless-ngx.com/administration/#backup) using the [document exporter](https://docs.paperless-ngx.com/administration/#exporter). |
+| export.enabled | bool | `false` | Enable the volume mount of an export directory for [backups](https://docs.paperless-ngx.com/administration/#backup) using the [document exporter](https://docs.paperless-ngx.com/administration/#exporter). |
 | export.hostPath | object | `{}` | Host path volume for the consumption directory. Only used if type equals `hostPath`. |
 | export.mountPath | string | `"/export"` | Mount path of the export directory inside the container. |
 | export.nfs | object | `{}` | NFS storage volume for the consumption directory. Only used if type equals `nfs`. |
 | export.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the consumption directory. Only used if type equals `pvc`. |
-| export.type | string | `"hostPath"` | Type of the target volume for the export directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
+| export.type | string | `"emptyDir"` | Type of the target volume for the export directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
 | extraObjects | list | `[]` | Specify extra objects. |
 | extraVolumeMounts | list | `[]` | Specify extra volume mounts for the default containers. |
