@@ -101,7 +101,7 @@ The following values can be used to adjust the helm chart.
 | media.mountPath | string | `"/media"` | Mount path of the media directory inside the container. |
 | media.nfs | object | `{}` | NFS storage volume for the media directory. Only used if type equals `nfs`. |
 | media.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the media directory. Only used if type equals `pvc`. |
-| media.type | string | `"hostPath"` | Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
+| media.type | string | `"emptyDir"` | Type of the target volume for the media directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` | Access mode of the persistent volume claim object. |
