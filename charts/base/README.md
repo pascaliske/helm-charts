@@ -2,7 +2,7 @@
 
 > A Helm chart for Kubernetes
 
-[![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square) ](https://charts.pascaliske.dev)[![Version: 1.2.0](https://img.shields.io/badge/Version-1.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev)
+[![Type: library](https://img.shields.io/badge/Type-library-informational?style=flat-square) ](https://charts.pascaliske.dev)[![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev)
 
 * <https://github.com/pascaliske/helm-charts>
 
@@ -29,4 +29,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)
