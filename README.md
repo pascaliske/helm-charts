@@ -43,6 +43,7 @@ helm delete <chart>
 - [`fritzbox-exporter`](https://charts.pascaliske.dev/charts/fritzbox-exporter)
 - [`gitlab`](https://charts.pascaliske.dev/charts/gitlab)
 - [`hammond`](https://charts.pascaliske.dev/charts/hammond)
+- [`home-assistant`](https://charts.pascaliske.dev/charts/home-assistant)
 - [`homer`](https://charts.pascaliske.dev/charts/homer)
 - [`keycloak`](https://charts.pascaliske.dev/charts/keycloak)
 - [`linkding`](https://charts.pascaliske.dev/charts/linkding)
