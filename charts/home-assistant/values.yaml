@@ -158,16 +158,16 @@ serviceAccount:
   labels: {}
 
 # -- Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
-securityContext: {}
-  # readOnlyRootFilesystem: true
-  # privileged: false
+securityContext:
+  readOnlyRootFilesystem: true
+  privileged: false
 
 # -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
-podSecurityContext: {}
-  # fsGroup: 1000
-  # runAsNonRoot: true
-  # runAsGroup: 1000
-  # runAsUser: 1000
+podSecurityContext:
+  fsGroup: 1000
+  runAsNonRoot: true
+  runAsGroup: 1000
+  runAsUser: 1000
 
 # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 resources: {}

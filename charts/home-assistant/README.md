@@ -84,7 +84,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.size | string | `"1Gi"` | Storage request size for the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | persistentVolumeClaim.volumeMode | string | `"Filesystem"` | Volume mode of the persistent volume claim object. |
-| podSecurityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| podSecurityContext | object | `{"fsGroup":1000,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | ports.http.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `8123` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
@@ -94,7 +94,7 @@ The following values can be used to adjust the helm chart.
 | prometheusRule.labels | object | `{}` | Additional labels for the service monitor object. |
 | prometheusRule.rules | list | `[]` | Additional rules for the prometheus rule object. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
-| securityContext | object | `{}` | Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| securityContext | object | `{"privileged":false,"readOnlyRootFilesystem":true}` | Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |
