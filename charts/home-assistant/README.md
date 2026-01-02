@@ -86,7 +86,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaim.size | string | `"1Gi"` | Storage request size for the persistent volume claim object. |
 | persistentVolumeClaim.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
 | persistentVolumeClaim.volumeMode | string | `"Filesystem"` | Volume mode of the persistent volume claim object. |
-| podSecurityContext | object | `{"fsGroup":1000,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| podSecurityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | ports.http.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `8123` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
