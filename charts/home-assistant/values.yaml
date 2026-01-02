@@ -178,6 +178,9 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+# -- Enable host network mode. Required for auto discovering services. Enable with caution!
+hostNetwork: false
+
 # -- Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
 affinity: {}
   # nodeAffinity:

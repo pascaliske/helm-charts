@@ -61,6 +61,7 @@ The following values can be used to adjust the helm chart.
 | extraVolumeMounts | list | `[]` | Specify extra volume mounts for the default containers. |
 | extraVolumes | list | `[]` | Specify extra volumes for the workload. |
 | fullnameOverride | string | `""` |  |
+| hostNetwork | bool | `false` | Enable host network mode. Required for auto discovering services. Enable with caution! |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
 | image.repository | string | `"home-assistant/home-assistant"` | The repository to pull the image from. |
