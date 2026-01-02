@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: home-assistant
 description: A Helm chart for home-assistant
-version: 0.1.0
+version: 0.1.1
 # renovate: image=ghcr.io/home-assistant/home-assistant
 appVersion: "2025.12.5"
 
@@ -28,8 +28,4 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Improve default workload security.'
-    - kind: added
-      description: 'Support host network mode.'
-    - kind: added
-      description: 'Support customizing pod dns policy.'
+      description: 'Switch back to root user due to incompatibilities.'
