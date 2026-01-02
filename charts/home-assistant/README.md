@@ -54,6 +54,7 @@ The following values can be used to adjust the helm chart.
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
 | controller.updateStrategy | object | `{"type":"Recreate"}` | The controller update strategy. Currently only applies to controllers of kind `Deployment`. |
+| dnsPolicy | string | `""` | Configure pod DNS policy. Set to `ClusterFirstWithHostNet` if using `hostNetwork`. More info [here](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy). |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
 | extraInitContainers | object | `{}` | Specify any extra init containers here as dictionary items - each should have its own key. |

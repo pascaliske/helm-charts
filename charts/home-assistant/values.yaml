@@ -181,6 +181,9 @@ resources: {}
 # -- Enable host network mode. Required for auto discovering services. Enable with caution!
 hostNetwork: false
 
+# -- Configure pod DNS policy. Set to `ClusterFirstWithHostNet` if using `hostNetwork`. More info [here](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy).
+dnsPolicy: ''
+
 # -- Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
 affinity: {}
   # nodeAffinity:
