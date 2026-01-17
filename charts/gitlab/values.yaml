@@ -201,8 +201,14 @@ registryGarbageCollection:
     labels: {}
 
 serviceAccount:
+  # -- Create a `ServiceAccount` object.
+  create: true
   # -- Specify the service account used for the controller.
   name: ''
+  # -- Additional annotations for the role and role binding objects.
+  annotations: {}
+  # -- Additional labels for the role and role binding objects.
+  labels: {}
 
 rbac:
   # -- Create `Role` and `RoleBinding` objects.
