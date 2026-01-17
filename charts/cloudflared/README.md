@@ -2,7 +2,7 @@
 
 > A Helm chart for cloudflared DNS over HTTPS tunnel.
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![Version: 2.0.4](https://img.shields.io/badge/Version-2.0.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![AppVersion: 2022.12.1](https://img.shields.io/badge/AppVersion-2022.12.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![Version: 2.0.4](https://img.shields.io/badge/Version-2.0.4-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)[![AppVersion: 2025.9.1](https://img.shields.io/badge/AppVersion-2025.9.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/cloudflared/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/crazy-max/docker-cloudflared>
@@ -45,9 +45,9 @@ The following values can be used to adjust the helm chart.
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
-| controller.strategy.rollingUpdate.maxSurge | int | `1` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
-| controller.strategy.rollingUpdate.maxUnavailable | int | `0` | Specifies the maximum number of Pods that can be unavailable during the update process. |
-| controller.strategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
+| controller.updateStrategy.rollingUpdate.maxSurge | int | `1` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
+| controller.updateStrategy.rollingUpdate.maxUnavailable | int | `0` | Specifies the maximum number of Pods that can be unavailable during the update process. |
+| controller.updateStrategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | env[1] | object | `{"name":"TUNNEL_DNS_UPSTREAM","value":"https://1.1.1.1/dns-query,https://1.0.0.1/dns-query"}` | Upstream DNS provider used for the DNS-over-HTTPS tunnel. |
 | fullnameOverride | string | `""` |  |
@@ -85,4 +85,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)
