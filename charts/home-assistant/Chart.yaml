@@ -5,7 +5,7 @@ name: home-assistant
 description: A Helm chart for home-assistant
 version: 0.1.1
 # renovate: image=ghcr.io/home-assistant/home-assistant
-appVersion: "2026.1.1"
+appVersion: "2026.1.2"
 
 home: https://charts.pascaliske.dev/charts/home-assistant/
 sources:
