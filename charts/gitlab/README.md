@@ -85,6 +85,7 @@ The following values can be used to adjust the helm chart.
 | image.registry | string | `"docker.io"` | The registry to pull the image from. |
 | image.repository | string | `"gitlab/gitlab-ce"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
+| imagePullSecrets | list | `[]` |  |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
 | ingressRoute.create | bool | `false` | Create an IngressRoute object for exposing this chart. |
 | ingressRoute.entryPoints | list | `[]` | List of [entry points](https://doc.traefik.io/traefik/routing/routers/#entrypoints) on which the ingress route will be available. |
