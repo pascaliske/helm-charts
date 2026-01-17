@@ -21,7 +21,7 @@ controller:
   kind: Deployment
   # -- The number of replicas.
   replicas: 1
-  strategy:
+  updateStrategy:
     # -- Strategy used to replace old pods.
     type: RollingUpdate
     rollingUpdate:

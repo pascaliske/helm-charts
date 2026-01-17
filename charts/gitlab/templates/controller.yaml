@@ -19,7 +19,7 @@ spec:
   selector:
     matchLabels:
       {{- include "gitlab.selectorLabels" . | nindent 6 }}
-  {{- with .Values.controller.strategy }}
+  {{- with .Values.controller.updateStrategy }}
   strategy:
     {{- toYaml . | nindent 4 }}
   {{- end }}
