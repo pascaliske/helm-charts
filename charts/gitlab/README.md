@@ -75,6 +75,8 @@ The following values can be used to adjust the helm chart.
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
 | extraInitContainers | object | `{}` | Specify any extra init containers here as dictionary items - each should have its own key. |
+| extraVolumeMounts | list | `[]` | Specify extra volume mounts for the default containers. |
+| extraVolumes | list | `[]` | Specify extra volumes for the workload. |
 | fullnameOverride | string | `""` |  |
 | healthCheck.enabled | bool | `true` | Enable health checks for the controller. |
 | healthCheck.whitelist | list | `["127.0.0.1"]` | Configure the internal health check whitelist of gitlab. |
