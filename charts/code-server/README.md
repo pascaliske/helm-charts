@@ -1,8 +1,10 @@
 # [`code-server`](https://charts.pascaliske.dev/charts/code-server/)
 
-> A Helm chart for Kubernetes
+> **:exclamation: This Helm Chart is deprecated!**
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![AppVersion: 4.18.0](https://img.shields.io/badge/AppVersion-4.18.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)
+> DEPRECATED! A Helm chart for Kubernetes
+
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)[![AppVersion: 4.100.0](https://img.shields.io/badge/AppVersion-4.100.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/code-server/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/coder/code-server>
@@ -110,12 +112,6 @@ The following values can be used to adjust the helm chart.
 | serviceAccount.name | string | `""` | Specify the service account used for the controller. |
 | tolerations | list | `[]` | Pod-level tolerations. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 
-## Maintainers
-
-| Name | Email | Url |
-| ---- | ------ | --- |
-| pascaliske | <info@pascaliske.dev> | <https://pascaliske.dev> |
-
 ## License
 
-[MIT](../LICENSE.md) – © 2023 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)

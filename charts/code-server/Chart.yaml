@@ -2,10 +2,11 @@
 apiVersion: v2
 type: application
 name: code-server
-description: A Helm chart for Kubernetes
-version: 2.0.0
+description: DEPRECATED! A Helm chart for Kubernetes
+version: 3.0.0
 # renovate: image=ghcr.io/coder/code-server
 appVersion: "4.100.0"
+deprecated: true
 
 home: https://charts.pascaliske.dev/charts/code-server/
 sources:
@@ -16,10 +17,6 @@ keywords:
   - code-server
   - browser-ide
   - ide
-maintainers:
-  - name: pascaliske
-    email: info@pascaliske.dev
-    url: https://pascaliske.dev
 
 dependencies:
   - name: base
@@ -29,7 +26,5 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: removed
-      description: 'Remove support for CRDs from "traefik.containo.us".'
-    - kind: added
-      description: 'Add support for CRDs from "traefik.io".'
+    - kind: deprecated
+      description: 'Mark chart as deprecated.'
