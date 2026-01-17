@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.2.0](https://img.shields.io/badge/Version-3.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 17.3.0-ce.0](https://img.shields.io/badge/AppVersion-17.3.0--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 3.2.0](https://img.shields.io/badge/Version-3.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 18.7.1-ce.0](https://img.shields.io/badge/AppVersion-18.7.1--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
@@ -77,6 +77,7 @@ The following values can be used to adjust the helm chart.
 | healthCheck.enabled | bool | `true` | Enable health checks for the controller. |
 | healthCheck.whitelist | list | `["127.0.0.1"]` | Configure the internal health check whitelist of gitlab. |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
+| image.registry | string | `"docker.io"` | The registry to pull the image from. |
 | image.repository | string | `"gitlab/gitlab-ce"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | ingressRoute.annotations | object | `{}` | Additional annotations for the ingress route object. |
@@ -139,4 +140,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2024 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)
