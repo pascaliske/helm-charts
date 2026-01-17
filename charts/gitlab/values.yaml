@@ -263,3 +263,9 @@ tolerations: []
 # -- Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
 nodeSelector: {}
   # label: value
+
+# -- Specify any extra containers here as dictionary items - each should have its own key.
+extraContainers: {}
+  # container:
+  #   name: my-container
+  #   image: my-org/my-image

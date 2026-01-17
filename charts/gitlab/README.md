@@ -73,6 +73,7 @@ The following values can be used to adjust the helm chart.
 | controller.strategy.rollingUpdate.maxUnavailable | int | `1` | Specifies the maximum number of Pods that can be unavailable during the update process. |
 | controller.strategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
 | fullnameOverride | string | `""` |  |
 | healthCheck.enabled | bool | `true` | Enable health checks for the controller. |
 | healthCheck.whitelist | list | `["127.0.0.1"]` | Configure the internal health check whitelist of gitlab. |
