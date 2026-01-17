@@ -73,8 +73,14 @@ spec:
                 {{- end }}
                   key: {{ default "gitlab.rb" .Values.configMap.key }}
             {{- range $i, $val := .Values.env }}
+            {{- if $val.value }}
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
+            {{- else if $val.valueFrom }}
+            - name: {{ $val.name | quote }}
+              valueFrom:
+                {{- toYaml $val.valueFrom | nindent 16 }}
+            {{- end }}
             {{- end }}
           volumeMounts:
             {{- range $name, $pvc := .Values.persistentVolumeClaims }}
