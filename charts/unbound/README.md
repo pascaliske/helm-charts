@@ -46,9 +46,9 @@ The following values can be used to adjust the helm chart.
 | controller.kind | string | `"Deployment"` | Type of the workload object. |
 | controller.labels | object | `{}` | Additional labels for the controller object. |
 | controller.replicas | int | `1` | The number of replicas. |
-| controller.strategy.rollingUpdate.maxSurge | int | `1` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
-| controller.strategy.rollingUpdate.maxUnavailable | int | `0` | Specifies the maximum number of Pods that can be unavailable during the update process. |
-| controller.strategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
+| controller.updateStrategy.rollingUpdate.maxSurge | int | `1` | Specifies the maximum number of Pods that can be created over the desired number of Pods. |
+| controller.updateStrategy.rollingUpdate.maxUnavailable | int | `0` | Specifies the maximum number of Pods that can be unavailable during the update process. |
+| controller.updateStrategy.type | string | `"RollingUpdate"` | Strategy used to replace old pods. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
@@ -78,4 +78,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)
