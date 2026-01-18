@@ -109,6 +109,7 @@ The following values can be used to adjust the helm chart.
 | persistentVolumeClaims.storage.mountPath | string | `"/var/opt/gitlab"` | Mount path of the storage persistent volume claim object. |
 | persistentVolumeClaims.storage.size | string | `"30Gi"` | The size of the created secret storage persistent volume claim object. |
 | persistentVolumeClaims.storage.storageClassName | string | `""` | Storage class name for the persistent volume claim object. |
+| podSecurityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | ports.http.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `80` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
@@ -131,7 +132,7 @@ The following values can be used to adjust the helm chart.
 | registryGarbageCollection.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
 | registryGarbageCollection.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
-| securityContext | object | `{}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
+| securityContext | object | `{}` | Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |
 | service.enabled | bool | `true` | Create a service for exposing this chart. |

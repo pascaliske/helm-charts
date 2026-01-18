@@ -229,8 +229,13 @@ rbac:
 # -- Optional priority class name to be used for pods.
 priorityClassName: ''
 
-# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
+# -- Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
+  # readOnlyRootFilesystem: true
+  # privileged: false
+
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
+podSecurityContext: {}
   # fsGroup: 1000
   # runAsNonRoot: true
   # runAsGroup: 1000
