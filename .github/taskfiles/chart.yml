@@ -10,7 +10,7 @@ tasks:
   template:
     summary: Render chart templates based on default values.
     cmds:
-      - helm template {{.CLI_ARGS}} ./charts/{{.CLI_ARGS}} --debug --values ./charts/{{.CLI_ARGS}}/values.yaml | pbcopy
+      - helm template {{.CLI_ARGS}} ./charts/{{.CLI_ARGS}} --debug --values ./charts/{{.CLI_ARGS}}/values.yaml --api-versions monitoring.coreos.com/v1 | pbcopy
 
   update:
     summary: Update chart dependencies based on Chart.yaml file.
