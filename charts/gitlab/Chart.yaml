@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: gitlab
 description: A Helm chart for GitLab Omnibus
-version: 3.2.0
+version: 4.0.0
 # renovate: image=gitlab/gitlab-ce
 appVersion: "18.7.1-ce.0"
 
@@ -20,13 +20,39 @@ maintainers:
 
 dependencies:
   - name: base
-    version: 1.2.0
+    version: 1.3.0
     repository: https://charts.pascaliske.dev
 
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: added
-      description: 'Added support for priority class name value.'
     - kind: changed
-      description: 'Updated GitLab image to version v17.3.0.'
+      description: 'Updated GitLab image to version v18.7.1.'
+    - kind: added
+      description: 'Support different image registries.'
+    - kind: added
+      description: 'Support service account creation.'
+    - kind: added
+      description: 'Support specifying more service values.'
+    - kind: added
+      description: 'Support custom nodeSelector block.'
+    - kind: added
+      description: 'Support specifying extra containers.'
+    - kind: added
+      description: 'Support specifying extra init containers.'
+    - kind: added
+      description: 'Support specifying extra volumes and volume mounts.'
+    - kind: added
+      description: 'Support creation of extra templated objects.'
+    - kind: added
+      description: 'Support image pull secrets.'
+    - kind: added
+      description: 'Support templating inside the config.'
+    - kind: added
+      description: 'Support valueFrom syntax for env variables.'
+    - kind: changed
+      description: 'Support specifying container-level security context.'
+    - kind: changed
+      description: 'Support multiple types for the backups volume.'
+    - kind: changed
+      description: 'Standardize values key for update strategy.'
