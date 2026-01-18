@@ -164,13 +164,23 @@ healthCheck:
 
 backups:
   # -- Enable backup-related volume mounts.
-  enabled: true
+  enabled: false
+  # -- Type of the target volume for the backup directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`.
+  type: emptyDir
   # -- Mount path of backups inside the container.
   mountPath: /backups
-  # -- Host path to store the created backups to.
-  hostPath: ''
+  # -- Host path volume for the media directory. Only used if type equals `hostPath`.
+  hostPath: {}
+  # -- PersistentVolumeClaim for the media directory. Only used if type equals `pvc`.
+  persistentVolumeClaim: {}
+  # -- CSI storage volume for the media directory. Only used if type equals `csi`.
+  csi: {}
+  # -- NFS storage volume for the media directory. Only used if type equals `nfs`.
+  nfs: {}
+  # -- Temporary emptyDir volume for the media directory. Only used if type equals `emptyDir` or is unknown.
+  emptyDir: {}
   cronJob:
-    # -- Create a `CronJob` object for automated backups.
+    # -- Create a `CronJob` object for automated backup creation.
     enabled: false
     # -- Schedule for automated backups.
     schedule: '0 3 * * 1'
@@ -189,7 +199,7 @@ backups:
 
 registryGarbageCollection:
   cronJob:
-    # -- Create a `CronJob` object for automated garbage collection.
+    # -- Create a `CronJob` object for automated garbage collection inside the registry.
     enabled: false
     # -- Schedule for automated garbage collections.
     schedule: '0 3 * * 1'

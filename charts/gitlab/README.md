@@ -41,16 +41,21 @@ The following values can be used to adjust the helm chart.
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | backups.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
-| backups.cronJob.enabled | bool | `false` | Create a `CronJob` object for automated backups. |
+| backups.cronJob.enabled | bool | `false` | Create a `CronJob` object for automated backup creation. |
 | backups.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
 | backups.cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
 | backups.cronJob.resources | object | `{}` | Compute resources used by the container inside the cronjob. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | backups.cronJob.schedule | string | `"0 3 * * 1"` | Schedule for automated backups. |
 | backups.cronJob.successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. |
 | backups.cronJob.suspend | bool | `false` | Enable/disable the cron job schedule quickly. |
-| backups.enabled | bool | `true` | Enable backup-related volume mounts. |
-| backups.hostPath | string | `""` | Host path to store the created backups to. |
+| backups.csi | object | `{}` | CSI storage volume for the media directory. Only used if type equals `csi`. |
+| backups.emptyDir | object | `{}` | Temporary emptyDir volume for the media directory. Only used if type equals `emptyDir` or is unknown. |
+| backups.enabled | bool | `false` | Enable backup-related volume mounts. |
+| backups.hostPath | object | `{}` | Host path volume for the media directory. Only used if type equals `hostPath`. |
 | backups.mountPath | string | `"/backups"` | Mount path of backups inside the container. |
+| backups.nfs | object | `{}` | NFS storage volume for the media directory. Only used if type equals `nfs`. |
+| backups.persistentVolumeClaim | object | `{}` | PersistentVolumeClaim for the media directory. Only used if type equals `pvc`. |
+| backups.type | string | `"emptyDir"` | Type of the target volume for the backup directory. Possible values are: `hostPath`, `pvc`, `csi`, `nfs`, `emptyDir`. |
 | certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
 | certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
 | certificate.dnsNames | list | `[]` | List of subject alternative names for the certificate. |
@@ -123,7 +128,7 @@ The following values can be used to adjust the helm chart.
 | rbac.create | bool | `true` | Create `Role` and `RoleBinding` objects. |
 | rbac.labels | object | `{}` | Additional labels for the role and role binding objects. |
 | registryGarbageCollection.cronJob.annotations | object | `{}` | Additional annotations for the cronjob object. |
-| registryGarbageCollection.cronJob.enabled | bool | `false` | Create a `CronJob` object for automated garbage collection. |
+| registryGarbageCollection.cronJob.enabled | bool | `false` | Create a `CronJob` object for automated garbage collection inside the registry. |
 | registryGarbageCollection.cronJob.failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. |
 | registryGarbageCollection.cronJob.labels | object | `{}` | Additional labels for the cronjob object. |
 | registryGarbageCollection.cronJob.removeUntaggedManifests | bool | `false` | Include untagged manifests and unreferenced layers if set to true. |

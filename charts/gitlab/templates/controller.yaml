@@ -139,10 +139,8 @@ spec:
             {{- end }}
         {{- end }}
         {{- if eq (include "gitlab.backups.enabled" . ) "true" }}
-        - name: backups-volume
-          hostPath:
-            type: Directory
-            path: {{ include "gitlab.backups.hostPath" . }}
+        {{- $_ := set .Values.backups "name" "backups-volume" -}}
+        {{- include "base.persistence.volumeSpec" .Values.backups | nindent 8 }}
         {{- end }}
         {{- with .Values.extraVolumes }}
           {{- toYaml . | nindent 8 }}

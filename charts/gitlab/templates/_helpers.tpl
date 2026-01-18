@@ -62,15 +62,6 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Backups host path
-*/}}
-{{- define "gitlab.backups.hostPath" -}}
-{{- if .Values.backups.enabled }}
-{{- .Values.backups.hostPath }}
-{{- end }}
-{{- end }}
-
-{{/*
 Backups mount path
 */}}
 {{- define "gitlab.backups.mountPath" -}}
@@ -83,12 +74,8 @@ Backups mount path
 Backups enabled
 */}}
 {{- define "gitlab.backups.enabled" -}}
-{{- if .Values.backups.enabled }}
-{{- if and (include "gitlab.backups.hostPath" .) (include "gitlab.backups.mountPath" .) }}
+{{- if and .Values.backups.enabled (include "gitlab.backups.mountPath" . ) }}
 {{- printf "true" }}
-{{- else }}
-{{- printf "false" }}
-{{- end }}
 {{- else }}
 {{- printf "false" }}
 {{- end }}
