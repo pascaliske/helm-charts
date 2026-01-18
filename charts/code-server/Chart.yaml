@@ -5,7 +5,7 @@ name: code-server
 description: DEPRECATED! A Helm chart for Kubernetes
 version: 3.0.0
 # renovate: image=ghcr.io/coder/code-server
-appVersion: "4.100.0"
+appVersion: "4.108.1"
 deprecated: true
 
 home: https://charts.pascaliske.dev/charts/code-server/
