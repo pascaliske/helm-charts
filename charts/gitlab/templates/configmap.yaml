@@ -17,7 +17,7 @@ metadata:
   {{- end }}
 data:
   {{ default "gitlab.rb" .Values.configMap.key }}: |
-    {{- .Values.configMap.config | nindent 4 }}
+    {{- tpl .Values.configMap.config . | nindent 4 }}
 
     {{- if and .Values.healthCheck.enabled .Values.healthCheck.whitelist }}
     # ensure kubelet probes are whitelisted

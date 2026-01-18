@@ -115,7 +115,7 @@ configMap:
   existingConfigMap: ''
   # -- Use an existing config map object.
   key: gitlab.rb
-  # -- String containing the [configuration of gitlab]().
+  # -- Templated string containing the configuration of GitLab.
   config: |
     # external_url 'https://gitlab.example.com'
   # -- Additional annotations for the config map object.

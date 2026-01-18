@@ -59,7 +59,7 @@ The following values can be used to adjust the helm chart.
 | certificate.labels | object | `{}` | Additional labels for the certificate object. |
 | certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
 | configMap.annotations | object | `{}` | Additional annotations for the config map object. |
-| configMap.config | string | `"# external_url 'https://gitlab.example.com'\n"` | String containing the [configuration of gitlab](). |
+| configMap.config | string | `"# external_url 'https://gitlab.example.com'\n"` | Templated string containing the configuration of GitLab. |
 | configMap.create | bool | `true` | Create a new config map object. |
 | configMap.existingConfigMap | string | `""` | Mount path of the config map object. |
 | configMap.key | string | `"gitlab.rb"` | Use an existing config map object. |
