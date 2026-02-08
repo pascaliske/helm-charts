@@ -86,6 +86,7 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `80` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| priorityClassName | string | `""` | Optional priority class name to be used for pods. |
 | rbac.annotations | object | `{}` | Additional annotations for the role and role binding objects. |
 | rbac.create | bool | `true` | Create `Role` and `RoleBinding` objects. |
 | rbac.labels | object | `{}` | Additional labels for the role and role binding objects. |

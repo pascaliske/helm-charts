@@ -143,6 +143,9 @@ rbac:
   # -- Additional labels for the role and role binding objects.
   labels: {}
 
+# -- Optional priority class name to be used for pods.
+priorityClassName: ''
+#
 # -- Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
   # readOnlyRootFilesystem: true
