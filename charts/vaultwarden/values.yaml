@@ -143,12 +143,6 @@ rbac:
   # -- Additional labels for the role and role binding objects.
   labels: {}
 
-# -- Specify any additional containers here as dictionary items - each should have its own key.
-additionalContainers: {}
-  # container:
-  #   name: my-container
-  #   image: my-org/my-image
-
 # -- Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext: {}
   # readOnlyRootFilesystem: true
@@ -186,3 +180,9 @@ tolerations: []
   # - key: node-role.kubernetes.io/control-plane
   #   operator: Exists
   #   effect: NoSchedule
+
+# -- Specify any extra containers here as dictionary items - each should have its own key.
+extraContainers: {}
+  # container:
+  #   name: my-container
+  #   image: my-org/my-image

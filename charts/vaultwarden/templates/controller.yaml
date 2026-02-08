@@ -99,15 +99,15 @@ spec:
             {{- with .Values.securityContext }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
-        {{- with .Values.additionalContainers }}
-          {{- $additionalContainers := list }}
+        {{- with .Values.extraContainers }}
+          {{- $extraContainers := list }}
           {{- range $name, $container := . }}
             {{- if not $container.name -}}
               {{- $_ := set $container "name" $name }}
             {{- end }}
-            {{- $additionalContainers = append $additionalContainers $container }}
+            {{- $extraContainers = append $extraContainers $container }}
           {{- end }}
-          {{- tpl (toYaml $additionalContainers) $ | nindent 8 }}
+          {{- tpl (toYaml $extraContainers) $ | nindent 8 }}
         {{- end }}
       {{- if eq (include "base.persistence.enabled" . ) "true" }}
       {{- if eq (include "base.persistence.type" . ) "volumes" }}
