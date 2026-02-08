@@ -2,7 +2,7 @@
 
 > A Helm chart for Vaultwarden
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![AppVersion: 1.34.1](https://img.shields.io/badge/AppVersion-1.34.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)[![AppVersion: 1.35.2](https://img.shields.io/badge/AppVersion-1.35.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/vaultwarden/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/dani-garcia/vaultwarden>
@@ -113,4 +113,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)

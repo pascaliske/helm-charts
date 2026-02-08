@@ -100,8 +100,6 @@ secret:
   values:
     # -- Secret key for session tokens.
     ADMIN_TOKEN: '{{ randAlphaNum 42 | b64enc }}'
-    # -- Optional. Initial admin username.
-    # PAPERLESS_ADMIN_USER: ''
   # -- Additional annotations for the secret object.
   annotations: {}
   # -- Additional labels for the secret object.
