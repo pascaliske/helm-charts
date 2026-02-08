@@ -204,3 +204,6 @@ extraVolumes: []
   # - name: my-volume
   #   secret:
   #     secretName: my-secret
+
+# -- Specify extra objects.
+extraObjects: []
