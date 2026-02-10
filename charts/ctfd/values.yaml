@@ -173,3 +173,7 @@ tolerations: []
   # - key: node-role.kubernetes.io/control-plane
   #   operator: Exists
   #   effect: NoSchedule
+
+# -- Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling).
+nodeSelector: {}
+  # label: value

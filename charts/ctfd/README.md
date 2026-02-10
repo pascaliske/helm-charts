@@ -2,7 +2,7 @@
 
 > A Helm chart for CTFd
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![AppVersion: 3.7.7](https://img.shields.io/badge/AppVersion-3.7.7-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![AppVersion: 3.8.2](https://img.shields.io/badge/AppVersion-3.8.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/ctfd/ctfd>
@@ -70,6 +70,7 @@ The following values can be used to adjust the helm chart.
 | ingressRoute.rule | string | `""` | [Matching rule](https://doc.traefik.io/traefik/routing/routers/#rule) for the underlying router. |
 | ingressRoute.tlsSecretName | string | `""` | Use an existing secret containing the TLS certificate. |
 | nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` | Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | persistentVolumeClaim.accessMode | string | `"ReadWriteOnce"` | Access mode of the persistent volume claim object. |
 | persistentVolumeClaim.annotations | object | `{}` | Additional annotations for the persistent volume claim object. |
 | persistentVolumeClaim.create | bool | `true` | Create a new persistent volume claim object. |
@@ -112,4 +113,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)
