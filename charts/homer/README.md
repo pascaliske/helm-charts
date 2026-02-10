@@ -2,7 +2,7 @@
 
 > A Helm chart for Homer
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)[![Version: 2.2.0](https://img.shields.io/badge/Version-2.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)[![AppVersion: v25.05.2](https://img.shields.io/badge/AppVersion-v25.05.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)[![Version: 2.2.0](https://img.shields.io/badge/Version-2.2.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)[![AppVersion: v25.11.1](https://img.shields.io/badge/AppVersion-v25.11.1-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/homer/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/bastienwirtz/homer>
@@ -105,4 +105,4 @@ The following values can be used to adjust the helm chart.
 
 ## License
 
-[MIT](../LICENSE.md) – © 2025 [Pascal Iske](https://pascaliske.dev)
+[MIT](../LICENSE.md) – © 2026 [Pascal Iske](https://pascaliske.dev)
