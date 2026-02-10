@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: homer
 description: A Helm chart for Homer
-version: 2.2.0
+version: 3.0.0
 # renovate: image=ghcr.io/bastienwirtz/homer
 appVersion: "v25.11.1"
 
@@ -27,11 +27,17 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: added
-      description: 'Support changing the update strategy.'
-    - kind: added
-      description: 'Support creating dedicated service account.'
-    - kind: added
-      description: 'Support more values for service configuration.'
     - kind: changed
-      description: 'Specify user ids and make filesystem read-only.'
+      description: 'Breaking change: Renamed key for specifying extra containers.'
+    - kind: changed
+      description: 'Support specifying container-level security context.'
+    - kind: added
+      description: 'Support custom nodeSelector block.'
+    - kind: added
+      description: 'Support specifying priority class name.'
+    - kind: added
+      description: 'Support specifying extra init containers.'
+    - kind: added
+      description: 'Support specifying extra volumes and volume mounts.'
+    - kind: added
+      description: 'Support creation of extra templated objects.'
