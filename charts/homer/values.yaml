@@ -122,13 +122,16 @@ serviceAccount:
 # -- Optional priority class name to be used for pods.
 priorityClassName: ''
 
-# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
+# -- Container-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
 securityContext:
-  # -- Enable validation that the container must run as non-root user
+  readOnlyRootFilesystem: true
+  privileged: false
+
+# -- Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context).
+podSecurityContext:
+  fsGroup: 1000
   runAsNonRoot: true
-  # -- Specify the group ID the application will run as
   runAsGroup: 1000
-  # -- Specify the user ID the application will run as
   runAsUser: 1000
 
 # -- Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
