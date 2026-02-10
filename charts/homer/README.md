@@ -83,6 +83,7 @@ The following values can be used to adjust the helm chart.
 | ports.http.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.http.port | int | `8080` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.http.protocol | string | `"TCP"` | The protocol used for the service. |
+| priorityClassName | string | `""` | Optional priority class name to be used for pods. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | securityContext | object | `{"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | securityContext.runAsGroup | int | `1000` | Specify the group ID the application will run as |
