@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: linkding
 description: A Helm chart for linkding
-version: 2.3.0
+version: 3.0.0
 # renovate: image=ghcr.io/sissbruecker/linkding
 appVersion: "1.45.0"
 
@@ -27,11 +27,17 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
+    - kind: changed
+      description: 'Breaking change: Renamed key for specifying extra containers.'
+    - kind: changed
+      description: 'Support specifying container-level security context.'
     - kind: added
-      description: 'Support service account creation.'
+      description: 'Support custom nodeSelector block.'
     - kind: added
-      description: 'Support specifying the update strategy of the controller.'
+      description: 'Support specifying priority class name.'
     - kind: added
-      description: 'Support specifying more service values.'
+      description: 'Support specifying extra init containers.'
     - kind: added
-      description: 'Support different image registries.'
+      description: 'Support specifying extra volumes and volume mounts.'
+    - kind: added
+      description: 'Support creation of extra templated objects.'
