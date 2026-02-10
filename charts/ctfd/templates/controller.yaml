@@ -93,15 +93,18 @@ spec:
             {{- end }}
             {{- end }}
             {{- end }}
-          {{- if eq (include "base.persistence.enabled" . ) "true" }}
           volumeMounts:
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
             - name: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/uploads
               subPath: uploads
             - name: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}/logs
               subPath: logs
-          {{- end }}
+            {{- end }}
+            {{- with .Values.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /healthcheck
@@ -124,9 +127,9 @@ spec:
           {{- end }}
           {{- tpl (toYaml $extraContainers) $ | nindent 8 }}
         {{- end }}
-      {{- if eq (include "base.persistence.enabled" . ) "true" }}
-      {{- if eq (include "base.persistence.type" . ) "volumes" }}
+      {{- if or (and (eq (include "base.persistence.enabled" . ) "true") (eq (include "base.persistence.type" . ) "volumes")) (.Values.extraVolumes) }}
       volumes:
+        {{- if and (eq (include "base.persistence.enabled" . ) "true") (eq (include "base.persistence.type" . ) "volumes") }}
         - name: {{ include "base.persistence.suffix" (include "ctfd.fullname" . ) }}
           persistentVolumeClaim:
             {{- if eq (include "base.persistence.created" . ) "true" }}
@@ -134,7 +137,10 @@ spec:
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
-      {{- end }}
+        {{- end }}
+        {{- with .Values.extraVolumes }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
