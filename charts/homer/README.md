@@ -48,7 +48,7 @@ The following values can be used to adjust the helm chart.
 | certificate.labels | object | `{}` | Additional labels for the certificate object. |
 | certificate.secretName | string | `""` | Name of the secret in which the certificate will be stored. Defaults to the first item in dnsNames. |
 | configMap.annotations | object | `{}` | Additional annotations for the config map object. |
-| configMap.config | string | `"title: Dashboard\nservices: {}\n"` | String containing the [configuration of homer](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md). |
+| configMap.config | string | `"title: Dashboard\nservices: {}\n"` | Templated string containing the [configuration of homer](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md). |
 | configMap.create | bool | `true` | Create a new config map object. |
 | configMap.existingConfigMap | string | `""` | Use an existing config map object. |
 | configMap.key | string | `"config.yml"` | Specify a different key inside config map object. |

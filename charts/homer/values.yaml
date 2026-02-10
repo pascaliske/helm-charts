@@ -100,7 +100,7 @@ configMap:
   existingConfigMap: ''
   # -- Specify a different key inside config map object.
   key: config.yml
-  # -- String containing the [configuration of homer](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md).
+  # -- Templated string containing the [configuration of homer](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md).
   config: |
     title: Dashboard
     services: {}

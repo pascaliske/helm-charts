@@ -14,5 +14,5 @@ metadata:
   {{- end }}
 data:
   {{ default "config.yml" .Values.configMap.key }}: |
-    {{- .Values.configMap.config | nindent 4 }}
+    {{- tpl .Values.configMap.config . | nindent 4 }}
 {{- end }}
