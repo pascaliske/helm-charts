@@ -39,7 +39,6 @@ The following values can be used to adjust the helm chart.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| additionalContainers | object | `{}` | Specify any additional containers here as dictionary items - each should have it's own key. |
 | affinity | object | `{}` | Pod-level affinity. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | certificate.annotations | object | `{}` | Additional annotations for the certificate object. |
 | certificate.create | bool | `false` | Create an Certificate object for the exposed chart. |
@@ -55,6 +54,7 @@ The following values can be used to adjust the helm chart.
 | controller.replicas | int | `1` | The number of replicas. |
 | controller.updateStrategy | object | `{}` | The controller update strategy. Currently only applies to controllers of kind `Deployment`. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
+| extraContainers | object | `{}` | Specify any extra containers here as dictionary items - each should have its own key. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.registry | string | `"ghcr.io"` | The registry to pull the image from. |
