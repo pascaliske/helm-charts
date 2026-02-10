@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: ctfd
 description: A Helm chart for CTFd
-version: 1.1.0
+version: 2.0.0
 # renovate: image=ghcr.io/ctfd/ctfd
 appVersion: "3.8.2"
 
@@ -28,5 +28,17 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
+    - kind: changed
+      description: 'Breaking change: Renamed key for specifying extra containers.'
+    - kind: changed
+      description: 'Support specifying container-level security context.'
     - kind: added
-      description: 'Support OCI based chart installation.'
+      description: 'Support custom nodeSelector block.'
+    - kind: added
+      description: 'Support specifying priority class name.'
+    - kind: added
+      description: 'Support specifying extra init containers.'
+    - kind: added
+      description: 'Support specifying extra volumes and volume mounts.'
+    - kind: added
+      description: 'Support creation of extra templated objects.'

@@ -2,7 +2,7 @@
 
 > A Helm chart for CTFd
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![AppVersion: 3.8.2](https://img.shields.io/badge/AppVersion-3.8.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)[![AppVersion: 3.8.2](https://img.shields.io/badge/AppVersion-3.8.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/ctfd/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/ctfd/ctfd>
