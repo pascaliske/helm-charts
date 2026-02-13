@@ -96,7 +96,9 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
           securityContext:
-            readOnlyRootFilesystem: true
+            {{- with .Values.securityContext }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
         {{- with .Values.extraContainers }}
           {{- $extraContainers := list }}
           {{- range $name, $container := . }}
@@ -116,9 +118,9 @@ spec:
       {{- with .Values.priorityClassName }}
       priorityClassName: {{ . | quote }}
       {{- end }}
-      {{- if .Values.securityContext }}
+      {{- if .Values.podSecurityContext }}
       securityContext:
-        {{- toYaml .Values.securityContext | nindent 8 }}
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- end }}
       {{- with .Values.affinity }}
       affinity:
