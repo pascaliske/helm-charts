@@ -2,7 +2,7 @@
 
 > A Helm chart for PairDrop
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![AppVersion: version-v1.11.2](https://img.shields.io/badge/AppVersion-version--v1.11.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)[![AppVersion: version-v1.11.2](https://img.shields.io/badge/AppVersion-version--v1.11.2-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/pairdrop/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://github.com/linuxserver/docker-pairdrop>
