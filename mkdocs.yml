@@ -50,7 +50,6 @@ nav:
       - clickhouse: charts/clickhouse.md
       - cloudflare-dyndns: charts/cloudflare-dyndns.md
       - cloudflared: charts/cloudflared.md
-      - code-server: charts/code-server.md
       - ctfd: charts/ctfd.md
       - digitalocean-dyndns: charts/digitalocean-dyndns.md
       - fritzbox-exporter: charts/fritzbox-exporter.md

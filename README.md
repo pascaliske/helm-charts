@@ -37,7 +37,6 @@ helm delete <chart>
 - [`clickhouse`](https://charts.pascaliske.dev/charts/clickhouse/)
 - [`cloudflare-dyndns`](https://charts.pascaliske.dev/charts/cloudflare-dyndns/)
 - [`cloudflared`](https://charts.pascaliske.dev/charts/cloudflared)
-- [`code-server`](https://charts.pascaliske.dev/charts/code-server)
 - [`ctfd`](https://charts.pascaliske.dev/charts/ctfd)
 - [`digitalocean-dyndns`](https://charts.pascaliske.dev/charts/digitalocean-dyndns)
 - [`fritzbox-exporter`](https://charts.pascaliske.dev/charts/fritzbox-exporter)
