@@ -1,6 +1,6 @@
 {
   "name": "helm-charts",
-  "description": "",
+  "description": "Another repository with lightweight Helm Charts.",
   "license": "MIT",
   "author": {
     "name": "Pascal Iske",

@@ -2,7 +2,7 @@
 
 > A Helm chart for GitLab Omnibus
 
-[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 18.7.1-ce.0](https://img.shields.io/badge/AppVersion-18.7.1--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
+[![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)[![AppVersion: 18.8.4-ce.0](https://img.shields.io/badge/AppVersion-18.8.4--ce.0-informational?style=flat-square) ](https://charts.pascaliske.dev/charts/gitlab/)
 
 * <https://github.com/pascaliske/helm-charts>
 * <https://docs.gitlab.com>
