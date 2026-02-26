@@ -38,6 +38,10 @@ spec:
       labels:
         {{- include "homer.selectorLabels" . | nindent 8 }}
     spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       serviceAccountName: {{ include "homer.serviceAccountName" . }}
       {{- if .Values.extraInitContainers }}
       initContainers:
