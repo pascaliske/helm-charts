@@ -88,9 +88,11 @@ spec:
               value: {{ . | quote }}
             {{- end }}
           volumeMounts:
+            {{- if or .Values.configMap.create (not (empty .Values.configMap.existingConfigMap)) }}
             - name: config-volume
               mountPath: {{ .Values.configMap.mountPath }}
               readOnly: true
+            {{- end }}
             {{- with .Values.extraVolumeMounts }}
               {{- toYaml . | nindent 12 }}
             {{- end }}
@@ -121,6 +123,7 @@ spec:
           {{- tpl (toYaml $extraContainers) $ | nindent 8 }}
         {{- end }}
       volumes:
+        {{- if or .Values.configMap.create (not (empty .Values.configMap.existingConfigMap)) }}
         - name: config-volume
           configMap:
             {{- if and .Values.configMap.create (empty .Values.configMap.existingConfigMap) }}
@@ -128,6 +131,7 @@ spec:
             {{- else }}
             name: {{ .Values.configMap.existingConfigMap }}
             {{- end }}
+        {{- end }}
         {{- with .Values.extraVolumes }}
           {{- toYaml . | nindent 8 }}
         {{- end }}
