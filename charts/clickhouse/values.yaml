@@ -157,3 +157,9 @@ extraInitContainers: {}
   # container:
   #   name: my-init-container
   #   image: my-org/my-image
+
+# -- Specify any extra containers here as dictionary items - each should have its own key.
+extraContainers: {}
+  # container:
+  #   name: my-container
+  #   image: my-org/my-image
