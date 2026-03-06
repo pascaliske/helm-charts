@@ -89,6 +89,9 @@ spec:
             - name: {{ include "base.persistence.suffix" (include "clickhouse.fullname" . ) }}
               mountPath: {{ .Values.persistentVolumeClaim.mountPath }}
             {{- end }}
+            {{- with .Values.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /ping
@@ -129,6 +132,9 @@ spec:
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
         {{- end }}
+        {{- end }}
+        {{- with .Values.extraVolumes }}
+          {{- toYaml . | nindent 8 }}
         {{- end }}
       {{- if .Values.securityContext }}
       securityContext:
