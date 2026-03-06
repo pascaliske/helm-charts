@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: clickhouse
 description: A Helm chart for ClickHouse
-version: 0.4.0
+version: 1.0.0
 # renovate: image=clickhouse/clickhouse-server
 appVersion: "24.12.6.70-alpine"
 
@@ -28,10 +28,20 @@ annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
     - kind: changed
-      description: 'Improve default workload security.'
+      description: 'Support specifying container-level security context.'
     - kind: added
-      description: 'Support service account creation.'
+      description: 'Support custom nodeSelector block.'
     - kind: added
-      description: 'Support specifying the update strategy of the controller.'
+      description: 'Support specifying image pull secrets.'
     - kind: added
-      description: 'Support different image registries.'
+      description: 'Support specifying priority class name.'
+    - kind: added
+      description: 'Support specifying extra containers.'
+    - kind: added
+      description: 'Support specifying extra init containers.'
+    - kind: added
+      description: 'Support specifying extra volumes and volume mounts.'
+    - kind: added
+      description: 'Support creation of extra templated objects.'
+    - kind: added
+      description: 'Support valueFrom syntax in environment variables.'
