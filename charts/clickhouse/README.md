@@ -55,6 +55,7 @@ The following values can be used to adjust the helm chart.
 | controller.updateStrategy | object | `{}` | The controller update strategy. Currently only applies to controllers of kind `Deployment`. |
 | env[0] | object | `{"name":"TZ","value":"UTC"}` | Timezone for the container. |
 | extraArgs | list | `[]` | List of extra arguments for the container. |
+| extraInitContainers | object | `{}` | Specify any extra init containers here as dictionary items - each should have its own key. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the controller. |
 | image.registry | string | `"docker.io"` | The registry to pull the image from. |
