@@ -58,6 +58,7 @@ The following values can be used to adjust the helm chart.
 | image.repository | string | `"sealife/fritzbox-exporter"` | The repository to pull the image from. |
 | image.tag | string | `.Chart.AppVersion` | The docker tag, if left empty chart's appVersion will be used. |
 | nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` | Pod-level node selector. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#scheduling). |
 | podSecurityContext | object | `{"fsGroup":1000,"runAsGroup":1000,"runAsNonRoot":true,"runAsUser":1000}` | Pod-level security attributes. More info [here](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#security-context). |
 | ports.metrics.enabled | bool | `true` | Enable the port inside the `controller` and `Service` objects. |
 | ports.metrics.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
