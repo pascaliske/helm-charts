@@ -66,6 +66,10 @@ spec:
             - name: {{ $val.name | quote }}
               value: {{ $val.value | quote }}
             {{- end }}
+          volumeMounts: {{ if not .Values.extraVolumeMounts -}}[]{{- end }}
+            {{- with .Values.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
           resources: {{ if not .Values.resources -}}{}{{- end }}
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
@@ -79,6 +83,10 @@ spec:
             {{- $extraContainers = append $extraContainers $container }}
           {{- end }}
           {{- tpl (toYaml $extraContainers) $ | nindent 8 }}
+        {{- end }}
+      volumes: {{ if not .Values.extraVolumes -}}[]{{- end }}
+        {{- with .Values.extraVolumes }}
+          {{- toYaml . | nindent 8 }}
         {{- end }}
       {{- with .Values.affinity }}
       affinity:
