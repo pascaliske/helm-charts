@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: fritzbox-exporter
 description: A Helm chart for fritzbox-exporter
-version: 2.1.1
+version: 3.0.0
 # renovate: image=sealife/fritzbox-exporter
 appVersion: "1.0"
 
@@ -29,5 +29,19 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
-    - kind: fixed
-      description: 'Use correct name for created service account.'
+    - kind: changed
+      description: 'Support specifying container-level security context.'
+    - kind: added
+      description: 'Support custom nodeSelector block.'
+    - kind: added
+      description: 'Support specifying priority class name.'
+    - kind: added
+      description: 'Support specifying extra containers.'
+    - kind: added
+      description: 'Support specifying extra init containers.'
+    - kind: added
+      description: 'Support specifying extra volumes and volume mounts.'
+    - kind: added
+      description: 'Support creation of extra templated objects.'
+    - kind: added
+      description: 'Support valueFrom syntax in environment variables.'
