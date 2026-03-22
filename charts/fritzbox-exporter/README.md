@@ -62,6 +62,7 @@ The following values can be used to adjust the helm chart.
 | ports.metrics.nodePort | string | `nil` | The external port used if `.service.type` == `NodePort`. |
 | ports.metrics.port | int | `8765` | The port used as internal port and cluster-wide port if `.service.type` == `ClusterIP`. |
 | ports.metrics.protocol | string | `"TCP"` | The protocol used for the service. |
+| priorityClassName | string | `""` | Optional priority class name to be used for pods. |
 | resources | object | `{}` | Compute resources used by the container. More info [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). |
 | service.annotations | object | `{}` | Additional annotations for the service object. |
 | service.clusterIP | string | `""` | ClusterIP used if service type is `ClusterIP`. |
