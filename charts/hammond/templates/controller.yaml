@@ -37,8 +37,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "hammond.serviceAccountName" . }}
-      {{- if eq (include "base.persistence.enabled" . ) "true" }}
       initContainers:
+        {{- if eq (include "base.persistence.enabled" . ) "true" }}
         - name: init-volumes
           image: busybox:latest
           imagePullPolicy: IfNotPresent
@@ -46,7 +46,17 @@ spec:
           volumeMounts:
             - name: {{ include "base.persistence.suffix" (include "hammond.fullname" . ) }}
               mountPath: {{ required "Mandatory value .Values.persistentVolumeClaim.mountPath is empty!" .Values.persistentVolumeClaim.mountPath }}
-      {{- end }}
+        {{- end }}
+        {{- with .Values.extraInitContainers }}
+          {{- $extraInitContainers := list }}
+          {{- range $name, $container := . }}
+            {{- if not $container.name -}}
+              {{- $_ := set $container "name" $name }}
+            {{- end }}
+            {{- $extraInitContainers = append $extraInitContainers $container }}
+          {{- end }}
+          {{- tpl (toYaml $extraInitContainers) $ | nindent 8 }}
+        {{- end }}
       containers:
         - name: {{ template "hammond.name" . }}
           image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
