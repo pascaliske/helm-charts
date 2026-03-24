@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: hammond
 description: A Helm chart for hammond
-version: 1.1.0
+version: 2.0.0
 # renovate: image=ghcr.io/alfhou/hammond
 appVersion: "v0.0.24"
 
