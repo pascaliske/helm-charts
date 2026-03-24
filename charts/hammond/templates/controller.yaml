@@ -76,11 +76,14 @@ spec:
               value: {{ .Values.persistentVolumeClaim.mountPath }}/assets
             {{- end }}
             {{- end }}
-          {{- if eq (include "base.persistence.enabled" . ) "true" }}
           volumeMounts:
+            {{- if eq (include "base.persistence.enabled" . ) "true" }}
             - name: {{ include "base.persistence.suffix" (include "hammond.fullname" . ) }}
               mountPath: {{ required "Mandatory value .Values.persistentVolumeClaim.mountPath is empty!" .Values.persistentVolumeClaim.mountPath }}
-          {{- end }}
+            {{- end }}
+            {{- with .Values.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
           livenessProbe:
             httpGet:
               path: /
@@ -97,9 +100,9 @@ spec:
             {{- with .Values.securityContext }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
-      {{- if eq (include "base.persistence.enabled" . ) "true" }}
-      {{- if eq (include "base.persistence.type" . ) "volumes" }}
       volumes:
+        {{- if eq (include "base.persistence.enabled" . ) "true" }}
+        {{- if eq (include "base.persistence.type" . ) "volumes" }}
         - name: {{ include "base.persistence.suffix" (include "hammond.fullname" . ) }}
           persistentVolumeClaim:
             {{- if eq (include "base.persistence.created" . ) "true" }}
@@ -107,8 +110,11 @@ spec:
             {{- else }}
             claimName: {{ .Values.persistentVolumeClaim.existingPersistentVolumeClaim }}
             {{- end }}
-      {{- end }}
-      {{- end }}
+        {{- end }}
+        {{- end }}
+        {{- with .Values.extraVolumes }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- with .Values.priorityClassName }}
       priorityClassName: {{ . | quote }}
       {{- end }}
