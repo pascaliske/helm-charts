@@ -23,7 +23,7 @@ jobs:
           version: v3.8.1
 
       # setup taskfile
-      - uses: arduino/setup-task@v1
+      - uses: arduino/setup-task@v2.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
