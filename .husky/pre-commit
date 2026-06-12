@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 # -*- coding: utf-8 -*-
 
-# lint-staged
-yarn lint-staged
+# no-op

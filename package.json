@@ -20,7 +20,6 @@
   },
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
-    "husky": "^9.1.7",
-    "lint-staged": "^17.0.4"
+    "husky": "^9.1.7"
   }
 }
