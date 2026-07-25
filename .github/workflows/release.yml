@@ -24,7 +24,7 @@ jobs:
       # setup helm
       - uses: azure/setup-helm@9bc31f4ebc9c6b171d7bfbaa5d006ae7abdb4310 # v5.0.1
         with:
-          version: v3.21.1
+          version: v4.2.3
 
       # setup taskfile
       - uses: arduino/setup-task@c0bc642852239c2689f73f4ea6459c29405f3c52 # v3.0.0
