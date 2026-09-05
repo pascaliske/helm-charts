@@ -5,7 +5,7 @@ name: unbound
 description: A Helm chart for unbound DNS resolver.
 version: 2.0.0
 # renovate: image=ghcr.io/pascaliske/unbound
-appVersion: "0.1.0"
+appVersion: "0.2.0"
 
 home: https://charts.pascaliske.dev/charts/unbound/
 sources:
