@@ -36,20 +36,34 @@ helm delete {{ template "chart.name" . }}
 
 ## Metrics
 
-The optional [Let's Encrypt Unbound exporter](https://github.com/letsencrypt/unbound_exporter) runs as a sidecar and exposes metrics on port `9167`. It is disabled by default. When enabled, the chart enables Unbound remote control on the pod's loopback interface and creates a ClusterIP Service for the metrics endpoint. The default image is community-packaged at [cyb3rjak3/unbound-exporter](https://hub.docker.com/r/cyb3rjak3/unbound-exporter); override `metricsExporter.image` to use another image built from the upstream exporter.
+The optional [Let's Encrypt Unbound exporter](https://github.com/letsencrypt/unbound_exporter) runs as a sidecar and exposes metrics on port `9167` by default. It is disabled by default. When enabled, the chart enables Unbound remote control on the pod's loopback interface and creates a ClusterIP Service for the metrics endpoint. If you change `metricsExporter.port`, configure your scraper to use the new port. The default image is community-packaged at [cyb3rjak3/unbound-exporter](https://hub.docker.com/r/cyb3rjak3/unbound-exporter); override `metricsExporter.image` to use another image built from the upstream exporter.
 
 ```yaml
 metricsExporter:
   enabled: true
 ```
 
-For Prometheus Operator, install its Custom Resource Definitions and enable the ServiceMonitor:
+For Prometheus Operator, install its Custom Resource Definitions and enable the ServiceMonitor. Set `serviceMonitor.labels` to match the labels selected by your Prometheus instance. For example, kube-prometheus-stack commonly selects the `release` label:
 
 ```yaml
 metricsExporter:
   enabled: true
 serviceMonitor:
   enabled: true
+  labels:
+    release: kube-prometheus-stack
+```
+
+The chart sets the ServiceMonitor target namespace to the Helm release namespace. The Prometheus instance's `serviceMonitorNamespaceSelector` must also include that namespace. Check the Prometheus custom resource and configure its ServiceMonitor label and namespace selectors to match your installation.
+
+If the ServiceMonitor CRD is not installed when you install this chart, Helm omits the ServiceMonitor. Installing the CRD later does not create the resource automatically. After installing the CRD, upgrade the release with both required values enabled:
+
+```sh
+helm upgrade <release> pascaliske/unbound \
+  --namespace <namespace> \
+  --reuse-values \
+  --set metricsExporter.enabled=true \
+  --set serviceMonitor.enabled=true
 ```
 
 {{ template "chart.valuesHeader" . }}
