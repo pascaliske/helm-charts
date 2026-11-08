@@ -1,0 +1,37 @@
+{{- if .Values.serviceMonitor.enabled -}}
+{{- if not .Values.metricsExporter.enabled -}}
+  {{- fail "\".Values.serviceMonitor.enabled\" also requires \".Values.metricsExporter.enabled\" to be set to true!" -}}
+{{- end -}}
+{{- if .Capabilities.APIVersions.Has "monitoring.coreos.com/v1" -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "unbound.fullname" . }}
+  labels:
+    {{- include "unbound.labels" . | nindent 4 }}
+    {{- with .Values.serviceMonitor.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.serviceMonitor.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  endpoints:
+    - targetPort: metrics
+      path: /metrics
+      {{- with .Values.serviceMonitor.interval }}
+      interval: {{ . }}
+      {{- end }}
+      {{- with .Values.serviceMonitor.timeout }}
+      scrapeTimeout: {{ . }}
+      {{- end }}
+  jobLabel: app.kubernetes.io/instance
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      service: {{ printf "%s-metrics" (include "unbound.fullname" .) }}
+{{- end -}}
+{{- end -}}

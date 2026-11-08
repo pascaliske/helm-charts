@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: unbound
 description: A Helm chart for unbound DNS resolver.
-version: 2.0.0
+version: 2.1.0
 # renovate: image=ghcr.io/pascaliske/unbound
 appVersion: "0.2.1"
 
@@ -12,6 +12,7 @@ sources:
   - https://github.com/pascaliske/helm-charts
   - https://github.com/pascaliske/docker-unbound
   - https://github.com/NLnetLabs/unbound
+  - https://github.com/letsencrypt/unbound_exporter
 keywords:
   - unbound
   - dns-over-https
@@ -30,5 +31,7 @@ dependencies:
 annotations:
   # possible kinds: added, changed, deprecated, removed, fixed, security
   artifacthub.io/changes: |
+    - kind: added
+      description: 'Added optional Unbound metrics exporter and Prometheus ServiceMonitor.'
     - kind: changed
       description: 'Breaking change: Renamed update strategy values key.'
