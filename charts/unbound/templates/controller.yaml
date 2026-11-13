@@ -47,6 +47,24 @@ spec:
           env:
             - name: UNBOUND_PORT
               value: {{ .Values.service.dns.port | squote }}
+          {{- if .Values.metricsExporter.enabled }}
+          args:
+            - /bin/sh
+            - -ec
+            - |
+              cat >> /etc/unbound/unbound.conf <<'EOF'
+              remote-control:
+                  control-enable: yes
+                  control-interface: 127.0.0.1
+                  control-port: 8953
+                  control-use-cert: no
+              EOF
+              exec "$@"
+            - --
+            - /usr/sbin/unbound
+            - -v
+            - -d
+          {{- end }}
           livenessProbe:
             exec:
               command: ['dig', '@127.0.0.1', '-p', {{ .Values.service.dns.port | squote }}, 'cloudflare.com']
@@ -57,6 +75,27 @@ spec:
             {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
             {{- end }}
+        {{- if .Values.metricsExporter.enabled }}
+        - name: metrics-exporter
+          image: "{{ .Values.metricsExporter.image.repository }}:{{ .Values.metricsExporter.image.tag }}"
+          imagePullPolicy: {{ .Values.metricsExporter.image.pullPolicy }}
+          args:
+            - -web.listen-address=:{{ .Values.metricsExporter.port }}
+            - -unbound.host=tcp://127.0.0.1:8953
+            - -unbound.ca=
+            - -unbound.cert=
+            - -unbound.key=
+          ports:
+            - name: metrics
+              containerPort: {{ .Values.metricsExporter.port }}
+              protocol: TCP
+          securityContext:
+            {{- toYaml .Values.metricsExporter.securityContext | nindent 12 }}
+          resources: {{ if not .Values.metricsExporter.resources -}}{}{{- end }}
+            {{- if .Values.metricsExporter.resources }}
+            {{- toYaml .Values.metricsExporter.resources | nindent 12 }}
+            {{- end }}
+        {{- end }}
       {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
