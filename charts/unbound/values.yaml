@@ -48,6 +48,47 @@ service:
     annotations: {}
     # -- Additional labels for the service object.
     labels: {}
+  metrics:
+    # -- Additional annotations for the metrics service.
+    annotations: {}
+    # -- Additional labels for the metrics service.
+    labels: {}
+
+metricsExporter:
+  # -- Run the Unbound Prometheus exporter as a sidecar container.
+  enabled: false
+  image:
+    # -- The exporter image repository.
+    repository: cyb3rjak3/unbound-exporter
+    # -- The exporter image tag.
+    tag: '0.6.0'
+    # -- The pull policy for the exporter.
+    pullPolicy: IfNotPresent
+  # -- Port used by the exporter and metrics service.
+  port: 9167
+  # -- Container security attributes for the exporter.
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - ALL
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 65534
+  # -- Compute resources used by the exporter container.
+  resources: {}
+
+serviceMonitor:
+  # -- Create a ServiceMonitor for Prometheus Operator.
+  enabled: false
+  # -- How frequently Prometheus scrapes the exporter.
+  interval: 30s
+  # -- Timeout for individual scrapes.
+  timeout: 10s
+  # -- Additional annotations for the ServiceMonitor.
+  annotations: {}
+  # -- Additional labels for the ServiceMonitor.
+  labels: {}
 
 env:
   # -- Timezone for the container.
